@@ -121,6 +121,38 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &43837256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 43837257}
+  m_Layer: 0
+  m_Name: Knife
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &43837257
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43837256}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1229467268}
+  - {fileID: 848896119}
+  m_Father: {fileID: 330463862}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &324130802
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,6 +259,7 @@ GameObject:
   - component: {fileID: 330463866}
   - component: {fileID: 330463867}
   - component: {fileID: 330463868}
+  - component: {fileID: 330463869}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -287,7 +320,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 4723107735738678597, guid: 0e3502a80399d164ea01f1868f65acbf,
+  m_Sprite: {fileID: -8445481634012501133, guid: 487108e9bbe36fe44835b58e7c733681,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -310,8 +343,7 @@ Transform:
   m_LocalPosition: {x: -5.32, y: -0.04, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
-  - {fileID: 848896119}
-  - {fileID: 1229467268}
+  - {fileID: 43837257}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -332,7 +364,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.6, y: 1.11}
+    oldSize: {x: 0.34, y: 0.39}
     newSize: {x: 1.6, y: 1.11}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -372,7 +404,7 @@ Animator:
   m_GameObject: {fileID: 330463859}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 877c237dd65387b4c82ba0ef0a1296e6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9649672f1b1ac8d4499a97ad0fe707d3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -416,8 +448,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upperBound: 1.2
   lowerBound: -1.3
-  leftBound: -7.4
-  rightBound: 7.4
+  leftBoundOffset: 0
+  rightBoundOffset: 0
+  freeze: 0
 --- !u!114 &330463868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,6 +467,29 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   healthBar: {fileID: 324130802}
+--- !u!114 &330463869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330463859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e723edcc24ad65849a4c9271761402c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 330463865}
+  KnifeLightAttackPoint: {fileID: 848896119}
+  KnifeHeavyAttackPoint: {fileID: 1229467268}
+  KnifeKnifeAttackRange: 0.5
+  KnifeKnifeAttackRangeHeavy: 1
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 768
+  attackDamage: 10
+  lightAttackRate: 2
+  nextLightAttackTime: 0
 --- !u!1 &341505008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1504,7 +1560,7 @@ GameObject:
   m_Component:
   - component: {fileID: 848896119}
   m_Layer: 0
-  m_Name: AttackPoint
+  m_Name: KnifeLightAttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1517,12 +1573,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 848896118}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.27, y: -0.261, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 330463862}
-  m_RootOrder: 0
+  m_Father: {fileID: 43837257}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &951088373
 GameObject:
@@ -1939,7 +1995,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1229467268}
   m_Layer: 0
-  m_Name: AttackPointHeavy
+  m_Name: KnifeHeavyAttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1952,12 +2008,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1229467267}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.27, y: -0.261, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 330463862}
-  m_RootOrder: 1
+  m_Father: {fileID: 43837257}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1256389831
 GameObject:
