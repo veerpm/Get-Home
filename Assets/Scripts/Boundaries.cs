@@ -6,17 +6,31 @@ public class Boundaries : MonoBehaviour
 {
     public float upperBound;
     public float lowerBound;
-    public float leftBound;
-    public float rightBound;
+    public float leftBoundOffset;
+    public float rightBoundOffset;
+    public bool freeze = false;
+
+    private float leftBound;
+    private float rightBound;
+    private float freezedX;
+
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
+        // update horizontal bounds on player's position
+        if (!freeze)
+        {
+            freezedX = transform.position.x;
+            leftBound = transform.position.x - leftBoundOffset;
+            rightBound = transform.position.x + rightBoundOffset;
+        }
+
+        // set bounds
         if(transform.position.x < leftBound)
         {
             transform.position = new Vector2(leftBound, transform.position.y);
