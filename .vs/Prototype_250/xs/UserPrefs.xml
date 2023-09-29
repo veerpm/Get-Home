@@ -1,15 +1,15 @@
 ﻿<Properties>
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerMovement.cs">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerKnifeCombat.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerCombat.cs" Line="25" Column="10" />
-      <File FileName="Assets/PlayerHealth.cs" Line="17" Column="63" />
-      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="27" Column="65" />
+      <File FileName="Assets/Scripts/PlayerCombat.cs" />
+      <File FileName="Assets/Scripts/PlayerMovement.cs" />
+      <File FileName="Assets/Scripts/PlayerKnifeCombat.cs" Line="30" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,9 +17,7 @@
           <Node name="Prototype_250" expanded="True">
             <Node name="Assembly-CSharp" expanded="True">
               <Node name="Assets" expanded="True">
-                <Node name="Scripts" expanded="True">
-                  <Node name="PlayerMovement.cs" selected="True" />
-                </Node>
+                <Node name="Scripts" expanded="True" />
               </Node>
             </Node>
           </Node>
