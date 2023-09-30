@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   artWork: {fileID: 21300000, guid: 45826c4af64f9490c83957824360dd80, type: 3}
   name: BaseballBat
-  lightAttackRange: 2
+  lightAttackRange: 1
   heavyAttackRange: 0
   lightAttackDamage: 5
   heavyAttackDamage: 0

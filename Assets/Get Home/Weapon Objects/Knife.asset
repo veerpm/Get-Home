@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   artWork: {fileID: 21300000, guid: 46e5e50cc40aa461e9fb3519f183dd5b, type: 3}
   name: Knife
-  lightAttackRange: 0.5
+  lightAttackRange: 0.25
   heavyAttackRange: 0
   lightAttackDamage: 20
   heavyAttackDamage: 0
