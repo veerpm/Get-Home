@@ -145,7 +145,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 43837256}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.06, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1229467268}
@@ -256,7 +256,6 @@ GameObject:
   - component: {fileID: 330463865}
   - component: {fileID: 330463864}
   - component: {fileID: 330463860}
-  - component: {fileID: 330463866}
   - component: {fileID: 330463867}
   - component: {fileID: 330463868}
   - component: {fileID: 330463869}
@@ -319,7 +318,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: -8445481634012501133, guid: 487108e9bbe36fe44835b58e7c733681,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -340,7 +339,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330463859}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.32, y: -0.04, z: 0}
+  m_LocalPosition: {x: -5.32, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 43837257}
@@ -360,7 +359,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 1
-  m_Offset: {x: 0.0035302043, y: -0.24707234}
+  m_Offset: {x: -0.007277027, y: -0.022410423}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -371,7 +370,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3078705, y: 0.61585534}
+  m_Size: {x: 0.20406565, y: 0.1665324}
   m_EdgeRadius: 0
 --- !u!50 &330463864
 Rigidbody2D:
@@ -413,27 +412,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &330463866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330463859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3cc72afffd5c304b89dadf821826a3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 330463865}
-  attackPoint: {fileID: 848896119}
-  attackPointHeavy: {fileID: 1229467268}
-  attackRange: 0.7
-  attackRangeHeavy: 1.1
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 768
-  attackDamage: 10
 --- !u!114 &330463867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,7 +460,7 @@ MonoBehaviour:
   animator: {fileID: 330463865}
   KnifeLightAttackPoint: {fileID: 848896119}
   KnifeHeavyAttackPoint: {fileID: 1229467268}
-  KnifeKnifeAttackRange: 0.5
+  KnifeKnifeAttackRange: 0.25
   KnifeKnifeAttackRangeHeavy: 1
   enemyLayers:
     serializedVersion: 2
@@ -587,7 +565,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.08749187, y: 0.6430929}
+  m_Offset: {x: 0.007224977, y: 0.6986493}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -598,7 +576,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.85839343, y: 1.2861857}
+  m_Size: {x: 0.32739884, y: 0.43431994}
   m_EdgeRadius: 0
 --- !u!114 &341505012
 MonoBehaviour:
@@ -1346,7 +1324,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.08749187, y: 0.6430929}
+  m_Offset: {x: 0.0072253123, y: 0.7356873}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -1357,7 +1335,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.85839343, y: 1.2861857}
+  m_Size: {x: 0.40149087, y: 0.3849362}
   m_EdgeRadius: 0
 --- !u!212 &737916563
 SpriteRenderer:
@@ -2681,6 +2659,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1870775117}
   - component: {fileID: 1870775116}
+  - component: {fileID: 1870775118}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Ground
@@ -2716,6 +2695,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0.37500003, y: 0, z: 0}
+--- !u!210 &1870775118
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870775115}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &2091657015
 GameObject:
   m_ObjectHideFlags: 0
