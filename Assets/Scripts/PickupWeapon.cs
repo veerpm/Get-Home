@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class PickupWeapon : MonoBehaviour
 {
     public int weaponIndex = 0;
-    public GameObject selectedWeapon;
+    public GameObject selectedWeapon; // current weapon
+    public PlayerCombatMelee combatMelee;
     private bool inRange = false;
-    public Image weaponOnDisplay;
+    public Image weaponDisplay; // HUD weapon display
 
     void Start()
     {
+        combatMelee = GameObject.Find("Player").GetComponent<PlayerCombatMelee>();
         selectWeapon();
     }
 
@@ -62,13 +64,15 @@ public class PickupWeapon : MonoBehaviour
             {
                 weapon.gameObject.SetActive(false);
                 displayWeapon(weapon.gameObject);
+                selectedWeapon = weapon.gameObject;
             }
             i++;
         }
+        combatMelee.GetComponent<PlayerCombatMelee>().getWeapon(selectedWeapon);
     }
 
     void displayWeapon(GameObject weaponObj)
     {
-        weaponOnDisplay.sprite = weaponObj.GetComponent<SpriteRenderer>().sprite;
+        weaponDisplay.sprite = weaponObj.GetComponent<SpriteRenderer>().sprite;
     }
 }
