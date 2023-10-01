@@ -52,7 +52,7 @@ public class PlayerCombatMelee : MonoBehaviour
     void LightAttack()
     {
         //camAnim.SetTrigger("shake");
-        animator.SetTrigger("KnifeLightAttack");
+        animator.SetTrigger("LightAttack");
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, currentWeapon.lightAttackRange, enemyLayers);
 
@@ -80,12 +80,12 @@ public class PlayerCombatMelee : MonoBehaviour
 
     // 
 
-    //void OnDrawGizmosSelected()
-    //{
-    //    if (attackPoint == null)
-    //        return;
-    //    Gizmos.DrawWireSphere(attackPoint.position, currentWeapon.lightAttackRange);
-    //}
+    void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null || currentWeapon == null)
+            return;
+        Gizmos.DrawWireSphere(attackPoint.position, currentWeapon.lightAttackRange);
+    }
 }
 
 

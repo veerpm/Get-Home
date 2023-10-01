@@ -258,7 +258,6 @@ GameObject:
   - component: {fileID: 330463860}
   - component: {fileID: 330463867}
   - component: {fileID: 330463868}
-  - component: {fileID: 330463869}
   - component: {fileID: 330463866}
   m_Layer: 0
   m_Name: Player
@@ -466,29 +465,6 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   healthBar: {fileID: 324130802}
---- !u!114 &330463869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330463859}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e723edcc24ad65849a4c9271761402c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 330463865}
-  KnifeLightAttackPoint: {fileID: 848896119}
-  KnifeHeavyAttackPoint: {fileID: 1229467268}
-  KnifeKnifeAttackRange: 0.25
-  KnifeKnifeAttackRangeHeavy: 1
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 768
-  attackDamage: 10
-  lightAttackRate: 2
-  nextLightAttackTime: 0
 --- !u!1 &341505008
 GameObject:
   m_ObjectHideFlags: 0

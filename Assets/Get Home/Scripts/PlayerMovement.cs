@@ -37,10 +37,9 @@ public class PlayerMovement : MonoBehaviour
             sprite.flipX = false;
         }
 
-        // Comment out after walk animation is made
 
-        //animator.SetFloat("SpeedX", Mathf.Abs(horizontal_movement));
-        //animator.SetFloat("SpeedY", Mathf.Abs(vertical_movement));
+        animator.SetFloat("SpeedX", Mathf.Abs(horizontal_movement));
+        animator.SetFloat("SpeedY", Mathf.Abs(vertical_movement));
      
 
     }

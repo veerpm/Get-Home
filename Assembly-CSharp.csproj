@@ -61,6 +61,7 @@
      <Compile Include="Assets\Get Home\Scripts\Boundaries.cs" />
      <Compile Include="Assets\Get Home\Scripts\CameraMovement.cs" />
      <Compile Include="Assets\Get Home\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Get Home\Scripts\GamePause.cs" />
      <Compile Include="Assets\Get Home\Scripts\PickupWeapon.cs" />
      <Compile Include="Assets\Get Home\Scripts\PlayerCombat.cs" />
      <Compile Include="Assets\Get Home\Scripts\PlayerCombatMelee.cs" />
