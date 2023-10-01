@@ -68,7 +68,7 @@ public class PickupWeapon : MonoBehaviour
             }
             i++;
         }
-        combatMelee.GetComponent<PlayerCombatMelee>().getWeapon(selectedWeapon);
+        combatMelee.GetComponent<PlayerCombatMelee>().setWeapon(selectedWeapon);
     }
 
     void displayWeapon(GameObject weaponObj)

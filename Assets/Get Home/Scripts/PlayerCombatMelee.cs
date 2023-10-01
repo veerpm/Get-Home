@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerCombatMelee : MonoBehaviour
 {
-    // For Public Variables, Change their values in the inspector since changing it here won't save it in the game!
 
     [SerializeField] Weapon[] weaponsArray;
     private Weapon currentWeapon;
@@ -39,7 +38,7 @@ public class PlayerCombatMelee : MonoBehaviour
 
     }
 
-    public void getWeapon(GameObject selectedWeapon)
+    public void setWeapon(GameObject selectedWeapon)
     {
         foreach (Weapon weapon in weaponsArray)
         {
@@ -79,12 +78,14 @@ public class PlayerCombatMelee : MonoBehaviour
 
     }
 
-    void OnDrawGizmosSelected()
-    {
-        if (attackPoint == null)
-            return;
-        Gizmos.DrawWireSphere(attackPoint.position, currentWeapon.lightAttackRange);
-    }
+    // 
+
+    //void OnDrawGizmosSelected()
+    //{
+    //    if (attackPoint == null)
+    //        return;
+    //    Gizmos.DrawWireSphere(attackPoint.position, currentWeapon.lightAttackRange);
+    //}
 }
 
 
