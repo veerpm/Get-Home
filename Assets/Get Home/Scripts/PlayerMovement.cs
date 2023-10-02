@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         animator.SetFloat("SpeedX", Mathf.Abs(horizontal_movement));
-        animator.SetFloat("SpeedY", Mathf.Abs(vertical_movement));
+        //animator.SetFloat("SpeedY", Mathf.Abs(vertical_movement));
      
 
     }

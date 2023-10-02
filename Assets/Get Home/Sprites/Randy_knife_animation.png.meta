@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 487108e9bbe36fe44835b58e7c733681
+guid: 169322256e3b248578f338c22c70cab6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8445481634012501133
-    second: Dave_knife_animation_0
+      213: -3018380071373437248
+    second: Randy_Knife_Animation_0
   - first:
-      213: -4218359456422223192
-    second: Dave_knife_animation_1
+      213: 840889433402439894
+    second: Randy_Knife_Animation_1
   - first:
-      213: -5087564104227844545
-    second: Dave_knife_animation_2
+      213: 881395660784859323
+    second: Randy_Knife_Animation_2
   - first:
-      213: -5924216483085220542
-    second: Dave_knife_animation_3
+      213: 5506745907031909988
+    second: Randy_Knife_Animation_3
   - first:
-      213: -7953991350862706729
-    second: Dave_knife_animation_4
+      213: -6179119506223423079
+    second: Randy_Knife_Animation_4
   - first:
-      213: 1687619603284675846
-    second: Dave_knife_animation_5
+      213: -7562798669459956960
+    second: Randy_Knife_Animation_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -101,131 +101,143 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dave_knife_animation_0
+      name: Randy_Knife_Animation_0
       rect:
         serializedVersion: 2
-        x: 37
-        y: 29
-        width: 34
-        height: 39
+        x: 0
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37b699f233f9bca80800000000000000
-      internalID: -8445481634012501133
+      spriteID: 0c60ba0315f8c16d0800000000000000
+      internalID: -3018380071373437248
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dave_knife_animation_1
+      name: Randy_Knife_Animation_1
       rect:
         serializedVersion: 2
-        x: 130
-        y: 29
-        width: 42
-        height: 39
+        x: 100
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a22b099c606575c0800000000000000
-      internalID: -4218359456422223192
+      spriteID: 6d8f4550c707bab00800000000000000
+      internalID: 840889433402439894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dave_knife_animation_2
+      name: Randy_Knife_Animation_2
       rect:
         serializedVersion: 2
-        x: 242
-        y: 29
-        width: 31
-        height: 39
+        x: 200
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3e887bf6675569b0800000000000000
-      internalID: -5087564104227844545
+      spriteID: bb8f6a30fa85b3c00800000000000000
+      internalID: 881395660784859323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dave_knife_animation_3
+      name: Randy_Knife_Animation_3
       rect:
         serializedVersion: 2
-        x: 342
-        y: 29
-        width: 29
-        height: 39
+        x: 300
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24501391f74f8cda0800000000000000
-      internalID: -5924216483085220542
+      spriteID: 46629f8f934eb6c40800000000000000
+      internalID: 5506745907031909988
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dave_knife_animation_4
+      name: Randy_Knife_Animation_4
       rect:
         serializedVersion: 2
-        x: 442
-        y: 27
-        width: 42
-        height: 41
+        x: 400
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 2, z: 3, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7d78c49220fbd9190800000000000000
-      internalID: -7953991350862706729
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dave_knife_animation_5
-      rect:
-        serializedVersion: 2
-        x: 469
-        y: 31
-        width: 12
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60dc4c97611ab6710800000000000000
-      internalID: 1687619603284675846
+      spriteID: 991add62c8b5f3aa0800000000000000
+      internalID: -6179119506223423079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Randy_Knife_Animation_5
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02bda07fdaa8b0790800000000000000
+      internalID: -7562798669459956960
       vertices: []
       indices: 
       edges: []
