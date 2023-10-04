@@ -10,8 +10,8 @@ public class PickupObjects : MonoBehaviour
 
     public Vector3 Direction {get; set;}
     private GameObject itemHolding;
-    public float placeDownOffSet = 1.5f;
-    public GameObject DestroyEffect;
+    public float placeDownOffSet = 0f;
+   // public GameObject DestroyEffect;
 
     // Update is called once per frame
     void Update()
