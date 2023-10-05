@@ -16,7 +16,8 @@ MonoBehaviour:
   name: BaseballBat
   lightAttackRange: 1
   heavyAttackRange: 0
-  lightAttackDamage: 5
+  lightAttackDamage: 20
   heavyAttackDamage: 0
   lightAttackRate: 2
   heavyAttackRate: 0
+  maxHits: 2

@@ -20,3 +20,4 @@ MonoBehaviour:
   heavyAttackDamage: 0
   lightAttackRate: 5
   heavyAttackRate: 0
+  maxHits: 5

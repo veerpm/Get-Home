@@ -10,11 +10,12 @@ public class PickupWeapon : MonoBehaviour
     public PlayerCombatMelee combatMelee;
     private bool inRange = false;
     public Image weaponDisplay; // HUD weapon display
+    private GameObject player;
 
     void Start()
     {
-        combatMelee = GameObject.Find("Player").GetComponent<PlayerCombatMelee>();
-        selectWeapon();
+        player = GameObject.Find("Player");
+        combatMelee = player.GetComponent<PlayerCombatMelee>();
     }
 
     private void Update()
@@ -27,7 +28,11 @@ public class PickupWeapon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject == player)
+        {
             inRange = true;
+        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)

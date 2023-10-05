@@ -6,16 +6,19 @@ public class PlayerCombatMelee : MonoBehaviour
 {
 
     [SerializeField] Weapon[] weaponsArray;
-    private Weapon currentWeapon;
+    public Weapon currentWeapon;
+    public Weapon defaultWeapon;
     public Animator animator;
     public Transform attackPoint;
     public LayerMask enemyLayers;
     private float nextLightAttackTime = 0f;
+    int maxHits;
     //public Animator camAnim;
 
     void Start()
     {
-
+        currentWeapon = defaultWeapon;
+        //maxHits = currentWeapon.maxHits;
     }
 
     // Update is called once per frame
@@ -42,11 +45,12 @@ public class PlayerCombatMelee : MonoBehaviour
     {
         foreach (Weapon weapon in weaponsArray)
         {
-            if (weapon.name == selectedWeapon.name)
+            if (weapon.name + "Game" == selectedWeapon.name)
             {
                 currentWeapon = weapon;
             }
         }
+        maxHits = currentWeapon.maxHits;
     }
 
     void LightAttack()
@@ -58,8 +62,18 @@ public class PlayerCombatMelee : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            Debug.Log(enemy.name);
+            //Debug.Log(enemy.name);
             enemy.GetComponent<Enemy>().TakeDamage(currentWeapon.lightAttackDamage);
+        }
+
+        Debug.Log(currentWeapon);
+
+        maxHits--;
+
+        if (maxHits <= 0 && currentWeapon != defaultWeapon)
+        {
+            Debug.Log("Done");
+            currentWeapon = defaultWeapon;
         }
 
     }

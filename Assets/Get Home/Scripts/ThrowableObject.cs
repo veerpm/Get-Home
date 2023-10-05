@@ -13,7 +13,7 @@ public class ThrowableObject : MonoBehaviour
         throwableRB = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player");
         Vector2 moveDirection = (target.transform.position - transform.position).normalized * speed;
-        Debug.Log(moveDirection);
+        //Debug.Log(moveDirection);
         throwableRB.velocity = new Vector2(moveDirection.x, moveDirection.y);
         Destroy(this.gameObject, 2);
     }

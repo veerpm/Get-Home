@@ -13,4 +13,5 @@ public class Weapon : ScriptableObject
     public int heavyAttackDamage;
     public float lightAttackRate;
     public float heavyAttackRate;
+    public int maxHits;
 }
