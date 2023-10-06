@@ -115,11 +115,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6050025691549763102}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddf5f97496ec87349aef3d2559e38273, type: 3}
+  m_Script: {fileID: 11500000, guid: 77bd6178d0c8e441a9db849e6f48a7b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 40
-  animator: {fileID: 6050025691549763089}
+  animator: {fileID: 0}
 --- !u!61 &6050025691549763091
 BoxCollider2D:
   m_ObjectHideFlags: 0

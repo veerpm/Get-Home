@@ -39,7 +39,10 @@ public class WeaponManagement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        inRange = false;
+        if (collider.gameObject == player)
+        {
+            inRange = false;
+        }
     }
 
     void SwapWeapon()

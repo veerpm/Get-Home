@@ -29,7 +29,9 @@ public class PlayerCombatMelee : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                GetComponent<PlayerMovement>().enabled = false; 
                 LightAttack();
+                GetComponent<PlayerMovement>().enabled = true;
                 nextLightAttackTime = Time.time + 1f / currentWeapon.lightAttackRate;
             }
         }
@@ -41,6 +43,7 @@ public class PlayerCombatMelee : MonoBehaviour
 
     }
 
+    // put in pickupweapon script
     public void setWeapon(GameObject selectedWeapon)
     {
         foreach (Weapon weapon in weaponsArray)
@@ -63,7 +66,7 @@ public class PlayerCombatMelee : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             //Debug.Log(enemy.name);
-            enemy.GetComponent<Enemy>().TakeDamage(currentWeapon.lightAttackDamage);
+            enemy.GetComponent<EnemyHealth>().TakeDamage(currentWeapon.lightAttackDamage);
         }
 
         Debug.Log(currentWeapon);

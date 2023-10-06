@@ -183,11 +183,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8866580637759947421}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddf5f97496ec87349aef3d2559e38273, type: 3}
+  m_Script: {fileID: 11500000, guid: 77bd6178d0c8e441a9db849e6f48a7b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 40
-  animator: {fileID: 8866580637759947394}
+  animator: {fileID: 0}
 --- !u!95 &8866580637759947394
 Animator:
   serializedVersion: 3

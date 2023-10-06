@@ -20,28 +20,38 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontal_movement = Input.GetAxisRaw("Horizontal") * Time.deltaTime * speed;
-        vertical_movement = Input.GetAxisRaw("Vertical") * Time.deltaTime * speed;
-
-        transform.position += new Vector3(horizontal_movement, vertical_movement, 0.0f);
-        
-        // align sprite to the movement's direction
-        if(horizontal_movement < 0)
+        if (CanMove())
         {
-            // face left
-            sprite.flipX = true;
-        }
-        else if(horizontal_movement > 0)
-        {
-            // face right
-            sprite.flipX = false;
-        }
+
+            horizontal_movement = Input.GetAxisRaw("Horizontal") * Time.deltaTime * speed;
+            vertical_movement = Input.GetAxisRaw("Vertical") * Time.deltaTime * speed;
 
 
-        animator.SetFloat("SpeedX", Mathf.Abs(horizontal_movement));
-        animator.SetFloat("SpeedY", Mathf.Abs(vertical_movement));
+            transform.position += new Vector3(horizontal_movement, vertical_movement, 0.0f);
+
+            // align sprite to the movement's direction
+            if (horizontal_movement < 0)
+            {
+                // face left
+                sprite.flipX = true;
+            }
+            else if (horizontal_movement > 0)
+            {
+                // face right
+                sprite.flipX = false;
+            }
+
+
+            animator.SetFloat("SpeedX", Mathf.Abs(horizontal_movement));
+            animator.SetFloat("SpeedY", Mathf.Abs(vertical_movement));
+        }
      
 
+    }
+
+    bool CanMove()
+    {
+        return animator.GetBool("canMove");
     }
 
 }

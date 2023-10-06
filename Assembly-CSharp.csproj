@@ -60,8 +60,8 @@
      <Compile Include="Assets\Get Home\Scripts\Barrel.cs" />
      <Compile Include="Assets\Get Home\Scripts\Boundaries.cs" />
      <Compile Include="Assets\Get Home\Scripts\CameraMovement.cs" />
-     <Compile Include="Assets\Get Home\Scripts\Enemy.cs" />
      <Compile Include="Assets\Get Home\Scripts\EnemyFollowPlayer.cs" />
+     <Compile Include="Assets\Get Home\Scripts\EnemyHealth.cs" />
      <Compile Include="Assets\Get Home\Scripts\GamePause.cs" />
      <Compile Include="Assets\Get Home\Scripts\PickupObjects.cs" />
      <Compile Include="Assets\Get Home\Scripts\PickupWeapon.cs" />
@@ -71,6 +71,7 @@
      <Compile Include="Assets\Get Home\Scripts\ThrowableObject.cs" />
      <Compile Include="Assets\Get Home\Scripts\Weapon.cs" />
      <Compile Include="Assets\Get Home\Scripts\WeaponManagement.cs" />
+     <Compile Include="Assets\SetBoolBehaviour.cs" />
      <Compile Include="Assets\SpeedX.cs" />
      <None Include="Assets\Streets of Fight files\public-license.txt" />
  <Reference Include="UnityEngine">

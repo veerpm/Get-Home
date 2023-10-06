@@ -47,4 +47,14 @@ public class PlayerHealth : MonoBehaviour
         animator.SetTrigger("Dead");
         GetComponent<PlayerMovement>().enabled = false;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "Beer")
+        {
+            currentHealth = maxHealth;
+            DisplayHealth();
+            collision.gameObject.SetActive(false);
+        }
+    }
 }
