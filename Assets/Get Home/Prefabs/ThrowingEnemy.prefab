@@ -221,8 +221,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   lineofSight: 4
+  animator: {fileID: 8866580637759947394}
   throwingRange: 2
-  throwingCD: 1
+  throwingCD: 2
   throwable: {fileID: 6050025691549763102, guid: 89384654646fed140a0e2a6fecf3fa87,
     type: 3}
   throwableParentLeft: {fileID: 8866580636404682696}

@@ -37,7 +37,7 @@ public class EnemyHealth : MonoBehaviour
         animator.SetBool("IsDead", true);
 
         GetComponent<Collider2D>().enabled = false;
-        GetComponent<EnemyFollowPlayer>().enabled = false;
+        GetComponent<ThrowingEnemyFollowPlayer>().enabled = false;
         this.enabled = false;
     }
 }
