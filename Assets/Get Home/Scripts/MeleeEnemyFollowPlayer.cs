@@ -27,7 +27,7 @@ public class MeleeEnemyFollowPlayer : MonoBehaviour
         float distanceFromPlayer = Vector2.Distance(player.position, transform.position);
         if (distanceFromPlayer < lineofSight && distanceFromPlayer > attackRange)
         {
-            Debug.Log("This works Melee!");
+            //Debug.Log("This works Melee!");
             transform.position = Vector2.MoveTowards(this.transform.position, player.position + new Vector3(0.2f, 0.2f, 0.0f), speed * Time.deltaTime);
         }
         else if (distanceFromPlayer <= attackRange && nextAttackTime < Time.time)
