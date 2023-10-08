@@ -5,27 +5,51 @@ using UnityEngine.UI;
 
 public class WeaponManagement : MonoBehaviour
 {
-    public static GameObject equippedWeapon; // current weapon
+    //public static Weapon[] weaponsArray;
+    private static GameObject equippedWeapon; // current weapon
     public GameObject floorWeapon;
-    private bool inRange;
+    private GameObject defaultWeapon;
     private GameObject player;
+    private bool pickable;
     private PlayerCombatMelee combatMelee;
     public Image weaponDisplay; // HUD weapon display
+    private GameObject weaponHolder;
     // Start is called before the first frame update
     void Start()
     {
-        equippedWeapon = GameObject.Find("FistsGame");
+        weaponHolder = GameObject.Find("WeaponHolder");
+        defaultWeapon = GameObject.Find("Fists");
         player = GameObject.Find("Player");
         combatMelee = player.GetComponent<PlayerCombatMelee>();
-        //weaponDisplay = Image.Find("EquippedWeaponDisplay");
+        EquippedWeapon = defaultWeapon;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (inRange && Input.GetKeyDown(KeyCode.R))
+        if (pickable && Input.GetKeyDown(KeyCode.R))
         {
             SwapWeapon();
+        }
+
+        if (Input.GetKeyDown(KeyCode.F) && EquippedWeapon != defaultWeapon)
+        {
+            DropWeapon();
+        }
+    }
+
+    public GameObject EquippedWeapon
+    {
+        get
+        {
+            return equippedWeapon;
+        }
+
+        set
+        {
+            equippedWeapon = value;
+            combatMelee.GetComponent<PlayerCombatMelee>().SetWeaponStats(equippedWeapon);
+            DisplayWeapon();
         }
     }
 
@@ -33,7 +57,7 @@ public class WeaponManagement : MonoBehaviour
     {
         if (collider.gameObject == player)
         {
-            inRange = true;
+            pickable = true;
         }
     }
 
@@ -41,25 +65,29 @@ public class WeaponManagement : MonoBehaviour
     {
         if (collider.gameObject == player)
         {
-            inRange = false;
+            pickable = false;
         }
     }
 
     void SwapWeapon()
     {
         gameObject.SetActive(false);
-        GameObject temp = gameObject;
-        floorWeapon = equippedWeapon;
-        equippedWeapon = temp;
+        floorWeapon = EquippedWeapon;
+        EquippedWeapon = gameObject;
         floorWeapon.transform.position = player.transform.position;
         floorWeapon.SetActive(true);
-        Debug.Log(equippedWeapon);
-        combatMelee.GetComponent<PlayerCombatMelee>().setWeapon(equippedWeapon);
-        displayWeapon();
     }
 
-    void displayWeapon()
+    void DropWeapon()
     {
-        weaponDisplay.sprite = equippedWeapon.GetComponent<SpriteRenderer>().sprite;
+        EquippedWeapon.transform.position = player.transform.position;
+        EquippedWeapon.SetActive(true);
+        EquippedWeapon = defaultWeapon;
+    }
+
+
+    void DisplayWeapon()
+    {
+        weaponDisplay.sprite = EquippedWeapon.GetComponent<SpriteRenderer>().sprite;
     }
 }

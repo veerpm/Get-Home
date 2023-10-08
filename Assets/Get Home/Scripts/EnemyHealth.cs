@@ -30,6 +30,7 @@ public class EnemyHealth : MonoBehaviour
 
         // Play Hurt Animation
         animator.SetTrigger("Hurt");
+        Debug.Log(currentHealth);
         // Die
         if (currentHealth <= 0)
         {
@@ -52,7 +53,7 @@ public class EnemyHealth : MonoBehaviour
         animator.SetBool("IsDead", true);
 
         GetComponent<Collider2D>().enabled = false;
-        GetComponent<ThrowingEnemyFollowPlayer>().enabled = false;
+        //GetComponent<ThrowingEnemyFollowPlayer>().enabled = false;
         if (!keepActive)
         {
             this.enabled = false;

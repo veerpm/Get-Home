@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class PlayerCombatMelee : MonoBehaviour
 {
-
-    [SerializeField] Weapon[] weaponsArray;
-    public Weapon currentWeapon;
-    public Weapon defaultWeapon;
+    public GameObject equippedWeapon;
     public Animator animator;
     public Transform attackPoint;
     public LayerMask enemyLayers;
     private float nextLightAttackTime = 0f;
-    int maxHits;
+    private WeaponManagement weaponManagement;
     //public Animator camAnim;
+
+    private float lightAttackRange;
+    private float heavyAttackRange;
+    private int heavyAttackDamage;
+    private int lightAttackDamage;
+    private float lightAttackRate;
+    private float heavyAttackRate;
+    private int maxHits;
+    public int epipenBoost;
+
 
     void Start()
     {
-        currentWeapon = defaultWeapon;
-        //maxHits = currentWeapon.maxHits;
+        weaponManagement = Object.FindObjectOfType<WeaponManagement>();
     }
 
     // Update is called once per frame
@@ -32,7 +38,7 @@ public class PlayerCombatMelee : MonoBehaviour
                 GetComponent<PlayerMovement>().enabled = false; 
                 LightAttack();
                 GetComponent<PlayerMovement>().enabled = true;
-                nextLightAttackTime = Time.time + 1f / currentWeapon.lightAttackRate;
+                nextLightAttackTime = Time.time + 1f / lightAttackRate;
             }
         }
 
@@ -44,16 +50,17 @@ public class PlayerCombatMelee : MonoBehaviour
     }
 
     // put in pickupweapon script
-    public void setWeapon(GameObject selectedWeapon)
+
+
+    public void SetWeaponStats(GameObject weapon)
     {
-        foreach (Weapon weapon in weaponsArray)
-        {
-            if (weapon.name + "Game" == selectedWeapon.name)
-            {
-                currentWeapon = weapon;
-            }
-        }
-        maxHits = currentWeapon.maxHits;
+        equippedWeapon = weapon;
+        lightAttackRange = equippedWeapon.GetComponent<WeaponStats>().lightAttackRange;
+        heavyAttackRange = equippedWeapon.GetComponent<WeaponStats>().heavyAttackRange;
+        heavyAttackDamage = equippedWeapon.GetComponent<WeaponStats>().heavyAttackDamage;
+        lightAttackDamage = equippedWeapon.GetComponent<WeaponStats>().lightAttackDamage;
+        lightAttackRate = equippedWeapon.GetComponent<WeaponStats>().lightAttackRate;
+        heavyAttackRate = equippedWeapon.GetComponent<WeaponStats>().heavyAttackRate;
     }
 
     void LightAttack()
@@ -61,22 +68,22 @@ public class PlayerCombatMelee : MonoBehaviour
         //camAnim.SetTrigger("shake");
         animator.SetTrigger("LightAttack");
 
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, currentWeapon.lightAttackRange, enemyLayers);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, lightAttackRange, enemyLayers);
 
         foreach (Collider2D enemy in hitEnemies)
         {
             //Debug.Log(enemy.name);
-            enemy.GetComponent<EnemyHealth>().TakeDamage(currentWeapon.lightAttackDamage);
+            enemy.GetComponent<EnemyHealth>().TakeDamage(lightAttackDamage);
         }
 
-        Debug.Log(currentWeapon);
+        Debug.Log(lightAttackDamage);
 
-        maxHits--;
+        equippedWeapon.GetComponent<WeaponStats>().maxHits--;
 
-        if (maxHits <= 0 && currentWeapon != defaultWeapon)
+        if (equippedWeapon.GetComponent<WeaponStats>().maxHits <= 0 && equippedWeapon.name != "Fists")
         {
-            Debug.Log("Done");
-            currentWeapon = defaultWeapon;
+            //Debug.Log("Done");
+            weaponManagement.EquippedWeapon = GameObject.Find("Fists");
         }
 
     }
@@ -99,9 +106,9 @@ public class PlayerCombatMelee : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        if (attackPoint == null || currentWeapon == null)
+        if (attackPoint == null)
             return;
-        Gizmos.DrawWireSphere(attackPoint.position, currentWeapon.lightAttackRange);
+        Gizmos.DrawWireSphere(attackPoint.position, lightAttackRange);
     }
 }
 

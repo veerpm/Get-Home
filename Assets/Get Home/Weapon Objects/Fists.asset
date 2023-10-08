@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5375de8627a134bd9b8ae0c58778361b, type: 3}
   m_Name: Fists
   m_EditorClassIdentifier: 
-  artWork: {fileID: 0}
-  name: 
   lightAttackRange: 0.25
   heavyAttackRange: 0
   lightAttackDamage: 5
