@@ -1,17 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerCombatMelee : MonoBehaviour
 {
-    public GameObject equippedWeapon;
     public Animator animator;
     public Transform attackPoint;
     public LayerMask enemyLayers;
     private float nextLightAttackTime = 0f;
+    public GameObject debug;
     private WeaponManagement weaponManagement;
+    public GameObject equippedWeapon;
     //public Animator camAnim;
-
     private float lightAttackRange;
     private float heavyAttackRange;
     private int heavyAttackDamage;
@@ -19,12 +20,12 @@ public class PlayerCombatMelee : MonoBehaviour
     private float lightAttackRate;
     private float heavyAttackRate;
     private int maxHits;
-    public int epipenBoost;
+    private int epipenBoost;
 
 
     void Start()
     {
-        weaponManagement = Object.FindObjectOfType<WeaponManagement>();
+        weaponManagement = GetComponent<WeaponManagement>();
     }
 
     // Update is called once per frame
@@ -35,9 +36,7 @@ public class PlayerCombatMelee : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                GetComponent<PlayerMovement>().enabled = false; 
                 LightAttack();
-                GetComponent<PlayerMovement>().enabled = true;
                 nextLightAttackTime = Time.time + 1f / lightAttackRate;
             }
         }
@@ -49,19 +48,6 @@ public class PlayerCombatMelee : MonoBehaviour
 
     }
 
-    // put in pickupweapon script
-
-
-    public void SetWeaponStats(GameObject weapon)
-    {
-        equippedWeapon = weapon;
-        lightAttackRange = equippedWeapon.GetComponent<WeaponStats>().lightAttackRange;
-        heavyAttackRange = equippedWeapon.GetComponent<WeaponStats>().heavyAttackRange;
-        heavyAttackDamage = equippedWeapon.GetComponent<WeaponStats>().heavyAttackDamage;
-        lightAttackDamage = equippedWeapon.GetComponent<WeaponStats>().lightAttackDamage;
-        lightAttackRate = equippedWeapon.GetComponent<WeaponStats>().lightAttackRate;
-        heavyAttackRate = equippedWeapon.GetComponent<WeaponStats>().heavyAttackRate;
-    }
 
     void LightAttack()
     {
@@ -76,14 +62,16 @@ public class PlayerCombatMelee : MonoBehaviour
             enemy.GetComponent<EnemyHealth>().TakeDamage(lightAttackDamage);
         }
 
+        weaponManagement.EquippedWeapon.GetComponent<WeaponStats>().maxHits--;
+
+        weaponManagement.DisplayWeaponDurability();
+
         Debug.Log(lightAttackDamage);
 
-        equippedWeapon.GetComponent<WeaponStats>().maxHits--;
-
-        if (equippedWeapon.GetComponent<WeaponStats>().maxHits <= 0 && equippedWeapon.name != "Fists")
+        if (weaponManagement.EquippedWeapon.GetComponent<WeaponStats>().maxHits <= 0 && weaponManagement.EquippedWeapon != weaponManagement.defaultWeapon)
         {
-            //Debug.Log("Done");
-            weaponManagement.EquippedWeapon = GameObject.Find("Fists");
+            Debug.Log("Done");
+            weaponManagement.EquippedWeapon = weaponManagement.defaultWeapon;
         }
 
     }
@@ -102,7 +90,37 @@ public class PlayerCombatMelee : MonoBehaviour
 
     }
 
-    // 
+    public void SetWeaponStats(GameObject weapon)
+    {
+        equippedWeapon = weapon;
+        lightAttackRange = equippedWeapon.GetComponent<WeaponStats>().lightAttackRange;
+        heavyAttackRange = equippedWeapon.GetComponent<WeaponStats>().heavyAttackRange;
+        heavyAttackDamage = equippedWeapon.GetComponent<WeaponStats>().heavyAttackDamage;
+        lightAttackDamage = equippedWeapon.GetComponent<WeaponStats>().lightAttackDamage;
+        lightAttackRate = equippedWeapon.GetComponent<WeaponStats>().lightAttackRate;
+        heavyAttackRate = equippedWeapon.GetComponent<WeaponStats>().heavyAttackRate;
+    }
+
+    private IEnumerator EpipenTimer()
+    {
+        lightAttackDamage = lightAttackDamage * epipenBoost;
+        for (int i = 5; i > 0; i--)
+        {
+            debug.GetComponent<Text>().text = i.ToString();
+            yield return new WaitForSeconds(1);
+        }
+        debug.GetComponent<Text>().text = "0";
+        //lightAttackDamage = lightAttackDamage / epipenBoost;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "Epipen")
+        {
+            collision.gameObject.SetActive(false);
+            StartCoroutine("EpipenTimer");
+        }
+    }
 
     void OnDrawGizmosSelected()
     {
