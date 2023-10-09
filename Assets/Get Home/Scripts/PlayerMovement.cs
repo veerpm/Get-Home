@@ -8,12 +8,14 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     private float horizontal_movement;
     private float vertical_movement;
+    public AnimationEvents events;
 
     private SpriteRenderer sprite;
 
     // Start is called before the first frame update
     void Start()
     {
+        events = gameObject.GetComponent<AnimationEvents>();
         sprite = gameObject.GetComponent<SpriteRenderer>();
     }
 

@@ -484,6 +484,7 @@ GameObject:
   - component: {fileID: 330463866}
   - component: {fileID: 330463870}
   - component: {fileID: 330463869}
+  - component: {fileID: 330463871}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -657,6 +658,7 @@ MonoBehaviour:
     m_Bits: 768
   display: {fileID: 979419663}
   equippedWeapon: {fileID: 0}
+  events: {fileID: 0}
   epipenDamageBoost: 2
   epipenTimer: 5
 --- !u!114 &330463867
@@ -726,6 +728,19 @@ MonoBehaviour:
   defaultWeapon: {fileID: 0}
   weaponDisplay: {fileID: 517820462}
   durability: {fileID: 1253805835}
+--- !u!114 &330463871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330463859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d859768d17a14515b8e17628436830a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAttacking: 0
 --- !u!1 &347168250
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,7 +30,6 @@ public class EnemyHealth : MonoBehaviour
 
         // Play Hurt Animation
         animator.SetTrigger("Hurt");
-        Debug.Log(currentHealth);
         // Die
         if (currentHealth <= 0)
         {

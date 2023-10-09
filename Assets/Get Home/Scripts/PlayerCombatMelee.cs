@@ -12,7 +12,10 @@ public class PlayerCombatMelee : MonoBehaviour
     public GameObject display;
     private WeaponManagement weaponManagement;
     public GameObject equippedWeapon;
+    public AnimationEvents events;
     //public Animator camAnim;
+
+    // weapon stats
     private float lightAttackRange;
     private float heavyAttackRange;
     private int heavyAttackDamage;
@@ -20,14 +23,16 @@ public class PlayerCombatMelee : MonoBehaviour
     private float lightAttackRate;
     private float heavyAttackRate;
     private int maxHits;
+
     public int epipenDamageBoost;
     public int epipenTimer;
     bool epipenActive;
-    private float startTimer;
+    private float startTimer; // timer to track when epipen was activated
 
 
     void Start()
     {
+        events = gameObject.GetComponent<AnimationEvents>();
         weaponManagement = GetComponent<WeaponManagement>();
     }
 
@@ -37,7 +42,7 @@ public class PlayerCombatMelee : MonoBehaviour
 
         if (Time.time >= nextLightAttackTime)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && !events.isAttacking)
             {
                 LightAttack();
                 nextLightAttackTime = Time.time + 1f / lightAttackRate;
