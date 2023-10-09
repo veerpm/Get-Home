@@ -5,20 +5,17 @@ using UnityEngine.UI;
 
 public class WeaponManagement : MonoBehaviour
 {
-    private static GameObject equippedWeapon; // current weapon
+    private GameObject equippedWeapon; // current weapon
     public GameObject floorWeapon;
     public GameObject defaultWeapon;
     private bool pickable;
     public Image weaponDisplay; // HUD weapon display
-    private GameObject weaponHolder;
     public GameObject durability;
 
     // Start is called before the first frame update
     void Start()
     {
-        weaponHolder = GameObject.Find("WeaponHolder");
         defaultWeapon = GameObject.Find("Fists");
-        durability = GameObject.Find("Durability");
         EquippedWeapon = defaultWeapon;
     }
 

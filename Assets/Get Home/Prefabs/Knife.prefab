@@ -123,7 +123,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floorWeapon: {fileID: 0}
+  defaultWeapon: {fileID: 0}
   weaponDisplay: {fileID: 0}
+  durability: {fileID: 0}
 --- !u!114 &2999512845179154860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,7 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightAttackRange: 0.25
   heavyAttackRange: 0
-  lightAttackDamage: 20
+  lightAttackDamage: 10
   heavyAttackDamage: 0
   lightAttackRate: 5
   heavyAttackRate: 0

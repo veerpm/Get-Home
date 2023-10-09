@@ -9,7 +9,7 @@ public class PlayerCombatMelee : MonoBehaviour
     public Transform attackPoint;
     public LayerMask enemyLayers;
     private float nextLightAttackTime = 0f;
-    public GameObject debug;
+    public GameObject display;
     private WeaponManagement weaponManagement;
     public GameObject equippedWeapon;
     //public Animator camAnim;
@@ -20,7 +20,10 @@ public class PlayerCombatMelee : MonoBehaviour
     private float lightAttackRate;
     private float heavyAttackRate;
     private int maxHits;
-    private int epipenBoost;
+    public int epipenDamageBoost;
+    public int epipenTimer;
+    bool epipenActive;
+    private float startTimer;
 
 
     void Start()
@@ -46,6 +49,11 @@ public class PlayerCombatMelee : MonoBehaviour
             HeavyAttack();
         }
 
+        if (epipenActive && Time.time - startTimer > epipenTimer)
+        {
+            lightAttackDamage = lightAttackDamage / epipenDamageBoost;
+            epipenActive = false;
+        }
     }
 
 
@@ -99,24 +107,29 @@ public class PlayerCombatMelee : MonoBehaviour
         lightAttackDamage = equippedWeapon.GetComponent<WeaponStats>().lightAttackDamage;
         lightAttackRate = equippedWeapon.GetComponent<WeaponStats>().lightAttackRate;
         heavyAttackRate = equippedWeapon.GetComponent<WeaponStats>().heavyAttackRate;
+        if (epipenActive)
+        {
+            lightAttackDamage = lightAttackDamage * epipenDamageBoost;
+        }
     }
 
     private IEnumerator EpipenTimer()
     {
-        lightAttackDamage = lightAttackDamage * epipenBoost;
-        for (int i = 5; i > 0; i--)
+        for (int i = epipenTimer; i >= 0; i--)
         {
-            debug.GetComponent<Text>().text = i.ToString();
+            display.GetComponent<Text>().text = "Epipen Active: " + i.ToString();
             yield return new WaitForSeconds(1);
         }
-        debug.GetComponent<Text>().text = "0";
-        //lightAttackDamage = lightAttackDamage / epipenBoost;
+        display.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "Epipen")
         {
+            lightAttackDamage = lightAttackDamage * epipenDamageBoost;
+            startTimer = Time.time;
+            epipenActive = true;
             collision.gameObject.SetActive(false);
             StartCoroutine("EpipenTimer");
         }
