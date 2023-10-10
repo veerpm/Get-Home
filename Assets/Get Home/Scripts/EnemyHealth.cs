@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
     public int maxHealth = 40;
     protected int currentHealth;
     public Animator animator;
+    public GameObject healthBar;
 
     private Vector3 initialPosition;
     protected bool keepActive = false; // used for child classes
@@ -14,7 +16,11 @@ public class EnemyHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;
+        if (tag == "Enemy")
+        {
+            healthBar.GetComponent<Slider>().maxValue = maxHealth;
+        }
+        SetFullHealth();
         initialPosition = transform.position;
     }
 
@@ -31,15 +37,26 @@ public class EnemyHealth : MonoBehaviour
         // Play Hurt Animation
         animator.SetTrigger("Hurt");
         // Die
+        DisplayHealth();
         if (currentHealth <= 0)
         {
             Die();
         }
     }
 
-    public void setFullHealth()
+    void DisplayHealth()
+    {
+        if (tag == "Enemy")
+        {
+            Debug.Log("hey");
+            healthBar.GetComponent<Slider>().value = currentHealth;
+        }
+    }
+
+    public void SetFullHealth()
     {
         currentHealth = maxHealth;
+        DisplayHealth();
     }
 
     public void resetPosition()
@@ -52,7 +69,6 @@ public class EnemyHealth : MonoBehaviour
         animator.SetBool("IsDead", true);
 
         GetComponent<Collider2D>().enabled = false;
-        //GetComponent<ThrowingEnemyFollowPlayer>().enabled = false;
         if (!keepActive)
         {
             this.enabled = false;
@@ -64,6 +80,6 @@ public class EnemyHealth : MonoBehaviour
         animator.SetBool("IsDead", false);
 
         GetComponent<Collider2D>().enabled = true;
-        setFullHealth();
+        SetFullHealth();
     }
 }

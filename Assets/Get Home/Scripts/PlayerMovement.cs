@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private float vertical_movement;
     public AnimationEvents events;
 
+    public float acceleration;
+
     private SpriteRenderer sprite;
 
     // Start is called before the first frame update
@@ -24,6 +26,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (CanMove())
         {
+            //if (Mathf.Abs(movementVector.y) > 0)
+            //{
+            //    currentSpeed += acceleration * Time.deltaTime;
+            //}
+            //else
+            //{
+            //    currentSpeed -= deacceleration * Time.deltaTime;
+            //    7
+            //currentSpeed = Mathf.Clamp(currentSpeed, 0, maxSpeed)
 
             horizontal_movement = Input.GetAxisRaw("Horizontal") * Time.deltaTime * speed;
             vertical_movement = Input.GetAxisRaw("Vertical") * Time.deltaTime * speed;
