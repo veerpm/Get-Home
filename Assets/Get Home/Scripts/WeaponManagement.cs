@@ -11,6 +11,7 @@ public class WeaponManagement : MonoBehaviour
     private bool pickable;
     public Image weaponDisplay; // HUD weapon display
     public GameObject durability;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,7 @@ public class WeaponManagement : MonoBehaviour
             SwapWeapon();
         }
 
-        if (!pickable && Input.GetKeyDown(KeyCode.F) && EquippedWeapon != defaultWeapon)
+        if (!pickable && Input.GetKeyDown(KeyCode.F) && EquippedWeapon)
         {
             DropWeapon();
         }
@@ -46,6 +47,7 @@ public class WeaponManagement : MonoBehaviour
             GetComponent<PlayerCombatMelee>().SetWeaponStats(equippedWeapon);
             DisplayWeapon();
             DisplayWeaponDurability();
+            animator.SetBool(EquippedWeapon.name, true);
         }
     }
 
@@ -68,16 +70,18 @@ public class WeaponManagement : MonoBehaviour
 
     void SwapWeapon()
     {
-        floorWeapon.SetActive(false);
         GameObject temp = floorWeapon;
         floorWeapon = EquippedWeapon;
         EquippedWeapon = temp;
         floorWeapon.transform.position = new Vector3(transform.position.x,transform.position.y-0.5f,0);
+        EquippedWeapon.SetActive(false);
         floorWeapon.SetActive(true);
+        animator.SetBool(floorWeapon.name, false);
     }
 
     void DropWeapon()
     {
+        animator.SetBool(EquippedWeapon.name, false);
         EquippedWeapon.transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, 0);
         EquippedWeapon.SetActive(true);
         EquippedWeapon = defaultWeapon;
@@ -88,7 +92,21 @@ public class WeaponManagement : MonoBehaviour
         weaponDisplay.sprite = EquippedWeapon.GetComponent<SpriteRenderer>().sprite;
     }
 
-    public void DisplayWeaponDurability()
+    public void AdjustDurability()
+    {
+        EquippedWeapon.GetComponent<WeaponStats>().maxHits--;
+
+        DisplayWeaponDurability();
+
+        if (EquippedWeapon.GetComponent<WeaponStats>().maxHits <= 0 && EquippedWeapon != defaultWeapon)
+        {
+            //Debug.Log(EquippedWeapon);
+            animator.SetBool(EquippedWeapon.name, false);
+            EquippedWeapon = defaultWeapon;
+        }
+    }
+
+    void DisplayWeaponDurability()
     {
         if (EquippedWeapon == defaultWeapon)
         {
