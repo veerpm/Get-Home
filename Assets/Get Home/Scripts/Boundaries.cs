@@ -12,11 +12,12 @@ public class Boundaries : MonoBehaviour
 
     private float leftBound;
     private float rightBound;
-    private float freezedX;
 
     // Start is called before the first frame update
     void Start()
     {
+        leftBound = transform.position.x - leftBoundOffset;
+        rightBound = transform.position.x + rightBoundOffset;
     }
 
     // Update is called once per frame
@@ -25,7 +26,6 @@ public class Boundaries : MonoBehaviour
         // update horizontal bounds on player's position
         if (!freeze)
         {
-            freezedX = transform.position.x;
             leftBound = transform.position.x - leftBoundOffset;
             rightBound = transform.position.x + rightBoundOffset;
         }
@@ -48,5 +48,20 @@ public class Boundaries : MonoBehaviour
         {
             transform.position = new Vector2(transform.position.x, upperBound);
         }
+    }
+
+    public void Freeze(float upBound = 0, float lowBound = 0, float leftOffset = 0, float rightOffset = 0)
+    {
+        freeze = true;
+
+        upperBound = upBound;
+        lowerBound = lowBound;
+        leftBoundOffset = leftOffset;
+        rightBoundOffset = rightOffset;
+    }
+
+    public void unFreeze()
+    {
+        freeze = false;
     }
 }
