@@ -99,17 +99,7 @@ public class PlayerCombatMelee : MonoBehaviour
             enemy.GetComponent<EnemyHealth>().TakeDamage(lightAttackDamage);
         }
 
-        weaponManagement.EquippedWeapon.GetComponent<WeaponStats>().maxHits--;
-
-        weaponManagement.DisplayWeaponDurability();
-
-        //Debug.Log(lightAttackDamage);
-
-        if (weaponManagement.EquippedWeapon.GetComponent<WeaponStats>().maxHits <= 0 && weaponManagement.EquippedWeapon != weaponManagement.defaultWeapon)
-        {
-            Debug.Log("Done");
-            weaponManagement.EquippedWeapon = weaponManagement.defaultWeapon;
-        }
+        weaponManagement.AdjustDurability();
 
     }
 
@@ -124,22 +114,12 @@ public class PlayerCombatMelee : MonoBehaviour
             enemy.GetComponent<EnemyHealth>().TakeDamage(heavyAttackDamage);
         }
 
-        weaponManagement.EquippedWeapon.GetComponent<WeaponStats>().maxHits--;
-
-        weaponManagement.DisplayWeaponDurability();
-
-        //Debug.Log(heavyAttackDamage);
-
-        if (weaponManagement.EquippedWeapon.GetComponent<WeaponStats>().maxHits <= 0 && weaponManagement.EquippedWeapon != weaponManagement.defaultWeapon)
-        {
-            weaponManagement.EquippedWeapon = weaponManagement.defaultWeapon;
-        }
-
-
+        weaponManagement.AdjustDurability();
     }
 
     public void SetWeaponStats(GameObject weapon)
     {
+        //animator.SetBool(weapon.name, true);
         lightAttackRange = weapon.GetComponent<WeaponStats>().lightAttackRange;
         heavyAttackRange = weapon.GetComponent<WeaponStats>().heavyAttackRange;
         heavyAttackDamage = weapon.GetComponent<WeaponStats>().heavyAttackDamage;
@@ -189,7 +169,7 @@ public class PlayerCombatMelee : MonoBehaviour
         combos.Add(new List<string>() {
             "LightAttack",
             "LightAttack",
-            "HeavyAttack"}, 80);
+            "HeavyAttack"}, 70);
     }
 
     void DealWCombo(string attack)
@@ -238,7 +218,7 @@ public class PlayerCombatMelee : MonoBehaviour
         lastAttackTime = Time.time;
     }
 
-    void DisableCombo()
+    public void DisableCombo()
     {
         display.GetComponent<Text>().text = "";
         comboActive = false;

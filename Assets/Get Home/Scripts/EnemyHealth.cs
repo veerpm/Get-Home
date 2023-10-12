@@ -83,7 +83,7 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
-        animator.SetBool("IsDead", true);
+        animator.SetTrigger("Dead");
 
         if (!keepActive)
         {
