@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class SceneChanger : MonoBehaviour
 {
     public string sceneName;
+    public GameObject player;
 
     void Update()
     {
@@ -14,18 +15,15 @@ public class SceneChanger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Collided with " + other);
+        // change scene
         if (other.gameObject.tag == "Player")
             StartCoroutine(LoadScene());
+
     }
 
     IEnumerator LoadScene()
     {
         // The Application loads the Scene in the background as the current Scene runs.
-        // This is particularly good for creating loading screens.
-        // You could also load the Scene by using sceneBuildIndex. In this case Scene2 has
-        // a sceneBuildIndex of 1 as shown in Build Settings.
-
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
 
         // Wait until the asynchronous scene fully loads

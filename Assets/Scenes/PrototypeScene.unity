@@ -506,7 +506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 330463865}
-  speed: 3
+  speed: 7
   events: {fileID: 0}
   acceleration: 10
 --- !u!212 &330463861
@@ -2458,6 +2458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Level2
+  player: {fileID: 330463859}
 --- !u!212 &1008393673
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3193,6 +3194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1594741621}
   - component: {fileID: 1594741622}
+  - component: {fileID: 1594741623}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3230,6 +3232,21 @@ MonoBehaviour:
   pauseScreen: {fileID: 1193298890}
   deathScreen: {fileID: 1721763427}
   checkpoint: {x: -5.32, y: 0, z: 0}
+--- !u!114 &1594741623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594741620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 418bc283172618d46a226b7f0cd5c70c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chatObject: {fileID: 5599220873381174354, guid: 0a98edb627653c947a11590f7a0286f2,
+    type: 3}
+  player: {fileID: 330463859}
 --- !u!1 &1695393619
 GameObject:
   m_ObjectHideFlags: 0
