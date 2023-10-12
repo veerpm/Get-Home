@@ -27,7 +27,7 @@ public class WeaponManagement : MonoBehaviour
             SwapWeapon();
         }
 
-        if (Input.GetKeyDown(KeyCode.F) && EquippedWeapon != defaultWeapon)
+        if (!pickable && Input.GetKeyDown(KeyCode.F) && EquippedWeapon != defaultWeapon)
         {
             DropWeapon();
         }
@@ -51,16 +51,16 @@ public class WeaponManagement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.tag == "Weapon")
+        if (collider.transform.parent.gameObject.tag == "Weapon")
         {
             pickable = true;
-            floorWeapon = collider.gameObject;
+            floorWeapon = collider.transform.parent.gameObject;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        if (collider.tag == "Weapon")
+        if (collider.transform.parent.gameObject.tag == "Weapon")
         {
             pickable = false;
         }
@@ -72,13 +72,13 @@ public class WeaponManagement : MonoBehaviour
         GameObject temp = floorWeapon;
         floorWeapon = EquippedWeapon;
         EquippedWeapon = temp;
-        floorWeapon.transform.position = transform.position;
+        floorWeapon.transform.position = new Vector3(transform.position.x,transform.position.y-0.5f,0);
         floorWeapon.SetActive(true);
     }
 
     void DropWeapon()
     {
-        EquippedWeapon.transform.position = transform.position;
+        EquippedWeapon.transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, 0);
         EquippedWeapon.SetActive(true);
         EquippedWeapon = defaultWeapon;
     }
