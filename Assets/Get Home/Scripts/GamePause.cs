@@ -52,8 +52,10 @@ public class GamePause : MonoBehaviour
             }
         }
 
-        // check if player is dead
-        if (player.GetComponent<PlayerHealth>().currentHealth <= 0 && !dead)
+        // Check if player is dead
+        // Conditions: HP <0, not already dead and animation finished.
+        if (player.GetComponent<PlayerHealth>().currentHealth <= 0 && !dead
+            && player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
         {
             setDeath(true);
         }
@@ -68,7 +70,7 @@ public class GamePause : MonoBehaviour
         pause(isDead);
     }
 
-    void pause(bool isPaused)
+    public void pause(bool isPaused)
     {
         player.GetComponent<PlayerMovement>().enabled = !isPaused;
         player.GetComponent<Animator>().enabled = !isPaused;

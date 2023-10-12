@@ -1,36 +1,93 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    public GameObject chatObject;
 
-    // Variable player and Start method are only there for TESTING purposes (calling the method Create()
-    // is simpler if you want to create dialogues).
-    public GameObject player;
+    public GameObject dialogueBox;
+    public float textSpeed;
 
-    public void Start()
+    private string speaker;
+    private string[] lines;
+
+    private int index;
+    private TextMeshProUGUI textObj;
+    private bool dialogueOn;
+
+    // Start is called before the first frame update
+    void Start()
     {
-        Create(player, "Hi! I can talk through chat bubbles now!", 3f);
+        textObj = dialogueBox.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        dialogueOn = false;
+
+        // testing
+        string[] lines = { "What a night...", "And I still need to get home!" };
+        StartDialogue(lines, "Randy");
     }
- 
 
-    // Params = original, Vector3 position, Quaternion rotation, Transform parent
-    public void Create(GameObject parent, string text, float time, Vector3 localPosition = default(Vector3))
+    // Update is called once per frame
+    void Update()
     {
-        // move slightly above head if no pos. given
-        if(localPosition == default(Vector3))
+        if (dialogueOn && Input.anyKeyDown)
         {
-            localPosition = new Vector3(0, 1f, 0);
+            if(textObj.text == speaker + lines[index])
+            {
+                // finished displaying. Jump to next line
+                NextLine();
+            }
+            else
+            {
+                // skip text animation & display everything
+                StopAllCoroutines();
+                textObj.text = speaker + lines[index];
+            }
         }
+    }
 
-        // create & set dialogue
-        GameObject chatBubble = Instantiate(chatObject, parent.transform.position+localPosition, 
-            Quaternion.identity, parent.transform);
-        chatBubble.GetComponent<ChatBubble>().Setup(text, 1f);
+    void StartDialogue(string[] lines, string speaker)
+    {
+        // setup 
+        index = 0;
+        dialogueOn = true;
+        dialogueBox.SetActive(true);
+        GetComponent<GamePause>().pause(true);
 
-        // Remove after 'time' seconds
-        Destroy(chatBubble, time);
+        // dialogue info
+        this.speaker = "<b>" + speaker + "</b>: ";
+        this.lines = lines;
+
+        // for starting the dialogue
+        textObj.text = string.Empty + this.speaker;
+        StartCoroutine(TypeLine());
+    }
+
+    IEnumerator TypeLine()
+    {
+        foreach(char c in lines[index].ToCharArray())
+        {
+            textObj.text += c;
+            yield return new WaitForSeconds(textSpeed);
+        }
+    }
+
+    void NextLine()
+    {
+        if(index < lines.Length - 1)
+        {
+            // still more lines to read
+            index++;
+            textObj.text = string.Empty + speaker;
+            StartCoroutine(TypeLine());
+        }
+        else
+        {
+            // read all lines
+            dialogueOn = false;
+            dialogueBox.SetActive(false);
+            GetComponent<GamePause>().pause(false);
+        }
     }
 }
+
