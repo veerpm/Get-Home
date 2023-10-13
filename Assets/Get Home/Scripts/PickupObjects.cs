@@ -11,16 +11,29 @@ public class PickupObjects : MonoBehaviour
     public Vector3 Direction {get; set;}
     private GameObject itemHolding;
     public float placeDownOffSet = 0f;
-   // public GameObject DestroyEffect;
+    private Vector3 yOffset = new Vector3 (0.0f, -0.3f, 0.0f);
+    // public GameObject DestroyEffect;
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(Direction);
         if (Input.GetKeyDown(KeyCode.T))
         {
             if (itemHolding)
             {
-                itemHolding.transform.position = new Vector3(transform.position.x, transform.position.y - placeDownOffSet, 0.0f) + (Direction * 2);
+                
+                if (Mathf.Abs(Direction.x) > 0)
+                {
+                    itemHolding.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                    itemHolding.transform.position = new Vector3(transform.position.x, transform.position.y - placeDownOffSet, 0.0f) + (Direction * 2);
+                    
+                }
+                else
+                {
+                    itemHolding.transform.position = new Vector3(transform.position.x, transform.position.y - placeDownOffSet, 0.0f) + (Direction);
+                }
+                
                 itemHolding.transform.parent = null;
                 if (itemHolding.GetComponent<Rigidbody2D>())
                     itemHolding.GetComponent<Rigidbody2D>().simulated = true;
@@ -52,13 +65,15 @@ public class PickupObjects : MonoBehaviour
     IEnumerator ThrowItem(GameObject item)
     {
         Vector3 startPoint = item.transform.position;
-        Vector3 endPoint = transform.position + Direction * 2;
+        Debug.Log("Start Point: " + startPoint);
+        Vector3 endPoint = transform.position + (Direction * 5);
+        Debug.Log("Start Point: " + endPoint);
         item.transform.parent = null;
+        
 
-        for (int i = 0; i < 25; i++)
+        for (int i = 0; i < 100; i++)
         {
-            item.transform.position = Vector3.Lerp(startPoint, endPoint, i * 0.04f);
-            item.transform.Rotate(0,0,1);
+            item.transform.position = Vector3.Lerp(startPoint, endPoint, i * 0.007f) + yOffset;
             yield return null;
         }
         if (item.GetComponent<Rigidbody2D>())
@@ -66,4 +81,5 @@ public class PickupObjects : MonoBehaviour
       
         Destroy(item);
     }
+
 }

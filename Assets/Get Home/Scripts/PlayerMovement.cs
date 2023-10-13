@@ -8,7 +8,9 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     private float horizontal_movement;
     private float vertical_movement;
+    private Vector3 movement;
     public AnimationEvents events;
+    private PickupObjects PickUpObjects;
 
     public float acceleration;
 
@@ -19,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     {
         events = gameObject.GetComponent<AnimationEvents>();
         sprite = gameObject.GetComponent<SpriteRenderer>();
+        PickUpObjects = gameObject.GetComponent<PickupObjects>();
     }
 
     // Update is called once per frame
@@ -38,9 +41,16 @@ public class PlayerMovement : MonoBehaviour
 
             horizontal_movement = Input.GetAxisRaw("Horizontal") * Time.deltaTime * speed;
             vertical_movement = Input.GetAxisRaw("Vertical") * Time.deltaTime * speed;
+            movement = new Vector3(horizontal_movement, vertical_movement ,0.0f);
+
+            transform.position += movement;
+
+         
+            
+           PickUpObjects.Direction = new Vector3(horizontal_movement, 0.0f, 0.0f).normalized;
+            
 
 
-            transform.position += new Vector3(horizontal_movement, vertical_movement, 0.0f);
 
             // align sprite to the movement's direction
             if (horizontal_movement < 0)
