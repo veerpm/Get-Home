@@ -5,7 +5,7 @@ using UnityEngine;
 public class MeleeEnemyFollowPlayer : MonoBehaviour
 {
     public Transform player;
-    private float speed = 1.0f;
+    public float speed = 1.0f;
     public float lineofSight = 5.0f;
     public float attackRange;
     private float nextAttackTime;
@@ -37,7 +37,7 @@ public class MeleeEnemyFollowPlayer : MonoBehaviour
 
             foreach (Collider2D enemy in hitEnemies)
             {
-                //Debug.Log(enemy.name);
+                Debug.Log("Melee Hit!");
                 enemy.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
             }
             nextAttackTime = Time.time + AttackCD;

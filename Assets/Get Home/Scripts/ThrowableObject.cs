@@ -7,6 +7,7 @@ public class ThrowableObject : MonoBehaviour
     private GameObject target;
     public float speed;
     Rigidbody2D throwableRB;
+    public int damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +28,9 @@ public class ThrowableObject : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            Debug.Log("Ranged Hit!");
             Destroy(this.gameObject);
-            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(10); ;
+            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
         }
     }
 }
