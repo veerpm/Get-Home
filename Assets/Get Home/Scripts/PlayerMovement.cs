@@ -9,8 +9,8 @@ public class PlayerMovement : MonoBehaviour
     private float horizontal_movement;
     private float vertical_movement;
     private Vector3 movement;
-    public AnimationEvents events;
     private PickupObjects PickUpObjects;
+    private bool lookingRight = true;
 
     public float acceleration;
 
@@ -19,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        events = gameObject.GetComponent<AnimationEvents>();
         sprite = gameObject.GetComponent<SpriteRenderer>();
         PickUpObjects = gameObject.GetComponent<PickupObjects>();
     }
@@ -53,15 +52,17 @@ public class PlayerMovement : MonoBehaviour
 
 
             // align sprite to the movement's direction
-            if (horizontal_movement < 0)
+            if (horizontal_movement < 0 && lookingRight)
             {
                 // face left
-                sprite.flipX = true;
+                transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+                lookingRight = false;
             }
-            else if (horizontal_movement > 0)
+            else if (horizontal_movement > 0 && !lookingRight)
             {
                 // face right
-                sprite.flipX = false;
+                transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+                lookingRight = true;
             }
 
 

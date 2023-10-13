@@ -355,7 +355,7 @@ GameObject:
   m_Component:
   - component: {fileID: 43837257}
   m_Layer: 0
-  m_Name: Knife
+  m_Name: KnifeAttackSpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -369,11 +369,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 43837256}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.06, y: 0, z: 0}
+  m_LocalPosition: {x: 0.09, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1229467268}
-  - {fileID: 848896119}
+  m_Children: []
   m_Father: {fileID: 330463862}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -507,7 +505,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 330463865}
   speed: 3
-  events: {fileID: 0}
   acceleration: 10
 --- !u!212 &330463861
 SpriteRenderer:
@@ -572,6 +569,8 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 43837257}
+  - {fileID: 712664230}
+  - {fileID: 687411221}
   - {fileID: 536907795}
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -655,7 +654,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 330463865}
-  attackPoint: {fileID: 43837257}
   enemyLayers:
     serializedVersion: 2
     m_Bits: 768
@@ -696,6 +694,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   healthBar: {fileID: 324130802}
+  events: {fileID: 0}
   gameManager: {fileID: 1594741620}
 --- !u!114 &330463869
 MonoBehaviour:
@@ -1427,7 +1426,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 330463862}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &595201362 stripped
 Transform:
@@ -1856,6 +1855,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 29, y: 1.1740522}
   m_EdgeRadius: 0
+--- !u!1 &687411220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 687411221}
+  m_Layer: 10
+  m_Name: BaseballBatAttackSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &687411221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687411220}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.15, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 330463862}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &706442744
 GameObject:
   m_ObjectHideFlags: 0
@@ -1934,6 +1963,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706442744}
   m_CullTransparentMesh: 0
+--- !u!1 &712664229
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 712664230}
+  m_Layer: 10
+  m_Name: FistsAttackSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &712664230
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712664229}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.09, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 330463862}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &725944751
 GameObject:
   m_ObjectHideFlags: 0
@@ -2142,36 +2201,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &848896118
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 848896119}
-  m_Layer: 0
-  m_Name: KnifeLightAttackPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &848896119
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 848896118}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 43837257}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &938549544
 GameObject:
@@ -2500,8 +2529,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f117b49824a4adda6dbed2b6134623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightAttackRange: 0.25
-  heavyAttackRange: 0.25
+  lightAttackRange: 0.35
+  heavyAttackRange: 0.35
   lightAttackDamage: 5
   heavyAttackDamage: 10
   lightAttackRate: 10
@@ -3088,36 +3117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da2ffffa1cd0064794aa89a35f09233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1229467267
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1229467268}
-  m_Layer: 0
-  m_Name: KnifeHeavyAttackPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1229467268
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1229467267}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 43837257}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1253805835
 GameObject:
   m_ObjectHideFlags: 0
@@ -4172,13 +4171,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7917013147467662521, guid: efa010d8eb4e6404c8fc571f29f943da,
         type: 3}
+      propertyPath: maxHits
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917013147467662521, guid: efa010d8eb4e6404c8fc571f29f943da,
+        type: 3}
       propertyPath: heavyAttackRate
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7917013147467662521, guid: efa010d8eb4e6404c8fc571f29f943da,
         type: 3}
       propertyPath: heavyAttackRange
-      value: 1
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917013147467662521, guid: efa010d8eb4e6404c8fc571f29f943da,
+        type: 3}
+      propertyPath: lightAttackRange
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7917013147467662521, guid: efa010d8eb4e6404c8fc571f29f943da,
         type: 3}

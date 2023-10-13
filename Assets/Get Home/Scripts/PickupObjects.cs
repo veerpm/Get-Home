@@ -65,9 +65,9 @@ public class PickupObjects : MonoBehaviour
     IEnumerator ThrowItem(GameObject item)
     {
         Vector3 startPoint = item.transform.position;
-        Debug.Log("Start Point: " + startPoint);
+        //Debug.Log("Start Point: " + startPoint);
         Vector3 endPoint = transform.position + (Direction * 5);
-        Debug.Log("Start Point: " + endPoint);
+        //Debug.Log("Start Point: " + endPoint);
         item.transform.parent = null;
         
 

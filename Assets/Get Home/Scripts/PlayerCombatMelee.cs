@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerCombatMelee : MonoBehaviour
 {
     public Animator animator;
-    public Transform attackPoint;
+    private Transform attackPoint;
     public LayerMask enemyLayers;
     float nextLightAttackTime = 0f;
     float nextHeavyAttackTime = 0f;
@@ -126,6 +126,7 @@ public class PlayerCombatMelee : MonoBehaviour
         lightAttackDamage = weapon.GetComponent<WeaponStats>().lightAttackDamage;
         lightAttackRate = weapon.GetComponent<WeaponStats>().lightAttackRate;
         heavyAttackRate = weapon.GetComponent<WeaponStats>().heavyAttackRate;
+        attackPoint = GameObject.Find(weapon.name + "AttackSpot").transform;
 
         if (epipenActive)
         {
