@@ -14,6 +14,8 @@ public class ChatBubble : MonoBehaviour
         // set text in front of background
         textMesh.sortingLayerID = SortingLayer.NameToID("Dialogue");
         textMesh.sortingOrder = 10;
+        bgSprite.sortingLayerID = SortingLayer.NameToID("Dialogue");
+        bgSprite.sortingOrder = 9;
     }
 
     public void Setup(string text, float size = 1.25f)

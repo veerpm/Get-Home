@@ -38,6 +38,6 @@ public class ChatManager : MonoBehaviour
     IEnumerator chatDemonstration()
     {
         yield return new WaitForSeconds(4);
-        CreateBubble(player, "What a weird street!", 3f);
+        CreateBubble(player, "This street is really weird!", 3f);
     }
 }
