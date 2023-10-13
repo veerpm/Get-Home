@@ -48,7 +48,6 @@ public class EnemyHealth : MonoBehaviour
     {
         if (tag == "Enemy")
         {
-            Debug.Log("hey");
             healthBar.GetComponent<Slider>().value = currentHealth;
         }
     }
@@ -64,14 +63,31 @@ public class EnemyHealth : MonoBehaviour
         transform.position = initialPosition;
     }
 
+    private IEnumerator Wait()
+    {
+        foreach (Behaviour comp in GetComponents<Behaviour>())
+        {
+            if (comp != GetComponent<Animator>())
+            {
+                comp.enabled = false;
+            }
+
+        }
+        yield return new WaitForSeconds(1);
+        GetComponent<SpriteRenderer>().enabled = false;
+        foreach (Transform child in transform)
+        {
+            child.gameObject.SetActive(false);
+        }
+    }
+
     void Die()
     {
-        animator.SetBool("IsDead", true);
+        animator.SetTrigger("Dead");
 
-        GetComponent<Collider2D>().enabled = false;
         if (!keepActive)
         {
-            this.enabled = false;
+            StartCoroutine("Wait");
         }
     }
 
@@ -79,7 +95,16 @@ public class EnemyHealth : MonoBehaviour
     {
         animator.SetBool("IsDead", false);
 
-        GetComponent<Collider2D>().enabled = true;
+        foreach (Behaviour comp in GetComponents<Behaviour>())
+        {
+            comp.enabled = true;
+        }
+        GetComponent<SpriteRenderer>().enabled = true;
+        foreach (Transform child in transform)
+        {
+            child.gameObject.SetActive(true);
+        }
+
         SetFullHealth();
     }
 }
