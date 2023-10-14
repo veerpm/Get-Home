@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     private PickupObjects PickUpObjects;
     private bool lookingRight = true;
 
+    public AudioSource walkingSound;
+
     public float acceleration;
 
     private SpriteRenderer sprite;
@@ -76,6 +78,11 @@ public class PlayerMovement : MonoBehaviour
     bool CanMove()
     {
         return animator.GetBool("canMove");
+    }
+
+    void IsWalking()
+    {
+        walkingSound.Play();
     }
 
 }

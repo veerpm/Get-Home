@@ -18,6 +18,8 @@ public class PlayerCombatMelee : MonoBehaviour
     public AnimationEvents events;
     //public Animator camAnim;
 
+    public AudioSource attackSound;
+
     // weapon stats
     float lightAttackRange;
     float heavyAttackRange;
@@ -87,6 +89,8 @@ public class PlayerCombatMelee : MonoBehaviour
         //camAnim.SetTrigger("shake");
         animator.SetTrigger("LightAttack");
 
+        attackSound.Play();
+
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, lightAttackRange, enemyLayers);
 
         if (hitEnemies.Length != 0)
@@ -106,6 +110,8 @@ public class PlayerCombatMelee : MonoBehaviour
     void HeavyAttack()
     {
         animator.SetTrigger("LightAttack");
+
+        attackSound.Play();
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, heavyAttackRange, enemyLayers);
 
@@ -145,10 +151,10 @@ public class PlayerCombatMelee : MonoBehaviour
     {
         for (int i = epipenTimer; i >= 0; i--)
         {
-            display.GetComponent<Text>().text = "Epipen Active: " + i.ToString();
+            display.GetComponent<Text>().text = "Epipen Active x2 damage: " + i.ToString() + "s";
             yield return new WaitForSeconds(1);
         }
-        display.SetActive(false);
+        display.GetComponent<Text>().text = "";
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -204,7 +210,7 @@ public class PlayerCombatMelee : MonoBehaviour
 
             foreach (KeyValuePair<List<string>, int> c in combos)
             {
-                if (c.Key.SequenceEqual(attacksList))
+                if (c.Key.SequenceEqual(attacksList) && !epipenActive)
                 {
                     display.GetComponent<Text>().text = "Combo Activated!";
                     lightAttackDamage = c.Value;
