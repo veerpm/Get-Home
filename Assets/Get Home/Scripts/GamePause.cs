@@ -67,8 +67,15 @@ public class GamePause : MonoBehaviour
 
     public void pause(bool isPaused)
     {
-        player.GetComponent<PlayerMovement>().enabled = !isPaused;
+        //player.GetComponent<PlayerMovement>().enabled = !isPaused;
         player.GetComponent<Animator>().enabled = !isPaused;
+
+        // toggle player scripts
+        var playerScripts = player.GetComponents<MonoBehaviour>();
+        foreach (var script in playerScripts)
+        {
+            script.enabled = !isPaused;
+        }
 
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
@@ -76,9 +83,9 @@ public class GamePause : MonoBehaviour
         foreach (GameObject enemy in enemies)
         {
             enemy.GetComponent<Animator>().enabled = !isPaused;
-            var scripts = enemy.GetComponents<MonoBehaviour>();
+            var enemyScripts = enemy.GetComponents<MonoBehaviour>();
             // toggle enemy's scripts
-            foreach (var script in scripts)
+            foreach (var script in enemyScripts)
             {
                 script.enabled = !isPaused;
             }
