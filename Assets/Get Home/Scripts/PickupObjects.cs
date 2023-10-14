@@ -17,7 +17,7 @@ public class PickupObjects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Direction);
+        //Debug.Log(Direction);
         if (Input.GetKeyDown(KeyCode.T))
         {
             if (itemHolding)

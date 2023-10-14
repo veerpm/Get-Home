@@ -42,9 +42,13 @@ public class GamePause : MonoBehaviour
                 GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
                 foreach (GameObject enemy in enemies)
                 {
-                    EnemyHealth healthScript = enemy.GetComponent<EnemyHealth>();
-                    healthScript.Alive();
-                    healthScript.resetPosition();
+                    if (enemy.name != "BicycleEnemy")
+                    {
+                        EnemyHealth healthScript = enemy.GetComponent<EnemyHealth>();
+                        healthScript.Alive();
+                        healthScript.resetPosition();
+                    }
+
                 }
 
                 // alive
