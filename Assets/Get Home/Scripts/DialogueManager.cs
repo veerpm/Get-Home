@@ -9,9 +9,13 @@ public class DialogueManager : MonoBehaviour
     public GameObject dialogueBox;
     public float textSpeed;
 
+    public Sprite[] sprites;
+
+    // dialogue
     private string speaker;
     private string[] lines;
 
+    // utility
     private int index;
     private TextMeshProUGUI textObj;
     private bool dialogueOn;
@@ -32,7 +36,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (dialogueOn && Input.anyKeyDown)
         {
-            if(textObj.text == speaker + lines[index])
+            if (textObj.text == speaker + lines[index])
             {
                 // finished displaying. Jump to next line
                 NextLine();
@@ -65,7 +69,7 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator TypeLine()
     {
-        foreach(char c in lines[index].ToCharArray())
+        foreach (char c in lines[index].ToCharArray())
         {
             textObj.text += c;
             yield return new WaitForSeconds(textSpeed);
@@ -74,7 +78,7 @@ public class DialogueManager : MonoBehaviour
 
     void NextLine()
     {
-        if(index < lines.Length - 1)
+        if (index < lines.Length - 1)
         {
             // still more lines to read
             index++;
