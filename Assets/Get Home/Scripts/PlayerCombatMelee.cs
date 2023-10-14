@@ -60,9 +60,6 @@ public class PlayerCombatMelee : MonoBehaviour
             {
                 LightAttack();
                 nextLightAttackTime = Time.time + 1f / lightAttackRate;
-
-                DealWCombo("LightAttack");
-
             }
         }
 
@@ -72,8 +69,6 @@ public class PlayerCombatMelee : MonoBehaviour
             {
                 HeavyAttack();
                 nextHeavyAttackTime = Time.time + 1f / heavyAttackRate;
-
-                DealWCombo("HeavyAttack");
             }
         }
 
@@ -94,6 +89,11 @@ public class PlayerCombatMelee : MonoBehaviour
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, lightAttackRange, enemyLayers);
 
+        if (hitEnemies.Length != 0)
+        {
+            DealWCombo("LightAttack");
+        }
+
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<EnemyHealth>().TakeDamage(lightAttackDamage);
@@ -108,6 +108,12 @@ public class PlayerCombatMelee : MonoBehaviour
         animator.SetTrigger("LightAttack");
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, heavyAttackRange, enemyLayers);
+
+        if (hitEnemies.Length != 0)
+        {
+            DealWCombo("HeavyAttack");
+        }
+
 
         foreach (Collider2D enemy in hitEnemies)
         {

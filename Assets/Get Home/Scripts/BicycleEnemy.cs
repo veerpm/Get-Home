@@ -22,6 +22,11 @@ public class BicycleEnemy : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.left * speed * Time.deltaTime);
+
+        if (transform.position.x < -9)
+        {
+            GameObject.Destroy(this.gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -31,4 +36,5 @@ public class BicycleEnemy : MonoBehaviour
             player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
         }
     }
+
 }
