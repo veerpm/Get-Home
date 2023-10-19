@@ -382,7 +382,7 @@ GameObject:
   - component: {fileID: 7645658738577266058}
   - component: {fileID: 7645658738577266057}
   m_Layer: 8
-  m_Name: ThrowingEnemy 1
+  m_Name: ThrowingEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -493,7 +493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77bd6178d0c8e441a9db849e6f48a7b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 40
+  maxHealth: 100
   animator: {fileID: 7645658738577266063}
   healthBar: {fileID: 4901410414494957512}
 --- !u!95 &7645658738577266063
