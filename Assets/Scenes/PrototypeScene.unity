@@ -486,6 +486,7 @@ GameObject:
   - component: {fileID: 330463871}
   - component: {fileID: 330463873}
   - component: {fileID: 330463872}
+  - component: {fileID: 330463874}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -940,6 +941,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &330463874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330463859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25ac185ce765564dbe54da5f282a49d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 1594741620}
+  triggers:
+  - xPosition: -4
+    function: 1
+    repeats: 0
+    text: What a weird street
 --- !u!1 &347168250
 GameObject:
   m_ObjectHideFlags: 0
