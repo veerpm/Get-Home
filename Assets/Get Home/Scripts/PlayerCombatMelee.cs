@@ -93,14 +93,15 @@ public class PlayerCombatMelee : MonoBehaviour
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, lightAttackRange, enemyLayers);
 
-        if (hitEnemies.Length != 0)
+        if (hitEnemies.Length == 0)
         {
-            DealWCombo("LightAttack");
+            return;
         }
 
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<EnemyHealth>().TakeDamage(lightAttackDamage);
+            DealWCombo("LightAttack");
         }
 
         weaponManagement.AdjustDurability();
@@ -115,15 +116,16 @@ public class PlayerCombatMelee : MonoBehaviour
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, heavyAttackRange, enemyLayers);
 
-        if (hitEnemies.Length != 0)
+        if (hitEnemies.Length == 0)
         {
-            DealWCombo("HeavyAttack");
+            return;
         }
 
 
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<EnemyHealth>().TakeDamage(heavyAttackDamage);
+            DealWCombo("HeavyAttack");
         }
 
         weaponManagement.AdjustDurability();
