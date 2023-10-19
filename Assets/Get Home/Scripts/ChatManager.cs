@@ -14,7 +14,7 @@ public class ChatManager : MonoBehaviour
     public void Start()
     {
         //CreateBubble(player, "I need to get home!", 3f);
-        StartCoroutine(chatDemonstration());
+        //StartCoroutine(chatDemonstration());
     }
 
 
