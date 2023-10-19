@@ -133,7 +133,6 @@ public class PlayerCombatMelee : MonoBehaviour
 
     public void SetWeaponStats(GameObject weapon)
     {
-        //animator.SetBool(weapon.name, true);
         lightAttackRange = weapon.GetComponent<WeaponStats>().lightAttackRange;
         heavyAttackRange = weapon.GetComponent<WeaponStats>().heavyAttackRange;
         heavyAttackDamage = weapon.GetComponent<WeaponStats>().heavyAttackDamage;

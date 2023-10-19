@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class WeaponManagement : MonoBehaviour
 {
-    private GameObject equippedWeapon; // current weapon
+    GameObject equippedWeapon; // current weapon
     public GameObject floorWeapon;
     public GameObject defaultWeapon;
-    private bool pickable;
+    bool pickable;
     public Image weaponDisplay; // HUD weapon display
     public GameObject durability;
     public Animator animator;
@@ -45,8 +45,7 @@ public class WeaponManagement : MonoBehaviour
         {
             equippedWeapon = value;
             GetComponent<PlayerCombatMelee>().SetWeaponStats(equippedWeapon);
-            DisplayWeapon();
-            DisplayWeaponDurability();
+            DisplayWeapon(equippedWeapon);
             animator.SetBool(EquippedWeapon.name, true);
         }
     }
@@ -87,34 +86,41 @@ public class WeaponManagement : MonoBehaviour
         EquippedWeapon = defaultWeapon;
     }
 
-    void DisplayWeapon()
+    void DisplayWeapon(GameObject weapon)
     {
-        weaponDisplay.sprite = EquippedWeapon.GetComponent<SpriteRenderer>().sprite;
+        weaponDisplay.sprite = weapon.GetComponent<SpriteRenderer>().sprite;
+        DisplayWeaponDurability(weapon);
     }
 
     public void AdjustDurability()
     {
         EquippedWeapon.GetComponent<WeaponStats>().maxHits--;
 
-        DisplayWeaponDurability();
+        DisplayWeaponDurability(EquippedWeapon);
 
-        if (EquippedWeapon.GetComponent<WeaponStats>().maxHits <= 0 && EquippedWeapon != defaultWeapon)
+        if (EquippedWeapon.GetComponent<WeaponStats>().maxHits == 0 && EquippedWeapon != defaultWeapon)
         {
-            //Debug.Log(EquippedWeapon);
+            DisplayWeapon(defaultWeapon);
+        }
+
+        if (EquippedWeapon.GetComponent<WeaponStats>().maxHits < 0 && EquippedWeapon != defaultWeapon)
+        {
             animator.SetBool(EquippedWeapon.name, false);
             EquippedWeapon = defaultWeapon;
         }
+        
+
     }
 
-    void DisplayWeaponDurability()
+    void DisplayWeaponDurability(GameObject weapon)
     {
-        if (EquippedWeapon == defaultWeapon)
+        if (weapon == defaultWeapon)
         {
             durability.GetComponent<Text>().text = "No limit";
         }
         else
         {
-            durability.GetComponent<Text>().text = EquippedWeapon.GetComponent<WeaponStats>().maxHits.ToString();
+            durability.GetComponent<Text>().text = weapon.GetComponent<WeaponStats>().maxHits.ToString();
         }
     }
 }
