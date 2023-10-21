@@ -2,87 +2,123 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
 
+    [System.Serializable]
+    public struct Line
+    {
+        public Sprite sprite;
+        public string text;
+    }
+
+    [System.Serializable]
+    public struct Conversation
+    {
+        public float xPosition;
+        public string speaker;
+        public Line[] lines;
+    };
+
+    public GameObject gameManager;
     public GameObject dialogueBox;
+    public TextMeshProUGUI speakerText;
+    public TextMeshProUGUI mainText;
+    public Image speakerSprite;
     public float textSpeed;
 
-    public Sprite[] sprites;
+    public Conversation[] conversations;
 
     // dialogue
     private string speaker;
-    private string[] lines;
+    private Line[] lines;
 
     // utility
     private int index;
-    private TextMeshProUGUI textObj;
+    private SpriteRenderer spriteObj;
     private bool dialogueOn;
+    private float sensibility = 0.25f; // trigger sensibility
+    private HashSet<float> pastDialogues = new HashSet<float>();
+
 
     // Start is called before the first frame update
     void Start()
     {
-        textObj = dialogueBox.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         dialogueOn = false;
-
-        // testing
-        string[] lines = { "What a night...", "And I still need to get home!" };
-        StartDialogue(lines, "Randy");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (dialogueOn && Input.anyKeyDown)
+        float xPos = this.transform.position.x;
+        foreach (Conversation conversation in conversations)
         {
-            if (textObj.text == speaker + lines[index])
+            // if we are near conversation's trigger, start it
+            if (!pastDialogues.Contains(conversation.xPosition) && Mathf.Abs(xPos - conversation.xPosition) < sensibility)
             {
-                // finished displaying. Jump to next line
-                NextLine();
+                pastDialogues.Add(conversation.xPosition);
+                StartDialogue(conversation.speaker.ToUpper(), conversation.lines);
             }
-            else
+
+            // Continue conversation if one is being run
+            if (dialogueOn && Input.anyKeyDown && !
+            (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))) // any key except the mouse activates next dialogue
             {
-                // skip text animation & display everything
-                StopAllCoroutines();
-                textObj.text = speaker + lines[index];
+                Debug.Log(mainText.text);
+                Debug.Log(lines[index].text);
+                if (mainText.text == lines[index].text)
+                {
+                    // finished displaying. Jump to next line
+                    NextLine();
+                }
+                else
+                {
+                    // skip text animation & display everything
+                    StopAllCoroutines();
+                    mainText.text = lines[index].text;
+                }
             }
         }
     }
 
-    void StartDialogue(string[] lines, string speaker)
+    public void StartDialogue(string speaker, Line[] lines)
     {
         // setup 
         index = 0;
-        dialogueOn = true;
+        this.dialogueOn = true;
         dialogueBox.SetActive(true);
-        GetComponent<GamePause>().pause(true);
+        gameManager.GetComponent<GamePause>().pause(true);
 
         // dialogue info
-        this.speaker = "<b>" + speaker + "</b>: ";
+        speakerText.text = speaker;
         this.lines = lines;
 
         // for starting the dialogue
-        textObj.text = string.Empty + this.speaker;
+        mainText.text = string.Empty;
         StartCoroutine(TypeLine());
     }
 
+    // type 1 line 1 character at a time (coroutine)
     IEnumerator TypeLine()
     {
-        foreach (char c in lines[index].ToCharArray())
+        speakerSprite.sprite = lines[index].sprite;
+        foreach (char c in lines[index].text.ToCharArray())
         {
-            textObj.text += c;
+            mainText.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
     }
 
+    // move on to next line
     void NextLine()
     {
         if (index < lines.Length - 1)
         {
             // still more lines to read
             index++;
-            textObj.text = string.Empty + speaker;
+            mainText.text = string.Empty;
             StartCoroutine(TypeLine());
         }
         else
@@ -90,7 +126,7 @@ public class DialogueManager : MonoBehaviour
             // read all lines
             dialogueOn = false;
             dialogueBox.SetActive(false);
-            GetComponent<GamePause>().pause(false);
+            gameManager.GetComponent<GamePause>().pause(false);
         }
     }
 }

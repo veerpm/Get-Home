@@ -6,18 +6,20 @@ public class Boundaries : MonoBehaviour
 {
     public float upperBound;
     public float lowerBound;
-    public float leftBoundOffset;
-    public float rightBoundOffset;
+    public float leftBound;
+    public float rightBound;
+    public float leftOffset = 1f;
+    public float rightOffset = 1f;
     public bool freeze = false;
 
-    private float leftBound;
-    private float rightBound;
+    private float leftFloatingBound;
+    private float rightFloatingBound;
 
     // Start is called before the first frame update
     void Start()
     {
-        leftBound = transform.position.x - leftBoundOffset;
-        rightBound = transform.position.x + rightBoundOffset;
+        leftFloatingBound = transform.position.x - leftOffset;
+        rightFloatingBound = transform.position.x + rightOffset;
     }
 
     // Update is called once per frame
@@ -26,8 +28,8 @@ public class Boundaries : MonoBehaviour
         // update horizontal bounds on player's position
         if (!freeze)
         {
-            leftBound = transform.position.x - leftBoundOffset;
-            rightBound = transform.position.x + rightBoundOffset;
+            leftFloatingBound = transform.position.x - leftOffset;
+            rightFloatingBound = transform.position.x + rightOffset;
         }
 
         // set bounds
@@ -48,6 +50,14 @@ public class Boundaries : MonoBehaviour
         {
             transform.position = new Vector2(transform.position.x, upperBound);
         }
+        if(transform.position.x < leftFloatingBound)
+        {
+            transform.position = new Vector2(leftFloatingBound, transform.position.y);
+        }
+        if (transform.position.x > rightFloatingBound)
+        {
+            transform.position = new Vector2(rightFloatingBound, transform.position.y);
+        }
     }
 
     public void Freeze(float upBound = 0, float lowBound = 0, float leftOffset = 0, float rightOffset = 0)
@@ -56,8 +66,8 @@ public class Boundaries : MonoBehaviour
 
         upperBound = upBound;
         lowerBound = lowBound;
-        leftBoundOffset = leftOffset;
-        rightBoundOffset = rightOffset;
+        this.leftOffset = leftOffset;
+        this.rightOffset = rightOffset;
     }
 
     public void unFreeze()
