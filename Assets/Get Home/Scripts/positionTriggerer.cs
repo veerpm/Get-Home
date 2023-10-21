@@ -66,9 +66,6 @@ public class positionTriggerer : MonoBehaviour
             case Functionality.CHAT:
                 makeChat(trigger);
                 break;
-            case Functionality.DIALOGUE:
-                makeDialogue(trigger);
-                break;
         }
 
         // won't play trigger again if it doesn't repeats
@@ -82,13 +79,5 @@ public class positionTriggerer : MonoBehaviour
     void makeChat(Trigger trigger)
     {
         gameManager.GetComponent<ChatManager>().CreateBubble(this.gameObject, trigger.text, 3f);
-    }
-
-    // create dialogue boxes
-    void makeDialogue(Trigger trigger)
-    {
-        //string[] dialogues= trigger.text.Split('\n');
-        string[] dialogues = { trigger.text };
-        gameManager.GetComponent<DialogueManager>().StartDialogue(dialogues, "Randy");
     }
 }

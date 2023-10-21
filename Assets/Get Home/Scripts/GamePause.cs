@@ -74,6 +74,11 @@ public class GamePause : MonoBehaviour
         var playerScripts = player.GetComponents<MonoBehaviour>();
         foreach (var script in playerScripts)
         {
+            // dialogues still need work during pauses
+            if(script.GetType().Name == "DialogueManager")
+            {
+                continue;
+            }
             script.enabled = !isPaused;
         }
 
