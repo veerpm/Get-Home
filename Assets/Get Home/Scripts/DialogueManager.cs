@@ -34,7 +34,9 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (dialogueOn && Input.anyKeyDown)
+        // any key except the mouse activates next dialogue
+        if (dialogueOn && Input.anyKeyDown && !
+            (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2)))
         {
             if (textObj.text == speaker + lines[index])
             {
@@ -50,7 +52,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    void StartDialogue(string[] lines, string speaker)
+    public void StartDialogue(string[] lines, string speaker)
     {
         // setup 
         index = 0;
