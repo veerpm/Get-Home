@@ -153,10 +153,10 @@ RectTransform:
   m_Father: {fileID: 1721763428}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6046783
 MonoBehaviour:
@@ -2634,7 +2634,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press any key to restart the game.
+  m_Text: Press the 'space' key to restart the game.
 --- !u!222 &706442747
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3377,7 +3377,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb917d186f49144ca553609b91801ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: BossLevel
 --- !u!212 &1008393673
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3580,10 +3579,10 @@ RectTransform:
   m_Father: {fileID: 2091657019}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 2000, y: 2000}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1193298892
 MonoBehaviour:
@@ -4509,10 +4508,10 @@ RectTransform:
   m_Father: {fileID: 2091657019}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 2000, y: 2000}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1721763429
 MonoBehaviour:

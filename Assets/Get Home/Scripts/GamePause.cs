@@ -32,7 +32,7 @@ public class GamePause : MonoBehaviour
         // if player died, wait for input to restart
         if (dead)
         {
-            if (Input.anyKeyDown)
+            if (Input.GetKeyDown("space"))
             {
                 // resets player position & health
                 player.transform.position = checkpoint;
