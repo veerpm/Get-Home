@@ -1,16 +1,12 @@
 ﻿<Properties GitUserInfo="UsingGIT">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Get Home/Scripts/WeaponManagement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Get Home/Scripts/PlayerHealth.cs">
     <Files>
-      <File FileName="Assets/Get Home/Scripts/EnemyHealth.cs" Line="1" Column="1" />
+      <File FileName="Assets/Get Home/Scripts/EnemyHealth.cs" />
       <File FileName="Assets/Get Home/Scripts/WeaponManagement.cs" Line="11" Column="19" />
-      <File FileName="Assets/Get Home/Scripts/PlayerCombatMelee.cs" Line="220" Column="41" />
-      <File FileName="Assets/Get Home/Scripts/PlayerMovement.cs" Line="23" Column="6" />
+      <File FileName="Assets/Get Home/Scripts/PlayerCombatMelee.cs" />
+      <File FileName="Assets/Get Home/Scripts/PlayerMovement.cs" />
+      <File FileName="Assets/Get Home/Scripts/PlayerHealth.cs" Line="36" Column="31" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -20,7 +16,7 @@
               <Node name="Assets" expanded="True">
                 <Node name="Get Home" expanded="True">
                   <Node name="Scripts" expanded="True">
-                    <Node name="WeaponManagement.cs" selected="True" />
+                    <Node name="PlayerHealth.cs" selected="True" />
                   </Node>
                 </Node>
               </Node>
@@ -30,4 +26,9 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>
