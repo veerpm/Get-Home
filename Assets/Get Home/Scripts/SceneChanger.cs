@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    public string sceneName;
-
     void Update()
     {
     }
@@ -23,7 +21,7 @@ public class SceneChanger : MonoBehaviour
     IEnumerator LoadScene()
     {
         // The Application loads the Scene in the background as the current Scene runs.
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
 
         // Wait until the asynchronous scene fully loads
         while (!asyncLoad.isDone)
