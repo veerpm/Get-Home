@@ -12,6 +12,10 @@ public class WeaponManagement : MonoBehaviour
     public Image weaponDisplay; // HUD weapon display
     public GameObject durability;
     public Animator animator;
+    public Image durabilityBarFull;
+    public Image durabilityBarEmpty;
+    public float spacing;
+    public float offset;
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +56,8 @@ public class WeaponManagement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.transform.parent.gameObject.tag == "Weapon")
+        Transform colTr = collider.transform.parent;
+        if (colTr != null && colTr.tag == "Weapon")
         {
             pickable = true;
             floorWeapon = collider.transform.parent.gameObject;
@@ -61,7 +66,8 @@ public class WeaponManagement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        if (collider.transform.parent.gameObject.tag == "Weapon")
+        Transform colTr = collider.transform.parent;
+        if (colTr != null && colTr.tag == "Weapon")
         {
             pickable = false;
         }
@@ -94,16 +100,16 @@ public class WeaponManagement : MonoBehaviour
 
     public void AdjustDurability()
     {
-        EquippedWeapon.GetComponent<WeaponStats>().maxHits--;
+        EquippedWeapon.GetComponent<WeaponStats>().currentHits--;
 
         DisplayWeaponDurability(EquippedWeapon);
 
-        if (EquippedWeapon.GetComponent<WeaponStats>().maxHits == 0 && EquippedWeapon != defaultWeapon)
+        if (EquippedWeapon.GetComponent<WeaponStats>().currentHits == 0 && EquippedWeapon != defaultWeapon)
         {
             DisplayWeapon(defaultWeapon);
         }
 
-        if (EquippedWeapon.GetComponent<WeaponStats>().maxHits < 0 && EquippedWeapon != defaultWeapon)
+        if (EquippedWeapon.GetComponent<WeaponStats>().currentHits < 0 && EquippedWeapon != defaultWeapon)
         {
             animator.SetBool(EquippedWeapon.name, false);
             EquippedWeapon = defaultWeapon;
@@ -114,13 +120,27 @@ public class WeaponManagement : MonoBehaviour
 
     void DisplayWeaponDurability(GameObject weapon)
     {
-        if (weapon == defaultWeapon)
+        //if (weapon == defaultWeapon)
+        //{
+        //    durability.GetComponent<Text>().text = "No limit";
+        //}
+        //else
+        //{
+        //    durability.GetComponent<Text>().text = weapon.GetComponent<WeaponStats>().currentHits.ToString();
+        //}
+
+        for (int i = 0; i < EquippedWeapon.GetComponent<WeaponStats>().maxHits; i++)
         {
-            durability.GetComponent<Text>().text = "No limit";
-        }
-        else
-        {
-            durability.GetComponent<Text>().text = weapon.GetComponent<WeaponStats>().maxHits.ToString();
+            if (EquippedWeapon != defaultWeapon)
+            {
+                // Create a new image instance from the prefab
+                Image durabilityBarFullInst = Instantiate(durabilityBarFull, durability.transform);
+                Image durabilityBarEmptyInst = Instantiate(durabilityBarEmpty, durability.transform);
+
+                durabilityBarFullInst.rectTransform.anchoredPosition = new Vector2(i * (durabilityBarFullInst.sprite.rect.width * durabilityBarFullInst.transform.localScale.x + spacing) - offset, 0);
+                durabilityBarEmptyInst.rectTransform.anchoredPosition = new Vector2(i * (durabilityBarEmptyInst.sprite.rect.width * durabilityBarEmptyInst.transform.localScale.x + spacing) - offset, 0);
+            }
+
         }
     }
 }

@@ -11,4 +11,10 @@ public class WeaponStats : MonoBehaviour
     public float lightAttackRate;
     public float heavyAttackRate;
     public int maxHits;
+    public int currentHits;
+
+    private void Start()
+    {
+        currentHits = maxHits;
+    }
 }

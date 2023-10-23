@@ -160,13 +160,13 @@ public class PlayerCombatMelee : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.transform.parent.gameObject.name == "Epipen")
+        if (collider.gameObject.name == "Epipen")
         {
             lightAttackDamage = lightAttackDamage * epipenDamageBoost;
             heavyAttackDamage = heavyAttackDamage * epipenDamageBoost;
             startTimer = Time.time;
             epipenActive = true;
-            collider.transform.parent.gameObject.SetActive(false);
+            collider.gameObject.SetActive(false);
             StartCoroutine("EpipenTimer");
         }
     }
