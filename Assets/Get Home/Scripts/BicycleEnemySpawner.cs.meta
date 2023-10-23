@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 9d60e092e70964999bef95fd4fa40f7e
+guid: 56bb52c084b194d70a78a783e2482926
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - bicycleGameObject: {fileID: 7356106474643977981, guid: c5a96e5964d1044a0ae170e2a0b1cb7c,
-      type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

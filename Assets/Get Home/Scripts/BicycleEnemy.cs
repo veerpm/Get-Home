@@ -8,33 +8,30 @@ public class BicycleEnemy : MonoBehaviour
     public int attackDamage;
     GameObject player;
 
-    float startTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
-        float y = Random.Range(0.4f, -4f);
-        transform.position = new Vector3(8f, y, 0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.left * speed * Time.deltaTime);
+         transform.Translate(Vector3.left * speed * Time.deltaTime);
 
-        if (transform.position.x < -9)
-        {
-            GameObject.Destroy(this.gameObject);
-        }
+          if (transform.position.x < -9)
+          {
+                Destroy(gameObject);
+          }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject == player)
+        if (collider.gameObject.tag == "Player")
         {
-            player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().TakeDamage(attackDamage);
         }
     }
 
 }
+

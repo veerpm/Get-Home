@@ -45,8 +45,13 @@ public class GamePause : MonoBehaviour
                     if (enemy.name != "BicycleEnemy")
                     {
                         EnemyHealth healthScript = enemy.GetComponent<EnemyHealth>();
+
+                        if (healthScript != null) // checks if this enemy has healthscript
+                        {
                         healthScript.Alive();
                         healthScript.resetPosition();
+                        }
+
                     }
 
                 }
@@ -87,7 +92,11 @@ public class GamePause : MonoBehaviour
         // toggle if enemies are "alive" or not
         foreach (GameObject enemy in enemies)
         {
-            enemy.GetComponent<Animator>().enabled = !isPaused;
+            if (enemy.GetComponent<Animator>() != null)
+            {
+                enemy.GetComponent<Animator>().enabled = !isPaused;
+            }
+
             var enemyScripts = enemy.GetComponents<MonoBehaviour>();
             // toggle enemy's scripts
             foreach (var script in enemyScripts)
