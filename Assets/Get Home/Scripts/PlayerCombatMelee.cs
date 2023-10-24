@@ -34,6 +34,7 @@ public class PlayerCombatMelee : MonoBehaviour
     public int epipenTimer;
     bool epipenActive;
     float startTimer; // timer to track when epipen was activated
+    public Image epipenOverlay;
 
     // combos
     List<string> attacksList = new List<string>();
@@ -44,6 +45,7 @@ public class PlayerCombatMelee : MonoBehaviour
     {
         events = gameObject.GetComponent<AnimationEvents>();
         weaponManagement = GetComponent<WeaponManagement>();
+        epipenOverlay.enabled = false;
         AddCombos();
     }
 
@@ -150,11 +152,17 @@ public class PlayerCombatMelee : MonoBehaviour
 
     private IEnumerator EpipenTimer()
     {
+        epipenOverlay.enabled = true;
+
         for (int i = epipenTimer; i >= 0; i--)
         {
             display.GetComponent<Text>().text = "Epipen Active x2 damage: " + i.ToString() + "s";
             yield return new WaitForSeconds(1);
+            epipenOverlay.enabled = !epipenOverlay.enabled;
         }
+
+        epipenOverlay.enabled = false;
+
         display.GetComponent<Text>().text = "";
     }
 

@@ -3,15 +3,13 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Get Home/Scripts/WeaponManagement.cs">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Get Home/Scripts/PlayerHealth.cs">
     <Files>
-      <File FileName="Assets/Get Home/Scripts/BicycleEnemy.cs" Line="31" Column="41" />
-      <File FileName="Assets/Get Home/Scripts/BicycleEnemy.cs" Line="29" Column="6" />
-      <File FileName="Assets/Get Home/Scripts/PlayerCombatMelee.cs" Line="107" Column="34" />
-      <File FileName="Assets/Get Home/Scripts/WeaponManagement.cs" Line="90" Column="26" />
-      <File FileName="Assets/Get Home/Scripts/WeaponStats.cs" Line="15" Column="1" />
+      <File FileName="Assets/Get Home/Scripts/EnemyHealth.cs" Line="36" Column="75" />
+      <File FileName="Assets/Get Home/Scripts/WeaponManagement.cs" Line="131" Column="53" />
+      <File FileName="Assets/Get Home/Scripts/PlayerHealth.cs" Line="43" Column="25" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -21,7 +19,7 @@
               <Node name="Assets" expanded="True">
                 <Node name="Get Home" expanded="True">
                   <Node name="Scripts" expanded="True">
-                    <Node name="WeaponManagement.cs" selected="True" />
+                    <Node name="PlayerHealth.cs" selected="True" />
                   </Node>
                 </Node>
               </Node>
