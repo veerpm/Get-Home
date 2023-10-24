@@ -75,6 +75,7 @@ public class WeaponManagement : MonoBehaviour
 
     void SwapWeapon()
     {
+        ResetDurability();
         GameObject temp = floorWeapon;
         floorWeapon = EquippedWeapon;
         EquippedWeapon = temp;
@@ -86,6 +87,7 @@ public class WeaponManagement : MonoBehaviour
 
     void DropWeapon()
     {
+        ResetDurability();
         animator.SetBool(EquippedWeapon.name, false);
         EquippedWeapon.transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, 0);
         EquippedWeapon.SetActive(true);
@@ -95,52 +97,65 @@ public class WeaponManagement : MonoBehaviour
     void DisplayWeapon(GameObject weapon)
     {
         weaponDisplay.sprite = weapon.GetComponent<SpriteRenderer>().sprite;
-        DisplayWeaponDurability(weapon);
+        if (weapon != defaultWeapon)
+        {
+            DisplayWeaponDurability(EquippedWeapon.GetComponent<WeaponStats>().maxHits, durabilityBarEmpty);
+            DisplayWeaponDurability(EquippedWeapon.GetComponent<WeaponStats>().currentHits, durabilityBarFull);
+        }
     }
 
     public void AdjustDurability()
     {
         EquippedWeapon.GetComponent<WeaponStats>().currentHits--;
 
-        DisplayWeaponDurability(EquippedWeapon);
-
         if (EquippedWeapon.GetComponent<WeaponStats>().currentHits == 0 && EquippedWeapon != defaultWeapon)
         {
             DisplayWeapon(defaultWeapon);
+            RemoveWeaponDurability(EquippedWeapon.GetComponent<WeaponStats>().maxHits, "EmptyBar");
         }
+
 
         if (EquippedWeapon.GetComponent<WeaponStats>().currentHits < 0 && EquippedWeapon != defaultWeapon)
         {
             animator.SetBool(EquippedWeapon.name, false);
             EquippedWeapon = defaultWeapon;
         }
-        
+
+        if (EquippedWeapon != defaultWeapon)
+        {
+            RemoveWeaponDurability(1, "FullBar");
+        }
 
     }
 
-    void DisplayWeaponDurability(GameObject weapon)
+    void DisplayWeaponDurability(int num, Image bar)
     {
-        //if (weapon == defaultWeapon)
-        //{
-        //    durability.GetComponent<Text>().text = "No limit";
-        //}
-        //else
-        //{
-        //    durability.GetComponent<Text>().text = weapon.GetComponent<WeaponStats>().currentHits.ToString();
-        //}
-
-        for (int i = 0; i < EquippedWeapon.GetComponent<WeaponStats>().maxHits; i++)
+        for (int i = 0; i < num; i++)
         {
             if (EquippedWeapon != defaultWeapon)
             {
                 // Create a new image instance from the prefab
-                Image durabilityBarFullInst = Instantiate(durabilityBarFull, durability.transform);
-                Image durabilityBarEmptyInst = Instantiate(durabilityBarEmpty, durability.transform);
+                Image durabilityBarFullInst = Instantiate(bar, durability.transform);
 
                 durabilityBarFullInst.rectTransform.anchoredPosition = new Vector2(i * (durabilityBarFullInst.sprite.rect.width * durabilityBarFullInst.transform.localScale.x + spacing) - offset, 0);
-                durabilityBarEmptyInst.rectTransform.anchoredPosition = new Vector2(i * (durabilityBarEmptyInst.sprite.rect.width * durabilityBarEmptyInst.transform.localScale.x + spacing) - offset, 0);
             }
-
         }
+    }
+
+    void RemoveWeaponDurability(int num,string tags)
+    {
+        Debug.Log(num);
+        GameObject[] durbarsObj  = GameObject.FindGameObjectsWithTag(tags);
+
+        for (int i = durbarsObj.Length-1; i >= durbarsObj.Length-num; i--)
+        {
+            Destroy(durbarsObj[i]);
+        }
+    }
+
+    void ResetDurability()
+    {
+        RemoveWeaponDurability(EquippedWeapon.GetComponent<WeaponStats>().maxHits, "EmptyBar");
+        RemoveWeaponDurability(EquippedWeapon.GetComponent<WeaponStats>().currentHits, "FullBar");
     }
 }
