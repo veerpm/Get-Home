@@ -234,6 +234,7 @@ MonoBehaviour:
   maxHealth: 1
   animator: {fileID: 40948290}
   healthBar: {fileID: 0}
+  damageText: {fileID: 0}
   gameManager: {fileID: 1594741620}
 --- !u!61 &40948289
 BoxCollider2D:
@@ -589,11 +590,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ThrowingEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7645658738577266064, guid: 309790e093fa74cc3a2297a9191d49e2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 309790e093fa74cc3a2297a9191d49e2, type: 3}
@@ -3607,6 +3603,7 @@ MonoBehaviour:
   maxHealth: 40
   animator: {fileID: 1213802121}
   healthBar: {fileID: 0}
+  damageText: {fileID: 0}
 --- !u!61 &1213802123
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3934,11 +3931,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BaseballEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 683629375773968696, guid: 9752569396f9e482e9e16d796fbef497,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 683629375773968698, guid: 9752569396f9e482e9e16d796fbef497,
         type: 3}
@@ -4640,6 +4632,7 @@ MonoBehaviour:
   maxHealth: 40
   animator: {fileID: 1850538875}
   healthBar: {fileID: 0}
+  damageText: {fileID: 0}
 --- !u!95 &1850538875
 Animator:
   serializedVersion: 3

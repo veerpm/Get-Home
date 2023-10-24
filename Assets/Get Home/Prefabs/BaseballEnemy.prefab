@@ -276,6 +276,8 @@ MonoBehaviour:
   maxHealth: 100
   animator: {fileID: 683629375773968701}
   healthBar: {fileID: 683629376282566711}
+  damageText: {fileID: 4618674295722251227, guid: 933c2086dbb464ba8bc84326bb5f1311,
+    type: 3}
 --- !u!95 &683629375773968701
 Animator:
   serializedVersion: 3
