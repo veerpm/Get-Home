@@ -31,10 +31,11 @@ public class PlayerCombatMelee : MonoBehaviour
 
     // epipen
     public int epipenDamageBoost;
-    public int epipenTimer;
+    public int epipenDuration;
     bool epipenActive;
     float startTimer; // timer to track when epipen was activated
     public Image epipenOverlay;
+    public Image epipenTimer;
 
     // combos
     List<string> attacksList = new List<string>();
@@ -46,6 +47,8 @@ public class PlayerCombatMelee : MonoBehaviour
         events = gameObject.GetComponent<AnimationEvents>();
         weaponManagement = GetComponent<WeaponManagement>();
         epipenOverlay.enabled = false;
+        epipenTimer.enabled = false;
+        epipenTimer.transform.GetChild(0).GetComponent<Image>().enabled = false;
         AddCombos();
     }
 
@@ -77,7 +80,7 @@ public class PlayerCombatMelee : MonoBehaviour
         }
 
 
-        if (epipenActive && Time.time - startTimer > epipenTimer)
+        if (epipenActive && Time.time - startTimer > epipenDuration)
         {
             lightAttackDamage = lightAttackDamage / epipenDamageBoost;
             heavyAttackDamage = heavyAttackDamage / epipenDamageBoost;
@@ -150,20 +153,27 @@ public class PlayerCombatMelee : MonoBehaviour
         }
     }
 
+
+    // Epipen Logic
     private IEnumerator EpipenTimer()
     {
         epipenOverlay.enabled = true;
+        epipenTimer.enabled = true;
+        epipenTimer.transform.GetChild(0).GetComponent<Image>().enabled = true;
 
-        for (int i = epipenTimer; i >= 0; i--)
+        for (int i = epipenDuration; i > 0; i--)
         {
-            display.GetComponent<Text>().text = "Epipen Active x2 damage: " + i.ToString() + "s";
+            epipenTimer.fillAmount = (float) i / epipenDuration;
             yield return new WaitForSeconds(1);
             epipenOverlay.enabled = !epipenOverlay.enabled;
         }
 
+        epipenTimer.fillAmount = 0;
         epipenOverlay.enabled = false;
+        epipenTimer.enabled = false;
+        epipenTimer.transform.GetChild(0).GetComponent<Image>().enabled = false;
 
-        display.GetComponent<Text>().text = "";
+        //display.GetComponent<Text>().text = "";
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -186,6 +196,8 @@ public class PlayerCombatMelee : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.position, lightAttackRange);
     }
 
+
+    // Combo Logic
     void AddCombos()
     {
         combos.Add(new List<string>() {
