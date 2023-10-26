@@ -32,7 +32,7 @@ public class PlayerCombatMelee : MonoBehaviour
     // epipen
     public int epipenDamageBoost;
     public int epipenDuration;
-    bool epipenActive;
+    public bool epipenActive;
     float startTimer; // timer to track when epipen was activated
     public Image epipenOverlay;
     public Image epipenTimer;
@@ -167,8 +167,6 @@ public class PlayerCombatMelee : MonoBehaviour
         }
 
         DisableEpipen();
-
-        //display.GetComponent<Text>().text = "";
     }
 
     private void OnTriggerEnter2D(Collider2D collider)

@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public GameObject healthBar;
     public GameObject healthDisplay;
     public AnimationEvents events;
+    private PlayerCombatMelee combatScript;
 
     public GameObject gameManager;
     // Start is called before the first frame update
@@ -18,6 +19,7 @@ public class PlayerHealth : MonoBehaviour
     {
         healthBar.GetComponent<Slider>().maxValue = maxHealth;
         events = gameObject.GetComponent<AnimationEvents>();
+        combatScript = GetComponent<PlayerCombatMelee>();
         setFullHealth();
     }
 
@@ -35,9 +37,13 @@ public class PlayerHealth : MonoBehaviour
             currentHealth = 0;
             animator.SetTrigger("Dead");
             events.isAttacking = false;
-            GetComponent<PlayerCombatMelee>().DisableCombo();
+            combatScript.DisableCombo();
+            if (combatScript.epipenActive)
+            {
+                combatScript.DisableEpipen();
+            }
             // Disable movement
-            GetComponent<PlayerCombatMelee>().enabled = false;
+            combatScript.enabled = false;
             GetComponent<PlayerMovement>().enabled = false;
         }
         DisplayHealth();

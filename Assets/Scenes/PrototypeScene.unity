@@ -885,6 +885,7 @@ MonoBehaviour:
   attackSound: {fileID: 330463873}
   epipenDamageBoost: 2
   epipenDuration: 5
+  epipenActive: 0
   epipenOverlay: {fileID: 580817050}
   epipenTimer: {fileID: 458742818}
 --- !u!114 &330463867
@@ -1461,7 +1462,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 266.31, y: -13.800049}
+  m_AnchoredPosition: {x: 266.31, y: -13.800293}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &458742818
@@ -5207,7 +5208,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -250, y: 25}
+  m_AnchoredPosition: {x: -250.00049, y: 25}
   m_SizeDelta: {x: 500, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2116219565
