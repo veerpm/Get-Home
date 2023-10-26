@@ -32,9 +32,13 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        GameObject damageTextClone = Instantiate(damageText, transform.Find("Canvas"));
-        damageTextClone.GetComponent<TextMesh>().text = damage.ToString();
-        Destroy(damageTextClone, 1f);
+        if (damageText != null)
+        {
+            GameObject damageTextClone = Instantiate(damageText, transform.Find("Canvas"));
+            damageTextClone.GetComponent<TextMesh>().text = damage.ToString();
+            Destroy(damageTextClone, 1f);
+        }
+
 
         currentHealth -= damage;
 
