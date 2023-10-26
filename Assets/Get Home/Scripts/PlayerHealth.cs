@@ -1,1 +1,72 @@
-﻿using System.Collections;using System.Collections.Generic;using UnityEngine;using UnityEngine.UI;public class PlayerHealth : MonoBehaviour{    public Animator animator;    public int maxHealth = 100;    public int currentHealth;    public GameObject healthBar;    public GameObject healthDisplay;    public AnimationEvents events;    public GameObject gameManager;    // Start is called before the first frame update    void Start()    {        healthBar.GetComponent<Slider>().maxValue = maxHealth;        events = gameObject.GetComponent<AnimationEvents>();        setFullHealth();    }    // Update is called once per frame    void Update()    {    }    public void TakeDamage(int damage)    {        currentHealth -= damage;        if (currentHealth <= 0)        {            currentHealth = 0;            animator.SetTrigger("Dead");            events.isAttacking = false;            GetComponent<PlayerCombatMelee>().DisableCombo();            // Disable movement            GetComponent<PlayerCombatMelee>().enabled = false;            GetComponent<PlayerMovement>().enabled = false;        }        DisplayHealth();    }    void DisplayHealth()    {        healthBar.GetComponent<Slider>().value = currentHealth;        healthDisplay.GetComponent<Text>().text = currentHealth.ToString("00");    }    public void setFullHealth()    {        currentHealth = maxHealth;        DisplayHealth();    }    private void OnTriggerEnter2D(Collider2D collider)    {        if (collider.gameObject.name == "Beer")        {            currentHealth = maxHealth;            DisplayHealth();            collider.gameObject.SetActive(false);        }    }    private void setDeath()    {        gameManager.GetComponent<GamePause>().setDead();    }}
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class PlayerHealth : MonoBehaviour
+{
+    public Animator animator;
+    public int maxHealth = 100;
+    public int currentHealth;
+    public GameObject healthBar;
+    public GameObject healthDisplay;
+    public AnimationEvents events;
+
+    public GameObject gameManager;
+    // Start is called before the first frame update
+    void Start()
+    {
+        healthBar.GetComponent<Slider>().maxValue = maxHealth;
+        events = gameObject.GetComponent<AnimationEvents>();
+        setFullHealth();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            animator.SetTrigger("Dead");
+            events.isAttacking = false;
+            GetComponent<PlayerCombatMelee>().DisableCombo();
+            // Disable movement
+            GetComponent<PlayerCombatMelee>().enabled = false;
+            GetComponent<PlayerMovement>().enabled = false;
+        }
+        DisplayHealth();
+    }
+
+    void DisplayHealth()
+    {
+        healthBar.GetComponent<Slider>().value = currentHealth;
+        healthDisplay.GetComponent<Text>().text = currentHealth.ToString("00");
+    }
+
+    public void setFullHealth()
+    {
+        currentHealth = maxHealth;
+        DisplayHealth();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.name == "Beer")
+        {
+            currentHealth = maxHealth;
+            DisplayHealth();
+            collider.gameObject.SetActive(false);
+        }
+    }
+
+    private void setDeath()
+    {
+        gameManager.GetComponent<GamePause>().setDead();
+    }
+}

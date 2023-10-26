@@ -82,9 +82,7 @@ public class PlayerCombatMelee : MonoBehaviour
 
         if (epipenActive && Time.time - startTimer > epipenDuration)
         {
-            lightAttackDamage = lightAttackDamage / epipenDamageBoost;
-            heavyAttackDamage = heavyAttackDamage / epipenDamageBoost;
-            epipenActive = false;
+            DisableEpipen();
         }
     }
 
@@ -168,10 +166,7 @@ public class PlayerCombatMelee : MonoBehaviour
             epipenOverlay.enabled = !epipenOverlay.enabled;
         }
 
-        epipenTimer.fillAmount = 0;
-        epipenOverlay.enabled = false;
-        epipenTimer.enabled = false;
-        epipenTimer.transform.GetChild(0).GetComponent<Image>().enabled = false;
+        DisableEpipen();
 
         //display.GetComponent<Text>().text = "";
     }
@@ -187,6 +182,18 @@ public class PlayerCombatMelee : MonoBehaviour
             collider.gameObject.SetActive(false);
             StartCoroutine("EpipenTimer");
         }
+    }
+
+    public void DisableEpipen()
+    {
+        epipenActive = false;
+        StopCoroutine("EpipenTimer");
+        epipenTimer.fillAmount = 0;
+        epipenOverlay.enabled = false;
+        epipenTimer.enabled = false;
+        epipenTimer.transform.GetChild(0).GetComponent<Image>().enabled = false;
+        lightAttackDamage = lightAttackDamage / epipenDamageBoost;
+        heavyAttackDamage = heavyAttackDamage / epipenDamageBoost;
     }
 
     void OnDrawGizmosSelected()
