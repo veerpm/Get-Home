@@ -8,20 +8,17 @@ using UnityEngine.UI;
 public class SceneChanger : MonoBehaviour
 {
     public Image blackScreen;
-    public float fadeSpeed = 5f;
-    void Update()
-    {
-    }
+    public float fadeSpeed = 0.001f;
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Hit something");
         // change scene
         if (other.gameObject.tag == "Player")
+        {
             Debug.Log("Hit player");
             blackScreen.enabled = true;
             StartCoroutine(FadeBlack());
-
+        }
     }
 
     IEnumerator LoadScene()
@@ -38,12 +35,13 @@ public class SceneChanger : MonoBehaviour
 
     public IEnumerator FadeBlack()
     {
-        Color color = blackScreen.color;
+        Color color;
         float fadeAmount;
 
         // fade to black
         while(blackScreen.color.a < 1)
         {
+            color = blackScreen.color;
             fadeAmount = color.a + (fadeSpeed * Time.deltaTime);
 
             blackScreen.color = new Color(color.r, color.g, color.b, fadeAmount);
@@ -51,7 +49,6 @@ public class SceneChanger : MonoBehaviour
         }
 
         // change scene once screen is black
-        //StartCoroutine(LoadScene());
-        Debug.Log("Reached");
+        StartCoroutine(LoadScene());
     }
 }
