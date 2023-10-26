@@ -8,7 +8,6 @@ public enum Functionality
 {
     MOVELOCK,
     CHAT,
-    DIALOGUE,
     CHECKPOINT
 };
 
@@ -24,7 +23,6 @@ public struct Trigger
 public class positionTriggerer : MonoBehaviour
 {
     public GameObject gameManager;
-    public GameObject player;
     public List<Trigger> triggers;
 
     private float sensibility = 0.25f;
@@ -44,9 +42,8 @@ public class positionTriggerer : MonoBehaviour
             // if trigger was already used, pass it
             if (pastTriggers.Contains(trigger))
             {
-                break;
+                continue;
             }
-
             // if we are near trigger's position, activate it
             if(Mathf.Abs(xPos-trigger.xPosition) < sensibility)
             {
@@ -58,13 +55,15 @@ public class positionTriggerer : MonoBehaviour
     void activateTrigger(Trigger trigger)
     {
         Functionality func = trigger.function;
-
         switch (func)
         {
             case Functionality.MOVELOCK:
                 break;
             case Functionality.CHAT:
                 makeChat(trigger);
+                break;
+            case Functionality.CHECKPOINT:
+                setCheckpoint(trigger.xPosition);
                 break;
         }
 
@@ -79,5 +78,12 @@ public class positionTriggerer : MonoBehaviour
     void makeChat(Trigger trigger)
     {
         gameManager.GetComponent<ChatManager>().CreateBubble(this.gameObject, trigger.text, 3f);
+    }
+
+    // update checkpoint
+    void setCheckpoint(float xPosition)
+    {
+        Vector3 pos = new Vector3(xPosition, -1f, 0f);
+        gameManager.GetComponent<GamePause>().updateCheckpoint(pos);
     }
 }
