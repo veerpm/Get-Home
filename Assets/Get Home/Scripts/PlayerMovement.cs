@@ -10,9 +10,13 @@ public class PlayerMovement : MonoBehaviour
     private float vertical_movement;
     private Vector3 movement;
     private PickupObjects PickUpObjects;
-    public bool lookingRight = true;
+    private bool lookingRight = true;
 
-    public AudioSource walkingSound;
+    //sound FX
+    public AudioSource walkingSound1;
+    public AudioSource walkingSound2;
+    public AudioSource walkingSound3;
+
 
     public float acceleration;
 
@@ -26,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (CanMove())
         {
@@ -82,7 +86,20 @@ public class PlayerMovement : MonoBehaviour
 
     void IsWalking()
     {
-        walkingSound.Play();
+        //sound FX
+        int randomSound = Random.Range(0, 2);
+        if (randomSound < 1)
+        {
+            walkingSound1.Play();
+        }
+        else if (randomSound >= 2)
+        {
+            walkingSound2.Play();
+        }
+        else
+        {
+            walkingSound3.Play();
+        }
     }
 
 }

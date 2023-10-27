@@ -18,7 +18,14 @@ public class PlayerCombatMelee : MonoBehaviour
     public AnimationEvents events;
     //public Animator camAnim;
 
-    public AudioSource attackSound;
+    //sound FX
+    public AudioSource lightAttackSound1;
+    public AudioSource lightAttackSound2;
+    public AudioSource lightAttackSound3;
+    public AudioSource heavyAttackSound1;
+    public AudioSource heavyAttackSound2;
+    public AudioSource heavyAttackSound3;
+
 
     // weapon stats
     float lightAttackRange;
@@ -92,7 +99,20 @@ public class PlayerCombatMelee : MonoBehaviour
         //camAnim.SetTrigger("shake");
         animator.SetTrigger("LightAttack");
 
-        attackSound.Play();
+        //sound FX
+        int randomSound = Random.Range(0, 2);
+        if (randomSound < 1)
+        {
+            lightAttackSound1.Play();
+        } else if (randomSound >= 2)
+        {
+            lightAttackSound2.Play();
+        } else
+        {
+            lightAttackSound3.Play();
+        }
+
+        lightAttackSound1.Play();
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, lightAttackRange, enemyLayers);
 
@@ -118,7 +138,20 @@ public class PlayerCombatMelee : MonoBehaviour
     {
         animator.SetTrigger("LightAttack");
 
-        attackSound.Play();
+        //sound FX
+        int randomSound = Random.Range(0, 2);
+        if (randomSound < 1)
+        {
+            heavyAttackSound1.Play();
+        }
+        else if (randomSound >= 2)
+        {
+            heavyAttackSound2.Play();
+        }
+        else
+        {
+            heavyAttackSound3.Play();
+        }
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, heavyAttackRange, enemyLayers);
 
