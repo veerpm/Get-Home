@@ -104,7 +104,10 @@ public class PlayerCombatMelee : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<EnemyHealth>().TakeDamage(lightAttackDamage);
-            DealWCombo("LightAttack");
+            if (enemy.tag == "Enemy")
+            {
+                DealWCombo("LightAttack");
+            }
         }
 
         weaponManagement.AdjustDurability();
@@ -128,7 +131,10 @@ public class PlayerCombatMelee : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<EnemyHealth>().TakeDamage(heavyAttackDamage);
-            DealWCombo("HeavyAttack");
+            if (enemy.tag == "Enemy")
+            {
+                DealWCombo("HeavyAttack");
+            }
         }
 
         weaponManagement.AdjustDurability();
