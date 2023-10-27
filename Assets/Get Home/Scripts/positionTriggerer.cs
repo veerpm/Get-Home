@@ -6,7 +6,6 @@ using UnityEngine;
 [System.Serializable]
 public enum Functionality
 {
-    MOVELOCK,
     CHAT,
     CHECKPOINT
 };
@@ -23,8 +22,6 @@ public struct Trigger
 public class positionTriggerer : MonoBehaviour
 {
     public GameObject gameManager;
-    public GameObject mainCamera;
-    public GameObject player;
     public List<Trigger> triggers;
 
     private float sensibility = 0.25f;
@@ -59,9 +56,6 @@ public class positionTriggerer : MonoBehaviour
         Functionality func = trigger.function;
         switch (func)
         {
-            case Functionality.MOVELOCK:
-                lockPlayer();
-                break;
             case Functionality.CHAT:
                 makeChat(trigger);
                 break;
@@ -88,17 +82,5 @@ public class positionTriggerer : MonoBehaviour
     {
         Vector3 pos = new Vector3(xPosition, -1f, 0f);
         gameManager.GetComponent<GamePause>().updateCheckpoint(pos);
-    }
-
-    // lock player's camera & bounds
-    void lockPlayer()
-    {
-        // freeze camera
-        mainCamera.GetComponent<CameraMovement>().setFreeze(true);
-        // freeze player's position to camera bounds
-        float leftBound = mainCamera.GetComponent<Camera>().ViewportToWorldPoint(new Vector3(0f, 0f, 0f)).x;
-        float rightBound = mainCamera.GetComponent<Camera>().ViewportToWorldPoint(new Vector3(1f, 0f, 0f)).x;
-        float width = player.GetComponent<SpriteRenderer>().sprite.bounds.size.x / 2;
-        player.GetComponent<Boundaries>().Freeze(leftBound+width, rightBound-width);
     }
 }
