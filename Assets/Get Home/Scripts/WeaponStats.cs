@@ -12,9 +12,11 @@ public class WeaponStats : MonoBehaviour
     public float heavyAttackRate;
     public int maxHits;
     public int currentHits;
+    public Vector3 initialPostion;
 
     private void Start()
     {
         currentHits = maxHits;
+        initialPostion = transform.position;
     }
 }
