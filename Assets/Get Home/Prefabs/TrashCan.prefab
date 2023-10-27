@@ -137,12 +137,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7610311267251977994}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0da2ffffa1cd0064794aa89a35f09233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   thrown: 0
+  damage: 75
 --- !u!50 &7610311267251977997
 Rigidbody2D:
   serializedVersion: 4

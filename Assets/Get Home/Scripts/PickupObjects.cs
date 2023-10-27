@@ -26,7 +26,7 @@ public class PickupObjects : MonoBehaviour
                 {
                     itemHolding.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                     itemHolding.transform.GetComponent<ThrownObjectsHitDetect>().thrown = true;
-                    itemHolding.transform.position = new Vector3(transform.position.x, transform.position.y - placeDownOffSet, 0.0f) + (Direction * 2);
+                    itemHolding.transform.position = new Vector3(transform.position.x, transform.position.y - placeDownOffSet, 0.0f) + (Direction * 3);
                     GetComponent<PlayerCombatMelee>().enabled = true;
                     itemHolding.transform.parent = null;
                     if (itemHolding.GetComponent<Rigidbody2D>())
