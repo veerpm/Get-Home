@@ -9,7 +9,7 @@ public class EnemyHealth : MonoBehaviour
     protected int currentHealth;
     public Animator animator;
     public GameObject healthBar;
-
+    public GameObject damageText;
     private Vector3 initialPosition;
     protected bool keepActive = false; // used for child classes
 
@@ -32,6 +32,14 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (damageText != null)
+        {
+            GameObject damageTextClone = Instantiate(damageText, transform.Find("Canvas"));
+            damageTextClone.transform.GetChild(0).GetComponent<TextMesh>().text = damage.ToString();
+            Destroy(damageTextClone, 1f);
+        }
+
+
         currentHealth -= damage;
 
         // Play Hurt Animation

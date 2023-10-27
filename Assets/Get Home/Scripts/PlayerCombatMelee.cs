@@ -31,9 +31,11 @@ public class PlayerCombatMelee : MonoBehaviour
 
     // epipen
     public int epipenDamageBoost;
-    public int epipenTimer;
-    bool epipenActive;
+    public int epipenDuration;
+    public bool epipenActive;
     float startTimer; // timer to track when epipen was activated
+    public Image epipenOverlay;
+    public Image epipenTimer;
 
     // combos
     List<string> attacksList = new List<string>();
@@ -44,6 +46,9 @@ public class PlayerCombatMelee : MonoBehaviour
     {
         events = gameObject.GetComponent<AnimationEvents>();
         weaponManagement = GetComponent<WeaponManagement>();
+        epipenOverlay.enabled = false;
+        epipenTimer.enabled = false;
+        epipenTimer.transform.GetChild(0).GetComponent<Image>().enabled = false;
         AddCombos();
     }
 
@@ -75,11 +80,9 @@ public class PlayerCombatMelee : MonoBehaviour
         }
 
 
-        if (epipenActive && Time.time - startTimer > epipenTimer)
+        if (epipenActive && Time.time - startTimer > epipenDuration)
         {
-            lightAttackDamage = lightAttackDamage / epipenDamageBoost;
-            heavyAttackDamage = heavyAttackDamage / epipenDamageBoost;
-            epipenActive = false;
+            DisableEpipen();
         }
     }
 
@@ -101,7 +104,10 @@ public class PlayerCombatMelee : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<EnemyHealth>().TakeDamage(lightAttackDamage);
-            DealWCombo("LightAttack");
+            if (enemy.tag == "Enemy")
+            {
+                DealWCombo("LightAttack");
+            }
         }
 
         weaponManagement.AdjustDurability();
@@ -125,7 +131,10 @@ public class PlayerCombatMelee : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<EnemyHealth>().TakeDamage(heavyAttackDamage);
-            DealWCombo("HeavyAttack");
+            if (enemy.tag == "Enemy")
+            {
+                DealWCombo("HeavyAttack");
+            }
         }
 
         weaponManagement.AdjustDurability();
@@ -148,14 +157,22 @@ public class PlayerCombatMelee : MonoBehaviour
         }
     }
 
+
+    // Epipen Logic
     private IEnumerator EpipenTimer()
     {
-        for (int i = epipenTimer; i >= 0; i--)
+        epipenOverlay.enabled = true;
+        epipenTimer.enabled = true;
+        epipenTimer.transform.GetChild(0).GetComponent<Image>().enabled = true;
+
+        for (int i = epipenDuration; i > 0; i--)
         {
-            display.GetComponent<Text>().text = "Epipen Active x2 damage: " + i.ToString() + "s";
+            epipenTimer.fillAmount = (float) i / epipenDuration;
             yield return new WaitForSeconds(1);
+            epipenOverlay.enabled = !epipenOverlay.enabled;
         }
-        display.GetComponent<Text>().text = "";
+
+        DisableEpipen();
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -171,6 +188,18 @@ public class PlayerCombatMelee : MonoBehaviour
         }
     }
 
+    public void DisableEpipen()
+    {
+        epipenActive = false;
+        StopCoroutine("EpipenTimer");
+        epipenTimer.fillAmount = 0;
+        epipenOverlay.enabled = false;
+        epipenTimer.enabled = false;
+        epipenTimer.transform.GetChild(0).GetComponent<Image>().enabled = false;
+        lightAttackDamage = lightAttackDamage / epipenDamageBoost;
+        heavyAttackDamage = heavyAttackDamage / epipenDamageBoost;
+    }
+
     void OnDrawGizmosSelected()
     {
         if (attackPoint == null)
@@ -178,6 +207,8 @@ public class PlayerCombatMelee : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.position, lightAttackRange);
     }
 
+
+    // Combo Logic
     void AddCombos()
     {
         combos.Add(new List<string>() {

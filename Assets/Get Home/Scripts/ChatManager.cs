@@ -35,14 +35,4 @@ public class ChatManager : MonoBehaviour
         // Remove after 'time' seconds
         Destroy(chatBubble, time);
     }
-
-    IEnumerator chatDemonstration()
-    {
-        yield return new WaitForSeconds(4);
-        CreateBubble(player, "This street is really weird!", 3f);
-        foreach (GameObject enemy in enemies)
-        {
-            CreateBubble(enemy, "Get him!", 3f, 3f);
-        }
-    }
 }

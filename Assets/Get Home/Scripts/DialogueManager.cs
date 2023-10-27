@@ -66,8 +66,6 @@ public class DialogueManager : MonoBehaviour
             if (dialogueOn && Input.anyKeyDown && !
             (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))) // any key except the mouse activates next dialogue
             {
-                Debug.Log(mainText.text);
-                Debug.Log(lines[index].text);
                 if (mainText.text == lines[index].text)
                 {
                     // finished displaying. Jump to next line
@@ -107,7 +105,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char c in lines[index].text.ToCharArray())
         {
             mainText.text += c;
-            yield return new WaitForSeconds(textSpeed);
+            yield return new WaitForSecondsRealtime(textSpeed); // changed to realtime so that TimeScale doesn't affect on pause
         }
     }
 

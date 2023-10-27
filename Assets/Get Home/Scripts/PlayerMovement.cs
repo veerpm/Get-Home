@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private float vertical_movement;
     private Vector3 movement;
     private PickupObjects PickUpObjects;
-    public bool lookingRight = true;
+    private bool lookingRight = true;
 
     public AudioSource walkingSound;
 
@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (CanMove())
         {
@@ -83,14 +83,6 @@ public class PlayerMovement : MonoBehaviour
     void IsWalking()
     {
         walkingSound.Play();
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Barrel")
-        {
-            transform.position = transform.position + new Vector3(-0.1f,0,0);
-        }
     }
 
 }
