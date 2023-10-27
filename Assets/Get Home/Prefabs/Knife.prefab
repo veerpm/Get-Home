@@ -96,12 +96,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightAttackRange: 0.25
-  heavyAttackRange: 0
-  lightAttackDamage: 10
-  heavyAttackDamage: 0
+  heavyAttackRange: 0.25
+  lightAttackDamage: 25
+  heavyAttackDamage: 50
   lightAttackRate: 5
-  heavyAttackRate: 0
+  heavyAttackRate: 2
   maxHits: 5
+  currentHits: 0
 --- !u!1 &8168594219442033333
 GameObject:
   m_ObjectHideFlags: 0

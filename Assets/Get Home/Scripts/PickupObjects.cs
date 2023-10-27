@@ -24,64 +24,61 @@ public class PickupObjects : MonoBehaviour
 
             if (itemHolding)
             {
-                
                 if (Mathf.Abs(Direction.x) > 0)
                 {
                     itemHolding.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-                    itemHolding.transform.position = new Vector3(transform.position.x, transform.position.y - placeDownOffSet, 0.0f) + (Direction * 2);
-                    
+                    itemHolding.transform.GetComponent<ThrownObjectsHitDetect>().thrown = true;
+                    itemHolding.transform.position = new Vector3(transform.position.x, transform.position.y - placeDownOffSet, 0.0f) + (Direction * 3);
+                    GetComponent<PlayerCombatMelee>().enabled = true;
+                    itemHolding.transform.parent = null;
+                    if (itemHolding.GetComponent<Rigidbody2D>())
+                        itemHolding.GetComponent<Rigidbody2D>().simulated = true;
+                    itemHolding = null;
                 }
                 else
                 {
-                    itemHolding.transform.position = new Vector3(transform.position.x, transform.position.y - placeDownOffSet, 0.0f) + (Direction);
+                    if(GetComponent<PlayerMovement>().lookingRight == true)
+                    {
+                        itemHolding.transform.position = new Vector3(holdSpot.position.x, holdSpot.position.y - placeDownOffSet, 0.0f) + new Vector3(0.6f, 0.3f, 0);
+                        GetComponent<PlayerCombatMelee>().enabled = true;
+                        itemHolding.transform.parent = null;
+                        if (itemHolding.GetComponent<Rigidbody2D>())
+                            itemHolding.GetComponent<Rigidbody2D>().simulated = true;
+                        itemHolding = null;
+                    }
+                    else
+                    {
+                        itemHolding.transform.position = new Vector3(holdSpot.position.x, holdSpot.position.y - placeDownOffSet, 0.0f) + new Vector3(-0.6f, 0.3f, 0);
+                        GetComponent<PlayerCombatMelee>().enabled = true;
+                        itemHolding.transform.parent = null;
+                        if (itemHolding.GetComponent<Rigidbody2D>())
+                            itemHolding.GetComponent<Rigidbody2D>().simulated = true;
+                        itemHolding = null;
+                    }
+                  
                 }
                 
-                itemHolding.transform.parent = null;
-                if (itemHolding.GetComponent<Rigidbody2D>())
-                    itemHolding.GetComponent<Rigidbody2D>().simulated = true;
-                itemHolding = null;
             }
             else
             {
-                Collider2D pickUpItem = Physics2D.OverlapCircle(transform.position + Direction, pickupRadius, pickUpMask);
+                Collider2D pickUpItem = Physics2D.OverlapCircle(transform.position, pickupRadius, pickUpMask);
                 if (pickUpItem)
                 {
                     itemHolding = pickUpItem.gameObject;
                     itemHolding.transform.position = holdSpot.position;
                     itemHolding.transform.parent = transform;
+                    GetComponent<PlayerCombatMelee>().enabled = false;
                     if (itemHolding.GetComponent<Rigidbody2D>())
                         itemHolding.GetComponent<Rigidbody2D>().simulated = false;
                 }
             }
         }
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            if (itemHolding)
-            {
-                StartCoroutine(ThrowItem(itemHolding));
-                itemHolding = null;
-            }
-        }
     }
-
-    IEnumerator ThrowItem(GameObject item)
+    void OnDrawGizmosSelected()
     {
-        Vector3 startPoint = item.transform.position;
-        //Debug.Log("Start Point: " + startPoint);
-        Vector3 endPoint = transform.position + (Direction * 5);
-        //Debug.Log("Start Point: " + endPoint);
-        item.transform.parent = null;
-        
-
-        for (int i = 0; i < 100; i++)
-        {
-            item.transform.position = Vector3.Lerp(startPoint, endPoint, i * 0.007f) + yOffset;
-            yield return null;
-        }
-        if (item.GetComponent<Rigidbody2D>())
-            item.GetComponent<Rigidbody2D>().simulated = true;
-      
-        Destroy(item);
+        if (holdSpot == null)
+            return;
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, pickupRadius);
     }
-
 }

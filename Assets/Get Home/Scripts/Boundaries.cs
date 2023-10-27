@@ -12,6 +12,9 @@ public class Boundaries : MonoBehaviour
     public float rightOffset = 1f;
     public bool freeze = false;
 
+    public float leftFreeze;
+    public float rightFreeze;
+
     private float leftFloatingBound;
     private float rightFloatingBound;
 
@@ -25,21 +28,54 @@ public class Boundaries : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         // update horizontal bounds on player's position
         if (!freeze)
         {
             leftFloatingBound = transform.position.x - leftOffset;
             rightFloatingBound = transform.position.x + rightOffset;
         }
+        */
+        float currentLeft;
+        float currentRight;
+
+        // world bounds if unfreezed
+        if (!freeze)
+        {
+            currentLeft = leftBound;
+            currentRight = rightBound;
+        }
+        // local bounds if freezed
+        else
+        {
+            // if local bounds are past global bounds, we refer back to world bounds
+            if(leftFreeze < leftBound)
+            {
+                currentLeft = leftBound;
+            }
+            else
+            {
+                currentLeft = leftFreeze;
+            }
+            // right side
+            if(rightFreeze > rightBound)
+            {
+                currentRight = rightBound;
+            }
+            else
+            {
+                currentRight = rightFreeze;
+            }
+        }
 
         // set bounds
-        if(transform.position.x < leftBound)
+        if(transform.position.x < currentLeft)
         {
-            transform.position = new Vector2(leftBound, transform.position.y);
+            transform.position = new Vector2(currentLeft, transform.position.y);
         }
-        if (transform.position.x > rightBound)
+        if (transform.position.x > currentRight)
         {
-            transform.position = new Vector2(rightBound, transform.position.y);
+            transform.position = new Vector2(currentRight, transform.position.y);
         }
         if (transform.position.y < lowerBound)
         {
@@ -50,6 +86,7 @@ public class Boundaries : MonoBehaviour
         {
             transform.position = new Vector2(transform.position.x, upperBound);
         }
+        /*
         if(transform.position.x < leftFloatingBound)
         {
             transform.position = new Vector2(leftFloatingBound, transform.position.y);
@@ -58,16 +95,15 @@ public class Boundaries : MonoBehaviour
         {
             transform.position = new Vector2(rightFloatingBound, transform.position.y);
         }
+        */
     }
 
-    public void Freeze(float upBound = 0, float lowBound = 0, float leftOffset = 0, float rightOffset = 0)
+    public void Freeze(float leftBound = 0, float rightBound = 0)
     {
         freeze = true;
 
-        upperBound = upBound;
-        lowerBound = lowBound;
-        this.leftOffset = leftOffset;
-        this.rightOffset = rightOffset;
+        this.leftFreeze = leftBound;
+        this.rightFreeze = rightBound;
     }
 
     public void unFreeze()

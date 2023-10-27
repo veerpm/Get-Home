@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 683629375773968700}
   - component: {fileID: 683629375773968701}
   - component: {fileID: 683629375773968702}
+  - component: {fileID: 1731591163}
   m_Layer: 8
   m_Name: BaseballEnemy
   m_TagString: Enemy
@@ -178,7 +179,7 @@ Transform:
   m_GameObject: {fileID: 683629375773968696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.21, y: 0.29, z: 0}
-  m_LocalScale: {x: 1, y: 1.011, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 683629376800664511}
   - {fileID: 683629376650201979}
@@ -223,7 +224,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 722238453438584905, guid: c3bca598a50334c16852f3e9e2fe9692, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -248,7 +249,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.61, y: -0.2}
+  m_Offset: {x: 0.6655689, y: -0.23847657}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -259,7 +260,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.45, y: 1.81}
+  m_Size: {x: 0.82226837, y: 0.95339334}
   m_EdgeRadius: 0
 --- !u!114 &683629375773968700
 MonoBehaviour:
@@ -304,7 +305,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 683629375773968696}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27a377f466e0eda40bf95164a5d21e65, type: 3}
   m_Name: 
@@ -320,6 +321,27 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   animator: {fileID: 683629375773968701}
+--- !u!50 &1731591163
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683629375773968696}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &683629376282566711
 GameObject:
   m_ObjectHideFlags: 0
