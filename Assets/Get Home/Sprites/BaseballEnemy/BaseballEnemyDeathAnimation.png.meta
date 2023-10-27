@@ -1,0 +1,548 @@
+fileFormatVersion: 2
+guid: ce501cd0ea9d7432a835447dbd9b0301
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1385907830540181418
+    second: BaseballEnemyDeathAnimation_0
+  - first:
+      213: -8971159375169796163
+    second: BaseballEnemyDeathAnimation_1
+  - first:
+      213: 813744001960632110
+    second: BaseballEnemyDeathAnimation_2
+  - first:
+      213: 1205572007917435932
+    second: BaseballEnemyDeathAnimation_3
+  - first:
+      213: -7172786875004190518
+    second: BaseballEnemyDeathAnimation_4
+  - first:
+      213: 2406912605311525470
+    second: BaseballEnemyDeathAnimation_5
+  - first:
+      213: 2273910331808317570
+    second: BaseballEnemyDeathAnimation_6
+  - first:
+      213: -6161557724437073359
+    second: BaseballEnemyDeathAnimation_7
+  - first:
+      213: 4096199672930554867
+    second: BaseballEnemyDeathAnimation_8
+  - first:
+      213: -7141083657416375949
+    second: BaseballEnemyDeathAnimation_9
+  - first:
+      213: -612948912184017685
+    second: BaseballEnemyDeathAnimation_10
+  - first:
+      213: 8942922838016779817
+    second: BaseballEnemyDeathAnimation_11
+  - first:
+      213: 3670244535358992309
+    second: BaseballEnemyDeathAnimation_12
+  - first:
+      213: 6359773625955537612
+    second: BaseballEnemyDeathAnimation_13
+  - first:
+      213: 4717734897722634180
+    second: BaseballEnemyDeathAnimation_14
+  - first:
+      213: 6088906200208215889
+    second: BaseballEnemyDeathAnimation_15
+  - first:
+      213: -1993789122165524535
+    second: BaseballEnemyDeathAnimation_16
+  - first:
+      213: -7712511999353259875
+    second: BaseballEnemyDeathAnimation_17
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BaseballEnemyDeathAnimation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 241
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaf97ca34dbbb3310800000000000000
+      internalID: 1385907830540181418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseballEnemyDeathAnimation_1
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 0
+        width: 241
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db7c69b541a008380800000000000000
+      internalID: -8971159375169796163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseballEnemyDeathAnimation_2
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 0
+        width: 241
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2fd7febbdffa4b00800000000000000
+      internalID: 813744001960632110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseballEnemyDeathAnimation_3
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 0
+        width: 241
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1cb2139a5d0bb010800000000000000
+      internalID: 1205572007917435932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseballEnemyDeathAnimation_4
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 0
+        width: 241
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac08ac91754257c90800000000000000
+      internalID: -7172786875004190518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseballEnemyDeathAnimation_5
+      rect:
+        serializedVersion: 2
+        x: 1205
+        y: 0
+        width: 241
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e52e00d1342176120800000000000000
+      internalID: 2406912605311525470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseballEnemyDeathAnimation_6
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 0
+        width: 241
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 280868a266d8e8f10800000000000000
+      internalID: 2273910331808317570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseballEnemyDeathAnimation_7
+      rect:
+        serializedVersion: 2
+        x: 1687
+        y: 0
+        width: 241
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1323ddb15efbd7aa0800000000000000
+      internalID: -6161557724437073359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseballEnemyDeathAnimation_8
+      rect:
+        serializedVersion: 2
+        x: 1928
+        y: 0
+        width: 241
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f3d81266ef98d830800000000000000
+      internalID: 4096199672930554867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseballEnemyDeathAnimation_9
+      rect:
+        serializedVersion: 2
+        x: 2169
+        y: 0
+        width: 241
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3718958af36c5ec90800000000000000
+      internalID: -7141083657416375949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseballEnemyDeathAnimation_10
+      rect:
+        serializedVersion: 2
+        x: 2410
+        y: 0
+        width: 241
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bec3fcf363e5e77f0800000000000000
+      internalID: -612948912184017685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseballEnemyDeathAnimation_11
+      rect:
+        serializedVersion: 2
+        x: 2651
+        y: 0
+        width: 241
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 926e7b580f4ab1c70800000000000000
+      internalID: 8942922838016779817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseballEnemyDeathAnimation_12
+      rect:
+        serializedVersion: 2
+        x: 2892
+        y: 0
+        width: 241
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bf24e885f35fe230800000000000000
+      internalID: 3670244535358992309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseballEnemyDeathAnimation_13
+      rect:
+        serializedVersion: 2
+        x: 3133
+        y: 0
+        width: 241
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc25af2da64724850800000000000000
+      internalID: 6359773625955537612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseballEnemyDeathAnimation_14
+      rect:
+        serializedVersion: 2
+        x: 3374
+        y: 0
+        width: 241
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cfa833d4e2c87140800000000000000
+      internalID: 4717734897722634180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseballEnemyDeathAnimation_15
+      rect:
+        serializedVersion: 2
+        x: 3615
+        y: 0
+        width: 241
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15f851ebde3208450800000000000000
+      internalID: 6088906200208215889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseballEnemyDeathAnimation_16
+      rect:
+        serializedVersion: 2
+        x: 3856
+        y: 0
+        width: 241
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c739406b53a454e0800000000000000
+      internalID: -1993789122165524535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseballEnemyDeathAnimation_17
+      rect:
+        serializedVersion: 2
+        x: 4097
+        y: 0
+        width: 241
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d987c900337a7f490800000000000000
+      internalID: -7712511999353259875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

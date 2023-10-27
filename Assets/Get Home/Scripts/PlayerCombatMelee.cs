@@ -14,9 +14,7 @@ public class PlayerCombatMelee : MonoBehaviour
     float lastAttackTime = 0f;
     public GameObject display;
     WeaponManagement weaponManagement;
-    //public GameObject equippedWeapon;
-    public AnimationEvents events;
-    //public Animator camAnim;
+    private AnimationEvents events;
 
     //sound FX
     public AudioSource lightAttackSound1;
