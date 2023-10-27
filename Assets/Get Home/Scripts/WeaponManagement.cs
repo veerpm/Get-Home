@@ -110,20 +110,23 @@ public class WeaponManagement : MonoBehaviour
 
         if (EquippedWeapon.GetComponent<WeaponStats>().currentHits == 0 && EquippedWeapon != defaultWeapon)
         {
-            DisplayWeapon(defaultWeapon);
-            RemoveWeaponDurability(EquippedWeapon.GetComponent<WeaponStats>().maxHits, "EmptyBar");
-        }
-
-
-        if (EquippedWeapon.GetComponent<WeaponStats>().currentHits < 0 && EquippedWeapon != defaultWeapon)
-        {
+            EquippedWeapon.GetComponent<WeaponStats>().currentHits++;
+            ResetDurability();
             animator.SetBool(EquippedWeapon.name, false);
             EquippedWeapon = defaultWeapon;
+            DisplayWeapon(defaultWeapon);
         }
+
+
+        //if (EquippedWeapon.GetComponent<WeaponStats>().currentHits < 0 && EquippedWeapon != defaultWeapon)
+        //{
+        //    animator.SetBool(EquippedWeapon.name, false);
+        //    EquippedWeapon = defaultWeapon;
+        //}
 
         if (EquippedWeapon != defaultWeapon)
         {
-            RemoveWeaponDurability(1, "FullBar");
+            RemoveWeaponDurability(1, durabilityBarFull);
         }
 
     }
@@ -142,14 +145,12 @@ public class WeaponManagement : MonoBehaviour
         }
     }
 
-    void RemoveWeaponDurability(int num,string tags)
+    void RemoveWeaponDurability(int num,Image bar)
     {
-        Debug.Log(num);
-        GameObject[] durbarsObj  = GameObject.FindGameObjectsWithTag(tags);
+        GameObject[] durbarsObj  = GameObject.FindGameObjectsWithTag(bar.tag);
 
             for (int i = durbarsObj.Length-1; i >= durbarsObj.Length-num; i--)
             {
-            Debug.Log(i);
                 Destroy(durbarsObj[i]);
             }
 
@@ -157,7 +158,7 @@ public class WeaponManagement : MonoBehaviour
 
     void ResetDurability()
     {
-        RemoveWeaponDurability(EquippedWeapon.GetComponent<WeaponStats>().maxHits, "EmptyBar");
-        RemoveWeaponDurability(EquippedWeapon.GetComponent<WeaponStats>().currentHits, "FullBar");
+        RemoveWeaponDurability(EquippedWeapon.GetComponent<WeaponStats>().maxHits, durabilityBarEmpty);
+        RemoveWeaponDurability(EquippedWeapon.GetComponent<WeaponStats>().currentHits, durabilityBarFull);
     }
 }
