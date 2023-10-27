@@ -5,6 +5,7 @@ using UnityEngine;
 public class ThrownObjectsHitDetect : MonoBehaviour
 {
     public bool thrown;
+    public int damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +23,7 @@ public class ThrownObjectsHitDetect : MonoBehaviour
         {
             Debug.Log("Thrown Trash Can Hit!");
             Destroy(this.gameObject);
-            collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(100);
+            collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
         }
     }
 }
