@@ -19,7 +19,7 @@ public class BicycleEnemy : MonoBehaviour
     {
          transform.Translate(Vector3.left * speed * Time.deltaTime);
 
-          if (transform.position.x < -9)
+          if (transform.position.x < -15)
           {
                 Destroy(gameObject);
           }
