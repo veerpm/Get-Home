@@ -6,7 +6,6 @@ using UnityEngine;
 [System.Serializable]
 public enum Functionality
 {
-    MOVELOCK,
     CHAT,
     CHECKPOINT
 };
@@ -57,9 +56,6 @@ public class positionTriggerer : MonoBehaviour
         Functionality func = trigger.function;
         switch (func)
         {
-            case Functionality.MOVELOCK:
-                lockPlayer();
-                break;
             case Functionality.CHAT:
                 makeChat(trigger);
                 break;
@@ -86,12 +82,5 @@ public class positionTriggerer : MonoBehaviour
     {
         Vector3 pos = new Vector3(xPosition, -1f, 0f);
         gameManager.GetComponent<GamePause>().updateCheckpoint(pos);
-    }
-
-    // lock player's camera & bounds
-    void lockPlayer()
-    {
-        // freeze camera & player's position to camera bounds
-        gameManager.GetComponent<LockFrame>().lockPlayer();
     }
 }

@@ -6,6 +6,37 @@ public class LockFrame : MonoBehaviour
 {
     public GameObject mainCamera;
     public GameObject player;
+    public List<GameObject> enemies;
+
+    private void Update()
+    {
+        bool noEnemies = true;
+        foreach(GameObject enemy in enemies)
+        {
+            // check if remaining enemies
+            if (!enemy.GetComponent<EnemyHealth>().IsDead())
+            {
+                noEnemies = false;
+            }
+        }
+
+        // if all enemies are dead, release player & deactivate
+        if (noEnemies)
+        {
+            unlockPlayer();
+            this.gameObject.SetActive(false);
+        }
+    }
+
+    // lock player if touches object
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            lockPlayer();
+        }
+    }
+
     public void lockPlayer()
     {
         // freeze camera
@@ -20,7 +51,7 @@ public class LockFrame : MonoBehaviour
     public void unlockPlayer()
     {
         // unfreeze camera
-        mainCamera.GetComponent<CameraMovement>().setFreeze(true);
+        mainCamera.GetComponent<CameraMovement>().setFreeze(false);
         // unfreeze player's bounds
         player.GetComponent<Boundaries>().unFreeze();
     }
