@@ -105,7 +105,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char c in lines[index].text.ToCharArray())
         {
             mainText.text += c;
-            yield return new WaitForSeconds(textSpeed);
+            yield return new WaitForSecondsRealtime(textSpeed); // changed to realtime so that TimeScale doesn't affect on pause
         }
     }
 

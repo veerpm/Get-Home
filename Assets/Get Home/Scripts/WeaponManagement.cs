@@ -147,10 +147,12 @@ public class WeaponManagement : MonoBehaviour
         Debug.Log(num);
         GameObject[] durbarsObj  = GameObject.FindGameObjectsWithTag(tags);
 
-        for (int i = durbarsObj.Length-1; i >= durbarsObj.Length-num; i--)
-        {
-            Destroy(durbarsObj[i]);
-        }
+            for (int i = durbarsObj.Length-1; i >= durbarsObj.Length-num; i--)
+            {
+            Debug.Log(i);
+                Destroy(durbarsObj[i]);
+            }
+
     }
 
     void ResetDurability()
