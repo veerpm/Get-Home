@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private float vertical_movement;
     private Vector3 movement;
     private PickupObjects PickUpObjects;
-    private bool lookingRight = true;
+    public bool lookingRight = true;
 
     //sound FX
     public AudioSource walkingSound1;

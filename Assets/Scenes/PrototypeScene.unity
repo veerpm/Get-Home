@@ -765,10 +765,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 330463865}
   speed: 3
+  lookingRight: 1
   walkingSound1: {fileID: 330463872}
   walkingSound2: {fileID: 330463877}
   walkingSound3: {fileID: 330463876}
-  lookingRight: 1
   acceleration: 10
 --- !u!212 &330463861
 SpriteRenderer:
@@ -808,7 +808,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 5165559107332168737, guid: 3229dcc1557e44d5fa2e894e5a80473f,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -923,12 +923,12 @@ MonoBehaviour:
     m_Bits: 256
   display: {fileID: 979419663}
   events: {fileID: 0}
-  lightAttackSound1: {fileID: 330463873}
-  lightAttackSound2: {fileID: 330463879}
-  lightAttackSound3: {fileID: 330463878}
-  heavyAttackSound1: {fileID: 330463882}
-  heavyAttackSound2: {fileID: 330463881}
-  heavyAttackSound3: {fileID: 330463880}
+  lightAttackSound1: {fileID: 330463882}
+  lightAttackSound2: {fileID: 330463881}
+  lightAttackSound3: {fileID: 330463880}
+  heavyAttackSound1: {fileID: 330463873}
+  heavyAttackSound2: {fileID: 330463879}
+  heavyAttackSound3: {fileID: 330463878}
   epipenDamageBoost: 2
   epipenDuration: 5
   epipenActive: 0
@@ -953,6 +953,8 @@ MonoBehaviour:
   leftOffset: 1
   rightOffset: 1
   freeze: 0
+  leftFreeze: 0
+  rightFreeze: 0
 --- !u!114 &330463868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -990,7 +992,6 @@ MonoBehaviour:
     m_Bits: 2048
   pickupRadius: 0.9
   placeDownOffSet: 0.3
-  switchItemSound: {fileID: 330463883}
 --- !u!114 &330463870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1003,8 +1004,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01856c99fbd254f379aa71edb3ca50c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorWeapon: {fileID: 0}
-  defaultWeapon: {fileID: 0}
   weaponDisplay: {fileID: 517820462}
   durability: {fileID: 1508819649}
   animator: {fileID: 330463865}
@@ -1232,6 +1231,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1594741620}
+  mainCamera: {fileID: 982685567}
+  player: {fileID: 330463859}
   triggers:
   - xPosition: -4
     function: 1
@@ -4139,8 +4140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followSpeed: 5
   target: {fileID: 330463862}
-  yOffset: 0
-  xOffset: 0
+  yPosition: 0
   freeze: 0
   shake: 0
   shakeStrength: 0.075
@@ -6082,6 +6082,11 @@ PrefabInstance:
       propertyPath: lightAttackRate
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7917013147467662522, guid: efa010d8eb4e6404c8fc571f29f943da,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7917013147467662524, guid: efa010d8eb4e6404c8fc571f29f943da,
         type: 3}
       propertyPath: m_Name
@@ -6155,6 +6160,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Knife
+      objectReference: {fileID: 0}
+    - target: {fileID: 8168594218203311354, guid: d2b76872b3a384e5e882f5343fb1aed1,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8168594218203311355, guid: d2b76872b3a384e5e882f5343fb1aed1,
         type: 3}

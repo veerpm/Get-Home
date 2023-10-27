@@ -15,10 +15,11 @@ public class MeleeEnemyFollowPlayer : MonoBehaviour
     public LayerMask enemyLayers;
     public Animator animator;
     private bool lookingRight = false;
+    private Transform canvas;
     // Start is called before the first frame update
     void Start()
     {
-        
+        canvas = transform.Find("Canvas");
     }
   
     // Update is called once per frame
@@ -27,11 +28,13 @@ public class MeleeEnemyFollowPlayer : MonoBehaviour
         if (player.transform.position.x > transform.position.x && !lookingRight)
         {
             transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+            canvas.localScale = new Vector2(-canvas.localScale.x, canvas.localScale.y);
             lookingRight = true;
         }
         else if(player.transform.position.x <this.transform.position.x &&lookingRight)
         {
             transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+            canvas.localScale = new Vector2(-canvas.localScale.x, canvas.localScale.y);
             lookingRight = false;
         }
       

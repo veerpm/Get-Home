@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class WeaponManagement : MonoBehaviour
 {
-    GameObject equippedWeapon; // current weapon
-    public GameObject floorWeapon;
-    public GameObject defaultWeapon;
-    bool pickable;
+    private GameObject equippedWeapon; // current weapon
+    private GameObject floorWeapon;
+    private GameObject defaultWeapon;
+    private bool pickable;
     public Image weaponDisplay; // HUD weapon display
     public GameObject durability;
     public Animator animator;
