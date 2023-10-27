@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class ThrownObjectsHitDetect : MonoBehaviour
 {
+    public bool thrown;
     // Start is called before the first frame update
     void Start()
     {
-        
+        thrown = false;
     }
 
     // Update is called once per frame
@@ -17,11 +18,11 @@ public class ThrownObjectsHitDetect : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" && thrown == true)
         {
-            Debug.Log("thrown barell Hit!");
+            Debug.Log("Thrown Trash Can Hit!");
             Destroy(this.gameObject);
-            collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(20);
+            collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(100);
         }
     }
 }

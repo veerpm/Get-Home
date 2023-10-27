@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Weapon
   - Item
+  - Barrel
+  - Trash Can
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Enemies
   - Barrels
   - Player
-  - 
+  - Trash Cans
   - 
   - 
   - 
