@@ -16,7 +16,7 @@ public class ThrowableObject : MonoBehaviour
         Vector2 moveDirection = (target.transform.position - transform.position).normalized * speed;
         //Debug.Log(moveDirection);
         throwableRB.velocity = new Vector2(moveDirection.x, moveDirection.y);
-        Destroy(this.gameObject, 2);
+        Destroy(this.gameObject, 1);
     }
 
     // Update is called once per frame
@@ -24,13 +24,18 @@ public class ThrowableObject : MonoBehaviour
     {
 
     }
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collider.gameObject.tag == "Player")
         {
-            Debug.Log("Ranged Hit!");
+            Debug.Log("Barrel Hit Player!!!");
             Destroy(this.gameObject);
-            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().TakeDamage(damage);
+        }
+        // Environmental Objects will act as a shield for the player against throwing stuffs
+        if (collider.gameObject.tag == "Trash Can")
+        {
+            Destroy(this.gameObject);
         }
     }
 }

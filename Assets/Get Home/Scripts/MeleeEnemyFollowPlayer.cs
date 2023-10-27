@@ -14,20 +14,30 @@ public class MeleeEnemyFollowPlayer : MonoBehaviour
     public Transform attackPoint;
     public LayerMask enemyLayers;
     public Animator animator;
+    private bool lookingRight = false;
     // Start is called before the first frame update
     void Start()
     {
         
     }
-
+  
     // Update is called once per frame
     void Update()
     {
-
+        if (player.transform.position.x > transform.position.x && !lookingRight)
+        {
+            transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+            lookingRight = true;
+        }
+        else if(player.transform.position.x <this.transform.position.x &&lookingRight)
+        {
+            transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+            lookingRight = false;
+        }
+      
         float distanceFromPlayer = Vector2.Distance(player.position, transform.position);
         if (distanceFromPlayer < lineofSight && distanceFromPlayer > attackRange)
         {
-            //Debug.Log("This works Melee!");
             transform.position = Vector2.MoveTowards(this.transform.position, player.position + new Vector3(0.2f, 0.2f, 0.0f), speed * Time.deltaTime);
         }
         else if (distanceFromPlayer <= attackRange && nextAttackTime < Time.time)
@@ -42,29 +52,9 @@ public class MeleeEnemyFollowPlayer : MonoBehaviour
             }
             nextAttackTime = Time.time + AttackCD;
         }
+        
     }
-    /*
-    private void meleeAttack(float distanceFromPlayer, float player_x_position, float throwing_enemy_x_position)
-    {
-        if (distanceFromPlayer < lineofSight && distanceFromPlayer > attackRange)
-        {
-            //Debug.Log("This works!");
-            transform.position = Vector2.MoveTowards(this.transform.position, player.position + new Vector3(0.7f, -0.5f, 0.0f), speed * Time.deltaTime);
-        }
-        else if (distanceFromPlayer <= attackRange && nextAttackTime < Time.time)
-        {
-            animator.SetTrigger("Attack");
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-
-            foreach (Collider2D enemy in hitEnemies)
-            {
-                //Debug.Log(enemy.name);
-                enemy.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
-            }
-
-        }
-    }
-    */
+  
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
