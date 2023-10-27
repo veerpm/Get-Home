@@ -97,8 +97,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightAttackRange: 0.25
   heavyAttackRange: 0.25
-  lightAttackDamage: 5
-  heavyAttackDamage: 15
+  lightAttackDamage: 25
+  heavyAttackDamage: 50
   lightAttackRate: 5
   heavyAttackRate: 2
   maxHits: 5
