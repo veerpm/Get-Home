@@ -12,6 +12,7 @@ public class PickupObjects : MonoBehaviour
     private GameObject itemHolding;
     public float placeDownOffSet = 0f;
     private Vector3 yOffset = new Vector3 (0.0f, -0.3f, 0.0f);
+
     // public GameObject DestroyEffect;
 
     // Update is called once per frame
@@ -20,6 +21,7 @@ public class PickupObjects : MonoBehaviour
         //Debug.Log(Direction);
         if (Input.GetKeyDown(KeyCode.T))
         {
+
             if (itemHolding)
             {
                 
