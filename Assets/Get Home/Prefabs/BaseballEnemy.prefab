@@ -311,8 +311,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  speed: 1
-  lineofSight: 3
+  speed: 2
+  lineofSight: 4
   attackRange: 0.5
   AttackCD: 2
   attackDamage: 20
