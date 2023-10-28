@@ -1034,12 +1034,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   display: {fileID: 626387582}
-  lightAttackSound1: {fileID: 330463882}
-  lightAttackSound2: {fileID: 330463881}
-  lightAttackSound3: {fileID: 330463880}
-  heavyAttackSound1: {fileID: 330463873}
-  heavyAttackSound2: {fileID: 330463879}
-  heavyAttackSound3: {fileID: 330463878}
+  lightAttackSound1: {fileID: 330463873}
+  lightAttackSound2: {fileID: 330463879}
+  lightAttackSound3: {fileID: 330463878}
+  heavyAttackSound1: {fileID: 330463882}
+  heavyAttackSound2: {fileID: 330463881}
+  heavyAttackSound3: {fileID: 330463880}
   epiSound: {fileID: 330463888}
   comboSound: {fileID: 330463887}
   epipenDamageBoost: 2
