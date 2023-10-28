@@ -16,6 +16,7 @@ public class PlayerHealth : MonoBehaviour
     //soundFX
     public AudioSource getHitSound;
     public AudioSource drinkBeerSound;
+    public AudioSource dieSound;
 
     public GameObject gameManager;
     // Start is called before the first frame update
@@ -36,10 +37,12 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        //sound FX
-        getHitSound.Play();
+
         if (currentHealth <= 0)
         {
+            //sound FX
+            dieSound.Play();
+
             currentHealth = 0;
             animator.SetTrigger("Dead");
             events.isAttacking = false;
@@ -51,7 +54,12 @@ public class PlayerHealth : MonoBehaviour
             // Disable movement
             combatScript.enabled = false;
             GetComponent<PlayerMovement>().enabled = false;
+        } else
+        {
+            //sound FX
+            getHitSound.Play();
         }
+
         DisplayHealth();
     }
 
