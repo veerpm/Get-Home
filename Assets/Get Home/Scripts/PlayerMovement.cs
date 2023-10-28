@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 movement;
     private PickupObjects PickUpObjects;
     public bool lookingRight = true;
+    private Rigidbody2D rb;
 
     //sound FX
     public AudioSource walkingSound1;
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     {
         sprite = gameObject.GetComponent<SpriteRenderer>();
         PickUpObjects = gameObject.GetComponent<PickupObjects>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -48,11 +50,11 @@ public class PlayerMovement : MonoBehaviour
             vertical_movement = Input.GetAxisRaw("Vertical") * Time.deltaTime * speed;
             movement = new Vector3(horizontal_movement, vertical_movement ,0.0f);
 
-            transform.position += movement;
+            //transform.position += movement;
 
-         
-            
-           PickUpObjects.Direction = new Vector3(horizontal_movement, 0.0f, 0.0f).normalized;
+            rb.MovePosition(new Vector2(transform.position.x + movement.x, transform.position.y + movement.y));
+
+            PickUpObjects.Direction = new Vector3(horizontal_movement, 0.0f, 0.0f).normalized;
             
 
 
