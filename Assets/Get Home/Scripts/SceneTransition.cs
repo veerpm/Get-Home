@@ -11,14 +11,19 @@ public class SceneTransition : MonoBehaviour
     public string levelName;
     public float acceleration;
 
+    public GameObject player;
 
-    void Awake()
+
+    void Start()
     {
         // sets volume preferences
         if (PlayerPrefs.HasKey("Volume"))
         {
             audioSource.volume = PlayerPrefs.GetFloat("Volume");
         }
+
+        // load player
+        //LoadPosition();
 
         // sets the animation when entering new level
         levelNameObject.SetActive(true);
@@ -42,4 +47,22 @@ public class SceneTransition : MonoBehaviour
         levelNameObject.SetActive(false);
 
     }
+
+    void LoadPosition()
+    {
+        float XPos = -5.34f;
+        float YPos = 0f;
+        
+        if (PlayerPrefs.HasKey("XPos"))
+        {
+            XPos = PlayerPrefs.GetFloat("XPos");
+        }
+        if (PlayerPrefs.HasKey("YPos"))
+        {
+            XPos = PlayerPrefs.GetFloat("YPos");
+        }
+        
+        player.transform.position = new Vector3(XPos, YPos, 0f);
+    }
+
 }
