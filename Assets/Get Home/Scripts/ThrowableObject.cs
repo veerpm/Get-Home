@@ -28,7 +28,6 @@ public class ThrowableObject : MonoBehaviour
     {
         if (collider.gameObject.tag == "Player")
         {
-            Debug.Log("Barrel Hit Player!!!");
             Destroy(this.gameObject);
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().TakeDamage(damage);
         }

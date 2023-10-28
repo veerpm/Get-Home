@@ -6,17 +6,13 @@ public class ThrownObjectsHitDetect : MonoBehaviour
 {
     public bool thrown;
     public int damage;
+
     // Start is called before the first frame update
     void Start()
     {
         thrown = false;
     }
 
-    // Update is called once per frame
-    void LateUpdate()
-    {
-        //transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-    }
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemy" && thrown == true)

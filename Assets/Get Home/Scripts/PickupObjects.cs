@@ -26,13 +26,17 @@ public class PickupObjects : MonoBehaviour
             {
                 if (Mathf.Abs(Direction.x) > 0)
                 {
-                    itemHolding.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-                    itemHolding.transform.GetComponent<ThrownObjectsHitDetect>().thrown = true;
-                    itemHolding.transform.position = new Vector3(transform.position.x, transform.position.y - placeDownOffSet, 0.0f) + (Direction * 3);
-                    GetComponent<PlayerCombatMelee>().enabled = true;
                     itemHolding.transform.parent = null;
+                    itemHolding.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                    itemHolding.GetComponent<ThrownObjectsHitDetect>().thrown = true;
+
+                    itemHolding.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionX;
+                    itemHolding.GetComponent<Rigidbody2D>().AddForce(Direction * 1000);
+                    GetComponent<PlayerCombatMelee>().enabled = true;
+                    
                     if (itemHolding.GetComponent<Rigidbody2D>())
                         itemHolding.GetComponent<Rigidbody2D>().simulated = true;
+                    Destroy(itemHolding, 0.5f);
                     itemHolding = null;
                 }
                 else
@@ -81,4 +85,5 @@ public class PickupObjects : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, pickupRadius);
     }
+
 }

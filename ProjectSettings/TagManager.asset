@@ -12,6 +12,7 @@ TagManager:
   - EmptyBar
   - Barrel
   - Trash Can
+  - Football
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - Barrels
   - Player
   - Trash Cans
-  - 
+  - Footballs
   - 
   - 
   - 

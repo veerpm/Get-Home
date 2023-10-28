@@ -498,8 +498,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a69d8fd34fab8d4484cafa2ea045fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineofSight: 4
-  throwingRange: 2
+  lineofSight: 6
+  throwingRange: 4
   throwingCD: 2
   throwable: {fileID: 6050025691549763102, guid: 89384654646fed140a0e2a6fecf3fa87,
     type: 3}
