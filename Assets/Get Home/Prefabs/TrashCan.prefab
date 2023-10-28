@@ -125,7 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrown: 0
   damage: 75
-  trashBreakSound: {fileID: 7242444002265655893}
+  audioSource: {fileID: 7242444002265655893}
 --- !u!82 &7242444002265655893
 AudioSource:
   m_ObjectHideFlags: 0
