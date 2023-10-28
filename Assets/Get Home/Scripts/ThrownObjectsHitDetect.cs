@@ -17,6 +17,7 @@ public class ThrownObjectsHitDetect : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy" && thrown == true)
         {
+
             Debug.Log("Thrown Trash Can Hit!");
             Destroy(this.gameObject);
             collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
