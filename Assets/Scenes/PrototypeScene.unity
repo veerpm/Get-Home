@@ -955,11 +955,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 330463859}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 373134eb4e25dc9488e5a8fcaaebe61b, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 1
-  m_Offset: {x: 0.02584672, y: -0.0625931}
+  m_Offset: {x: 0.02584672, y: -0.046707004}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -970,7 +970,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.28169346, y: 0.16012841}
+  m_Size: {x: 0.28169346, y: 0.12835622}
   m_EdgeRadius: 0
 --- !u!50 &330463864
 Rigidbody2D:
@@ -984,9 +984,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10000
+  m_Mass: 100
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -3531,10 +3531,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrashCan
       objectReference: {fileID: 0}
+    - target: {fileID: 7610311267251977995, guid: 8fe746b7827ecdc4485f3ea1720b9c11,
+        type: 3}
+      propertyPath: m_UsedByEffector
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7610311267251977996, guid: 8fe746b7827ecdc4485f3ea1720b9c11,
         type: 3}
       propertyPath: damage
       value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610311267251977997, guid: 8fe746b7827ecdc4485f3ea1720b9c11,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7610311267251977999, guid: 8fe746b7827ecdc4485f3ea1720b9c11,
         type: 3}
@@ -6836,7 +6846,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -250.00049, y: 25}
+  m_AnchoredPosition: {x: -250, y: 25}
   m_SizeDelta: {x: 500, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2116219565
