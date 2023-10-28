@@ -50,11 +50,22 @@ public class GamePause : MonoBehaviour
         player.transform.position = checkpoint;
         player.GetComponent<PlayerHealth>().setFullHealth();
 
+        // defreeze in case player was freezed in combat
+        mainCamera.GetComponent<CameraMovement>().setFreeze(false);
+        player.GetComponent<Boundaries>().unFreeze();
+
         // resets enemies position & health
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject enemy in enemies)
+        GameObject[] enemyStops = GameObject.FindGameObjectsWithTag("EnemyStop");
+        foreach (GameObject enemyStop in enemyStops)
         {
-            if (enemy.name != "BicycleEnemy")
+            // skip if enemies are already dead
+            if (enemyStop.GetComponent<LockFrame>().EnemiesDefeated())
+            {
+                continue;
+            }
+
+            // bring back alive each enemy
+            foreach (GameObject enemy in enemyStop.GetComponent<LockFrame>().enemies)
             {
                 EnemyHealth healthScript = enemy.GetComponent<EnemyHealth>();
 
@@ -87,8 +98,6 @@ public class GamePause : MonoBehaviour
 
     public void pause(bool isPaused)
     {
-        mainCamera.GetComponent<CameraMovement>().setFreeze(false);
-        player.GetComponent<Boundaries>().unFreeze();
         // All time related code is stopped if true
         if (isPaused) {
             Time.timeScale = 0;
@@ -134,17 +143,5 @@ public class GamePause : MonoBehaviour
     public void updateCheckpoint(Vector3 newPos)
     {
         checkpoint = newPos;
-    }
-
-    IEnumerator LoadScene()
-    {
-        // The Application loads the Scene in the background as the current Scene runs.
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
-
-        // Wait until the asynchronous scene fully loads
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
     }
 }
