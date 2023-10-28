@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private PickupObjects PickUpObjects;
     public bool lookingRight = true;
     private Rigidbody2D rb;
+    private GameObject displayText;
 
     //sound FX
     public AudioSource walkingSound1;
@@ -65,12 +66,22 @@ public class PlayerMovement : MonoBehaviour
                 // face left
                 transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
                 lookingRight = false;
+                displayText = GameObject.FindGameObjectWithTag("DisplayText");
+                if (displayText != null)
+                {
+                    displayText.transform.localScale = new Vector2(-displayText.transform.localScale.x, displayText.transform.localScale.y);
+                }
             }
             else if (horizontal_movement > 0 && !lookingRight)
             {
                 // face right
                 transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
                 lookingRight = true;
+                displayText = GameObject.FindGameObjectWithTag("DisplayText");
+                if (displayText != null)
+                {
+                    displayText.transform.localScale = new Vector2(-displayText.transform.localScale.x, displayText.transform.localScale.y);
+                }
             }
 
 

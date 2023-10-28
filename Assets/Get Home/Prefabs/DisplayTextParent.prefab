@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 517221242788425151}
   m_Layer: 10
   m_Name: DisplayTextParent
-  m_TagString: Untagged
+  m_TagString: DisplayText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
