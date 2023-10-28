@@ -23,6 +23,8 @@ public class PlayerCombatMelee : MonoBehaviour
     public AudioSource heavyAttackSound1;
     public AudioSource heavyAttackSound2;
     public AudioSource heavyAttackSound3;
+    public AudioSource epiSound;
+    public AudioSource comboSound;
 
 
     // weapon stats
@@ -212,6 +214,9 @@ public class PlayerCombatMelee : MonoBehaviour
     {
         if (collider.gameObject.name == "Epipen")
         {
+            //sound FX
+            epiSound.Play();
+
             lightAttackDamage = lightAttackDamage * epipenDamageBoost;
             heavyAttackDamage = heavyAttackDamage * epipenDamageBoost;
             startTimer = Time.time;
@@ -285,6 +290,9 @@ public class PlayerCombatMelee : MonoBehaviour
 
                 if (c.Key.SequenceEqual(attacksList) && !epipenActive)
                 {
+                    //sound FX
+                    comboSound.Play();
+
                     lightAttackDamage = c.Value;
                     heavyAttackDamage = c.Value;
                     comboActive = true;
