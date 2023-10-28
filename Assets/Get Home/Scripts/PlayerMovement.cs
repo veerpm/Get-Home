@@ -32,6 +32,23 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    void Update()
+    {
+        displayText = GameObject.FindGameObjectWithTag("DisplayText");
+
+        if (displayText != null && !lookingRight && displayText.transform.localScale.x > 0)
+        {
+
+            displayText.transform.localScale = new Vector2(-displayText.transform.localScale.x, displayText.transform.localScale.y);
+        }
+
+        if (displayText != null && lookingRight && displayText.transform.localScale.x < 0)
+        {
+
+            displayText.transform.localScale = new Vector2(-displayText.transform.localScale.x, displayText.transform.localScale.y);
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -66,29 +83,18 @@ public class PlayerMovement : MonoBehaviour
                 // face left
                 transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
                 lookingRight = false;
-                displayText = GameObject.FindGameObjectWithTag("DisplayText");
-                if (displayText != null)
-                {
-                    displayText.transform.localScale = new Vector2(-displayText.transform.localScale.x, displayText.transform.localScale.y);
-                }
             }
             else if (horizontal_movement > 0 && !lookingRight)
             {
                 // face right
                 transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
                 lookingRight = true;
-                displayText = GameObject.FindGameObjectWithTag("DisplayText");
-                if (displayText != null)
-                {
-                    displayText.transform.localScale = new Vector2(-displayText.transform.localScale.x, displayText.transform.localScale.y);
-                }
-            }
 
+            }
 
             animator.SetFloat("SpeedX", Mathf.Abs(horizontal_movement));
             animator.SetFloat("SpeedY", Mathf.Abs(vertical_movement));
         }
-     
 
     }
 
