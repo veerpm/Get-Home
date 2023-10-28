@@ -13,6 +13,7 @@ TagManager:
   - Barrel
   - Trash Can
   - Football
+  - EnemyStop
   layers:
   - Default
   - TransparentFX
