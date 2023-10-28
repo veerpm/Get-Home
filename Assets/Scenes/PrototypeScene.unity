@@ -1056,8 +1056,6 @@ MonoBehaviour:
   lowerBound: -3.7
   leftBound: -7.8
   rightBound: 100
-  leftOffset: 1
-  rightOffset: 1
   freeze: 0
   leftFreeze: 0
   rightFreeze: 0
@@ -4630,7 +4628,7 @@ Transform:
   m_LocalScale: {x: 0.8862818, y: 8.097845, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1009286556
 GameObject:
@@ -5187,7 +5185,7 @@ MonoBehaviour:
   mainCamera: {fileID: 982685567}
   player: {fileID: 330463859}
   enemies:
-  - {fileID: 593574433}
+  - {fileID: 0}
 --- !u!61 &1216219425
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5462,7 +5460,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1478056743
 PrefabInstance:
@@ -5692,7 +5690,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1508819649
 GameObject:
@@ -6642,7 +6640,7 @@ RectTransform:
   - {fileID: 458742817}
   - {fileID: 1972259792}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6838,7 +6836,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -250, y: 25}
+  m_AnchoredPosition: {x: -250.00049, y: 25}
   m_SizeDelta: {x: 500, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2116219565
