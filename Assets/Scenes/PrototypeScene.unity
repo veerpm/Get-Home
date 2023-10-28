@@ -883,9 +883,7 @@ MonoBehaviour:
   upperBound: 0.6
   lowerBound: -3.7
   leftBound: -6
-  rightBound: 9
-  leftOffset: 1
-  rightOffset: 1
+  rightBound: 48
   freeze: 0
   leftFreeze: 0
   rightFreeze: 0
@@ -1170,14 +1168,6 @@ MonoBehaviour:
     function: 1
     repeats: 0
     text: What a weird street
-  - xPosition: 0
-    function: 2
-    repeats: 0
-    text: 
-  - xPosition: -4
-    function: 0
-    repeats: 0
-    text: 
 --- !u!114 &330463875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4029,7 +4019,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1008393670}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.733, y: -0.538, z: 0}
+  m_LocalPosition: {x: 47.67, y: -0.538, z: 0}
   m_LocalScale: {x: 0.8862818, y: 8.097845, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4287,7 +4277,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1216219424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4895,7 +4885,6 @@ GameObject:
   - component: {fileID: 1594741622}
   - component: {fileID: 1594741624}
   - component: {fileID: 1594741623}
-  - component: {fileID: 1594741625}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4933,6 +4922,7 @@ MonoBehaviour:
   pauseScreen: {fileID: 1193298890}
   deathScreen: {fileID: 1721763427}
   music: {fileID: 1478797234}
+  camera: {fileID: 982685567}
   checkpoint: {x: -5.32, y: 0, z: 0}
 --- !u!114 &1594741623
 MonoBehaviour:
@@ -4951,6 +4941,7 @@ MonoBehaviour:
   levelNameObject: {fileID: 912541543}
   levelName: Zone 1
   acceleration: -10
+  player: {fileID: 330463859}
 --- !u!114 &1594741624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4968,21 +4959,6 @@ MonoBehaviour:
   enemies:
   - {fileID: 0}
   player: {fileID: 330463859}
---- !u!114 &1594741625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1594741620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82625ed5596fe6c4f9fa6b0f49a3c8c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCamera: {fileID: 982685567}
-  player: {fileID: 330463859}
-  enemies: []
 --- !u!1 &1695393619
 GameObject:
   m_ObjectHideFlags: 0
@@ -5882,7 +5858,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -250.00098, y: 25}
+  m_AnchoredPosition: {x: -250, y: 25}
   m_SizeDelta: {x: 500, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2116219565

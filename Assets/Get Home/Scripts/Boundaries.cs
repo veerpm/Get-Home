@@ -8,8 +8,7 @@ public class Boundaries : MonoBehaviour
     public float lowerBound;
     public float leftBound;
     public float rightBound;
-    public float leftOffset = 1f;
-    public float rightOffset = 1f;
+
     public bool freeze = false;
 
     public float leftFreeze;
