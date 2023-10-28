@@ -14,6 +14,10 @@ public class ThrowingEnemyFollowPlayer : MonoBehaviour
     public GameObject throwSpot;
     private bool lookingRight = false;
     private Transform canvas;
+
+    //sound FX
+    public AudioSource throwSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,12 +42,15 @@ public class ThrowingEnemyFollowPlayer : MonoBehaviour
         }
         float distanceFromPlayer = Vector2.Distance(player.position, transform.position);
         if (distanceFromPlayer < lineofSight && distanceFromPlayer > throwingRange)
-        {
+        {   
             //Debug.Log("This works!");
             transform.position = Vector2.MoveTowards(this.transform.position, player.position + new Vector3(0.7f, -0.5f, 0.0f), speed * Time.deltaTime);
         }
         else if (distanceFromPlayer <= throwingRange && nextThrowTime < Time.time)
         {
+            //sound FX
+            throwSound.Play();
+
             Instantiate(throwable, throwSpot.transform.position, Quaternion.identity);
             nextThrowTime = Time.time + throwingCD;
 

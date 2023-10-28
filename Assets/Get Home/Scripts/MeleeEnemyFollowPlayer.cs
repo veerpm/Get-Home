@@ -16,6 +16,10 @@ public class MeleeEnemyFollowPlayer : MonoBehaviour
     public Animator animator;
     private bool lookingRight = false;
     private Transform canvas;
+
+    //sound FX
+    public AudioSource meleeAttackSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +54,9 @@ public class MeleeEnemyFollowPlayer : MonoBehaviour
 
             foreach (Collider2D enemy in hitEnemies)
             {
+                //sound FX
+                meleeAttackSound.Play();
+
                 Debug.Log("Melee Hit!");
                 enemy.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
             }
