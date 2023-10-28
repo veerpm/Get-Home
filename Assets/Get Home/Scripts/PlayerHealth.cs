@@ -37,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= damage;
         //sound FX
-        //getHitSound.Play();
+        getHitSound.Play();
         if (currentHealth <= 0)
         {
             currentHealth = 0;
@@ -71,7 +71,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collider.gameObject.name == "Beer")
         {
-            //drinkBeerSound.Play();
+            drinkBeerSound.Play();
             currentHealth = maxHealth;
             DisplayHealth();
             collider.gameObject.SetActive(false);
