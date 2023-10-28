@@ -9,30 +9,41 @@ public class LockFrame : MonoBehaviour
     public GameObject gameManager;
     public List<GameObject> enemies;
 
+    private bool enemiesDefeated;
+
+    private void Start()
+    {
+        enemiesDefeated = false;
+    }
+
     private void Update()
     {
-        bool noEnemies = true;
-        foreach(GameObject enemy in enemies)
+        // only check if enemies have not been beaten
+        if (!enemiesDefeated)
         {
-            // check if remaining enemies
-            if (!enemy.GetComponent<EnemyHealth>().IsDead())
+            bool noEnemies = true;
+            foreach (GameObject enemy in enemies)
             {
-                noEnemies = false;
+                // check if remaining enemies
+                if (!enemy.GetComponent<EnemyHealth>().IsDead())
+                {
+                    noEnemies = false;
+                }
             }
-        }
 
-        // if all enemies are dead, release player & deactivate
-        if (noEnemies)
-        {
-            unlockPlayer();
-            this.gameObject.SetActive(false);
+            // if all enemies are dead, release player & deactivate
+            if (noEnemies)
+            {
+                unlockPlayer();
+                enemiesDefeated = true;
+            }
         }
     }
 
     // lock player if touches object
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && !enemiesDefeated)
         {
             lockPlayer();
         }
@@ -57,5 +68,15 @@ public class LockFrame : MonoBehaviour
         player.GetComponent<Boundaries>().unFreeze();
         // new checkpoint
         gameManager.GetComponent<GamePause>().updateCheckpoint(player.transform.position);
+    }
+
+    public bool EnemiesDefeated()
+    {
+        return enemiesDefeated;
+    }
+
+    public void setEnemiesDefeated(bool value)
+    {
+        enemiesDefeated = value;
     }
 }

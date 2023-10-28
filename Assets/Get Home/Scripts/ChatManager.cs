@@ -19,7 +19,7 @@ public class ChatManager : MonoBehaviour
 
 
     // Params = original, Vector3 position, Quaternion rotation, Transform parent
-    public void CreateBubble(GameObject parent, string text, float time, float textSize = 1f, Vector3 localPosition = default(Vector3))
+    public GameObject CreateBubble(GameObject parent, string text, float time, float textSize = 1f, Vector3 localPosition = default(Vector3))
     {
         // move slightly above head if no pos. given
         if (localPosition == default(Vector3))
@@ -30,9 +30,16 @@ public class ChatManager : MonoBehaviour
         // create & set dialogue
         GameObject chatBubble = Instantiate(chatObject, parent.transform.position + localPosition,
             Quaternion.identity, parent.transform);
+        // standardize size
+        Vector3 parentScale = parent.transform.localScale;
+        chatBubble.transform.localScale = new Vector3(3/parentScale.x, 3/parentScale.y, 1);
         chatBubble.GetComponent<ChatBubble>().Setup(text, textSize);
 
         // Remove after 'time' seconds
-        Destroy(chatBubble, time);
+        if(time != 0)
+        {
+            Destroy(chatBubble, time);
+        }
+        return chatBubble;
     }
 }
