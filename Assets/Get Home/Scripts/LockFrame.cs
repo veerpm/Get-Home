@@ -6,6 +6,7 @@ public class LockFrame : MonoBehaviour
 {
     public GameObject mainCamera;
     public GameObject player;
+    public GameObject gameManager;
     public List<GameObject> enemies;
 
     private void Update()
@@ -54,5 +55,7 @@ public class LockFrame : MonoBehaviour
         mainCamera.GetComponent<CameraMovement>().setFreeze(false);
         // unfreeze player's bounds
         player.GetComponent<Boundaries>().unFreeze();
+        // new checkpoint
+        gameManager.GetComponent<GamePause>().updateCheckpoint(player.transform.position);
     }
 }
