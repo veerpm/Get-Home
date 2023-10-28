@@ -13,6 +13,10 @@ public class PickupObjects : MonoBehaviour
     public float placeDownOffSet = 0f;
     private Vector3 yOffset = new Vector3 (0.0f, -0.3f, 0.0f);
 
+    //sound FX
+    public AudioSource pickUpTrashSound;
+    public AudioSource throwTrashSound;
+
     // public GameObject DestroyEffect;
 
     // Update is called once per frame
@@ -26,6 +30,9 @@ public class PickupObjects : MonoBehaviour
             {
                 if (Mathf.Abs(Direction.x) > 0)
                 {
+                    //sound FX
+                    throwTrashSound.Play();
+
                     itemHolding.transform.parent = null;
                     itemHolding.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                     itemHolding.GetComponent<ThrownObjectsHitDetect>().thrown = true;
@@ -41,6 +48,9 @@ public class PickupObjects : MonoBehaviour
                 }
                 else
                 {
+                    //sound FX
+                    pickUpTrashSound.Play();
+
                     if(GetComponent<PlayerMovement>().lookingRight == true)
                     {
                         itemHolding.transform.position = new Vector3(holdSpot.position.x, holdSpot.position.y - placeDownOffSet, 0.0f) + new Vector3(0.6f, 0.3f, 0);
