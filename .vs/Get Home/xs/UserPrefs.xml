@@ -1,20 +1,10 @@
 ﻿<Properties GitUserInfo="UsingGIT">
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Get Home/Scripts/DialogueManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Get Home/Scripts/EnemyHealth.cs">
     <Files>
-      <File FileName="Assets/Get Home/Scripts/ThrowingEnemyFollowPlayer.cs" />
-      <File FileName="Assets/Get Home/Scripts/MeleeEnemyFollowPlayer.cs" />
-      <File FileName="Assets/Get Home/Scripts/SceneTransition.cs" />
-      <File FileName="Assets/Get Home/Scripts/PlayerMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets/Get Home/Scripts/PlayerCombatMelee.cs" />
-      <File FileName="Assets/Get Home/Scripts/EnemyHealth.cs" />
-      <File FileName="Assets/Get Home/Scripts/LockFrame.cs" />
-      <File FileName="Assets/Get Home/Scripts/DialogueManager.cs" Line="69" Column="56" />
+      <File FileName="Assets/Get Home/Scripts/PlayerCombatMelee.cs" Line="13" Column="25" />
+      <File FileName="Assets/Get Home/Scripts/PlayerMovement.cs" Line="80" Column="79" />
+      <File FileName="Assets/Get Home/Scripts/EnemyHealth.cs" Line="95" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -23,9 +13,7 @@
             <Node name="Assembly-CSharp" expanded="True">
               <Node name="Assets" expanded="True">
                 <Node name="Get Home" expanded="True">
-                  <Node name="Scripts" expanded="True">
-                    <Node name="DialogueManager.cs" selected="True" />
-                  </Node>
+                  <Node name="Scripts" expanded="True" />
                 </Node>
               </Node>
             </Node>
@@ -34,4 +22,9 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
