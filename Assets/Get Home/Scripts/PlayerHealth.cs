@@ -13,6 +13,10 @@ public class PlayerHealth : MonoBehaviour
     public AnimationEvents events;
     private PlayerCombatMelee combatScript;
 
+    //soundFX
+    public AudioSource getHitSound;
+    public AudioSource drinkBeerSound;
+
     public GameObject gameManager;
     // Start is called before the first frame update
     void Start()
@@ -32,6 +36,8 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        //sound FX
+        //getHitSound.Play();
         if (currentHealth <= 0)
         {
             currentHealth = 0;
@@ -65,6 +71,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collider.gameObject.name == "Beer")
         {
+            //drinkBeerSound.Play();
             currentHealth = maxHealth;
             DisplayHealth();
             collider.gameObject.SetActive(false);
