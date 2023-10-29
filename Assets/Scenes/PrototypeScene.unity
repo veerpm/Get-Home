@@ -3065,16 +3065,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7645658738577266058, guid: 309790e093fa74cc3a2297a9191d49e2,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 330463862}
-    - target: {fileID: 7645658738577266058, guid: 309790e093fa74cc3a2297a9191d49e2,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7645658738577266059, guid: 309790e093fa74cc3a2297a9191d49e2,
         type: 3}
       propertyPath: m_RootOrder
@@ -3130,45 +3120,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7645658738577266061, guid: 309790e093fa74cc3a2297a9191d49e2,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 1.078809
-      objectReference: {fileID: 0}
-    - target: {fileID: 7645658738577266061, guid: 309790e093fa74cc3a2297a9191d49e2,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.77430534
-      objectReference: {fileID: 0}
-    - target: {fileID: 7645658738577266061, guid: 309790e093fa74cc3a2297a9191d49e2,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: 0.07495701
-      objectReference: {fileID: 0}
-    - target: {fileID: 7645658738577266061, guid: 309790e093fa74cc3a2297a9191d49e2,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.0007286072
-      objectReference: {fileID: 0}
-    - target: {fileID: 7645658738577266063, guid: 309790e093fa74cc3a2297a9191d49e2,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 8922c85379f06cd42a55f5453a6757e9, type: 2}
     - target: {fileID: 7645658738577266064, guid: 309790e093fa74cc3a2297a9191d49e2,
         type: 3}
       propertyPath: m_Name
       value: ThrowingEnemy (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7645658739349848001, guid: 309790e093fa74cc3a2297a9191d49e2,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 7645658739349848001, guid: 309790e093fa74cc3a2297a9191d49e2,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 309790e093fa74cc3a2297a9191d49e2, type: 3}
@@ -7994,7 +7949,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -250.00098, y: 25}
+  m_AnchoredPosition: {x: -250, y: 25}
   m_SizeDelta: {x: 500, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2116219565
