@@ -26,7 +26,7 @@ public class CameraMovement : MonoBehaviour
         // camera follows target (ex: player) with speed of 'followSpeed'
         if(!freeze)
         {
-            Vector3 newPos = new Vector3(target.position.x, target.position.y + 0.5f, -10f);
+            Vector3 newPos = new Vector3(target.position.x, target.position.y, -10f);
             // ancient line also followed YPos: Vector3 newPos = new Vector3(target.position.x, target.position.y, -10f);
             transform.position = Vector3.Slerp(transform.position, newPos, followSpeed * Time.deltaTime);
         }

@@ -154,9 +154,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightAttackRange: 0.5
   heavyAttackRange: 0.5
-  lightAttackDamage: 30
-  heavyAttackDamage: 60
+  lightAttackDamage: 40
+  heavyAttackDamage: 40
   lightAttackRate: 2
   heavyAttackRate: 1
   maxHits: 3
   currentHits: 0
+  initialPostion: {x: 0, y: 0, z: 0}
