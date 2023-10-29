@@ -6494,6 +6494,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseballEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 683629375773968697, guid: 9752569396f9e482e9e16d796fbef497,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2.4099998
+      objectReference: {fileID: 0}
+    - target: {fileID: 683629375773968697, guid: 9752569396f9e482e9e16d796fbef497,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.424121
+      objectReference: {fileID: 0}
+    - target: {fileID: 683629375773968697, guid: 9752569396f9e482e9e16d796fbef497,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 683629375773968698, guid: 9752569396f9e482e9e16d796fbef497,
         type: 3}
       propertyPath: m_RootOrder

@@ -29,12 +29,6 @@ TextureImporter:
   - first:
       213: -8374803952683536177
     second: BaseballGuywalking2_8
-  - first:
-      213: -4126015963495495657
-    second: BaseballGuywalking2_9
-  - first:
-      213: 4121628634974617742
-    second: BaseballGuywalking2_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -316,48 +310,6 @@ TextureImporter:
       bones: []
       spriteID: fc0b2c83d28b6cb80800000000000000
       internalID: -8374803952683536177
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BaseballGuywalking2_9
-      rect:
-        serializedVersion: 2
-        x: 2169
-        y: 0
-        width: 241
-        height: 242
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 718824e77527db6c0800000000000000
-      internalID: -4126015963495495657
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BaseballGuywalking2_10
-      rect:
-        serializedVersion: 2
-        x: 2410
-        y: 0
-        width: 241
-        height: 242
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e808dbbf767f23930800000000000000
-      internalID: 4121628634974617742
       vertices: []
       indices: 
       edges: []
