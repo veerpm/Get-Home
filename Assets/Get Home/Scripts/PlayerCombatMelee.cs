@@ -212,7 +212,7 @@ public class PlayerCombatMelee : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.name == "Epipen")
+        if (collider.gameObject.tag == "Epipen")
         {
             //sound FX
             epiSound.Play();
