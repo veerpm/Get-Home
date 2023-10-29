@@ -7,6 +7,7 @@ public class AnimationEvents : MonoBehaviour
     public bool isAttacking;
 
 
+
     void IsAttacking()
     {
         isAttacking = true;

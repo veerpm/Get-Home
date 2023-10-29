@@ -66,6 +66,7 @@ public class DialogueManager : MonoBehaviour
             if (dialogueOn && Input.anyKeyDown && !
             (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))) // any key except the mouse activates next dialogue
             {
+                //sound FX
                 if (mainText.text == lines[index].text)
                 {
                     // finished displaying. Jump to next line
