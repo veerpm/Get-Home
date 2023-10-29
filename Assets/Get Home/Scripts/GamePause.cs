@@ -45,6 +45,7 @@ public class GamePause : MonoBehaviour
 
     public void bringBackAlive()
     {
+        pause(false);
 
         // resets player position & health
         player.transform.position = checkpoint;
@@ -58,10 +59,23 @@ public class GamePause : MonoBehaviour
         GameObject[] enemyStops = GameObject.FindGameObjectsWithTag("EnemyStop");
         foreach (GameObject enemyStop in enemyStops)
         {
-            // skip if enemies are already dead
+            // dead-enemies are disabled & passed
             if (enemyStop.GetComponent<LockFrame>().EnemiesDefeated())
             {
-                continue;
+                foreach(GameObject enemy in enemyStop.GetComponent<LockFrame>().enemies)
+                {
+                    enemy.SetActive(false);
+                    /*
+                    var enemyScripts = enemy.GetComponents<MonoBehaviour>();
+                    // toggle enemy's scripts
+                    foreach (var script in enemyScripts)
+                    {
+                        script.enabled = false;
+                    }
+                    */
+                    continue;
+                }
+
             }
 
             // bring back alive each enemy
@@ -84,7 +98,6 @@ public class GamePause : MonoBehaviour
         // remove death scree & unpause
         dead = false;
         deathScreen.SetActive(false);
-        pause(false);
     }
 
     public void setDead()
