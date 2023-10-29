@@ -8,6 +8,7 @@ public class WeaponManagement : MonoBehaviour
     private GameObject equippedWeapon; // current weapon
     private GameObject floorWeapon;
     private GameObject defaultWeapon;
+    private GameObject brokenWeapon;
     private bool pickable;
     public Image weaponDisplay; // HUD weapon display
     public GameObject durability;
@@ -22,6 +23,7 @@ public class WeaponManagement : MonoBehaviour
     {
         defaultWeapon = GameObject.Find("Fists");
         EquippedWeapon = defaultWeapon;
+        animator.SetBool(EquippedWeapon.name, true);
     }
 
     // Update is called once per frame
@@ -32,7 +34,7 @@ public class WeaponManagement : MonoBehaviour
             SwapWeapon();
         }
 
-        if (!pickable && Input.GetKeyDown(KeyCode.F) && EquippedWeapon)
+        if (!pickable && Input.GetKeyDown(KeyCode.F) && EquippedWeapon != defaultWeapon)
         {
             DropWeapon();
         }
@@ -50,7 +52,6 @@ public class WeaponManagement : MonoBehaviour
             equippedWeapon = value;
             GetComponent<PlayerCombatMelee>().SetWeaponStats(equippedWeapon);
             DisplayWeapon(equippedWeapon);
-            animator.SetBool(EquippedWeapon.name, true);
         }
     }
 
@@ -78,11 +79,12 @@ public class WeaponManagement : MonoBehaviour
         ResetDurability();
         GameObject temp = floorWeapon;
         floorWeapon = EquippedWeapon;
+        animator.SetBool(floorWeapon.name, false);
         EquippedWeapon = temp;
+        animator.SetBool(EquippedWeapon.name, true);
         floorWeapon.transform.position = new Vector3(transform.position.x,transform.position.y-0.5f,0);
         EquippedWeapon.SetActive(false);
         floorWeapon.SetActive(true);
-        animator.SetBool(floorWeapon.name, false);
     }
 
     void DropWeapon()
@@ -92,6 +94,7 @@ public class WeaponManagement : MonoBehaviour
         EquippedWeapon.transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, 0);
         EquippedWeapon.SetActive(true);
         EquippedWeapon = defaultWeapon;
+        animator.SetBool(EquippedWeapon.name, true);
     }
 
     void DisplayWeapon(GameObject weapon)
@@ -108,13 +111,19 @@ public class WeaponManagement : MonoBehaviour
     {
         EquippedWeapon.GetComponent<WeaponStats>().currentHits--;
 
+        if (brokenWeapon != null)
+        {
+            animator.SetBool(brokenWeapon.name, false);
+            animator.SetBool(EquippedWeapon.name, true);
+            brokenWeapon = null;
+        }
+
         if (EquippedWeapon.GetComponent<WeaponStats>().currentHits == 0 && EquippedWeapon != defaultWeapon)
         {
+            brokenWeapon = EquippedWeapon;
             EquippedWeapon.GetComponent<WeaponStats>().currentHits++;
             ResetDurability();
-            animator.SetBool(EquippedWeapon.name, false);
             EquippedWeapon = defaultWeapon;
-            DisplayWeapon(defaultWeapon);
         }
 
 

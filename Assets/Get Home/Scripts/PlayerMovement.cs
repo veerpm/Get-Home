@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public bool lookingRight = true;
     private Rigidbody2D rb;
     private GameObject displayText;
+    private AnimationEvents events;
 
     //sound FX
     public AudioSource walkingSound1;
@@ -30,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
         sprite = gameObject.GetComponent<SpriteRenderer>();
         PickUpObjects = gameObject.GetComponent<PickupObjects>();
         rb = GetComponent<Rigidbody2D>();
+        events = gameObject.GetComponent<AnimationEvents>();
     }
 
     void Update()
@@ -52,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (CanMove())
+        if (!events.isAttacking)
         {
             //if (Mathf.Abs(movementVector.y) > 0)
             //{
@@ -96,11 +98,6 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("SpeedY", Mathf.Abs(vertical_movement));
         }
 
-    }
-
-    bool CanMove()
-    {
-        return animator.GetBool("canMove");
     }
 
     void IsWalking()
