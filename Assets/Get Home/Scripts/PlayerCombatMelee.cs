@@ -217,6 +217,7 @@ public class PlayerCombatMelee : MonoBehaviour
             //sound FX
             epiSound.Play();
 
+            DisplayText("Epipen Active X2 Damage!!");
             lightAttackDamage = lightAttackDamage * epipenDamageBoost;
             heavyAttackDamage = heavyAttackDamage * epipenDamageBoost;
             startTimer = Time.time;
@@ -283,16 +284,12 @@ public class PlayerCombatMelee : MonoBehaviour
             {
                     if (attacksList.Count == 3 && c.Key.GetRange(0, 3).SequenceEqual(attacksList.GetRange(0, 3)))
                     {
-                        GameObject displayClone = Instantiate(display, transform);
-                        display.transform.GetChild(0).GetComponent<TextMesh>().text = c.Key.Last<string>() + " For Combo!";
-                        Destroy(displayClone, 2f);
+                        DisplayText(c.Key.Last<string>() + " For Combo!");
                     }
 
                     if (attacksList.Count == 4 && c.Key.GetRange(0, 3).SequenceEqual(attacksList.GetRange(1, 3)))
                     {
-                        GameObject displayClone = Instantiate(display, transform);
-                        display.transform.GetChild(0).GetComponent<TextMesh>().text = c.Key.Last<string>() + " For Combo!";
-                        Destroy(displayClone, 2f);
+                        DisplayText(c.Key.Last<string>() + " For Combo!");
                     }
 
 
@@ -323,6 +320,13 @@ public class PlayerCombatMelee : MonoBehaviour
     {
         comboActive = false;
         SetWeaponStats(weaponManagement.EquippedWeapon);
+    }
+
+    private void DisplayText(string s)
+    {
+        GameObject displayClone = Instantiate(display, transform);
+        displayClone.transform.GetChild(0).GetComponent<TextMesh>().text = s;
+        Destroy(displayClone, 2f);
     }
 }
 
