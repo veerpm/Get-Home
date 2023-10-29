@@ -46,6 +46,7 @@ public class MeleeEnemyFollowPlayer : MonoBehaviour
         if (distanceFromPlayer < lineofSight && distanceFromPlayer > attackRange)
         {
             transform.position = Vector2.MoveTowards(this.transform.position, player.position + new Vector3(0.2f, 0.2f, 0.0f), speed * Time.deltaTime);
+            animator.SetBool("Walking", true);
         }
         else if (distanceFromPlayer <= attackRange && nextAttackTime < Time.time)
         {
@@ -61,6 +62,7 @@ public class MeleeEnemyFollowPlayer : MonoBehaviour
                 enemy.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
             }
             nextAttackTime = Time.time + AttackCD;
+            animator.SetBool("Walking", false);
         }
         
     }

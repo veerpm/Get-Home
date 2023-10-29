@@ -125,7 +125,7 @@ public class PlayerCombatMelee : MonoBehaviour
         {
             if (enemy.tag == "Enemy")
             {
-                DealWCombo("LightAttack");
+                DealWCombo("Light Attack");
             }
             enemy.GetComponent<EnemyHealth>().TakeDamage(lightAttackDamage);
 
@@ -166,7 +166,7 @@ public class PlayerCombatMelee : MonoBehaviour
         {
             if (enemy.tag == "Enemy")
             {
-                DealWCombo("HeavyAttack");
+                DealWCombo("Heavy Attack");
             }
             enemy.GetComponent<EnemyHealth>().TakeDamage(heavyAttackDamage);
 
@@ -250,10 +250,10 @@ public class PlayerCombatMelee : MonoBehaviour
     void AddCombos()
     {
         combos.Add(new List<string>() {
-            "LightAttack",
-            "LightAttack",
-            "HeavyAttack",
-            "LightAttack"}, 100);
+            "Light Attack",
+            "Light Attack",
+            "Heavy Attack",
+            "Light Attack"}, 100);
     }
 
     void DealWCombo(string attack)
@@ -281,12 +281,20 @@ public class PlayerCombatMelee : MonoBehaviour
 
             foreach (KeyValuePair<List<string>, int> c in combos)
             {
-                if (c.Key.GetRange(0,3).SequenceEqual(attacksList))
-                {
-                    GameObject displayClone = Instantiate(display, transform);
-                    display.transform.GetChild(0).GetComponent<TextMesh>().text = "Light Attack For Combo!";
-                    Destroy(displayClone, 2f);
-                }
+                    if (attacksList.Count == 3 && c.Key.GetRange(0, 3).SequenceEqual(attacksList.GetRange(0, 3)))
+                    {
+                        GameObject displayClone = Instantiate(display, transform);
+                        display.transform.GetChild(0).GetComponent<TextMesh>().text = c.Key.Last<string>() + " For Combo!";
+                        Destroy(displayClone, 2f);
+                    }
+
+                    if (attacksList.Count == 4 && c.Key.GetRange(0, 3).SequenceEqual(attacksList.GetRange(1, 3)))
+                    {
+                        GameObject displayClone = Instantiate(display, transform);
+                        display.transform.GetChild(0).GetComponent<TextMesh>().text = c.Key.Last<string>() + " For Combo!";
+                        Destroy(displayClone, 2f);
+                    }
+
 
                 if (c.Key.SequenceEqual(attacksList) && !epipenActive)
                 {
