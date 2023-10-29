@@ -14,6 +14,7 @@ public class ThrowingEnemyFollowPlayer : MonoBehaviour
     public GameObject throwSpot;
     private bool lookingRight = false;
     private Transform canvas;
+    public Animator animator;
 
     //sound FX
     public AudioSource throwSound;
@@ -48,9 +49,11 @@ public class ThrowingEnemyFollowPlayer : MonoBehaviour
         }
         else if (distanceFromPlayer <= throwingRange && nextThrowTime < Time.time)
         {
+            animator.SetTrigger("ThrowAttack");
             //sound FX
             throwSound.Play();
 
+            
             Instantiate(throwable, throwSpot.transform.position, Quaternion.identity);
             nextThrowTime = Time.time + throwingCD;
 
