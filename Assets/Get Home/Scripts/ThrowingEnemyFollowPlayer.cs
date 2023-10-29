@@ -5,7 +5,7 @@ using UnityEngine;
 public class ThrowingEnemyFollowPlayer : MonoBehaviour
 {
     private Transform player;
-    private float speed = 1;
+    private float speed = 2;
     public float lineofSight = 5.0f;
     public float throwingRange;
     private float nextThrowTime;

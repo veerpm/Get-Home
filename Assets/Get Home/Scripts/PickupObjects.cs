@@ -38,7 +38,7 @@ public class PickupObjects : MonoBehaviour
                     itemHolding.GetComponent<ThrownObjectsHitDetect>().thrown = true;
 
                     itemHolding.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionX;
-                    itemHolding.GetComponent<Rigidbody2D>().AddForce(Direction * 1000);
+                    itemHolding.GetComponent<Rigidbody2D>().AddForce(Direction * 200);
                     GetComponent<PlayerCombatMelee>().enabled = true;
                     
                     if (itemHolding.GetComponent<Rigidbody2D>())
