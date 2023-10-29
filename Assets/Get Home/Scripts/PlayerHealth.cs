@@ -77,7 +77,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.name == "Beer")
+        if (collider.gameObject.tag == "Beer")
         {
             drinkBeerSound.Play();
             currentHealth = maxHealth;
