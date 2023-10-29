@@ -561,6 +561,7 @@ MonoBehaviour:
   enemies:
   - {fileID: 1889609720}
   - {fileID: 161798136}
+  goPrompt: {fileID: 1888591357}
 --- !u!61 &136566357
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3793,6 +3794,7 @@ MonoBehaviour:
   enemies:
   - {fileID: 2010533940}
   - {fileID: 440345563}
+  goPrompt: {fileID: 1888591357}
 --- !u!61 &531984342
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5819,6 +5821,7 @@ MonoBehaviour:
   player: {fileID: 330463859}
   gameManager: {fileID: 1594741620}
   enemies: []
+  goPrompt: {fileID: 0}
 --- !u!114 &1030989870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7262,6 +7265,95 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776955135}
   m_CullTransparentMesh: 0
+--- !u!1 &1888591357
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1888591358}
+  - component: {fileID: 1888591360}
+  - component: {fileID: 1888591359}
+  - component: {fileID: 1888591361}
+  m_Layer: 5
+  m_Name: GoImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1888591358
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888591357}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2091657019}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 28, y: -74}
+  m_SizeDelta: {x: 1017, y: 679}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1888591359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888591357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 1dc25cf7b943e4db1bd895777f1c3d49, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1888591360
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888591357}
+  m_CullTransparentMesh: 0
+--- !u!114 &1888591361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888591357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5f04a15337644f0092abe8d91bc8b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blinkInterval: 1
+  displayTime: 5
 --- !u!1 &1889609720 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 683629375773968696, guid: 9752569396f9e482e9e16d796fbef497,
@@ -7752,6 +7844,7 @@ RectTransform:
   - {fileID: 1721763428}
   - {fileID: 1719819606}
   - {fileID: 1972259792}
+  - {fileID: 1888591358}
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8367,6 +8460,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 330463859}
+    - target: {fileID: 8343251825770429466, guid: 2c6b702e7354e1f41a7cbe58a16ed231,
+        type: 3}
+      propertyPath: goPrompt
+      value: 
+      objectReference: {fileID: 1888591357}
     - target: {fileID: 8343251825770429466, guid: 2c6b702e7354e1f41a7cbe58a16ed231,
         type: 3}
       propertyPath: mainCamera

@@ -8,6 +8,7 @@ public class LockFrame : MonoBehaviour
     public GameObject player;
     public GameObject gameManager;
     public List<GameObject> enemies;
+    public GameObject goPrompt;
 
     private bool enemiesDefeated;
 
@@ -36,6 +37,7 @@ public class LockFrame : MonoBehaviour
             {
                 unlockPlayer();
                 enemiesDefeated = true;
+                goPrompt.GetComponent<GoPrompt>().Display();
             }
         }
     }
