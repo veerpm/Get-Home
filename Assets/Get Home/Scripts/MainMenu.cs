@@ -24,8 +24,9 @@ public class MainMenu : MonoBehaviour
         menus = new TextMeshProUGUI[][] { mainButtons, optionsButton};
 
         // setup volume "bar"
-        volume = 0f;
-        optionsButton[0].text = optionsButton[0].text + "0%";
+        volume = 1f;
+        optionsButton[0].text = optionsButton[0].text + "100%";
+        PlayerPrefs.SetFloat("Volume", volume);
 
         // initialize cursor & main menu
         pos = 0;
@@ -45,7 +46,7 @@ public class MainMenu : MonoBehaviour
         {
             MoveCursor(-1);
         }
-        else if(Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+        else if(Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
             ActivateButton(1);
         }
