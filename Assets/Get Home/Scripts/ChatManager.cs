@@ -6,6 +6,9 @@ public class ChatManager : MonoBehaviour
 {
     public GameObject chatObject;
     public GameObject[] enemies;
+    public TextAsset barksFile;
+
+    private string[] barks;
 
     // Variable player and Start method are only there for TESTING purposes (calling the method Create()
     // is simpler if you want to create dialogues).
@@ -15,6 +18,11 @@ public class ChatManager : MonoBehaviour
     {
         //CreateBubble(player, "I need to get home!", 3f);
         //StartCoroutine(chatDemonstration());
+        if(barksFile != null && enemies != null)
+        {
+            barks = barksFile.ToString().Split('\n');
+            StartCoroutine(RandomEnemyChat());
+        }
     }
 
 
@@ -32,7 +40,7 @@ public class ChatManager : MonoBehaviour
             Quaternion.identity, parent.transform);
         // standardize size
         Vector3 parentScale = parent.transform.localScale;
-        chatBubble.transform.localScale = new Vector3(3/parentScale.x, 3/parentScale.y, 1);
+        chatBubble.transform.localScale = new Vector3(3/ Mathf.Abs(parentScale.x), 3/parentScale.y, 1);
         chatBubble.GetComponent<ChatBubble>().Setup(text, textSize);
 
         // Remove after 'time' seconds
@@ -41,5 +49,19 @@ public class ChatManager : MonoBehaviour
             Destroy(chatBubble, time);
         }
         return chatBubble;
+    }
+
+    IEnumerator RandomEnemyChat()
+    {
+        // constantly print enemy dialogues
+        while (true)
+        {
+            int randBark = Random.Range(0, barks.Length);
+            int randEnemy = Random.Range(0,enemies.Length);
+
+            CreateBubble(enemies[randEnemy], barks[randBark], 1.5f);
+
+            yield return new WaitForSeconds(1.5f);
+        }
     }
 }
