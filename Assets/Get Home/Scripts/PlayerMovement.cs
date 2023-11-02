@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public float acceleration;
 
     private SpriteRenderer sprite;
+    private bool isColliding;
 
     // Start is called before the first frame update
     void Start()
@@ -94,8 +95,17 @@ public class PlayerMovement : MonoBehaviour
 
             }
 
+            // don't walk if colliding
+            if (isColliding)
+            {
+                horizontal_movement = 0f;
+                vertical_movement = 0f;
+            }
+
+            // walking animation
             animator.SetFloat("SpeedX", Mathf.Abs(horizontal_movement));
             animator.SetFloat("SpeedY", Mathf.Abs(vertical_movement));
+
         }
 
     }
@@ -116,6 +126,22 @@ public class PlayerMovement : MonoBehaviour
         {
             walkingSound3.Play();
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        isColliding = true;
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        isColliding = false;
+    }
+
+    // called from other scripts
+    public void SetColliding(bool isColliding)
+    {
+        this.isColliding = isColliding;
     }
 
 }
