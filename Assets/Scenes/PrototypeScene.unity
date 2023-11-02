@@ -1533,7 +1533,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1594741620}
-  triggers: []
+  triggers:
+  - xPosition: -7.8
+    function: 0
+    repeats: 0
+    text: Can't go in the bar again!
 --- !u!114 &330463875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5819,7 +5823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1030989867
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6956,7 +6960,9 @@ MonoBehaviour:
   chatObject: {fileID: 5599220873381174354, guid: 0a98edb627653c947a11590f7a0286f2,
     type: 3}
   enemies:
-  - {fileID: 0}
+  - {fileID: 465938018}
+  - {fileID: 250533898}
+  barksFile: {fileID: 0}
   player: {fileID: 330463859}
 --- !u!1 &1695393619
 GameObject:
@@ -8560,13 +8566,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8343251825770429465, guid: 2c6b702e7354e1f41a7cbe58a16ed231,
         type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.8881216
+      objectReference: {fileID: 0}
+    - target: {fileID: 8343251825770429465, guid: 2c6b702e7354e1f41a7cbe58a16ed231,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 8343251825770429465, guid: 2c6b702e7354e1f41a7cbe58a16ed231,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.27
+      value: -2.249
       objectReference: {fileID: 0}
     - target: {fileID: 8343251825770429465, guid: 2c6b702e7354e1f41a7cbe58a16ed231,
         type: 3}

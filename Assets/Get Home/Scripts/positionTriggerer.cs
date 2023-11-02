@@ -74,7 +74,8 @@ public class positionTriggerer : MonoBehaviour
     // create chat bubble
     void makeChat(Trigger trigger)
     {
-        gameManager.GetComponent<ChatManager>().CreateBubble(this.gameObject, trigger.text, 3f);
+        float time = 3f;
+        gameManager.GetComponent<ChatManager>().CreateBubble(this.gameObject, trigger.text, time);
     }
 
     // update checkpoint
