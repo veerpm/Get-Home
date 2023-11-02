@@ -35,9 +35,17 @@ public class PickupObjects : MonoBehaviour
 
                     itemHolding.transform.parent = null;
                     itemHolding.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-                    itemHolding.GetComponent<ThrownObjectsHitDetect>().thrown = true;
-
                     itemHolding.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionX;
+                    if (itemHolding.CompareTag("Trash Can"))
+                    {
+                        itemHolding.GetComponent<ThrownObjectsHitDetect>().thrown = true;
+                        Debug.Log("Sausage McMuffin");
+                    }
+                  
+                    if (itemHolding.CompareTag("Football"))
+                    {
+                        itemHolding.GetComponent<Rigidbody2D>().AddForce(Direction * 600);
+                    }
                     itemHolding.GetComponent<Rigidbody2D>().AddForce(Direction * 200);
                     GetComponent<PlayerCombatMelee>().enabled = true;
                     
@@ -82,6 +90,14 @@ public class PickupObjects : MonoBehaviour
                     itemHolding.transform.position = holdSpot.position;
                     itemHolding.transform.parent = transform;
                     GetComponent<PlayerCombatMelee>().enabled = false;
+                    if (itemHolding.CompareTag("Football"))
+                    {
+                        itemHolding.GetComponent<ThrowableObject>().caught = true;
+                        itemHolding.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                    }
+                    {
+                       // itemHolding.GetComponent<ThrownObjectsHitDetect>().caught = true;
+                    }
                     if (itemHolding.GetComponent<Rigidbody2D>())
                         itemHolding.GetComponent<Rigidbody2D>().simulated = false;
                 }

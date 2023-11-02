@@ -5,6 +5,7 @@ using UnityEngine;
 public class ThrownObjectsHitDetect : MonoBehaviour
 {
     public bool thrown;
+    public bool caught;
     public int damage;
     public AudioSource audioSource;
 
