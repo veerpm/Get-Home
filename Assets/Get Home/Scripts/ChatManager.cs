@@ -7,6 +7,7 @@ public class ChatManager : MonoBehaviour
     public GameObject chatObject;
     public GameObject[] enemies;
     public TextAsset barksFile;
+
     private string[] barks;
 
     // Variable player and Start method are only there for TESTING purposes (calling the method Create()
@@ -58,7 +59,7 @@ public class ChatManager : MonoBehaviour
             int randBark = Random.Range(0, barks.Length);
             int randEnemy = Random.Range(0,enemies.Length);
 
-            CreateBubble(enemies[randEnemy], barks[randBark], 2f);
+            CreateBubble(enemies[randEnemy], barks[randBark], 1.5f);
 
             yield return new WaitForSeconds(1.5f);
         }
