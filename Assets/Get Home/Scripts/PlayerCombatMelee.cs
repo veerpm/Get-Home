@@ -137,7 +137,7 @@ public class PlayerCombatMelee : MonoBehaviour
 
     void HeavyAttack()
     {
-        animator.SetTrigger("LightAttack");
+        animator.SetTrigger("HeavyAttack");
 
         //sound FX
         int randomSound = Random.Range(0, 2);
