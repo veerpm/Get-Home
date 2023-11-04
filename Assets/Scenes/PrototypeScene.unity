@@ -8552,11 +8552,7 @@ PrefabInstance:
     - target: {fileID: 1249960174090062403, guid: c6107ca37d6da4f069e7c96e2fbd815d,
         type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
       value: 1.87
-=======
-      value: 6.55
->>>>>>> refs/remotes/origin/main
       objectReference: {fileID: 0}
     - target: {fileID: 1249960174090062403, guid: c6107ca37d6da4f069e7c96e2fbd815d,
         type: 3}
