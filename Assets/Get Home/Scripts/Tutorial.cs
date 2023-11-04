@@ -13,7 +13,7 @@ public class Tutorial : MonoBehaviour
 
     private GameObject chatBubble;
 
-    private bool moved = false;
+    //private bool moved = false;
     private bool punched = false;
     private bool pickedUpTrash = false;
     private bool paused = false;
@@ -26,10 +26,12 @@ public class Tutorial : MonoBehaviour
 
     private void Update()
     {
+        /*
         if(Input.GetAxisRaw("Horizontal") != 0|| Input.GetAxisRaw("Vertical") != 0)
         {
             moved = true;
         }
+        */
 
         if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q))
         {
@@ -59,6 +61,10 @@ public class Tutorial : MonoBehaviour
         this.GetComponent<LockFrame>().setEnemiesDefeated(true);
         this.GetComponent<LockFrame>().lockPlayer();
 
+        chatBubble = gameManager.GetComponent<ChatManager>().CreateBubble(this.gameObject,
+            "Hey!", 0);
+        // telling player to move seems useless (they always start moving)
+        /*
         yield return new WaitForSeconds(1);
 
         chatBubble = gameManager.GetComponent<ChatManager>().CreateBubble(this.gameObject,
@@ -72,9 +78,10 @@ public class Tutorial : MonoBehaviour
             yield return null;
         }
         Debug.Log("REACHED " + moved);
+        */
 
         // dialogue (E and Q)
-        chatBubble.GetComponent<ChatBubble>().Setup("Great. And punching? It's 'E' and 'Q', yeah?");
+        chatBubble.GetComponent<ChatBubble>().Setup("Hey you! You know how to punch? It's 'E' and 'Q'.");
 
         // wait
         while (!punched)
@@ -90,14 +97,17 @@ public class Tutorial : MonoBehaviour
         {
             yield return null;
         }
+        Debug.Log(player.GetComponent<PickupObjects>().IsHolding());
 
         chatBubble.GetComponent<ChatBubble>().Setup("Now the fun part: press 'T' again while moving to throw it on this enemy!");
         GameObject enemy = CreateEnemy();
 
+        yield return new WaitForSeconds(0.5f);
         // wait
         while (!enemy.GetComponent<EnemyHealth>().IsDead())
         {
             // bring back enemy if he's dead
+            Debug.Log(trashCan.transform.position);
             if (!player.GetComponent<PickupObjects>().IsHolding())
             {
                 trashCan.transform.position = trashPos;
