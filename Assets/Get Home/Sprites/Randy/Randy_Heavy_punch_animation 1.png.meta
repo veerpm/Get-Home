@@ -1,22 +1,25 @@
 fileFormatVersion: 2
-guid: 42bc86b7e86783e4291217737aba9b33
+guid: ad6dbe4f8e7d5924e889a82f26e71c65
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2346588454600631837
-    second: Randy_Heavy_punch_animation_0
+      213: 321050449512520352
+    second: Randy_Heavy_punch_animation 1_0
   - first:
-      213: -6845210361506407096
-    second: Randy_Heavy_punch_animation_1
+      213: -7732491337781495596
+    second: Randy_Heavy_punch_animation 1_1
   - first:
-      213: 6658709311383141755
-    second: Randy_Heavy_punch_animation_2
+      213: 2790974708865759084
+    second: Randy_Heavy_punch_animation 1_2
   - first:
-      213: -6421499216070132743
-    second: Randy_Heavy_punch_animation_3
+      213: -4901380756180594490
+    second: Randy_Heavy_punch_animation 1_3
   - first:
-      213: -3616744007004561957
-    second: Randy_Heavy_punch_animation_4
+      213: -3055282748551484425
+    second: Randy_Heavy_punch_animation 1_4
+  - first:
+      213: 2798801257499072254
+    second: Randy_Heavy_punch_animation 1_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -102,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Randy_Heavy_punch_animation_0
+      name: Randy_Heavy_punch_animation 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -116,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d16e08644c1c09020800000000000000
-      internalID: 2346588454600631837
+      spriteID: 0aa5c2ecea9947400800000000000000
+      internalID: 321050449512520352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Randy_Heavy_punch_animation_1
+      name: Randy_Heavy_punch_animation 1_1
       rect:
         serializedVersion: 2
         x: 100
@@ -137,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84d5695917de001a0800000000000000
-      internalID: -6845210361506407096
+      spriteID: 4d8bfb6c81ca0b490800000000000000
+      internalID: -7732491337781495596
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Randy_Heavy_punch_animation_2
+      name: Randy_Heavy_punch_animation 1_2
       rect:
         serializedVersion: 2
         x: 200
@@ -158,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7df39fd6dc786c50800000000000000
-      internalID: 6658709311383141755
+      spriteID: c67fa03e5b88bb620800000000000000
+      internalID: 2790974708865759084
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Randy_Heavy_punch_animation_3
+      name: Randy_Heavy_punch_animation 1_3
       rect:
         serializedVersion: 2
         x: 300
@@ -179,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fbb0bc4c7042e6a0800000000000000
-      internalID: -6421499216070132743
+      spriteID: 6c09beebb2ccafbb0800000000000000
+      internalID: -4901380756180594490
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Randy_Heavy_punch_animation_4
+      name: Randy_Heavy_punch_animation 1_4
       rect:
         serializedVersion: 2
         x: 400
@@ -200,8 +203,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bdd58faec7ebecdc0800000000000000
-      internalID: -3616744007004561957
+      spriteID: 7fba53c17847995d0800000000000000
+      internalID: -3055282748551484425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Randy_Heavy_punch_animation 1_5
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef6162e3ae657d620800000000000000
+      internalID: 2798801257499072254
       vertices: []
       indices: 
       edges: []
