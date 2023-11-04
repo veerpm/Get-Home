@@ -98,11 +98,12 @@ MonoBehaviour:
   lightAttackRange: 0.25
   heavyAttackRange: 0.25
   lightAttackDamage: 25
-  heavyAttackDamage: 50
-  lightAttackRate: 5
-  heavyAttackRate: 2
+  heavyAttackDamage: 40
+  lightAttackRate: 3
+  heavyAttackRate: 1
   maxHits: 5
   currentHits: 0
+  initialPostion: {x: 0, y: 0, z: 0}
 --- !u!1 &8168594219442033333
 GameObject:
   m_ObjectHideFlags: 0
