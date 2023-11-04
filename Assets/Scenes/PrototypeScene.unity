@@ -7,7 +7,7 @@ OcclusionCullingSettings:
   m_OcclusionBakeSettings:
     smallestOccluder: 5
     smallestHole: 0.25
-    backfaceThreshold: 100Y
+    backfaceThreshold: 100
   m_SceneGUID: 00000000000000000000000000000000
   m_OcclusionCullingData: {fileID: 0}
 --- !u!104 &2
@@ -5920,8 +5920,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1594741620}
-  basicEnemy: {fileID: 0}
-  spawningPosition: {x: 0, y: 0, z: 0}
+  player: {fileID: 330463859}
+  trashCan: {fileID: 1146894271}
+  trashPos: {x: -7.84, y: -0.37, z: 0}
+  baseballEnemy: {fileID: 683629375773968696, guid: 9752569396f9e482e9e16d796fbef497,
+    type: 3}
+  enemyPos: {x: -1, y: -1.5, z: 0}
 --- !u!1 &1077589216
 GameObject:
   m_ObjectHideFlags: 0
@@ -6256,6 +6260,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9752569396f9e482e9e16d796fbef497, type: 3}
+--- !u!1 &1146894271 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7610311267251977994, guid: 8fe746b7827ecdc4485f3ea1720b9c11,
+    type: 3}
+  m_PrefabInstance: {fileID: 776230000}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1171434275
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8497,7 +8507,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -250.00049, y: 25}
+  m_AnchoredPosition: {x: -250, y: 25}
   m_SizeDelta: {x: 500, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2116219565

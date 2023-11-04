@@ -5,15 +5,19 @@ using UnityEngine;
 public class Tutorial : MonoBehaviour
 {
     public GameObject gameManager;
-    public GameObject basicEnemy;
-    public Vector3 spawningPosition;
+    public GameObject player;
+    public GameObject trashCan;
+    public Vector3 trashPos;
+    public GameObject baseballEnemy;
+    public Vector3 enemyPos;
 
     private GameObject chatBubble;
 
     private bool moved = false;
     private bool punched = false;
-    private bool pickedUp = false;
+    private bool pickedUpTrash = false;
     private bool paused = false;
+    private bool pickedupWeapon = false;
 
     public void Start()
     {
@@ -33,14 +37,19 @@ public class Tutorial : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.T) || Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.T))
         {
-            pickedUp = true;
+            pickedUpTrash = true;
         }
 
         if (Input.GetKeyDown(KeyCode.P))
         {
             paused = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            pickedupWeapon = true;
         }
     }
 
@@ -49,6 +58,8 @@ public class Tutorial : MonoBehaviour
         // freeze player
         this.GetComponent<LockFrame>().setEnemiesDefeated(true);
         this.GetComponent<LockFrame>().lockPlayer();
+
+        yield return new WaitForSeconds(1);
 
         chatBubble = gameManager.GetComponent<ChatManager>().CreateBubble(this.gameObject,
             "Hey you! Remember how to move? Use the arrows!", 0);
@@ -72,13 +83,46 @@ public class Tutorial : MonoBehaviour
         }
 
         // dialogue (T and R)
-        chatBubble.GetComponent<ChatBubble>().Setup("Not bad! To pickup objects and weapons, use 'T' and 'R'");
+        chatBubble.GetComponent<ChatBubble>().Setup("Not bad! Pickup the thrash here using 'T'");
 
         // wait
-        while (!pickedUp)
+        while (!pickedUpTrash && !player.GetComponent<PickupObjects>().IsHolding())
         {
             yield return null;
         }
+
+        chatBubble.GetComponent<ChatBubble>().Setup("Now the fun part: press 'T' again while moving to throw it on this enemy!");
+        GameObject enemy = CreateEnemy();
+
+        // wait
+        while (!enemy.GetComponent<EnemyHealth>().IsDead())
+        {
+            // bring back enemy if he's dead
+            if (!player.GetComponent<PickupObjects>().IsHolding())
+            {
+                trashCan.transform.position = trashPos;
+            }
+            yield return null;
+        }
+
+        // dialogue (T and R)
+        chatBubble.GetComponent<ChatBubble>().Setup("See that knife on the ground? Press 'R' while near it to get an edge in battle!");
+
+        // wait
+        while (!pickedupWeapon && !player.GetComponent<PickupObjects>().IsHolding())
+        {
+            yield return null;
+        }
+
+        chatBubble.GetComponent<ChatBubble>().Setup("Try using it on that enemy");
+        enemy = CreateEnemy();
+
+        // wait
+        while (!enemy.GetComponent<EnemyHealth>().IsDead())
+        {
+            yield return null;
+        }
+
 
         // pause menu
         chatBubble.GetComponent<ChatBubble>().Setup("Don't forget: use 'P' to remember what I taught you!");
@@ -96,10 +140,15 @@ public class Tutorial : MonoBehaviour
         Destroy(chatBubble,3);
     }
 
-    private void CreateEnemy()
+    private GameObject CreateEnemy(int health = 10)
     {
-        Instantiate(basicEnemy, spawningPosition, Quaternion.identity);
-        basicEnemy.GetComponent<EnemyHealth>().maxHealth = 10;
-        basicEnemy.GetComponent<EnemyHealth>().SetFullHealth();
+        GameObject enemy = Instantiate(baseballEnemy, enemyPos, Quaternion.identity);
+        // set properties
+        baseballEnemy.GetComponent<MeleeEnemyFollowPlayer>().player = player.transform;
+        baseballEnemy.GetComponent<MeleeEnemyFollowPlayer>().attackDamage = 5;
+        baseballEnemy.GetComponent<EnemyHealth>().maxHealth = health;
+        baseballEnemy.GetComponent<EnemyHealth>().SetFullHealth();
+
+        return enemy;
     }
 }
