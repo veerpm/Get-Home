@@ -11,12 +11,15 @@ public class LockFrame : MonoBehaviour
     public GameObject goPrompt;
 
     private bool enemiesDefeated;
-    private GameObject flag;
+    private GameObject flag = null;
 
     private void Start()
     {
         enemiesDefeated = false;
-        flag = this.gameObject.transform.GetChild(0).gameObject;
+        if(this.gameObject.transform.childCount > 0)
+        {
+            flag = this.gameObject.transform.GetChild(0).gameObject;
+        }
     }
 
     private void Update()
@@ -40,8 +43,11 @@ public class LockFrame : MonoBehaviour
                 unlockPlayer();
                 enemiesDefeated = true;
                 goPrompt.GetComponent<GoPrompt>().Display();
-                // display flag
-                flag.SetActive(true);
+                // display flag (if we are a checkpoint)
+                if(flag != null)
+                {
+                    flag.SetActive(true);
+                }
             }
         }
     }
@@ -72,8 +78,15 @@ public class LockFrame : MonoBehaviour
         mainCamera.GetComponent<CameraMovement>().setFreeze(false);
         // unfreeze player's bounds
         player.GetComponent<Boundaries>().unFreeze();
-        // new checkpoint (flag's position)
-        gameManager.GetComponent<GamePause>().updateCheckpoint(flag.transform.position);
+        // new checkpoint (flag's  or player's position)
+        if (flag != null)
+        {
+            gameManager.GetComponent<GamePause>().updateCheckpoint(flag.transform.position);
+        }
+        else
+        {
+            gameManager.GetComponent<GamePause>().updateCheckpoint(player.transform.position);
+        }
     }
 
     public bool EnemiesDefeated()

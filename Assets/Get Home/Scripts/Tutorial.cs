@@ -5,6 +5,8 @@ using UnityEngine;
 public class Tutorial : MonoBehaviour
 {
     public GameObject gameManager;
+    public GameObject basicEnemy;
+    public Vector3 spawningPosition;
 
     private GameObject chatBubble;
 
@@ -13,7 +15,7 @@ public class Tutorial : MonoBehaviour
     private bool pickedUp = false;
     private bool paused = false;
 
-    void Start()
+    public void Start()
     {
         StartCoroutine(tutorialLogic());
     }
@@ -44,7 +46,7 @@ public class Tutorial : MonoBehaviour
 
     IEnumerator tutorialLogic()
     {
-        // freeeze player
+        // freeze player
         this.GetComponent<LockFrame>().setEnemiesDefeated(true);
         this.GetComponent<LockFrame>().lockPlayer();
 
@@ -92,5 +94,12 @@ public class Tutorial : MonoBehaviour
 
         this.GetComponent<LockFrame>().unlockPlayer();
         Destroy(chatBubble,3);
+    }
+
+    private void CreateEnemy()
+    {
+        Instantiate(basicEnemy, spawningPosition, Quaternion.identity);
+        basicEnemy.GetComponent<EnemyHealth>().maxHealth = 10;
+        basicEnemy.GetComponent<EnemyHealth>().SetFullHealth();
     }
 }

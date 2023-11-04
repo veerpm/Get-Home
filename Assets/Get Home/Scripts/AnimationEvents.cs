@@ -5,7 +5,7 @@ using UnityEngine;
 public class AnimationEvents : MonoBehaviour
 {
     public bool isAttacking;
-
+    public GameObject tutorial;
 
 
     void IsAttacking()
