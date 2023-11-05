@@ -16,6 +16,7 @@ public class MeleeEnemyFollowPlayer : MonoBehaviour
     public Animator animator;
     private bool lookingRight = false;
     private Transform canvas;
+    public float offset = 1;
 
     //sound FX
     public AudioSource meleeAttackSound;
@@ -29,13 +30,13 @@ public class MeleeEnemyFollowPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.transform.position.x > transform.position.x && !lookingRight)
+        if (player.transform.position.x > transform.position.x + offset && !lookingRight)
         {
             transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
             canvas.localScale = new Vector2(-canvas.localScale.x, canvas.localScale.y);
             lookingRight = true;
         }
-        else if(player.transform.position.x <this.transform.position.x &&lookingRight)
+        else if(player.transform.position.x < transform.position.x + offset &&lookingRight)
         {
             transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
             canvas.localScale = new Vector2(-canvas.localScale.x, canvas.localScale.y);
