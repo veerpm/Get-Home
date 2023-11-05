@@ -6425,10 +6425,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1731591163, guid: 9752569396f9e482e9e16d796fbef497, type: 3}
-      propertyPath: m_BodyType
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 683629375723622155, guid: 9752569396f9e482e9e16d796fbef497,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -6499,31 +6495,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 683629375773968699, guid: 9752569396f9e482e9e16d796fbef497,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.965922
-      objectReference: {fileID: 0}
-    - target: {fileID: 683629375773968699, guid: 9752569396f9e482e9e16d796fbef497,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.19462557
-      objectReference: {fileID: 0}
-    - target: {fileID: 683629375773968702, guid: 9752569396f9e482e9e16d796fbef497,
-        type: 3}
-      propertyPath: speed
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 683629375773968702, guid: 9752569396f9e482e9e16d796fbef497,
         type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 330463862}
-    - target: {fileID: 683629375773968702, guid: 9752569396f9e482e9e16d796fbef497,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9752569396f9e482e9e16d796fbef497, type: 3}
 --- !u!1 &1193298890

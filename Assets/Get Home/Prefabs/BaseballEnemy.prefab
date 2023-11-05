@@ -508,7 +508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  speed: 3
+  speed: 2
   lineofSight: 8
   attackRange: 0.5
   AttackCD: 2
@@ -518,6 +518,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   animator: {fileID: 683629375773968701}
+  offset: 1
   meleeAttackSound: {fileID: 8599527388224414149}
 --- !u!82 &8599527388224414149
 AudioSource:
