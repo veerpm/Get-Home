@@ -14,14 +14,12 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private GameObject displayText;
     private AnimationEvents events;
+    private bool canMove = true;
 
     //sound FX
     public AudioSource walkingSound1;
     public AudioSource walkingSound2;
     public AudioSource walkingSound3;
-
-
-    public float acceleration;
 
     private SpriteRenderer sprite;
     private bool isColliding;
@@ -32,11 +30,12 @@ public class PlayerMovement : MonoBehaviour
         sprite = gameObject.GetComponent<SpriteRenderer>();
         PickUpObjects = gameObject.GetComponent<PickupObjects>();
         rb = GetComponent<Rigidbody2D>();
-        events = gameObject.GetComponent<AnimationEvents>();
+        //events = gameObject.GetComponent<AnimationEvents>();
     }
 
     void Update()
     {
+        // adjust display text orientation according to player orientation
         displayText = GameObject.FindGameObjectWithTag("DisplayText");
 
         if (displayText != null && !lookingRight && displayText.transform.localScale.x > 0)
@@ -55,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!events.isAttacking)
+        if (canMove)
         {
             //if (Mathf.Abs(movementVector.y) > 0)
             //{
@@ -142,6 +141,18 @@ public class PlayerMovement : MonoBehaviour
     public void SetColliding(bool isColliding)
     {
         this.isColliding = isColliding;
+    }
+
+
+    // used by animation events
+    void SetCanMove()
+    {
+        canMove = true;
+    }
+
+    void UnSetCanMove()
+    {
+        canMove = false;
     }
 
 }

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RandyBaseball
+  m_Name: RandyFalling
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,28 +20,34 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -3750397156636551440, guid: 7dce2c9e040da49c48a3b1f16e616132,
+      value: {fileID: 1935169947361548033, guid: 11d7e0445dc7346c1b2ef2d4fa598654,
         type: 3}
-    - time: 0.027777778
-      value: {fileID: -2047580167679563455, guid: 7dce2c9e040da49c48a3b1f16e616132,
+    - time: 0.125
+      value: {fileID: 826299786199566581, guid: 11d7e0445dc7346c1b2ef2d4fa598654,
         type: 3}
-    - time: 0.055555556
-      value: {fileID: 5975716016685110714, guid: 7dce2c9e040da49c48a3b1f16e616132,
+    - time: 0.25
+      value: {fileID: -959595298327586562, guid: 11d7e0445dc7346c1b2ef2d4fa598654,
         type: 3}
-    - time: 0.083333336
-      value: {fileID: -6816148667111496612, guid: 7dce2c9e040da49c48a3b1f16e616132,
+    - time: 0.375
+      value: {fileID: 7615629070749598867, guid: 11d7e0445dc7346c1b2ef2d4fa598654,
         type: 3}
-    - time: 0.11111111
-      value: {fileID: 3619927598440128960, guid: 7dce2c9e040da49c48a3b1f16e616132,
+    - time: 0.5
+      value: {fileID: 1608412433335827908, guid: 11d7e0445dc7346c1b2ef2d4fa598654,
         type: 3}
-    - time: 0.1388889
-      value: {fileID: -3413220283536235713, guid: 7dce2c9e040da49c48a3b1f16e616132,
+    - time: 0.625
+      value: {fileID: -5248959103923276935, guid: 11d7e0445dc7346c1b2ef2d4fa598654,
+        type: 3}
+    - time: 0.75
+      value: {fileID: -7846151884775115479, guid: 11d7e0445dc7346c1b2ef2d4fa598654,
+        type: 3}
+    - time: 0.875
+      value: {fileID: -5226078234148644825, guid: 11d7e0445dc7346c1b2ef2d4fa598654,
         type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 36
+  m_SampleRate: 8
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -56,18 +62,20 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -3750397156636551440, guid: 7dce2c9e040da49c48a3b1f16e616132, type: 3}
-    - {fileID: -2047580167679563455, guid: 7dce2c9e040da49c48a3b1f16e616132, type: 3}
-    - {fileID: 5975716016685110714, guid: 7dce2c9e040da49c48a3b1f16e616132, type: 3}
-    - {fileID: -6816148667111496612, guid: 7dce2c9e040da49c48a3b1f16e616132, type: 3}
-    - {fileID: 3619927598440128960, guid: 7dce2c9e040da49c48a3b1f16e616132, type: 3}
-    - {fileID: -3413220283536235713, guid: 7dce2c9e040da49c48a3b1f16e616132, type: 3}
+    - {fileID: 1935169947361548033, guid: 11d7e0445dc7346c1b2ef2d4fa598654, type: 3}
+    - {fileID: 826299786199566581, guid: 11d7e0445dc7346c1b2ef2d4fa598654, type: 3}
+    - {fileID: -959595298327586562, guid: 11d7e0445dc7346c1b2ef2d4fa598654, type: 3}
+    - {fileID: 7615629070749598867, guid: 11d7e0445dc7346c1b2ef2d4fa598654, type: 3}
+    - {fileID: 1608412433335827908, guid: 11d7e0445dc7346c1b2ef2d4fa598654, type: 3}
+    - {fileID: -5248959103923276935, guid: 11d7e0445dc7346c1b2ef2d4fa598654, type: 3}
+    - {fileID: -7846151884775115479, guid: 11d7e0445dc7346c1b2ef2d4fa598654, type: 3}
+    - {fileID: -5226078234148644825, guid: 11d7e0445dc7346c1b2ef2d4fa598654, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.16666667
+    m_StopTime: 1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -88,28 +96,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: IsAttacking
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0
     functionName: UnSetCanMove
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.1388889
-    functionName: IsNotAttacking
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.1388889
-    functionName: SetCanMove
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
