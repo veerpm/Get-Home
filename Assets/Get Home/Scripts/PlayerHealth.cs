@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     public GameObject healthDisplay;
     public AnimationEvents events;
     private PlayerCombatMelee combatScript;
+    private bool dead = false;
 
     //soundFX
     public AudioSource getHitSound;
@@ -38,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= damage;
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !dead)
         {
             //sound FX
             dieSound.Play();
@@ -54,13 +55,16 @@ public class PlayerHealth : MonoBehaviour
             // Disable movement
             combatScript.enabled = false;
             GetComponent<PlayerMovement>().enabled = false;
-        } else
+            dead = true;
+            DisplayHealth();
+        }
+        else if (currentHealth > 0)
         {
             //sound FX
             getHitSound.Play();
+            DisplayHealth();
         }
 
-        DisplayHealth();
     }
 
     void DisplayHealth()
@@ -72,6 +76,7 @@ public class PlayerHealth : MonoBehaviour
     public void setFullHealth()
     {
         currentHealth = maxHealth;
+        dead = false;
         DisplayHealth();
     }
 
@@ -86,7 +91,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    private void setDeath()
+    private void SetDeath()
     {
         gameManager.GetComponent<GamePause>().setDead();
     }
