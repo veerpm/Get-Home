@@ -6,10 +6,12 @@ public class Tutorial : MonoBehaviour
 {
     public GameObject gameManager;
     public GameObject player;
+    public float triggerPosX;
     public GameObject trashCan;
     public Vector3 trashPos;
     public GameObject baseballEnemy;
     public Vector3 enemyPos;
+    public GameObject knife;
 
     private GameObject chatBubble;
 
@@ -17,15 +19,20 @@ public class Tutorial : MonoBehaviour
     private bool punched = false;
     private bool pickedUpTrash = false;
     private bool paused = false;
-    private bool pickedupWeapon = false;
+    private bool tutorialLaunched = false;
 
     public void Start()
     {
-        StartCoroutine(tutorialLogic());
     }
 
     private void Update()
     {
+        // launch tuto near trigger
+        if(Mathf.Abs(player.transform.position.x - triggerPosX) < 0.1 && !tutorialLaunched)
+        {
+            tutorialLaunched = true;
+            StartCoroutine(tutorialLogic());
+        }
         /*
         if(Input.GetAxisRaw("Horizontal") != 0|| Input.GetAxisRaw("Vertical") != 0)
         {
@@ -48,11 +55,6 @@ public class Tutorial : MonoBehaviour
         {
             paused = true;
         }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            pickedupWeapon = true;
-        }
     }
 
     IEnumerator tutorialLogic()
@@ -63,6 +65,8 @@ public class Tutorial : MonoBehaviour
 
         chatBubble = gameManager.GetComponent<ChatManager>().CreateBubble(this.gameObject,
             "Hey!", 0);
+        GameObject enemy;
+        GameObject trash;
         // telling player to move seems useless (they always start moving)
         /*
         yield return new WaitForSeconds(1);
@@ -81,10 +85,14 @@ public class Tutorial : MonoBehaviour
         */
 
         // dialogue (E and Q)
-        chatBubble.GetComponent<ChatBubble>().Setup("Hey you! You know how to punch? It's 'E' and 'Q'.");
+        chatBubble.GetComponent<ChatBubble>().Setup("Hey you! You know how to punch? \n " +
+            "It's 'E' for light attacks and 'Q' for heavy attacks.\n Try it on this guy!");
+
+        enemy = CreateEnemy();
+        yield return new WaitForSeconds(0.5f);
 
         // wait
-        while (!punched)
+        while (!enemy.GetComponent<EnemyHealth>().IsDead())
         {
             yield return null;
         }
@@ -92,40 +100,39 @@ public class Tutorial : MonoBehaviour
         // dialogue (T and R)
         chatBubble.GetComponent<ChatBubble>().Setup("Not bad! Pickup the thrash here using 'T'");
 
+        trash = CreateTrash();
         // wait
-        while (!pickedUpTrash && !player.GetComponent<PickupObjects>().IsHolding())
+        while (!pickedUpTrash || !player.GetComponent<PickupObjects>().IsHolding())
         {
             yield return null;
         }
-        Debug.Log(player.GetComponent<PickupObjects>().IsHolding());
 
         chatBubble.GetComponent<ChatBubble>().Setup("Now the fun part: press 'T' again while moving to throw it on this enemy!");
-        GameObject enemy = CreateEnemy();
+        enemy = CreateEnemy();
 
         yield return new WaitForSeconds(0.5f);
         // wait
         while (!enemy.GetComponent<EnemyHealth>().IsDead())
         {
-            // bring back enemy if he's dead
-            Debug.Log(trashCan.transform.position);
-            if (!player.GetComponent<PickupObjects>().IsHolding())
+            if (trash.GetComponent<ThrownObjectsHitDetect>().thrown)
             {
-                trashCan.transform.position = trashPos;
+                trash =  CreateTrash();
             }
             yield return null;
         }
 
         // dialogue (T and R)
-        chatBubble.GetComponent<ChatBubble>().Setup("See that knife on the ground? Press 'R' while near it to get an edge in battle!");
+        chatBubble.GetComponent<ChatBubble>().Setup("See that knife on the ground? Press 'R' while near it to pick it up.");
 
         // wait
-        while (!pickedupWeapon && !player.GetComponent<PickupObjects>().IsHolding())
+        while (player.GetComponent<WeaponManagement>().EquippedWeapon != knife)
         {
             yield return null;
         }
 
-        chatBubble.GetComponent<ChatBubble>().Setup("Try using it on that enemy");
+        chatBubble.GetComponent<ChatBubble>().Setup("OK, now try using it on that enemy");
         enemy = CreateEnemy();
+        yield return new WaitForSeconds(0.5f);
 
         // wait
         while (!enemy.GetComponent<EnemyHealth>().IsDead())
@@ -135,7 +142,7 @@ public class Tutorial : MonoBehaviour
 
 
         // pause menu
-        chatBubble.GetComponent<ChatBubble>().Setup("Don't forget: use 'P' to remember what I taught you!");
+        chatBubble.GetComponent<ChatBubble>().Setup("Nice! And don't forget: use 'P' to remember what I taught you.");
 
         // wait
         while (!paused)
@@ -160,5 +167,11 @@ public class Tutorial : MonoBehaviour
         baseballEnemy.GetComponent<EnemyHealth>().SetFullHealth();
 
         return enemy;
+    }
+
+    private GameObject CreateTrash()
+    {
+        GameObject trash = Instantiate(trashCan, trashPos, Quaternion.identity);
+        return trash;
     }
 }

@@ -44,12 +44,15 @@ public class DialogueManager : MonoBehaviour
 
     // for first dialouge after thrown
     public bool thrown;
+    // updating text 1 time per frame
+    private int frameCount;
 
 
     // Start is called before the first frame update
     void Start()
     {
         dialogueOn = false;
+        frameCount = Time.frameCount;
     }
 
     // Update is called once per frame
@@ -66,9 +69,12 @@ public class DialogueManager : MonoBehaviour
             }
 
             // Continue conversation if one is being run
-            if (dialogueOn && Input.anyKeyDown && !
-            (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))) // any key except the mouse activates next dialogue
+            if (dialogueOn && Input.anyKeyDown &&
+                frameCount < Time.frameCount &&
+            !(Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))) // any key except the mouse activates next dialogue
             {
+                frameCount = Time.frameCount; // call at max. 1 per frame
+
                 //sound FX
                 if (mainText.text == lines[index].text)
                 {
