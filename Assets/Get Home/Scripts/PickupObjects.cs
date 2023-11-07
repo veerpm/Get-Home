@@ -48,7 +48,7 @@ public class PickupObjects : MonoBehaviour
                     }
                     itemHolding.GetComponent<Rigidbody2D>().AddForce(Direction * 200);
                     GetComponent<PlayerCombatMelee>().enabled = true;
-                    
+
                     if (itemHolding.GetComponent<Rigidbody2D>())
                         itemHolding.GetComponent<Rigidbody2D>().simulated = true;
                     Destroy(itemHolding, 0.5f);
@@ -115,13 +115,13 @@ public class PickupObjects : MonoBehaviour
     // check if player is holding something
     public bool IsHolding()
     {
-        if (itemHolding)
+        if (itemHolding == null)
         {
-            return true;
+            return false;
         }
         else
         {
-            return false;
+            return true;
         }
     }
 }
