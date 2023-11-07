@@ -112,4 +112,16 @@ public class PickupObjects : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, pickupRadius);
     }
 
+    // check if player is holding something
+    public bool IsHolding()
+    {
+        if (itemHolding)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
