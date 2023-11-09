@@ -920,6 +920,7 @@ GameObject:
   - component: {fileID: 330463871}
   - component: {fileID: 330463874}
   - component: {fileID: 330463875}
+  - component: {fileID: 330463890}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -1011,6 +1012,7 @@ Transform:
   - {fileID: 712664230}
   - {fileID: 687411221}
   - {fileID: 536907795}
+  - {fileID: 1408458073}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2795,6 +2797,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &330463890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330463859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4b8ea3604ecf4db18f7956da38d8eba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 330463859}
+  dist: 3
+  height: 2
 --- !u!1 &334246447
 GameObject:
   m_ObjectHideFlags: 0
@@ -6082,8 +6099,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1594741620}
-  basicEnemy: {fileID: 0}
-  spawningPosition: {x: 0, y: 0, z: 0}
+  player: {fileID: 0}
+  triggerPosX: 0
+  trashCan: {fileID: 0}
+  trashPos: {x: 0, y: 0, z: 0}
+  baseballEnemy: {fileID: 0}
+  enemyPos: {x: 0, y: 0, z: 0}
+  knife: {fileID: 0}
 --- !u!1001 &1087192029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6372,12 +6394,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9752569396f9e482e9e16d796fbef497, type: 3}
---- !u!1 &1146894271 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7610311267251977994, guid: 8fe746b7827ecdc4485f3ea1720b9c11,
-    type: 3}
-  m_PrefabInstance: {fileID: 776230000}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1171434275
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6745,6 +6761,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 687658152}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1408458072
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1408458073}
+  m_Layer: 10
+  m_Name: SprayCanAttackSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1408458073
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408458072}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.12, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 330463862}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1423905264
 GameObject:
