@@ -47,7 +47,10 @@ public class PlayerHealth : MonoBehaviour
             currentHealth = 0;
             animator.SetTrigger("Dead");
             events.isAttacking = false;
-            combatScript.DisableCombo();
+            if (combatScript.comboActive)
+            {
+                combatScript.DisableCombo();
+            }
             if (combatScript.epipenActive)
             {
                 combatScript.DisableEpipen();

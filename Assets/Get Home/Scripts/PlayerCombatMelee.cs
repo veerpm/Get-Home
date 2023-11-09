@@ -47,7 +47,7 @@ public class PlayerCombatMelee : MonoBehaviour
     // combos
     List<string> attacksList = new List<string>();
     Dictionary<List<string>, int> combos = new Dictionary<List<string>, int>(); // maps order of attacks for combo to the attack damage after combo
-    bool comboActive;
+    public bool comboActive;
 
     void Start()
     {
