@@ -70,7 +70,7 @@ public class PlayerCombatMelee : MonoBehaviour
 
         if (Time.time >= nextLightAttackTime)
         {
-            if (Input.GetKeyDown(KeyCode.E) && !events.isAttacking)
+            if (Input.GetKeyDown(KeyCode.E) && !events.isAttacking && !GetComponent<PickupObjects>().IsHolding())
             {
                 LightAttack();
                 nextLightAttackTime = Time.time + 1f / lightAttackRate;
@@ -79,7 +79,7 @@ public class PlayerCombatMelee : MonoBehaviour
 
         if (Time.time >= nextHeavyAttackTime)
         {
-            if (Input.GetKeyDown(KeyCode.Q) && !events.isAttacking)
+            if (Input.GetKeyDown(KeyCode.Q) && !events.isAttacking && !GetComponent<PickupObjects>().IsHolding())
             {
                 HeavyAttack();
                 nextHeavyAttackTime = Time.time + 1f / heavyAttackRate;
