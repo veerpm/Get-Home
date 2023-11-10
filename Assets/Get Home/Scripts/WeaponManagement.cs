@@ -130,13 +130,6 @@ public class WeaponManagement : MonoBehaviour
         {
             EquippedWeapon.GetComponent<WeaponStats>().currentHits--;
 
-            if (brokenWeapon != null)
-            {
-                animator.SetBool(brokenWeapon.name, false);
-                animator.SetBool(EquippedWeapon.name, true);
-                brokenWeapon = null;
-            }
-
             if (EquippedWeapon.GetComponent<WeaponStats>().currentHits == 0 && EquippedWeapon != defaultWeapon)
             {
                 brokenWeapon = EquippedWeapon;
@@ -198,5 +191,16 @@ public class WeaponManagement : MonoBehaviour
             RemoveWeaponDurability(EquippedWeapon.GetComponent<WeaponStats>().currentHits, durabilityBarFull);
         }
 
+    }
+
+    // used to fix animation after breaking
+    public void ResetAnim()
+    {
+        if (brokenWeapon != null)
+        {
+            animator.SetBool(brokenWeapon.name, false);
+            animator.SetBool(EquippedWeapon.name, true);
+            brokenWeapon = null;
+        }
     }
 }
