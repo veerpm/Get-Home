@@ -13,11 +13,13 @@ public class SprayCanBehaviour : MonoBehaviour
     public int attackRate = 1;
     private float nextAttackTime = 0f;
     public GameObject attackPoint;
+    public ParticleSystem ps;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        ps = attackPoint.transform.GetChild(0).GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -35,7 +37,27 @@ public class SprayCanBehaviour : MonoBehaviour
                 enemy.GetComponent<EnemyHealth>().TakeDamage(damage);
             }
             nextAttackTime = Time.time + 1f / attackRate;
+            ps.Play();
         }
+        else if (!Input.GetKey(KeyCode.E))
+        {
+            ps.Stop();
+        }
+
+        ParticleSystem.Particle[] particles = new ParticleSystem.Particle[ps.particleCount];
+
+        //int num = ps.GetParticles(particles);
+
+        //for (int i = 0; i < num; i++)
+        //{
+        //    if (particles[i].position.x >= transform.position.x + dist)
+        //    {
+        //        particles[i].remainingLifetime = 0f;
+        //    }
+        //}
+
+        //ps.SetParticles(particles);
+
 
     }
 

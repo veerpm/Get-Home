@@ -2820,6 +2820,7 @@ MonoBehaviour:
   damage: 5
   attackRate: 1
   attackPoint: {fileID: 1408458072}
+  ps: {fileID: 0}
 --- !u!1 &334246447
 GameObject:
   m_ObjectHideFlags: 0
@@ -4204,7 +4205,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &692018665
 Transform:
   m_ObjectHideFlags: 0
@@ -4299,7 +4300,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -4420,7 +4421,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       scalar: 5
-      minScalar: 5
+      minScalar: 2
       maxCurve:
         serializedVersion: 2
         m_Curve:
