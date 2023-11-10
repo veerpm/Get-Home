@@ -469,6 +469,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 765762169}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &322676175 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5349722484906706904, guid: 8e154d01051784ec89c265b32014e768,
+    type: 3}
+  m_PrefabInstance: {fileID: 694454422}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &324130802
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,13 +787,10 @@ MonoBehaviour:
   heavyAttackSound1: {fileID: 330463882}
   heavyAttackSound2: {fileID: 330463881}
   heavyAttackSound3: {fileID: 330463880}
-  epiSound: {fileID: 330463888}
   comboSound: {fileID: 330463887}
-  epipenDamageBoost: 2
-  epipenDuration: 5
-  epipenActive: 0
-  epipenOverlay: {fileID: 580817050}
-  epipenTimer: {fileID: 458742818}
+  epiScript: {fileID: 0}
+  heavyAttackDamage: 0
+  lightAttackDamage: 0
   comboActive: 0
 --- !u!114 &330463867
 MonoBehaviour:
@@ -827,7 +830,6 @@ MonoBehaviour:
   healthDisplay: {fileID: 853997925}
   events: {fileID: 0}
   getHitSound: {fileID: 330463885}
-  drinkBeerSound: {fileID: 330463884}
   dieSound: {fileID: 330463889}
   gameManager: {fileID: 1594741620}
 --- !u!114 &330463869
@@ -8484,6 +8486,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3403834260294646690, guid: 8e154d01051784ec89c265b32014e768,
+        type: 3}
+      propertyPath: epiSound
+      value: 
+      objectReference: {fileID: 322676175}
+    - target: {fileID: 3403834260294646690, guid: 8e154d01051784ec89c265b32014e768,
+        type: 3}
+      propertyPath: epipenTimer
+      value: 
+      objectReference: {fileID: 458742818}
+    - target: {fileID: 3403834260294646690, guid: 8e154d01051784ec89c265b32014e768,
+        type: 3}
+      propertyPath: epipenOverlay
+      value: 
+      objectReference: {fileID: 580817050}
     - target: {fileID: 5454054858659481448, guid: 8e154d01051784ec89c265b32014e768,
         type: 3}
       propertyPath: m_RootOrder
@@ -12023,6 +12040,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972259791}
   m_CullTransparentMesh: 0
+--- !u!82 &1994368593 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5349722484906706904, guid: 8e154d01051784ec89c265b32014e768,
+    type: 3}
+  m_PrefabInstance: {fileID: 5454054859275849434}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2010533940 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 683629375773968696, guid: 9752569396f9e482e9e16d796fbef497,
@@ -12245,7 +12268,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -250.00049, y: 25}
+  m_AnchoredPosition: {x: -250.00098, y: 25}
   m_SizeDelta: {x: 500, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2116219565
@@ -12361,6 +12384,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3403834260294646690, guid: 8e154d01051784ec89c265b32014e768,
+        type: 3}
+      propertyPath: epiSound
+      value: 
+      objectReference: {fileID: 1994368593}
+    - target: {fileID: 3403834260294646690, guid: 8e154d01051784ec89c265b32014e768,
+        type: 3}
+      propertyPath: epipenTimer
+      value: 
+      objectReference: {fileID: 458742818}
+    - target: {fileID: 3403834260294646690, guid: 8e154d01051784ec89c265b32014e768,
+        type: 3}
+      propertyPath: epipenOverlay
+      value: 
+      objectReference: {fileID: 580817050}
     - target: {fileID: 5454054858659481448, guid: 8e154d01051784ec89c265b32014e768,
         type: 3}
       propertyPath: m_RootOrder
