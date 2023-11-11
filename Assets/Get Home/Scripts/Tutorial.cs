@@ -16,7 +16,6 @@ public class Tutorial : MonoBehaviour
     private GameObject chatBubble;
 
     //private bool moved = false;
-    private bool punched = false;
     private bool pickedUpTrash = false;
     private bool paused = false;
     private bool tutorialLaunched = false;
@@ -39,11 +38,6 @@ public class Tutorial : MonoBehaviour
             moved = true;
         }
         */
-
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q))
-        {
-            punched = true;
-        }
 
 
         if (Input.GetKeyDown(KeyCode.T))
@@ -161,10 +155,10 @@ public class Tutorial : MonoBehaviour
     {
         GameObject enemy = Instantiate(baseballEnemy, enemyPos, Quaternion.identity);
         // set properties
-        baseballEnemy.GetComponent<MeleeEnemyFollowPlayer>().player = player.transform;
-        baseballEnemy.GetComponent<MeleeEnemyFollowPlayer>().attackDamage = 5;
-        baseballEnemy.GetComponent<EnemyHealth>().maxHealth = health;
-        baseballEnemy.GetComponent<EnemyHealth>().SetFullHealth();
+        enemy.GetComponent<MeleeEnemyFollowPlayer>().player = player.transform;
+        enemy.GetComponent<MeleeEnemyFollowPlayer>().attackDamage = 5;
+        enemy.GetComponent<EnemyHealth>().maxHealth = health;
+        enemy.GetComponent<EnemyHealth>().SetFullHealth();
 
         return enemy;
     }

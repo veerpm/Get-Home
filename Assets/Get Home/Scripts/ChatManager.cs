@@ -2,27 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChatManager : MonoBehaviour
+[System.Serializable]
+public struct BarkGroup
 {
-    public GameObject chatObject;
     public GameObject[] enemies;
     public TextAsset barksFile;
+}
+public class ChatManager : MonoBehaviour
+{
+    public GameObject player;
+    public GameObject chatObject;
+    public List<BarkGroup> barkGroups;
+    //public GameObject[] enemies;
+    //public TextAsset barksFile;
 
-    private string[] barks;
+    //private string[] barks;
 
     // Variable player and Start method are only there for TESTING purposes (calling the method Create()
     // is simpler if you want to create dialogues).
-    public GameObject player;
 
     public void Start()
     {
         //CreateBubble(player, "I need to get home!", 3f);
         //StartCoroutine(chatDemonstration());
-        if(barksFile != null && enemies != null)
+
+        // For each group of enemies, cycle through barks
+        foreach(BarkGroup group in barkGroups)
         {
-            barks = barksFile.ToString().Split('\n');
-            StartCoroutine(RandomEnemyChat());
+            TextAsset barksFile = group.barksFile;
+            GameObject[] enemies = group.enemies;
+
+            if (barksFile != null && enemies != null)
+            {
+                string[] barks = barksFile.ToString().Split('\n');
+                StartCoroutine(RandomEnemyChat(enemies, barks));
+            }
         }
+
     }
 
 
@@ -51,17 +67,23 @@ public class ChatManager : MonoBehaviour
         return chatBubble;
     }
 
-    IEnumerator RandomEnemyChat()
+    IEnumerator RandomEnemyChat(GameObject[] enemies, string[] barks)
     {
+        float time = 2.5f;
+
         // constantly print enemy dialogues
         while (true)
         {
             int randBark = Random.Range(0, barks.Length);
-            int randEnemy = Random.Range(0,enemies.Length);
+            GameObject randEnemy = enemies[Random.Range(0,enemies.Length)];
 
-            CreateBubble(enemies[randEnemy], barks[randBark], 1.5f);
+            // if enemy isn't dead, create speech bubble
+            if (!randEnemy.GetComponent<EnemyHealth>().IsDead())
+            {
+                CreateBubble(randEnemy, barks[randBark], time);
+            }
 
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(time);
         }
     }
 }
