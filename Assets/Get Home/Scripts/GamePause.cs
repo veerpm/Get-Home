@@ -65,17 +65,8 @@ public class GamePause : MonoBehaviour
                 foreach(GameObject enemy in enemyStop.GetComponent<LockFrame>().enemies)
                 {
                     enemy.SetActive(false);
-                    /*
-                    var enemyScripts = enemy.GetComponents<MonoBehaviour>();
-                    // toggle enemy's scripts
-                    foreach (var script in enemyScripts)
-                    {
-                        script.enabled = false;
-                    }
-                    */
                     continue;
                 }
-
             }
 
             // bring back alive each enemy
@@ -88,10 +79,23 @@ public class GamePause : MonoBehaviour
                     healthScript.Alive();
                     healthScript.resetPosition();
                 }
-
             }
-
         }
+
+        // Some enemies are dead but not assigned to enemyStops:
+        // to MAKE SURE they are TRULY DEAD, manually check and deactivate.
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            Debug.Log(enemy);
+            Debug.Log(enemy.GetComponent<EnemyHealth>().IsDead());
+            if (enemy.GetComponent<EnemyHealth>().IsDead())
+            {
+                enemy.SetActive(false);
+            }
+        }
+
+
         // restart sound
         music.Play();
 
@@ -139,6 +143,13 @@ public class GamePause : MonoBehaviour
         // toggle if enemies are "alive" or not
         foreach (GameObject enemy in enemies)
         {
+            // skip if enemy was already dead
+            if (enemy.GetComponent<EnemyHealth>().IsDead())
+            {
+                continue;
+            }
+
+            // animate enemy
             if (enemy.GetComponent<Animator>() != null)
             {
                 enemy.GetComponent<Animator>().enabled = !isPaused;
