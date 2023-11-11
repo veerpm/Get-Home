@@ -61,22 +61,6 @@ public class Tutorial : MonoBehaviour
             "Hey!", 0);
         GameObject enemy;
         GameObject trash;
-        // telling player to move seems useless (they always start moving)
-        /*
-        yield return new WaitForSeconds(1);
-
-        chatBubble = gameManager.GetComponent<ChatManager>().CreateBubble(this.gameObject,
-            "Hey you! Remember how to move? Use the arrows!", 0);
-
-        Debug.Log(moved);
-        // wait
-        while (!moved)
-        {
-            Debug.Log(moved);
-            yield return null;
-        }
-        Debug.Log("REACHED " + moved);
-        */
 
         // dialogue (E and Q)
         chatBubble.GetComponent<ChatBubble>().Setup("Hey you! You know how to punch? \n " +
@@ -151,6 +135,7 @@ public class Tutorial : MonoBehaviour
         Destroy(chatBubble,3);
     }
 
+    // spawn baseball enemy in front of player
     private GameObject CreateEnemy(int health = 10)
     {
         GameObject enemy = Instantiate(baseballEnemy, enemyPos, Quaternion.identity);
@@ -163,6 +148,7 @@ public class Tutorial : MonoBehaviour
         return enemy;
     }
 
+    // spawn trash when player misses his/her throw
     private GameObject CreateTrash()
     {
         GameObject trash = Instantiate(trashCan, trashPos, Quaternion.identity);
