@@ -85,12 +85,18 @@ public class PlayerMovement : MonoBehaviour
                 // face left
                 transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
                 lookingRight = false;
+                var shape = GetComponent<SprayCanBehaviour>().ps.shape;
+                shape.rotation = new Vector3(0,-90,0);
+                GetComponent<SprayCanBehaviour>().dist = -GetComponent<SprayCanBehaviour>().dist;
             }
             else if (horizontal_movement > 0 && !lookingRight)
             {
                 // face right
                 transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
                 lookingRight = true;
+                var shape = GetComponent<SprayCanBehaviour>().ps.shape;
+                shape.rotation = new Vector3(0, 90, 0);
+                GetComponent<SprayCanBehaviour>().dist = -GetComponent<SprayCanBehaviour>().dist;
 
             }
 

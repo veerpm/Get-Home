@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class WeaponManagement : MonoBehaviour
 {
-    private GameObject equippedWeapon; // current weapon
+    public GameObject equippedWeapon; // current weapon
     private GameObject floorWeapon;
     private GameObject defaultWeapon;
     private GameObject brokenWeapon;
+    private GameObject sprayCan;
     private bool pickable;
     public Image weaponDisplay; // HUD weapon display
     public GameObject durability;
@@ -22,6 +23,7 @@ public class WeaponManagement : MonoBehaviour
     void Start()
     {
         defaultWeapon = GameObject.Find("Fists");
+        sprayCan = GameObject.Find("SprayCan");
         EquippedWeapon = defaultWeapon;
         animator.SetBool(EquippedWeapon.name, true);
     }
@@ -29,6 +31,18 @@ public class WeaponManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (equippedWeapon != sprayCan)
+        {
+            GetComponent<PlayerCombatMelee>().enabled = true;
+            GetComponent<SprayCanBehaviour>().enabled = false;
+        }
+        else
+        {
+            GetComponent<PlayerCombatMelee>().enabled = false;
+            GetComponent<SprayCanBehaviour>().enabled = true;
+        }
+
+
         if (pickable && Input.GetKeyDown(KeyCode.R))
         {
             SwapWeapon();
@@ -50,8 +64,11 @@ public class WeaponManagement : MonoBehaviour
         set
         {
             equippedWeapon = value;
-            GetComponent<PlayerCombatMelee>().SetWeaponStats(equippedWeapon);
-            DisplayWeapon(equippedWeapon);
+            if (equippedWeapon != sprayCan)
+            {
+                GetComponent<PlayerCombatMelee>().SetWeaponStats(equippedWeapon);
+            }
+            DisplayWeapon();
         }
     }
 
@@ -97,10 +114,10 @@ public class WeaponManagement : MonoBehaviour
         animator.SetBool(EquippedWeapon.name, true);
     }
 
-    void DisplayWeapon(GameObject weapon)
+    void DisplayWeapon()
     {
-        weaponDisplay.sprite = weapon.GetComponent<SpriteRenderer>().sprite;
-        if (weapon != defaultWeapon)
+        weaponDisplay.sprite = EquippedWeapon.GetComponent<SpriteRenderer>().sprite;
+        if (EquippedWeapon != defaultWeapon && EquippedWeapon != sprayCan)
         {
             DisplayWeaponDurability(EquippedWeapon.GetComponent<WeaponStats>().maxHits, durabilityBarEmpty);
             DisplayWeaponDurability(EquippedWeapon.GetComponent<WeaponStats>().currentHits, durabilityBarFull);
@@ -109,33 +126,34 @@ public class WeaponManagement : MonoBehaviour
 
     public void AdjustDurability()
     {
-        EquippedWeapon.GetComponent<WeaponStats>().currentHits--;
-
-        if (brokenWeapon != null)
+        if (EquippedWeapon != sprayCan)
         {
-            animator.SetBool(brokenWeapon.name, false);
-            animator.SetBool(EquippedWeapon.name, true);
-            brokenWeapon = null;
+            EquippedWeapon.GetComponent<WeaponStats>().currentHits--;
+
+            if (EquippedWeapon.GetComponent<WeaponStats>().currentHits == 0 && EquippedWeapon != defaultWeapon)
+            {
+                brokenWeapon = EquippedWeapon;
+                EquippedWeapon.GetComponent<WeaponStats>().currentHits++;
+                ResetDurability();
+                EquippedWeapon = defaultWeapon;
+            }
+
+
+            //if (EquippedWeapon.GetComponent<WeaponStats>().currentHits < 0 && EquippedWeapon != defaultWeapon)
+            //{
+            //    animator.SetBool(EquippedWeapon.name, false);
+            //    EquippedWeapon = defaultWeapon;
+            //}
+
+            if (EquippedWeapon != defaultWeapon)
+            {
+                RemoveWeaponDurability(1, durabilityBarFull);
+            }
         }
 
-        if (EquippedWeapon.GetComponent<WeaponStats>().currentHits == 0 && EquippedWeapon != defaultWeapon)
+        else
         {
-            brokenWeapon = EquippedWeapon;
-            EquippedWeapon.GetComponent<WeaponStats>().currentHits++;
-            ResetDurability();
-            EquippedWeapon = defaultWeapon;
-        }
 
-
-        //if (EquippedWeapon.GetComponent<WeaponStats>().currentHits < 0 && EquippedWeapon != defaultWeapon)
-        //{
-        //    animator.SetBool(EquippedWeapon.name, false);
-        //    EquippedWeapon = defaultWeapon;
-        //}
-
-        if (EquippedWeapon != defaultWeapon)
-        {
-            RemoveWeaponDurability(1, durabilityBarFull);
         }
 
     }
@@ -167,7 +185,22 @@ public class WeaponManagement : MonoBehaviour
 
     void ResetDurability()
     {
-        RemoveWeaponDurability(EquippedWeapon.GetComponent<WeaponStats>().maxHits, durabilityBarEmpty);
-        RemoveWeaponDurability(EquippedWeapon.GetComponent<WeaponStats>().currentHits, durabilityBarFull);
+        if (equippedWeapon != sprayCan)
+        {
+            RemoveWeaponDurability(EquippedWeapon.GetComponent<WeaponStats>().maxHits, durabilityBarEmpty);
+            RemoveWeaponDurability(EquippedWeapon.GetComponent<WeaponStats>().currentHits, durabilityBarFull);
+        }
+
+    }
+
+    // used to fix animation after breaking
+    public void ResetAnim()
+    {
+        if (brokenWeapon != null)
+        {
+            animator.SetBool(brokenWeapon.name, false);
+            animator.SetBool(EquippedWeapon.name, true);
+            brokenWeapon = null;
+        }
     }
 }

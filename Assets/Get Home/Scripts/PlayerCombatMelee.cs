@@ -23,39 +23,28 @@ public class PlayerCombatMelee : MonoBehaviour
     public AudioSource heavyAttackSound1;
     public AudioSource heavyAttackSound2;
     public AudioSource heavyAttackSound3;
-    public AudioSource epiSound;
     public AudioSource comboSound;
 
+    public EpipenBehaviour epiScript;
 
     // weapon stats
     float lightAttackRange;
     float heavyAttackRange;
-    int heavyAttackDamage;
-    int lightAttackDamage;
+    public int heavyAttackDamage;
+    public int lightAttackDamage;
     float lightAttackRate;
     float heavyAttackRate;
     int maxHits;
 
-    // epipen
-    public int epipenDamageBoost;
-    public int epipenDuration;
-    public bool epipenActive;
-    float startTimer; // timer to track when epipen was activated
-    public Image epipenOverlay;
-    public Image epipenTimer;
-
     // combos
     List<string> attacksList = new List<string>();
     Dictionary<List<string>, int> combos = new Dictionary<List<string>, int>(); // maps order of attacks for combo to the attack damage after combo
-    bool comboActive;
+    public bool comboActive;
 
     void Start()
     {
         events = gameObject.GetComponent<AnimationEvents>();
         weaponManagement = GetComponent<WeaponManagement>();
-        epipenOverlay.enabled = false;
-        epipenTimer.enabled = false;
-        epipenTimer.transform.GetChild(0).GetComponent<Image>().enabled = false;
         AddCombos();
     }
 
@@ -70,8 +59,9 @@ public class PlayerCombatMelee : MonoBehaviour
 
         if (Time.time >= nextLightAttackTime)
         {
-            if (Input.GetKeyDown(KeyCode.E) && !events.isAttacking)
+            if (Input.GetKeyDown(KeyCode.E) && !events.isAttacking && !GetComponent<PickupObjects>().IsHolding())
             {
+                weaponManagement.ResetAnim();
                 LightAttack();
                 nextLightAttackTime = Time.time + 1f / lightAttackRate;
             }
@@ -79,17 +69,12 @@ public class PlayerCombatMelee : MonoBehaviour
 
         if (Time.time >= nextHeavyAttackTime)
         {
-            if (Input.GetKeyDown(KeyCode.Q) && !events.isAttacking)
+            if (Input.GetKeyDown(KeyCode.Q) && !events.isAttacking && !GetComponent<PickupObjects>().IsHolding())
             {
+                weaponManagement.ResetAnim();
                 HeavyAttack();
                 nextHeavyAttackTime = Time.time + 1f / heavyAttackRate;
             }
-        }
-
-
-        if (epipenActive && Time.time - startTimer > epipenDuration)
-        {
-            DisableEpipen();
         }
     }
 
@@ -185,59 +170,15 @@ public class PlayerCombatMelee : MonoBehaviour
         heavyAttackRate = weapon.GetComponent<WeaponStats>().heavyAttackRate;
         attackPoint = GameObject.Find(weapon.name + "AttackSpot").transform;
 
-        if (epipenActive)
+        if (epiScript != null)
         {
-            lightAttackDamage = lightAttackDamage * epipenDamageBoost;
-            heavyAttackDamage = heavyAttackDamage * epipenDamageBoost;
+            lightAttackDamage = lightAttackDamage * epiScript.epipenDamageBoost;
+            heavyAttackDamage = heavyAttackDamage * epiScript.epipenDamageBoost;
         }
     }
 
 
     // Epipen Logic
-    private IEnumerator EpipenTimer()
-    {
-        epipenOverlay.enabled = true;
-        epipenTimer.enabled = true;
-        epipenTimer.transform.GetChild(0).GetComponent<Image>().enabled = true;
-
-        for (int i = epipenDuration; i > 0; i--)
-        {
-            epipenTimer.fillAmount = (float) i / epipenDuration;
-            yield return new WaitForSeconds(1);
-            epipenOverlay.enabled = !epipenOverlay.enabled;
-        }
-
-        DisableEpipen();
-    }
-
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.gameObject.tag == "Epipen")
-        {
-            //sound FX
-            epiSound.Play();
-
-            DisplayText("Epipen Active X2 Damage!!");
-            lightAttackDamage = lightAttackDamage * epipenDamageBoost;
-            heavyAttackDamage = heavyAttackDamage * epipenDamageBoost;
-            startTimer = Time.time;
-            epipenActive = true;
-            collider.gameObject.SetActive(false);
-            StartCoroutine("EpipenTimer");
-        }
-    }
-
-    public void DisableEpipen()
-    {
-        epipenActive = false;
-        StopCoroutine("EpipenTimer");
-        epipenTimer.fillAmount = 0;
-        epipenOverlay.enabled = false;
-        epipenTimer.enabled = false;
-        epipenTimer.transform.GetChild(0).GetComponent<Image>().enabled = false;
-        lightAttackDamage = lightAttackDamage / epipenDamageBoost;
-        heavyAttackDamage = heavyAttackDamage / epipenDamageBoost;
-    }
 
     void OnDrawGizmosSelected()
     {
@@ -282,18 +223,18 @@ public class PlayerCombatMelee : MonoBehaviour
 
             foreach (KeyValuePair<List<string>, int> c in combos)
             {
-                    if (attacksList.Count == 3 && c.Key.GetRange(0, 3).SequenceEqual(attacksList.GetRange(0, 3)))
+                    if (attacksList.Count == 3 && c.Key.GetRange(0, 3).SequenceEqual(attacksList.GetRange(0, 3)) && epiScript == null)
                     {
                         DisplayText(c.Key.Last<string>() + " For Combo!");
                     }
 
-                    if (attacksList.Count == 4 && c.Key.GetRange(0, 3).SequenceEqual(attacksList.GetRange(1, 3)))
+                    if (attacksList.Count == 4 && c.Key.GetRange(0, 3).SequenceEqual(attacksList.GetRange(1, 3)) && epiScript == null)
                     {
                         DisplayText(c.Key.Last<string>() + " For Combo!");
                     }
 
 
-                if (c.Key.SequenceEqual(attacksList) && !epipenActive)
+                if (c.Key.SequenceEqual(attacksList) && epiScript == null)
                 {
                     //sound FX
                     comboSound.Play();
@@ -322,12 +263,13 @@ public class PlayerCombatMelee : MonoBehaviour
         SetWeaponStats(weaponManagement.EquippedWeapon);
     }
 
-    private void DisplayText(string s)
+    public void DisplayText(string s)
     {
         GameObject displayClone = Instantiate(display, transform);
         displayClone.transform.GetChild(0).GetComponent<TextMesh>().text = s;
         Destroy(displayClone, 2f);
     }
+
 }
 
 

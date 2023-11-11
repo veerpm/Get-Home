@@ -16,7 +16,6 @@ public class PlayerHealth : MonoBehaviour
 
     //soundFX
     public AudioSource getHitSound;
-    public AudioSource drinkBeerSound;
     public AudioSource dieSound;
 
     public GameObject gameManager;
@@ -24,7 +23,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         healthBar.GetComponent<Slider>().maxValue = maxHealth;
-        events = gameObject.GetComponent<AnimationEvents>();
+        events = GetComponent<AnimationEvents>();
         combatScript = GetComponent<PlayerCombatMelee>();
         setFullHealth();
     }
@@ -47,10 +46,13 @@ public class PlayerHealth : MonoBehaviour
             currentHealth = 0;
             animator.SetTrigger("Dead");
             events.isAttacking = false;
-            combatScript.DisableCombo();
-            if (combatScript.epipenActive)
+            if (combatScript.comboActive)
             {
-                combatScript.DisableEpipen();
+                combatScript.DisableCombo();
+            }
+            if (combatScript.epiScript != null)
+            {
+                combatScript.epiScript.DisableEpipen();
             }
             // Disable movement
             combatScript.enabled = false;
@@ -78,17 +80,6 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         dead = false;
         DisplayHealth();
-    }
-
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.gameObject.tag == "Beer")
-        {
-            drinkBeerSound.Play();
-            currentHealth = maxHealth;
-            DisplayHealth();
-            collider.gameObject.SetActive(false);
-        }
     }
 
     private void SetDeath()
