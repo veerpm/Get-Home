@@ -19,7 +19,7 @@ public class SceneTransition : MonoBehaviour
         // sets volume preferences
         if (PlayerPrefs.HasKey("Volume"))
         {
-            audioSource.volume = PlayerPrefs.GetFloat("Volume");
+            ModifyGeneralVolume(PlayerPrefs.GetFloat("Volume"));
         }
 
         // load player
@@ -63,6 +63,16 @@ public class SceneTransition : MonoBehaviour
         }
         
         player.transform.position = new Vector3(XPos, YPos, 0f);
+    }
+
+    private void ModifyGeneralVolume(float volume)
+    {
+        AudioSource[] sources = GameObject.FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
+
+        foreach (AudioSource audioSource in sources)
+        {
+            audioSource.volume = volume;
+        }
     }
 
 }
