@@ -101,6 +101,8 @@ public class EnemyHealth : MonoBehaviour
     {
         animator.SetBool("IsDead", true);
 
+        StartCoroutine(BlinkRed());
+
         if (!keepActive)
         {
             Wait();
@@ -134,6 +136,28 @@ public class EnemyHealth : MonoBehaviour
         else
         {
             return true;
+        }
+    }
+
+    // enemy blink red when dying
+    private IEnumerator BlinkRed()
+    {
+        bool isRed = false;
+
+        while(GetComponent<SpriteRenderer>().enabled == true){
+            if (isRed)
+            {
+                // normal color
+                GetComponent<SpriteRenderer>().color = Color.white;
+                isRed = false;
+            }
+            else
+            {
+                // red enemy
+                GetComponent<SpriteRenderer>().color = Color.red;
+                isRed = true;
+            }
+            yield return new WaitForSeconds(0.25f);
         }
     }
 }
