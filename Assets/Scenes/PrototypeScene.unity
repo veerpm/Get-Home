@@ -524,6 +524,12 @@ Transform:
   m_Father: {fileID: 687658152}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 180}
+--- !u!1 &128767543 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8168594218203311352, guid: d2b76872b3a384e5e882f5343fb1aed1,
+    type: 3}
+  m_PrefabInstance: {fileID: 8168594218720911785}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &161798136 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7645658738577266064, guid: 309790e093fa74cc3a2297a9191d49e2,
@@ -3933,6 +3939,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrashCan (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7610311267251977997, guid: 8fe746b7827ecdc4485f3ea1720b9c11,
+        type: 3}
+      propertyPath: m_Mass
+      value: 0.34811485
+      objectReference: {fileID: 0}
     - target: {fileID: 7610311267251977999, guid: 8fe746b7827ecdc4485f3ea1720b9c11,
         type: 3}
       propertyPath: m_RootOrder
@@ -4349,6 +4360,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TrashCan (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610311267251977997, guid: 8fe746b7827ecdc4485f3ea1720b9c11,
+        type: 3}
+      propertyPath: m_Mass
+      value: 0.34811485
       objectReference: {fileID: 0}
     - target: {fileID: 7610311267251977999, guid: 8fe746b7827ecdc4485f3ea1720b9c11,
         type: 3}
@@ -5987,7 +6003,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1030989867
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6082,8 +6098,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1594741620}
-  basicEnemy: {fileID: 0}
-  spawningPosition: {x: 0, y: 0, z: 0}
+  player: {fileID: 330463859}
+  triggerPosX: -6
+  trashCan: {fileID: 7610311267251977994, guid: 8fe746b7827ecdc4485f3ea1720b9c11,
+    type: 3}
+  trashPos: {x: -7, y: -2, z: 0}
+  baseballEnemy: {fileID: 683629375773968696, guid: 9752569396f9e482e9e16d796fbef497,
+    type: 3}
+  enemyPos: {x: -1.5, y: -2, z: 0}
+  knife: {fileID: 128767543}
 --- !u!1001 &1087192029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6372,12 +6395,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9752569396f9e482e9e16d796fbef497, type: 3}
---- !u!1 &1146894271 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7610311267251977994, guid: 8fe746b7827ecdc4485f3ea1720b9c11,
-    type: 3}
-  m_PrefabInstance: {fileID: 776230000}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1171434275
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8045,6 +8062,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrashCan (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7610311267251977997, guid: 8fe746b7827ecdc4485f3ea1720b9c11,
+        type: 3}
+      propertyPath: m_Mass
+      value: 0.34811485
+      objectReference: {fileID: 0}
     - target: {fileID: 7610311267251977999, guid: 8fe746b7827ecdc4485f3ea1720b9c11,
         type: 3}
       propertyPath: m_RootOrder
@@ -8975,12 +8997,12 @@ PrefabInstance:
     - target: {fileID: 8168594218203311355, guid: d2b76872b3a384e5e882f5343fb1aed1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.98
+      value: -5.2
       objectReference: {fileID: 0}
     - target: {fileID: 8168594218203311355, guid: d2b76872b3a384e5e882f5343fb1aed1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.85
+      value: -1.4
       objectReference: {fileID: 0}
     - target: {fileID: 8168594218203311355, guid: d2b76872b3a384e5e882f5343fb1aed1,
         type: 3}
@@ -9044,7 +9066,7 @@ PrefabInstance:
     - target: {fileID: 8299784838895754222, guid: 1b657d677006a4cdea13d97d295c6ece,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.37
+      value: 1.64
       objectReference: {fileID: 0}
     - target: {fileID: 8299784838895754222, guid: 1b657d677006a4cdea13d97d295c6ece,
         type: 3}
