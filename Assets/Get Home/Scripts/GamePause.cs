@@ -10,6 +10,7 @@ public class GamePause : MonoBehaviour
     public GameObject deathScreen;
     public AudioSource music;
     public GameObject mainCamera;
+    public GameObject pauseManager;
 
     public Vector3 checkpoint = new Vector3(0, 0, 0);
 
@@ -29,6 +30,7 @@ public class GamePause : MonoBehaviour
         {
             gamePaused = !gamePaused;
             pauseScreen.SetActive(gamePaused);
+            pauseManager.GetComponent<PauseMenu>().Activate(gamePaused);
             pause(gamePaused);
         }
 
@@ -167,5 +169,10 @@ public class GamePause : MonoBehaviour
     public void updateCheckpoint(Vector3 newPos)
     {
         checkpoint = newPos;
+    }
+
+    public bool isPaused()
+    {
+        return gamePaused;
     }
 }

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class SceneChanger : MonoBehaviour
 {
+    public GameObject gameManager;
     public Image blackScreen;
     public float fadeSpeed = 0.001f;
 
@@ -47,6 +48,13 @@ public class SceneChanger : MonoBehaviour
             blackScreen.color = new Color(color.r, color.g, color.b, fadeAmount);
             yield return null;
         }
+
+        // if paused (either with cutscene or 'p'), wait for game to continue
+        while (gameManager.GetComponent<GamePause>().isPaused())
+        {
+            yield return null;
+        }
+
 
         // change scene once screen is black
         StartCoroutine(LoadScene());
