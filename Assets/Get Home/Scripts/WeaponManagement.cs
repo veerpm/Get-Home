@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class WeaponManagement : MonoBehaviour
 {
@@ -79,6 +80,7 @@ public class WeaponManagement : MonoBehaviour
         {
             pickable = true;
             floorWeapon = collider.transform.parent.gameObject;
+            colTr.Find("Light").gameObject.GetComponent<Light2D>().enabled = true;
         }
     }
 
@@ -88,6 +90,7 @@ public class WeaponManagement : MonoBehaviour
         if (colTr != null && colTr.tag == "Weapon")
         {
             pickable = false;
+            colTr.Find("Light").gameObject.GetComponent<Light2D>().enabled = false;
         }
     }
 
