@@ -40,13 +40,16 @@ public class PauseMenu : MonoBehaviour
         activated = activate;
 
         // initialize cursor & pause menu
-        pos = 0;
-        menu = 0;
-        pauseMenu.SetActive(activate);
+
+        pauseMenu.SetActive(true);
+        optionsMenu.SetActive(false);
+        controlsMenu.SetActive(false);
 
         if (activate)
         {
             // add cursor
+            pos = 0;
+            menu = 0;
             menus[menu][pos].text = cursor + menus[menu][pos].text;
         }
         else
@@ -85,8 +88,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         optionsMenu.SetActive(true);
         controlsMenu.SetActive(false);
-        menu = 2; // options
-        SetCursor(0);
+
+        SetCursor(0, 2); // first button, options menu
     }
 
     public void displayPauseMenu()
@@ -94,8 +97,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(true);
         optionsMenu.SetActive(false);
         controlsMenu.SetActive(false);
-        menu = 0; // main menu
-        SetCursor(0);
+  
+        SetCursor(0, 0); // first button, pause menu
     }
 
     public void displayControls()
@@ -103,8 +106,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         optionsMenu.SetActive(false);
         controlsMenu.SetActive(true);
-        menu = 1; // main menu
-        SetCursor(0);
+
+        SetCursor(0, 1); // first button, controls menu
     }
 
     // moves cursor up & down on active menu
@@ -127,10 +130,11 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void SetCursor(int newPos)
+    public void SetCursor(int newPos, int newMenu)
     {
         menus[menu][pos].text = menus[menu][pos].text.Replace(cursor, "");
         pos = newPos;
+        menu = newMenu;
         menus[menu][pos].text = cursor + menus[menu][pos].text;
     }
 
