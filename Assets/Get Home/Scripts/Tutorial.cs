@@ -76,7 +76,7 @@ public class Tutorial : MonoBehaviour
         }
 
         // dialogue (T and R)
-        chatBubble.GetComponent<ChatBubble>().Setup("Not bad! Pickup the thrash here using 'T'");
+        chatBubble.GetComponent<ChatBubble>().Setup("Not bad! Pickup the trash here using 'T'");
 
         trash = CreateTrash();
         // wait
