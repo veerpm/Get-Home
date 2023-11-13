@@ -80,7 +80,7 @@ public class WeaponManagement : MonoBehaviour
         {
             pickable = true;
             floorWeapon = collider.transform.parent.gameObject;
-            colTr.Find("Light").gameObject.GetComponent<Light2D>().enabled = true;
+            colTr.Find("Light").GetComponent<Light2D>().enabled = true;
         }
     }
 
@@ -90,7 +90,7 @@ public class WeaponManagement : MonoBehaviour
         if (colTr != null && colTr.tag == "Weapon")
         {
             pickable = false;
-            colTr.Find("Light").gameObject.GetComponent<Light2D>().enabled = false;
+            colTr.Find("Light").GetComponent<Light2D>().enabled = false;
         }
     }
 

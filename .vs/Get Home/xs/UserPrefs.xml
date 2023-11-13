@@ -1,14 +1,16 @@
 ﻿<Properties GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Get Home/Scripts/SprayCanBehaviour.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Get Home/Scripts/PickupObjects.cs">
     <Files>
-      <File FileName="Assets/Get Home/Scripts/PlayerMovement.cs" Line="94" Column="37" />
-      <File FileName="Assets/Get Home/Scripts/SprayCanBehaviour.cs" Line="25" Column="1" />
+      <File FileName="Assets/Get Home/Scripts/Intro.cs" />
+      <File FileName="Assets/Get Home/Scripts/DialogueManager.cs" Line="132" Column="13" />
+      <File FileName="Assets/Get Home/Scripts/EpipenBehaviour.cs" />
+      <File FileName="Assets/Get Home/Scripts/PickupObjects.cs" Line="33" Column="10" />
+      <File FileName="Assets/Get Home/Scripts/WeaponManagement.cs" Line="88" Column="6" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,7 +20,7 @@
               <Node name="Assets" expanded="True">
                 <Node name="Get Home" expanded="True">
                   <Node name="Scripts" expanded="True">
-                    <Node name="SprayCanBehaviour.cs" selected="True" />
+                    <Node name="PickupObjects.cs" selected="True" />
                   </Node>
                 </Node>
               </Node>
@@ -28,4 +30,5 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

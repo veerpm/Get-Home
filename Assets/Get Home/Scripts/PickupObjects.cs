@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class PickupObjects : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PickupObjects : MonoBehaviour
 
     public Vector3 Direction {get; set;}
     private GameObject itemHolding;
+    private Collider2D pickUpItem;
+    Collider2D item;
     public float placeDownOffSet = 0f;
     private Vector3 yOffset = new Vector3 (0.0f, -0.3f, 0.0f);
 
@@ -22,6 +25,21 @@ public class PickupObjects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        // need to find if in range without any input so can glow when close
+        pickUpItem = Physics2D.OverlapCircle(transform.position, pickupRadius, pickUpMask);
+
+        if (pickUpItem && !pickUpItem.CompareTag("Football") && !pickUpItem.GetComponent<ThrownObjectsHitDetect>().thrown)
+        {
+            pickUpItem.transform.Find("Light").GetComponent<Light2D>().enabled = true;
+            item = pickUpItem;
+        }
+        else if (item)
+        {
+            item.transform.Find("Light").GetComponent<Light2D>().enabled = false;
+            item = null;
+        }
+
         //Debug.Log(Direction);
         if (Input.GetKeyDown(KeyCode.T))
         {
@@ -39,6 +57,8 @@ public class PickupObjects : MonoBehaviour
                     if (itemHolding.CompareTag("Trash Can"))
                     {
                         itemHolding.GetComponent<ThrownObjectsHitDetect>().thrown = true;
+                        //itemHolding.transform.Find("Light").GetComponent<Light2D>().enabled = false;
+                        //item = null;
                         Debug.Log("Sausage McMuffin");
                     }
                   
@@ -83,7 +103,6 @@ public class PickupObjects : MonoBehaviour
             }
             else
             {
-                Collider2D pickUpItem = Physics2D.OverlapCircle(transform.position, pickupRadius, pickUpMask);
                 if (pickUpItem)
                 {
                     itemHolding = pickUpItem.gameObject;
@@ -95,9 +114,7 @@ public class PickupObjects : MonoBehaviour
                         itemHolding.GetComponent<ThrowableObject>().caught = true;
                         itemHolding.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
                     }
-                    {
-                       // itemHolding.GetComponent<ThrownObjectsHitDetect>().caught = true;
-                    }
+                    itemHolding.transform.Find("Light").GetComponent<Light2D>().enabled = true;
                     if (itemHolding.GetComponent<Rigidbody2D>())
                         itemHolding.GetComponent<Rigidbody2D>().simulated = false;
                 }
