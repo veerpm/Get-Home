@@ -114,7 +114,6 @@ public class PickupObjects : MonoBehaviour
                         itemHolding.GetComponent<ThrowableObject>().caught = true;
                         itemHolding.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
                     }
-                    itemHolding.transform.Find("Light").GetComponent<Light2D>().enabled = true;
                     if (itemHolding.GetComponent<Rigidbody2D>())
                         itemHolding.GetComponent<Rigidbody2D>().simulated = false;
                 }
