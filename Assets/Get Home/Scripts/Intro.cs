@@ -18,9 +18,15 @@ public class Intro : MonoBehaviour
         
     }
 
-    void EnablePlayer()
+    private IEnumerator Wait()
     {
+        yield return new WaitForSeconds(1);
         player.SetActive(true);
         gameObject.SetActive(false);
+    }
+
+    void EnablePlayer()
+    {
+        StartCoroutine("Wait");
     }
 }
