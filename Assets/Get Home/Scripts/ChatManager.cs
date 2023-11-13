@@ -48,7 +48,7 @@ public class ChatManager : MonoBehaviour
         // move slightly above head if no pos. given
         if (localPosition == default(Vector3))
         {
-            localPosition = new Vector3(0, 1f, 0);
+            localPosition = new Vector3(0, 1.4f, 0);
         }
 
         // create & set dialogue
