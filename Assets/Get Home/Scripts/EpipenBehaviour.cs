@@ -9,6 +9,7 @@ public class EpipenBehaviour : MonoBehaviour
     public int epipenDuration;
     public bool epipenActive;
     private float startTimer; // timer to track when epipen was activated
+    private float currentDuration;
     public Image epipenOverlay;
     public Image epipenTimer;
     public AudioSource epiSound;
@@ -20,6 +21,7 @@ public class EpipenBehaviour : MonoBehaviour
     {
         epipenOverlay.enabled = false;
         epipenTimer.enabled = false;
+        currentDuration = epipenDuration;
         epipenTimer.transform.GetChild(0).GetComponent<Image>().enabled = false;
         combatScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombatMelee>();
     }
@@ -27,9 +29,16 @@ public class EpipenBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (epipenActive && Time.time - startTimer > epipenDuration)
+        if (epipenActive)
         {
-            DisableEpipen();
+            epipenTimer.enabled = true;
+            epipenTimer.transform.GetChild(0).GetComponent<Image>().enabled = true;
+            currentDuration -= Time.deltaTime;
+            epipenTimer.fillAmount = currentDuration / epipenDuration;
+            if (currentDuration <= 0)
+            {
+                DisableEpipen();
+            }
         }
     }
 
@@ -48,30 +57,25 @@ public class EpipenBehaviour : MonoBehaviour
             epipenActive = true;
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            StartCoroutine("EpipenTimer");
+            StartCoroutine("EpipenOverlay");
         }
     }
 
-    private IEnumerator EpipenTimer()
+    private IEnumerator EpipenOverlay()
     {
         epipenOverlay.enabled = true;
-        epipenTimer.enabled = true;
-        epipenTimer.transform.GetChild(0).GetComponent<Image>().enabled = true;
 
         for (int i = epipenDuration; i > 0; i--)
         {
-            epipenTimer.fillAmount = (float)i / epipenDuration;
             yield return new WaitForSeconds(1);
             epipenOverlay.enabled = !epipenOverlay.enabled;
         }
-
-        DisableEpipen();
     }
 
     public void DisableEpipen()
     {
         epipenActive = false;
-        StopCoroutine("EpipenTimer");
+        StopCoroutine("EpipenOverlay");
         epipenTimer.fillAmount = 0;
         epipenOverlay.enabled = false;
         epipenTimer.enabled = false;

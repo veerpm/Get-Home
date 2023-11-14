@@ -22,17 +22,20 @@ public class Intro : MonoBehaviour
         
     }
 
-    private IEnumerator Wait()
+    //private IEnumerator Wait()
+    //{
+    //    yield return new WaitForSeconds(1);
+    //    player.SetActive(true);
+    //    inventory.SetActive(true);
+    //    healthBar.SetActive(true);
+    //    gameObject.SetActive(false);
+    //}
+
+    void EnablePlayer()
     {
-        yield return new WaitForSeconds(1);
         player.SetActive(true);
         inventory.SetActive(true);
         healthBar.SetActive(true);
         gameObject.SetActive(false);
-    }
-
-    void EnablePlayer()
-    {
-        StartCoroutine("Wait");
     }
 }

@@ -42,8 +42,6 @@ public class DialogueManager : MonoBehaviour
     private float sensibility = 0.25f; // trigger sensibility
     private HashSet<float> pastDialogues = new HashSet<float>();
 
-    // for first dialouge after thrown
-    public bool thrown;
     // updating text 1 time per frame
     private int frameCount;
 
@@ -62,7 +60,7 @@ public class DialogueManager : MonoBehaviour
         foreach (Conversation conversation in conversations)
         {
             // if we are near conversation's trigger, start it
-            if (thrown && !pastDialogues.Contains(conversation.xPosition) && Mathf.Abs(xPos - conversation.xPosition) < sensibility)
+            if (!pastDialogues.Contains(conversation.xPosition) && Mathf.Abs(xPos - conversation.xPosition) < sensibility)
             {
                 pastDialogues.Add(conversation.xPosition);
                 StartDialogue(conversation.speaker.ToUpper(), conversation.lines);
@@ -138,10 +136,5 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    // Used by animation trigger after falling animation is done
-    void SetThrown()
-    {
-        thrown = true;
-    }
 }
 
