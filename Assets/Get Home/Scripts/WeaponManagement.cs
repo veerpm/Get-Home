@@ -125,6 +125,10 @@ public class WeaponManagement : MonoBehaviour
             DisplayWeaponDurability(EquippedWeapon.GetComponent<WeaponStats>().maxHits, durabilityBarEmpty);
             DisplayWeaponDurability(EquippedWeapon.GetComponent<WeaponStats>().currentHits, durabilityBarFull);
         }
+        else if (EquippedWeapon == sprayCan)
+        {
+            durability.transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
 
     public void AdjustDurability()
@@ -141,13 +145,6 @@ public class WeaponManagement : MonoBehaviour
                 EquippedWeapon = defaultWeapon;
             }
 
-
-            //if (EquippedWeapon.GetComponent<WeaponStats>().currentHits < 0 && EquippedWeapon != defaultWeapon)
-            //{
-            //    animator.SetBool(EquippedWeapon.name, false);
-            //    EquippedWeapon = defaultWeapon;
-            //}
-
             if (EquippedWeapon != defaultWeapon)
             {
                 RemoveWeaponDurability(1, durabilityBarFull);
@@ -156,11 +153,21 @@ public class WeaponManagement : MonoBehaviour
 
         else
         {
+            GetComponent<SprayCanBehaviour>().currentDurability -= Time.deltaTime;
+            durability.transform.GetChild(0).GetComponent<Slider>().value = GetComponent<SprayCanBehaviour>().currentDurability / GetComponent<SprayCanBehaviour>().maxDurability;
 
+            if (GetComponent<SprayCanBehaviour>().currentDurability <= 0)
+            {
+                GetComponent<SprayCanBehaviour>().ps.Stop();
+                brokenWeapon = EquippedWeapon;
+                ResetDurability();
+                EquippedWeapon = defaultWeapon;
+            }
         }
 
     }
 
+    // displays the number of the bars specified
     void DisplayWeaponDurability(int num, Image bar)
     {
         for (int i = 0; i < num; i++)
@@ -175,6 +182,8 @@ public class WeaponManagement : MonoBehaviour
         }
     }
 
+
+    // removes the number of the bars specified
     void RemoveWeaponDurability(int num,Image bar)
     {
         GameObject[] durbarsObj  = GameObject.FindGameObjectsWithTag(bar.tag);
@@ -186,12 +195,18 @@ public class WeaponManagement : MonoBehaviour
 
     }
 
+
+    // removes all bars displayed
     void ResetDurability()
     {
         if (equippedWeapon != sprayCan)
         {
             RemoveWeaponDurability(EquippedWeapon.GetComponent<WeaponStats>().maxHits, durabilityBarEmpty);
             RemoveWeaponDurability(EquippedWeapon.GetComponent<WeaponStats>().currentHits, durabilityBarFull);
+        }
+        else
+        {
+            durability.transform.GetChild(0).gameObject.SetActive(false);
         }
 
     }

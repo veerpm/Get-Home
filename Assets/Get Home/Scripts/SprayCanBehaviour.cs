@@ -9,7 +9,9 @@ public class SprayCanBehaviour : MonoBehaviour
     public float dist = 3f;
     public float height = 2f;
     public int damage = 5;
-    public int attackRate = 1;
+    public int attackRate = 2;
+    public float maxDurability = 10f;
+    public float currentDurability;
     private float nextAttackTime = 0f;
     public GameObject attackPoint;
     public ParticleSystem ps;
@@ -21,6 +23,7 @@ public class SprayCanBehaviour : MonoBehaviour
     void Start()
     {
         filter.SetLayerMask(enemyLayers);
+        currentDurability = maxDurability;
     }
 
     // Update is called once per frame
@@ -54,21 +57,9 @@ public class SprayCanBehaviour : MonoBehaviour
         {
             ps.Stop();
         }
-
-        ParticleSystem.Particle[] particles = new ParticleSystem.Particle[ps.particleCount];
-
-        //int num = ps.GetParticles(particles);
-
-        //for (int i = 0; i < num; i++)
-        //{
-        //    if (particles[i].position.x >= transform.position.x + dist)
-        //    {
-        //        particles[i].remainingLifetime = 0f;
-        //    }
-        //}
-
-        //ps.SetParticles(particles);
-
-
+        if (Input.GetKey(KeyCode.E))
+        {
+            GetComponent<WeaponManagement>().AdjustDurability();
+        }
     }
 }
