@@ -508,6 +508,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7645658738577266058, guid: 309790e093fa74cc3a2297a9191d49e2,
+        type: 3}
+      propertyPath: escapeRange
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7645658738577266059, guid: 309790e093fa74cc3a2297a9191d49e2,
         type: 3}
       propertyPath: m_RootOrder
@@ -562,16 +567,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7645658738577266061, guid: 309790e093fa74cc3a2297a9191d49e2,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 2.4074478
-      objectReference: {fileID: 0}
-    - target: {fileID: 7645658738577266061, guid: 309790e093fa74cc3a2297a9191d49e2,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 0.062083244
       objectReference: {fileID: 0}
     - target: {fileID: 7645658738577266064, guid: 309790e093fa74cc3a2297a9191d49e2,
         type: 3}
@@ -9737,8 +9732,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightAttackRange: 0.35
   heavyAttackRange: 0.35
-  lightAttackDamage: 15
-  heavyAttackDamage: 30
+  lightAttackDamage: 10
+  heavyAttackDamage: 20
   lightAttackRate: 4
   heavyAttackRate: 1.33
   maxHits: 0
@@ -12321,7 +12316,7 @@ GameObject:
   - component: {fileID: 1767961895}
   - component: {fileID: 1767961894}
   m_Layer: 0
-  m_Name: bartender
+  m_Name: Bartender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13350,7 +13345,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -250.00244, y: 25}
+  m_AnchoredPosition: {x: -250, y: 25}
   m_SizeDelta: {x: 500, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2116219565
