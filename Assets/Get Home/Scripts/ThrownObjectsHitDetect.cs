@@ -5,7 +5,6 @@ using UnityEngine;
 public class ThrownObjectsHitDetect : MonoBehaviour
 {
     public bool thrown;
-    public bool caught;
     public int damage;
     public AudioSource audioSource;
 
@@ -23,6 +22,7 @@ public class ThrownObjectsHitDetect : MonoBehaviour
             transform.position = new Vector3(0, 40f, 0);
             Destroy(this.gameObject, 2);
             collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
+            collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0,0,0);
         }
     }
 }
