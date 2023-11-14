@@ -960,7 +960,7 @@ AnimatorStateTransition:
   - m_ConditionMode: 4
     m_ConditionEvent: SpeedX
     m_EventTreshold: 0.00001
-  - m_ConditionMode: 3
+  - m_ConditionMode: 4
     m_ConditionEvent: SpeedY
     m_EventTreshold: 0.00001
   m_DstStateMachine: {fileID: 0}
