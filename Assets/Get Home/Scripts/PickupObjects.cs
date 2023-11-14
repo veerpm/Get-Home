@@ -50,7 +50,7 @@ public class PickupObjects : MonoBehaviour
                 {
                     //sound FX
                     throwTrashSound.Play();
-
+                    gameObject.GetComponent<PlayerMovement>().speed = 3;
                     itemHolding.transform.parent = null;
                     itemHolding.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                     itemHolding.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionX;
@@ -79,7 +79,7 @@ public class PickupObjects : MonoBehaviour
                     //sound FX
                     pickUpTrashSound.Play();
 
-                    if(GetComponent<PlayerMovement>().lookingRight == true)
+                    if (GetComponent<PlayerMovement>().lookingRight == true)
                     {
                         itemHolding.transform.position = new Vector3(holdSpot.position.x, holdSpot.position.y - placeDownOffSet, 0.0f) + new Vector3(0.6f, 0.3f, 0);
                         GetComponent<PlayerCombatMelee>().enabled = true;
@@ -105,6 +105,7 @@ public class PickupObjects : MonoBehaviour
             {
                 if (pickUpItem)
                 {
+                    gameObject.GetComponent<PlayerMovement>().speed = 1.5f;
                     itemHolding = pickUpItem.gameObject;
                     itemHolding.transform.position = holdSpot.position;
                     itemHolding.transform.parent = transform;
