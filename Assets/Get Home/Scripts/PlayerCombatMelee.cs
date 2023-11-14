@@ -40,6 +40,7 @@ public class PlayerCombatMelee : MonoBehaviour
     List<string> attacksList = new List<string>();
     Dictionary<List<string>, int> combos = new Dictionary<List<string>, int>(); // maps order of attacks for combo to the attack damage after combo
     public bool comboActive;
+    private float waitTime;
 
     void Start()
     {
@@ -195,7 +196,7 @@ public class PlayerCombatMelee : MonoBehaviour
             "Light Attack",
             "Light Attack",
             "Heavy Attack",
-            "Light Attack"}, 100);
+            "Light Attack"}, 40);
     }
 
     void DealWCombo(string attack)
@@ -208,13 +209,10 @@ public class PlayerCombatMelee : MonoBehaviour
             return;
         }
 
-        if (lastAttackTime == 0 || Time.time - lastAttackTime <= 2)
+        if (lastAttackTime == 0 || Time.time - lastAttackTime <= 2 && Time.time - waitTime >= 2)
         {
+            waitTime = 0;
             attacksList.Add(attack);
-            if (attacksList.Count > 4)
-            {
-                attacksList.RemoveAt(0);
-            }
             foreach (string s in attacksList)
             {
                 S += s;
@@ -223,15 +221,20 @@ public class PlayerCombatMelee : MonoBehaviour
 
             foreach (KeyValuePair<List<string>, int> c in combos)
             {
-                    if (attacksList.Count == 3 && c.Key.GetRange(0, 3).SequenceEqual(attacksList.GetRange(0, 3)) && epiScript == null)
-                    {
-                        DisplayText(c.Key.Last<string>() + " For Combo!");
-                    }
+                if (attacksList.Count == 3 && c.Key.GetRange(0, 3).SequenceEqual(attacksList.GetRange(0, 3)) && epiScript == null)
+                {
+                    DisplayText(c.Key.Last<string>() + " For Combo!");
+                }
 
-                    if (attacksList.Count == 4 && c.Key.GetRange(0, 3).SequenceEqual(attacksList.GetRange(1, 3)) && epiScript == null)
-                    {
-                        DisplayText(c.Key.Last<string>() + " For Combo!");
-                    }
+                //else if (attacksList.Count == 3 &&  !c.Key.GetRange(0, 3).SequenceEqual(attacksList.GetRange(0, 3)))
+                //{
+                //    attacksList.Clear();
+                //}
+
+                //if (attacksList.Count == 4 && c.Key.GetRange(0, 3).SequenceEqual(attacksList.GetRange(1, 3)) && epiScript == null)
+                //{
+                //    DisplayText(c.Key.Last<string>() + " For Combo!");
+                //}
 
 
                 if (c.Key.SequenceEqual(attacksList) && epiScript == null)
@@ -244,6 +247,11 @@ public class PlayerCombatMelee : MonoBehaviour
                     comboActive = true;
                     attacksList.Clear();
                 }
+            }
+            if (attacksList.Count == 4)
+            {
+                attacksList.Clear();
+                waitTime = Time.time;
             }
 
         }

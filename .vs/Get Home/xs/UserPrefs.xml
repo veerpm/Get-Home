@@ -1,13 +1,8 @@
 ﻿<Properties GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Get Home/Scripts/EpipenBehaviour.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Get Home/Scripts/PlayerCombatMelee.cs">
     <Files>
-      <File FileName="Assets/Get Home/Scripts/Intro.cs" Line="36" Column="32" />
-      <File FileName="Assets/Get Home/Scripts/EpipenBehaviour.cs" Line="72" Column="10" />
+      <File FileName="Assets/Get Home/Scripts/PlayerCombatMelee.cs" Line="212" Column="96" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,7 +12,7 @@
               <Node name="Assets" expanded="True">
                 <Node name="Get Home" expanded="True">
                   <Node name="Scripts" expanded="True">
-                    <Node name="EpipenBehaviour.cs" selected="True" />
+                    <Node name="PlayerCombatMelee.cs" selected="True" />
                   </Node>
                 </Node>
               </Node>
@@ -28,4 +23,8 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>
