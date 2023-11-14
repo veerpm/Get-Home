@@ -1,25 +1,28 @@
 fileFormatVersion: 2
-guid: 169322256e3b248578f338c22c70cab6
+guid: 843820707e1d54e7dbd99b64fc0b553e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3018380071373437248
-    second: Randy_Knife_Animation_0
+      213: -7742291323763196300
+    second: Randy_heavy_knife_animation_0
   - first:
-      213: 840889433402439894
-    second: Randy_Knife_Animation_1
+      213: -2381670747503620402
+    second: Randy_heavy_knife_animation_1
   - first:
-      213: 881395660784859323
-    second: Randy_Knife_Animation_2
+      213: -8321003186538208858
+    second: Randy_heavy_knife_animation_2
   - first:
-      213: 5506745907031909988
-    second: Randy_Knife_Animation_3
+      213: -4312532322259068344
+    second: Randy_heavy_knife_animation_3
   - first:
-      213: -6179119506223423079
-    second: Randy_Knife_Animation_4
+      213: -7447182530772897210
+    second: Randy_heavy_knife_animation_4
   - first:
-      213: -7562798669459956960
-    second: Randy_Knife_Animation_5
+      213: -5554519202017554067
+    second: Randy_heavy_knife_animation_5
+  - first:
+      213: 7882692838592714301
+    second: Randy_heavy_knife_animation_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -117,7 +120,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Randy_Knife_Animation_0
+      name: Randy_heavy_knife_animation_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +134,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c60ba0315f8c16d0800000000000000
-      internalID: -3018380071373437248
+      spriteID: 47e718bbf0bdd8490800000000000000
+      internalID: -7742291323763196300
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Randy_Knife_Animation_1
+      name: Randy_heavy_knife_animation_1
       rect:
         serializedVersion: 2
         x: 100
@@ -152,14 +155,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d8f4550c707bab00800000000000000
-      internalID: 840889433402439894
+      spriteID: ece8b13e21b92fed0800000000000000
+      internalID: -2381670747503620402
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Randy_Knife_Animation_2
+      name: Randy_heavy_knife_animation_2
       rect:
         serializedVersion: 2
         x: 200
@@ -173,14 +176,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb8f6a30fa85b3c00800000000000000
-      internalID: 881395660784859323
+      spriteID: 6a12f7b30bbd58c80800000000000000
+      internalID: -8321003186538208858
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Randy_Knife_Animation_3
+      name: Randy_heavy_knife_animation_3
       rect:
         serializedVersion: 2
         x: 300
@@ -194,14 +197,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46629f8f934eb6c40800000000000000
-      internalID: 5506745907031909988
+      spriteID: 84a9b51a3bec624c0800000000000000
+      internalID: -4312532322259068344
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Randy_Knife_Animation_4
+      name: Randy_heavy_knife_animation_4
       rect:
         serializedVersion: 2
         x: 400
@@ -215,14 +218,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 991add62c8b5f3aa0800000000000000
-      internalID: -6179119506223423079
+      spriteID: 64279c3f1fa46a890800000000000000
+      internalID: -7447182530772897210
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Randy_Knife_Animation_5
+      name: Randy_heavy_knife_animation_5
       rect:
         serializedVersion: 2
         x: 500
@@ -236,8 +239,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02bda07fdaa8b0790800000000000000
-      internalID: -7562798669459956960
+      spriteID: d6158a107326ae2b0800000000000000
+      internalID: -5554519202017554067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Randy_heavy_knife_animation_6
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3695d55f53f46d60800000000000000
+      internalID: 7882692838592714301
       vertices: []
       indices: 
       edges: []
