@@ -99,6 +99,7 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
+        gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         animator.SetBool("IsDead", true);
 
         StartCoroutine(BlinkRed());

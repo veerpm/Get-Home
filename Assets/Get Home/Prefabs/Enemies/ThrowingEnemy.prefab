@@ -696,7 +696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineofSight: 8
-  throwingRange: 7
+  throwingRange: 6
   throwingCD: 2
   throwable: {fileID: 6050025691549763102, guid: 89384654646fed140a0e2a6fecf3fa87,
     type: 3}
@@ -814,7 +814,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
