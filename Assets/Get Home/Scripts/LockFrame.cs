@@ -70,6 +70,9 @@ public class LockFrame : MonoBehaviour
         float rightBound = mainCamera.GetComponent<Camera>().ViewportToWorldPoint(new Vector3(1f, 0f, 0f)).x;
         float width = player.GetComponent<SpriteRenderer>().sprite.bounds.size.x / 2;
         player.GetComponent<Boundaries>().Freeze(leftBound + width, rightBound - width);
+
+        // also freeze/unfreeze enemies
+        this.GetComponent<LockEnemies>().Lock();
     }
 
     public void unlockPlayer()
@@ -87,6 +90,9 @@ public class LockFrame : MonoBehaviour
         {
             gameManager.GetComponent<GamePause>().updateCheckpoint(player.transform.position);
         }
+
+        // also freeze/unfreeze enemies
+        this.GetComponent<LockEnemies>().Unlock();
     }
 
     public bool EnemiesDefeated()
