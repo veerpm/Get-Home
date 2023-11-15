@@ -10100,7 +10100,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyStop
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5217213015210050439, guid: cf361a6417f354e44b3fb8e96e76ca4f,
+        type: 3}
+      propertyPath: enemies.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5217213015210050439, guid: cf361a6417f354e44b3fb8e96e76ca4f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cf361a6417f354e44b3fb8e96e76ca4f, type: 3}
 --- !u!1 &1030989866
 GameObject:
@@ -10327,7 +10333,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyStop (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5217213015210050439, guid: cf361a6417f354e44b3fb8e96e76ca4f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cf361a6417f354e44b3fb8e96e76ca4f, type: 3}
 --- !u!1 &1133813051
 GameObject:
@@ -11754,7 +11761,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyStop (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5217213015210050439, guid: cf361a6417f354e44b3fb8e96e76ca4f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cf361a6417f354e44b3fb8e96e76ca4f, type: 3}
 --- !u!1 &1594741620
 GameObject:
