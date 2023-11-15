@@ -206,10 +206,13 @@ public class PlayerCombatMelee : MonoBehaviour
         if (comboActive)
         {
             DisableCombo();
-            return;
+            //return;
         }
 
-        if (lastAttackTime == 0 || Time.time - lastAttackTime <= 2 && Time.time - waitTime >= 2)
+        Debug.Log(Time.time - waitTime);
+        Debug.Log(Time.time - lastAttackTime <= 2);
+
+        if (lastAttackTime == 0 || Time.time - lastAttackTime <= 2 && Time.time - waitTime >= 1)
         {
             waitTime = 0;
             attacksList.Add(attack);
@@ -246,6 +249,7 @@ public class PlayerCombatMelee : MonoBehaviour
                     heavyAttackDamage = c.Value;
                     comboActive = true;
                     attacksList.Clear();
+                    waitTime = Time.time;
                 }
             }
             if (attacksList.Count == 4)
