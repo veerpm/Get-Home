@@ -1,8 +1,10 @@
 ﻿<Properties GitUserInfo="UsingGIT">
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Get Home/Scripts/PlayerCombatMelee.cs">
     <Files>
-      <File FileName="Assets/Get Home/Scripts/PlayerCombatMelee.cs" Line="212" Column="96" />
+      <File FileName="Assets/Get Home/Scripts/PlayerCombatMelee.cs" Line="217" Column="26" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -24,7 +26,5 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
 </Properties>
