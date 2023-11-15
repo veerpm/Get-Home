@@ -114,8 +114,9 @@ GameObject:
   - component: {fileID: 1172391769689524299}
   - component: {fileID: 1172391769689524296}
   - component: {fileID: 1172391769689524297}
+  - component: {fileID: 5217213015210050439}
   m_Layer: 0
-  m_Name: EnemyStop2
+  m_Name: EnemyStop
   m_TagString: EnemyStop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -231,3 +232,17 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   goPrompt: {fileID: 0}
+--- !u!114 &5217213015210050439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172391769689524302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e3167366fed0441ada75f9f4cd801c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies: []
+  player: {fileID: 0}

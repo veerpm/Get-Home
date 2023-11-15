@@ -116,4 +116,41 @@ public class Boundaries : MonoBehaviour
     {
         freeze = false;
     }
+
+    public Vector3 SetInBounds(Vector3 pos)
+    {
+        float currentLeft;
+        float currentRight;
+
+        // 0.5 to make sure object is not off screen
+        currentLeft = leftFreeze +0.5f;
+        currentRight = rightFreeze -0.5f;
+
+        // Change vector 3 if outside of bounds
+        // set bounds
+        if (pos.x < currentLeft)
+        {
+            Debug.Log("different!");
+            pos = new Vector3(currentLeft, pos.y, pos.z);
+        }
+        if (pos.x > currentRight)
+        {
+            Debug.Log("different!");
+            pos = new Vector3(currentRight, pos.y, pos.z);
+        }
+        if (pos.y < lowerBound)
+        {
+            Debug.Log("different!");
+
+            pos = new Vector3(pos.x, lowerBound, pos.z);
+        }
+        if (pos.y > upperBound)
+        {
+            Debug.Log("different!");
+
+            pos = new Vector3(pos.x, upperBound, pos.z);
+        }
+
+        return pos;
+    }
 }
