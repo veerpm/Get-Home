@@ -65,26 +65,25 @@ public class DialogueManager : MonoBehaviour
                 pastDialogues.Add(conversation.xPosition);
                 StartDialogue(conversation.speaker.ToUpper(), conversation.lines);
             }
+        }
+        // Continue conversation if one is being run
+        if (dialogueOn && Input.anyKeyDown &&
+            frameCount < Time.frameCount &&
+        !(Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))) // any key except the mouse activates next dialogue
+        {
+            frameCount = Time.frameCount; // call at max. 1 per frame
 
-            // Continue conversation if one is being run
-            if (dialogueOn && Input.anyKeyDown &&
-                frameCount < Time.frameCount &&
-            !(Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))) // any key except the mouse activates next dialogue
+            //sound FX
+            if (mainText.text == lines[index].text)
             {
-                frameCount = Time.frameCount; // call at max. 1 per frame
-
-                //sound FX
-                if (mainText.text == lines[index].text)
-                {
-                    // finished displaying. Jump to next line
-                    NextLine();
-                }
-                else
-                {
-                    // skip text animation & display everything
-                    StopAllCoroutines();
-                    mainText.text = lines[index].text;
-                }
+                // finished displaying. Jump to next line
+                NextLine();
+            }
+            else
+            {
+                // skip text animation & display everything
+                StopAllCoroutines();
+                mainText.text = lines[index].text;
             }
         }
     }
@@ -133,6 +132,19 @@ public class DialogueManager : MonoBehaviour
             dialogueOn = false;
             dialogueBox.SetActive(false);
             gameManager.GetComponent<GamePause>().pause(false);
+        }
+    }
+
+    void RunAllDialogues()
+    {
+        // start all conversations
+        foreach (Conversation conversation in conversations)
+        {
+            if (!pastDialogues.Contains(conversation.xPosition))
+            {
+                pastDialogues.Add(conversation.xPosition);
+                StartDialogue(conversation.speaker.ToUpper(), conversation.lines);
+            }
         }
     }
 

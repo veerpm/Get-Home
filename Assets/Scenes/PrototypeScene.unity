@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1289,7 +1289,7 @@ MonoBehaviour:
   - xPosition: -10.14
     function: 0
     repeats: 0
-    text: Can't go in the bar again!
+    text: "I\u2026 really shouldn\u2019t go back there\u2026"
 --- !u!114 &330463875
 MonoBehaviour:
   m_ObjectHideFlags: 0

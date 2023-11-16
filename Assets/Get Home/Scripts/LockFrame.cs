@@ -72,7 +72,10 @@ public class LockFrame : MonoBehaviour
         player.GetComponent<Boundaries>().Freeze(leftBound + width, rightBound - width);
 
         // also freeze/unfreeze enemies
-        this.GetComponent<LockEnemies>().Lock();
+        if (TryGetComponent<LockEnemies>(out LockEnemies script))
+        {
+            script.Lock();
+        }
     }
 
     public void unlockPlayer()
@@ -92,7 +95,10 @@ public class LockFrame : MonoBehaviour
         }
 
         // also freeze/unfreeze enemies
-        this.GetComponent<LockEnemies>().Unlock();
+        if (TryGetComponent<LockEnemies>(out LockEnemies script))
+        {
+            script.Unlock();
+        }
     }
 
     public bool EnemiesDefeated()
