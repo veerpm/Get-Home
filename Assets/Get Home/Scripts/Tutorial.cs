@@ -107,7 +107,7 @@ public class Tutorial : MonoBehaviour
 
         // dialogue (T and R)
         chatBubble.GetComponent<ChatBubble>().Setup("Honestly, only a guy like this would be dull enough " +
-            "\n to use 'R' to pick up that bat.");
+            "\n to use 'R' to pick up that knife.");
 
         // wait
         while (player.GetComponent<WeaponManagement>().EquippedWeapon != knife)
