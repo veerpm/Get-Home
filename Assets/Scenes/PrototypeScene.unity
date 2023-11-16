@@ -1289,7 +1289,7 @@ MonoBehaviour:
   - xPosition: -10.14
     function: 0
     repeats: 0
-    text: Can't go in the bar again!
+    text: "I\u2026 really shouldn\u2019t go back there\u2026"
 --- !u!114 &330463875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10126,7 +10126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1030989867
 SpriteRenderer:
   m_ObjectHideFlags: 0
