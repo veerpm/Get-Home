@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8299784838895754223}
   m_Layer: 0
   m_Name: Pothole
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 8299784838895754208}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.37, y: -1.89, z: -6.3359375}
-  m_LocalScale: {x: 0.28325042, y: 0.28325042, z: 0.28325042}
+  m_LocalScale: {x: 4, y: 4, z: 0.28325042}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: f929d7caabd614d73bec6b953ee2e0fb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fe123db5ad8cf43218811529bf60ad49, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -94,3 +94,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce9dc13a951349b6af4cb7d02a3eea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rx: 0.35
+  ry: 0.21
+  offset: -0.17
+  open: {fileID: 21300000, guid: fe123db5ad8cf43218811529bf60ad49, type: 3}
+  closed: {fileID: 21300000, guid: d92fcf0eb7a334afa92c0916fecc1d19, type: 3}

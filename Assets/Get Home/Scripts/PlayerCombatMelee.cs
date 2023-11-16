@@ -52,6 +52,7 @@ public class PlayerCombatMelee : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        weaponManagement.ResetAnim();
 
         if (comboActive && Time.time - lastAttackTime >= 2 )
         {
@@ -62,7 +63,6 @@ public class PlayerCombatMelee : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E) && !events.isAttacking && !GetComponent<PickupObjects>().IsHolding())
             {
-                weaponManagement.ResetAnim();
                 LightAttack();
                 nextLightAttackTime = Time.time + 1f / lightAttackRate;
             }
@@ -72,7 +72,6 @@ public class PlayerCombatMelee : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q) && !events.isAttacking && !GetComponent<PickupObjects>().IsHolding())
             {
-                weaponManagement.ResetAnim();
                 HeavyAttack();
                 nextHeavyAttackTime = Time.time + 1f / heavyAttackRate;
             }
