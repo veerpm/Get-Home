@@ -1324,6 +1324,19 @@ MonoBehaviour:
     - sprite: {fileID: 21300000, guid: ec0edbce859cd984296c767c339452cc, type: 3}
       text: "Randy, you\u2019ve really done it this time. I guess the only way out
         is through. "
+  - xPosition: 42
+    speaker: Randy
+    lines:
+    - sprite: {fileID: 21300000, guid: c14c1232a3fa0c3479808709645e4f49, type: 3}
+      text: "Hey, that bar looks\u2026"
+    - sprite: {fileID: 21300000, guid: dc925d03960522b4b8c4f46e6cd092d7, type: 3}
+      text: "I\u2026"
+    - sprite: {fileID: 21300000, guid: dc925d03960522b4b8c4f46e6cd092d7, type: 3}
+      text: "I walked\u2026 in a circle\u2026"
+    - sprite: {fileID: 21300000, guid: 5f9b2cfd3efb4eb458be6e8f444b04c7, type: 3}
+      text: HOW IS THAT EVEN POSSIBLE
+    - sprite: {fileID: 21300000, guid: f8d616315140b674bbf4acdd33a51721, type: 3}
+      text: "Eh whatever, I\u2019ll just cut through this alleyway"
 --- !u!82 &330463876
 AudioSource:
   m_ObjectHideFlags: 0
