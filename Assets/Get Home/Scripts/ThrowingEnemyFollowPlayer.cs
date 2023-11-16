@@ -16,8 +16,8 @@ public class ThrowingEnemyFollowPlayer : MonoBehaviour
     private bool lookingRight = false;
     private Transform canvas;
     public Animator animator;
-   
-    private Vector3 escapeVector = new Vector3(2,0,0);
+
+    private Vector3 escapeVector = new Vector3(2, 0, 0);
 
     //sound FX
     public AudioSource throwSound;
@@ -40,7 +40,7 @@ public class ThrowingEnemyFollowPlayer : MonoBehaviour
             escapeVector = new Vector3(-2, 0, 0);
             lookingRight = true;
         }
-       // Player to the left of the enemy
+        // Player to the left of the enemy
         else if (player.transform.position.x < this.transform.position.x && lookingRight)
         {
             transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
@@ -53,17 +53,17 @@ public class ThrowingEnemyFollowPlayer : MonoBehaviour
         float distanceFromPlayer = Vector2.Distance(player.position, transform.position);
         // Run towards 
         if (distanceFromPlayer < lineofSight && distanceFromPlayer > throwingRange)
-        {   
+        {
             //Debug.Log("This works!");
             transform.position = Vector2.MoveTowards(this.transform.position, player.position + new Vector3(0.7f, -0.5f, 0.0f), speed * Time.deltaTime);
         }
         // Throwly Poly
-        else if (escapeRange < distanceFromPlayer &&  distanceFromPlayer < throwingRange && nextThrowTime < Time.time)
+        else if (escapeRange < distanceFromPlayer && distanceFromPlayer < throwingRange && nextThrowTime < Time.time)
         {
             animator.SetTrigger("ThrowAttack");
             //sound FX
             throwSound.Play();
-            
+
             Instantiate(throwable, throwSpot.transform.position, Quaternion.identity);
             nextThrowTime = Time.time + throwingCD;
         }
@@ -71,7 +71,7 @@ public class ThrowingEnemyFollowPlayer : MonoBehaviour
         else if (distanceFromPlayer < escapeRange)
         {
             Debug.Log("THIS CODE EXISTS!" + escapeVector);
-            transform.position = Vector2.MoveTowards(this.transform.position, this.transform.position + escapeVector, (speed /2) * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(this.transform.position, this.transform.position + escapeVector, (speed / 2) * Time.deltaTime);
         }
 
     }
