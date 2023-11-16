@@ -9113,6 +9113,11 @@ PrefabInstance:
       objectReference: {fileID: 330463859}
     - target: {fileID: 1172391769689524297, guid: cf361a6417f354e44b3fb8e96e76ca4f,
         type: 3}
+      propertyPath: useTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172391769689524297, guid: cf361a6417f354e44b3fb8e96e76ca4f,
+        type: 3}
       propertyPath: goPrompt
       value: 
       objectReference: {fileID: 38795662}
@@ -9124,7 +9129,7 @@ PrefabInstance:
     - target: {fileID: 1172391769689524297, guid: cf361a6417f354e44b3fb8e96e76ca4f,
         type: 3}
       propertyPath: unlockTime
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1172391769689524297, guid: cf361a6417f354e44b3fb8e96e76ca4f,
         type: 3}
@@ -9154,7 +9159,7 @@ PrefabInstance:
     - target: {fileID: 1172391769689524298, guid: cf361a6417f354e44b3fb8e96e76ca4f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.32
+      value: 1.11
       objectReference: {fileID: 0}
     - target: {fileID: 1172391769689524298, guid: cf361a6417f354e44b3fb8e96e76ca4f,
         type: 3}
