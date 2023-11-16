@@ -89,9 +89,7 @@ public class GamePause : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemies)
         {
-            Debug.Log(enemy);
-            Debug.Log(enemy.GetComponent<EnemyHealth>().IsDead());
-            if (enemy.GetComponent<EnemyHealth>().IsDead())
+            if (enemy.GetComponent<EnemyHealth>() != null && enemy.GetComponent<EnemyHealth>().IsDead())
             {
                 enemy.SetActive(false);
             }
@@ -146,7 +144,7 @@ public class GamePause : MonoBehaviour
         foreach (GameObject enemy in enemies)
         {
             // skip if enemy was already dead
-            if (enemy.GetComponent<EnemyHealth>().IsDead())
+            if (enemy.GetComponent<EnemyHealth>() != null && enemy.GetComponent<EnemyHealth>().IsDead())
             {
                 continue;
             }

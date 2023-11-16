@@ -8,7 +8,8 @@ public class BicycleEnemySpawner : MonoBehaviour
     public GameObject bicycleGameObject;
     public float spawnDelay = 5f;
     private float nextSpawnTime = 0f;
-    private float spawnYPosition;
+    public float spawnLowerBound;
+    public float spawnUpperBound;
 
     // Start is called before the first frame update
     void Start()
@@ -28,13 +29,14 @@ public class BicycleEnemySpawner : MonoBehaviour
 
     void SpawnBicycle()
     {
-        spawnYPosition = Random.Range(0.4f, -4f);
+        float spawnYPosition = Random.Range(spawnLowerBound, spawnUpperBound);
 
         // Define the spawn position to the right of the screen
         Vector3 spawnPosition = new Vector3(Camera.main.ViewportToWorldPoint(new Vector3(1.2f, 0, 0)).x, spawnYPosition, 0);
 
         // Instantiate the object
-        Instantiate(bicycleGameObject, spawnPosition, Quaternion.identity);
+        GameObject bicycleEnemy = Instantiate(bicycleGameObject, spawnPosition, Quaternion.identity);
+        Destroy(bicycleEnemy, 5);
     }
 
 }
