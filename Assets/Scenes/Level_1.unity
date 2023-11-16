@@ -10126,7 +10126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1030989867
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11831,7 +11831,7 @@ MonoBehaviour:
   audioSource: {fileID: 1478797234}
   canvas: {fileID: 2091657015}
   levelNameObject: {fileID: 912541543}
-  levelName: Zone 1
+  levelName: 'LEVEL ONE: Neighborhood Threat'
   acceleration: -10
   player: {fileID: 330463859}
 --- !u!114 &1594741624
@@ -13909,12 +13909,7 @@ PrefabInstance:
     - target: {fileID: 8299784838895754208, guid: 1b657d677006a4cdea13d97d295c6ece,
         type: 3}
       propertyPath: m_Name
-      value: Pothole
-      objectReference: {fileID: 0}
-    - target: {fileID: 8299784838895754208, guid: 1b657d677006a4cdea13d97d295c6ece,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
+      value: BearTrap
       objectReference: {fileID: 0}
     - target: {fileID: 8299784838895754222, guid: 1b657d677006a4cdea13d97d295c6ece,
         type: 3}
@@ -13924,12 +13919,12 @@ PrefabInstance:
     - target: {fileID: 8299784838895754222, guid: 1b657d677006a4cdea13d97d295c6ece,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.64
+      value: -7.38
       objectReference: {fileID: 0}
     - target: {fileID: 8299784838895754222, guid: 1b657d677006a4cdea13d97d295c6ece,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.89
+      value: -2.74
       objectReference: {fileID: 0}
     - target: {fileID: 8299784838895754222, guid: 1b657d677006a4cdea13d97d295c6ece,
         type: 3}

@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class PotholeBehaviour : MonoBehaviour
 {
-    private float rx = 3.12f;
-    private float ry = 0.51f;
-    private float x;
-    private float y;
-    private float plx;
-    private float ply;
+    public float rx;
+    public float ry;
+    private Vector2 centre;
+    public float offset;
     private GameObject player;
+    public Sprite open;
+    public Sprite closed;
 
     // Start is called before the first frame update
     void Start()
     {
-        x = transform.position.x;
-        y = transform.position.y;
+        centre = new Vector2(transform.position.x, transform.position.y + offset);
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -28,19 +27,29 @@ public class PotholeBehaviour : MonoBehaviour
 
     private void CheckPosition()
     {
+        float plx;
+        float ply;
         plx = player.transform.position.x;
         ply = player.transform.position.y - 0.8f; // 0.8f to get position of foot
-        if (Mathf.Pow((plx - x), 2) / Mathf.Pow(rx * transform.localScale.x, 2) + Mathf.Pow((ply - y), 2) / Mathf.Pow(ry * transform.localScale.y, 2) <= 1)
+        if (Mathf.Pow((plx - centre.x), 2) / Mathf.Pow(rx, 2) + Mathf.Pow((ply - centre.y), 2) / Mathf.Pow(ry, 2) <= 1)
         {
             player.GetComponent<PlayerHealth>().TakeDamage(player.GetComponent<PlayerHealth>().maxHealth);
+            GetComponent<SpriteRenderer>().sprite = closed;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().sprite = open;
         }
     }
 
     private void OnDrawGizmos()
     {
-        Vector3 point1 = new Vector3(transform.position.x+ rx * transform.localScale.x, transform.position.y,transform.position.z);
-        Vector3 point2 = new Vector3(transform.position.x, transform.position.y+ ry * transform.localScale.y, transform.position.z);
-        Gizmos.DrawLine(transform.position, point1);
-        Gizmos.DrawLine(transform.position, point2);
+        Vector2 centre = new Vector2(transform.position.x, transform.position.y + offset);
+        Vector3 point1 = new Vector3(centre.x+ rx, centre.y);
+        Vector3 point2 = new Vector3(centre.x, centre.y + ry);
+        //Gizmos.DrawLine(centre, point1);
+        //Gizmos.DrawLine(centre, point2);
+        Gizmos.DrawWireSphere(centre, rx);
+        Gizmos.DrawWireSphere(centre, ry);
     }
 }
