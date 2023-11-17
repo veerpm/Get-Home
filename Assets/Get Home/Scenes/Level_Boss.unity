@@ -524,7 +524,12 @@ PrefabInstance:
     - target: {fileID: 204913878396836233, guid: 6220bf5d145ad564b81e70ea78233860,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176494728472246734, guid: 6220bf5d145ad564b81e70ea78233860,
+        type: 3}
+      propertyPath: speed
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6176494728472246734, guid: 6220bf5d145ad564b81e70ea78233860,
         type: 3}
@@ -536,6 +541,16 @@ PrefabInstance:
       propertyPath: chargeDamage
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 8442836912928775449, guid: 6220bf5d145ad564b81e70ea78233860,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.52873015
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442836912928775449, guid: 6220bf5d145ad564b81e70ea78233860,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.031553872
+      objectReference: {fileID: 0}
     - target: {fileID: 8442836912928775451, guid: 6220bf5d145ad564b81e70ea78233860,
         type: 3}
       propertyPath: m_RootOrder
@@ -544,7 +559,7 @@ PrefabInstance:
     - target: {fileID: 8442836912928775451, guid: 6220bf5d145ad564b81e70ea78233860,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.65
+      value: 9.31
       objectReference: {fileID: 0}
     - target: {fileID: 8442836912928775451, guid: 6220bf5d145ad564b81e70ea78233860,
         type: 3}
@@ -599,17 +614,17 @@ PrefabInstance:
     - target: {fileID: 8442836912928775452, guid: 6220bf5d145ad564b81e70ea78233860,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8442836913601169399, guid: 6220bf5d145ad564b81e70ea78233860,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8442836913958763380, guid: 6220bf5d145ad564b81e70ea78233860,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6220bf5d145ad564b81e70ea78233860, type: 3}
@@ -10460,7 +10475,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1594741621
 Transform:
   m_ObjectHideFlags: 0
@@ -10551,6 +10566,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cb7cd56addc841be8b7b6abeb781932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pos1: 0
+  activated1: 0
+  pos2: 0
+  bicycleEnemySpawner: {fileID: 0}
 --- !u!1 &1607196634
 GameObject:
   m_ObjectHideFlags: 0

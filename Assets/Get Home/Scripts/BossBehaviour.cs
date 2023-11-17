@@ -24,6 +24,12 @@ public class BossBehaviour : MonoBehaviour
     private float nextChargeTime = 0;
     public float chargingCD;
     private float chargeDuration = 2.0f;
+    private float chargingTime;
+    private float startTime;
+
+    // Patrol/Charge
+    public GameObject pointA;
+    public GameObject pointB;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +55,22 @@ public class BossBehaviour : MonoBehaviour
             lookingRight = false;
         }
         //ThrowingStance();
-        ChargingStance();
+        
+        if(nextChargeTime < Time.time)
+        {
+            Debug.Log("Start Charge");
+            startTime = Time.time;
+            charging = true;
+
+        }
+        if (Time.time - startTime <= 1.0f)
+        {
+            transform.position = Vector2.MoveTowards(this.transform.position, player.position + new Vector3(0.7f, -0.5f, 0.0f), speed * Time.deltaTime);
+            Debug.Log("End Charge");
+            charging = false;
+            nextChargeTime = Time.time + chargingCD;
+        }
+
     }
 
     void ThrowingStance()
@@ -69,39 +90,27 @@ public class BossBehaviour : MonoBehaviour
         }
     }
 
-    void ChargingStance()
+    void Charge()
     {
-        
-        // Charge 
-        if (nextChargeTime < Time.time)
-        {
-            Debug.Log("Start Charge");
-            float elapsedTime = 0;
-            elapsedTime += Time.time;
-            transform.position = Vector2.MoveTowards(this.transform.position, player.position - new Vector3(-1,0,0), speed * Time.deltaTime);
-            
-            if(elapsedTime >= Time.time + 2.0f)
-            {
-                Debug.Log("End Charge");
-                nextChargeTime = Time.time + chargingCD;
-            }
-
-            
-        }
-        // Recharge in between charge --> Time for player to smak
-        else
-        {
-            // Play tired animation & panting sound
-            Debug.Log("work pls :((");
-        }
-        
+        startTime = Time.time;
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collision.gameObject.tag == "Player" && charging == true)
+        if (collider.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(chargeDamage);
+            Debug.Log("This occured");
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().TakeDamage(20);
         }
     }
+
+   /* IEnumerator Charging(Vector3 PLastKnownPos) {
+
+        yield return new WaitForSeconds(5);
+        transform.position = Vector2.MoveTowards(this.transform.position, PLastKnownPos, speed * Time.deltaTime);
+        yield return new WaitForSeconds(5);
+       
+        
+    }
+   */
 }
