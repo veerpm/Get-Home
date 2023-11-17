@@ -73,7 +73,7 @@ public class LockFrame : MonoBehaviour
     // lock player if touches object
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player" && !enemiesDefeated && locked)
+        if (other.gameObject.tag == "Player" && !enemiesDefeated && !locked)
         {
             lockPlayer();
             locked = true;
