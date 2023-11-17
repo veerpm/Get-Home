@@ -36,6 +36,7 @@ public class BossBehaviour : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         canvas = transform.Find("Canvas");
         charging = false;
+       
     }
 
     // Update is called once per frame
@@ -56,20 +57,26 @@ public class BossBehaviour : MonoBehaviour
         }
         //ThrowingStance();
         
+        // Start charging if offcd
         if(nextChargeTime < Time.time)
         {
             Debug.Log("Start Charge");
-            startTime = Time.time;
+            Charge();
+        }
+    
+        // Keep charging while duration is active
+        if (Time.time - startTime <= 1.1f)
+        {
             charging = true;
+            transform.position = Vector2.MoveTowards(this.transform.position, player.position + new Vector3(0.7f, -0.5f, 0.0f), speed * Time.deltaTime);
+            nextChargeTime = Time.time + chargingCD;
 
         }
-        if (Time.time - startTime <= 1.0f)
+        else if(Time.time - startTime > 1.0f)
         {
-            transform.position = Vector2.MoveTowards(this.transform.position, player.position + new Vector3(0.7f, -0.5f, 0.0f), speed * Time.deltaTime);
-            Debug.Log("End Charge");
             charging = false;
-            nextChargeTime = Time.time + chargingCD;
         }
+        
 
     }
 
@@ -89,15 +96,15 @@ public class BossBehaviour : MonoBehaviour
             nextThrowTime = Time.time + throwingCD;
         }
     }
-
     void Charge()
     {
         startTime = Time.time;
+      
     }
-
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag == "Player")
+        Debug.Log("CHARGING:"+ charging);
+        if (collider.gameObject.tag == "Player" && charging == true)
         {
             Debug.Log("This occured");
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().TakeDamage(20);
