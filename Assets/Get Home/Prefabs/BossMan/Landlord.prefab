@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 820136389347813017}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ThrowSpotRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,8 @@ GameObject:
   - component: {fileID: 1747876091}
   - component: {fileID: 1747876090}
   - component: {fileID: 6176494728472246734}
-  m_Layer: 0
+  - component: {fileID: 8044023542409387250}
+  m_Layer: 13
   m_Name: Landlord
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -130,10 +131,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.012199581, y: -0.011261582}
+  m_Offset: {x: -0.031553872, y: -0.011261582}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -144,7 +145,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4280876, y: 0.31952912}
+  m_Size: {x: 0.52873015, y: 0.31952912}
   m_EdgeRadius: 0
 --- !u!114 &8442836912928775454
 MonoBehaviour:
@@ -198,7 +199,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -312,7 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e62b0c0c366fc24409dcea8daa8b32cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 12
   lineofSight: 10
   throwingRange: 8
   throwingCD: 5
@@ -324,7 +325,29 @@ MonoBehaviour:
   throwSpotRight: {fileID: 204913878396836233}
   animator: {fileID: 8442836912928775455}
   throwSound: {fileID: 1747876090}
-  chargeDamage: 0
+  chargeDamage: 30
+  chargingCD: 2
+  pointLeft: {fileID: 0}
+  pointHalfway: {fileID: 0}
+  pointRight: {fileID: 0}
+--- !u!114 &8044023542409387250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8442836912928775452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77bd6178d0c8e441a9db849e6f48a7b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 40
+  animator: {fileID: 0}
+  healthBar: {fileID: 0}
+  damageText: {fileID: 0}
+  enemyHitSound: {fileID: 0}
+  enemyDieSound: {fileID: 0}
 --- !u!1 &8442836913601169399
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,7 +357,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8442836913601169398}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ThrowSpotLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +387,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8442836913958763383}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
