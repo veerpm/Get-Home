@@ -13,6 +13,11 @@ public class LockFrame : MonoBehaviour
     private bool enemiesDefeated;
     private GameObject flag = null;
 
+    public bool useTime = false;
+    private bool locked;
+    public float unlockTime;
+    private float startTime;
+
     private void Start()
     {
         enemiesDefeated = false;
@@ -24,9 +29,22 @@ public class LockFrame : MonoBehaviour
 
     private void Update()
     {
-        // only check if enemies have not been beaten
-        if (!enemiesDefeated)
+        Debug.Log(Time.time - startTime >= unlockTime);
+        if (useTime && Time.time - startTime >= unlockTime)
         {
+            Debug.Log("time");
+            unlockPlayer();
+            enemiesDefeated = true;
+            if (flag != null)
+            {
+                flag.SetActive(true);
+            }
+        }
+
+        // only check if enemies have not been beaten
+        else if (!useTime && !enemiesDefeated)
+        {
+            Debug.Log("enemy");
             bool noEnemies = true;
             foreach (GameObject enemy in enemies)
             {
@@ -55,9 +73,11 @@ public class LockFrame : MonoBehaviour
     // lock player if touches object
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player" && !enemiesDefeated)
+        if (other.gameObject.tag == "Player" && !enemiesDefeated && !locked)
         {
             lockPlayer();
+            locked = true;
+            startTime = Time.time;
         }
     }
 

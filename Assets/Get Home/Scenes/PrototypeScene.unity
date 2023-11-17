@@ -9317,10 +9317,10 @@ RectTransform:
   m_Father: {fileID: 2091657019}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -361, y: 150}
-  m_SizeDelta: {x: 482, y: 300}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &912541545
 MonoBehaviour:
@@ -9405,7 +9405,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 613.61865, y: 293.67258, z: -95.49529, w: 25.069607}
+  m_margin: {x: -0.037887152, y: 0.79108065, z: -1.3547103, w: 4.1494694}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -10222,6 +10222,8 @@ MonoBehaviour:
   gameManager: {fileID: 1594741620}
   enemies: []
   goPrompt: {fileID: 1888591357}
+  useTime: 0
+  unlockTime: 0
 --- !u!114 &1030989870
 MonoBehaviour:
   m_ObjectHideFlags: 0

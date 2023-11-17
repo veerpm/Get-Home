@@ -19,10 +19,10 @@ public class BicycleEnemy : MonoBehaviour
     {
          transform.Translate(Vector3.left * speed * Time.deltaTime);
 
-          if (transform.position.x < -15)
-          {
-                Destroy(gameObject);
-          }
+          //if (transform.position.x < -15)
+          //{
+          //      Destroy(gameObject);
+          //}
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
