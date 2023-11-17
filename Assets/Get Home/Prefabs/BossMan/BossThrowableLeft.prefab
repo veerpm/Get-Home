@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  damage: 40
+  damage: 20
   thrown: 0
   caught: 0
 --- !u!50 &3063802158178044105
