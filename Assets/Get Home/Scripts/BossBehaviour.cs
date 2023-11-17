@@ -20,7 +20,7 @@ public class BossBehaviour : MonoBehaviour
     public AudioSource throwSound;
     // Charging Stance 
     public int chargeDamage;
-    private bool charging;
+    private bool charging = false;
     private float nextChargeTime = 0;
     public float chargingCD;
     private float chargeDuration = 2.0f;
@@ -28,8 +28,11 @@ public class BossBehaviour : MonoBehaviour
     private float startTime;
 
     // Patrol/Charge
-    public GameObject pointA;
-    public GameObject pointB;
+    public GameObject pointLeft;
+    public GameObject pointHalfway;
+    public GameObject pointRight;
+    private bool onRightSide = true;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -55,12 +58,12 @@ public class BossBehaviour : MonoBehaviour
             //canvas.localScale = new Vector2(-canvas.localScale.x, canvas.localScale.y);
             lookingRight = false;
         }
-        //ThrowingStance();
+        ThrowingStance();
         
         // Start charging if offcd
         if(nextChargeTime < Time.time)
         {
-            Debug.Log("Start Charge");
+            
             Charge();
         }
     
@@ -68,13 +71,31 @@ public class BossBehaviour : MonoBehaviour
         if (Time.time - startTime <= 1.1f)
         {
             charging = true;
-            transform.position = Vector2.MoveTowards(this.transform.position, player.position + new Vector3(0.7f, -0.5f, 0.0f), speed * Time.deltaTime);
+            Debug.Log("Start Charge");
+            if (transform.position.x > pointLeft.transform.position.x && onRightSide == true)
+            {
+                transform.position = Vector2.MoveTowards(this.transform.position, pointLeft.transform.position, speed * Time.deltaTime);
+            }
+            else if(transform.position.x < pointRight.transform.position.x && onRightSide == false)
+            {
+                transform.position = Vector2.MoveTowards(this.transform.position, pointRight.transform.position, speed * Time.deltaTime);
+            }
+
             nextChargeTime = Time.time + chargingCD;
 
         }
         else if(Time.time - startTime > 1.0f)
         {
+            Debug.Log("End Charge");
             charging = false;
+            if (onRightSide)
+            {
+                onRightSide = false;
+            }
+            else
+            {
+                onRightSide = true;
+            }
         }
         
 
@@ -82,10 +103,19 @@ public class BossBehaviour : MonoBehaviour
 
     void ThrowingStance()
     {
-        charging = false;
-        float distanceFromPlayer = Vector2.Distance(player.position, transform.position);
+        /*
+        if (transform.position.x >= pointHalfway.transform.position.x && transform.position != pointRight.transform.position)
+        {
+            transform.position = Vector2.MoveTowards(this.transform.position, pointRight.transform.position, speed * Time.deltaTime);
+        }
+        else if (transform.position.x < pointHalfway.transform.position.x && transform.position != pointLeft.transform.position)
+        {
+            transform.position = Vector2.MoveTowards(this.transform.position, pointLeft.transform.position, speed * Time.deltaTime);
+        }
+        */
+       
         // Throwing while planted! --> Start on the right then charge to the left and start throwing from the left!
-        if (distanceFromPlayer < throwingRange && nextThrowTime < Time.time)
+        if (nextThrowTime < Time.time && charging == false)
         {
             animator.SetTrigger("ThrowAttack");
             //sound FX
@@ -95,19 +125,19 @@ public class BossBehaviour : MonoBehaviour
             Instantiate(throwableRight, throwSpotRight.transform.position, Quaternion.identity);
             nextThrowTime = Time.time + throwingCD;
         }
+        
     }
     void Charge()
     {
-        startTime = Time.time;
-      
+        startTime = Time.time;   
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
         Debug.Log("CHARGING:"+ charging);
-        if (collider.gameObject.tag == "Player" && charging == true)
+        if (collider.gameObject.CompareTag("Player") && charging == true)
         {
             Debug.Log("This occured");
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().TakeDamage(20);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().TakeDamage(chargeDamage);
         }
     }
 
