@@ -11018,7 +11018,7 @@ MonoBehaviour:
   audioSource: {fileID: 1478797234}
   canvas: {fileID: 1355646764}
   levelNameObject: {fileID: 959036440}
-  levelName: 'LEVEL TWO:  The Snakepit'
+  levelName: 'LEVEL TWO: The Snakepit'
   acceleration: -10
   player: {fileID: 330463859}
 --- !u!114 &1594741624
@@ -11476,7 +11476,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -250.00049, y: 25}
+  m_AnchoredPosition: {x: -250, y: 25}
   m_SizeDelta: {x: 500, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1689731900

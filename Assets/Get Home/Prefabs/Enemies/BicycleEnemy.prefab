@@ -145,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   attackDamage: 50
+  toLeft: 1
 --- !u!50 &8076393321681526344
 Rigidbody2D:
   serializedVersion: 4
