@@ -56,6 +56,7 @@ public class ThrowingEnemyFollowPlayer : MonoBehaviour
         {
             //Debug.Log("This works!");
             transform.position = Vector2.MoveTowards(this.transform.position, player.position + new Vector3(0.7f, -0.5f, 0.0f), speed * Time.deltaTime);
+            animator.SetBool("Walking", true);
         }
         // Throwly Poly
         else if (escapeRange < distanceFromPlayer && distanceFromPlayer < throwingRange && nextThrowTime < Time.time)
@@ -66,12 +67,14 @@ public class ThrowingEnemyFollowPlayer : MonoBehaviour
 
             Instantiate(throwable, throwSpot.transform.position, Quaternion.identity);
             nextThrowTime = Time.time + throwingCD;
+            animator.SetBool("Walking", false);
         }
         // Skaddadle
         else if (distanceFromPlayer < escapeRange)
         {
             Debug.Log("THIS CODE EXISTS!" + escapeVector);
             transform.position = Vector2.MoveTowards(this.transform.position, this.transform.position + escapeVector, (speed / 2) * Time.deltaTime);
+            animator.SetBool("Walking", true);
         }
 
     }
