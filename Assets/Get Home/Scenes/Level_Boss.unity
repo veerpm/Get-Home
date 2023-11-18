@@ -537,6 +537,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8594078436999129879, guid: 14cae1fa06f2a4e879cc7d483b1afaaf,
         type: 3}
+    - target: {fileID: 8442836912928775454, guid: 6220bf5d145ad564b81e70ea78233860,
+        type: 3}
+      propertyPath: enemyDieSound
+      value: 
+      objectReference: {fileID: 987158730}
+    - target: {fileID: 8442836912928775454, guid: 6220bf5d145ad564b81e70ea78233860,
+        type: 3}
+      propertyPath: enemyHitSound
+      value: 
+      objectReference: {fileID: 987158730}
     m_RemovedComponents:
     - {fileID: 8044023542409387250, guid: 6220bf5d145ad564b81e70ea78233860, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6220bf5d145ad564b81e70ea78233860, type: 3}
@@ -910,7 +920,7 @@ MonoBehaviour:
   animator: {fileID: 330463865}
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 8448
   display: {fileID: 517221242788425150, guid: 9abb7f9953ee942f5b513ebc8158d58a, type: 3}
   lightAttackSound1: {fileID: 330463873}
   lightAttackSound2: {fileID: 330463879}
@@ -2646,7 +2656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 8448
   dist: 3
   height: 2
   damage: 5
@@ -8974,6 +8984,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 984510227}
   m_CullTransparentMesh: 0
+--- !u!82 &987158730 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1747876090, guid: 6220bf5d145ad564b81e70ea78233860,
+    type: 3}
+  m_PrefabInstance: {fileID: 222682792}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &989343497
 GameObject:
   m_ObjectHideFlags: 0

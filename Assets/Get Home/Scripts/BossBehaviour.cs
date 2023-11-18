@@ -48,14 +48,14 @@ public class BossBehaviour : MonoBehaviour
         if (player.transform.position.x > transform.position.x && !lookingRight)
         {
             transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
-            //canvas.localScale = new Vector2(-canvas.localScale.x, canvas.localScale.y);
+            canvas.localScale = new Vector2(-canvas.localScale.x, canvas.localScale.y);
             lookingRight = true;
         }
         // Player to the left of the enemy
         else if (player.transform.position.x < this.transform.position.x && lookingRight)
         {
             transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
-            //canvas.localScale = new Vector2(-canvas.localScale.x, canvas.localScale.y);
+            canvas.localScale = new Vector2(-canvas.localScale.x, canvas.localScale.y);
             lookingRight = false;
         }
         ThrowingStance();
