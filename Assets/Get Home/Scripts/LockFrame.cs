@@ -46,7 +46,6 @@ public class LockFrame : MonoBehaviour
         // only check if enemies have not been beaten
         else if (!useTime && !enemiesDefeated)
         {
-            Debug.Log("enemy");
             bool noEnemies = true;
             foreach (GameObject enemy in enemies)
             {
