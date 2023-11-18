@@ -27,7 +27,7 @@ public class Level2Manager : MonoBehaviour
             for (int i = 3; i > 0; i--)
             {
                 GameObject bicycleEnemy = Instantiate(bicycleEnemySpawner);
-                bicycleEnemy.GetComponent<BicycleEnemySpawner>().spawnDelay = Random.Range(3, 5);
+                bicycleEnemy.GetComponent<BicycleEnemySpawner>().spawnDelay = Random.Range(3f, 5f);
                 bicycleEnemy.GetComponent<BicycleEnemySpawner>().spawnLowerBound = -3.7f;
                 bicycleEnemy.GetComponent<BicycleEnemySpawner>().spawnUpperBound = 2.14f;
                 Destroy(bicycleEnemy, 30);

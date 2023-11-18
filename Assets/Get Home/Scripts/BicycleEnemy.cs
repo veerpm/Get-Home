@@ -7,6 +7,7 @@ public class BicycleEnemy : MonoBehaviour
     public float speed = 1;
     public int attackDamage;
     GameObject player;
+    public bool toLeft = true;
 
 
     // Start is called before the first frame update
@@ -17,7 +18,16 @@ public class BicycleEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         transform.Translate(Vector3.left * speed * Time.deltaTime);
+        if (toLeft)
+        {
+            transform.Translate(Vector3.left * speed * Time.deltaTime);
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else
+        {
+            transform.Translate(Vector3.right * speed * Time.deltaTime);
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
 
           //if (transform.position.x < -15)
           //{
