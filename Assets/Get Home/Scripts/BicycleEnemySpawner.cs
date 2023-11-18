@@ -11,6 +11,7 @@ public class BicycleEnemySpawner : MonoBehaviour
     public float spawnLowerBound;
     public float spawnUpperBound;
     public bool toLeft = true;
+    public float speed;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +49,7 @@ public class BicycleEnemySpawner : MonoBehaviour
         // Instantiate the object
         GameObject bicycleEnemy = Instantiate(bicycleGameObject, spawnPosition, Quaternion.identity);
         bicycleEnemy.GetComponent<BicycleEnemy>().toLeft = toLeft;
+        bicycleEnemy.GetComponent<BicycleEnemy>().speed = speed;
         Destroy(bicycleEnemy, 5);
     }
 

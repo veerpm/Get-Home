@@ -93,6 +93,32 @@ public class GamePause : MonoBehaviour
             {
                 enemy.SetActive(false);
             }
+
+            // used for resetting when dead in level2 bike area
+            if (enemy.GetComponent<BicycleEnemySpawner>() != null || enemy.GetComponent<BicycleEnemy>() != null)
+            {
+                Level2Manager level2 = GameObject.Find("GameManager").GetComponent<Level2Manager>();
+                if (level2 != null)
+                {
+                    if (level2.enemyStop1.GetComponent<LockFrame>().locked)
+                    {
+                        level2.enemyStop1.GetComponent<LockFrame>().locked = false;
+                        level2.enemyStop1.GetComponent<BoxCollider2D>().enabled = true;
+                        level2.activated1 = false;
+                    }
+                    else if (level2.enemyStop2.GetComponent<LockFrame>().locked)
+                    {
+                        level2.enemyStop2.GetComponent<LockFrame>().locked = false;
+                        level2.enemyStop2.GetComponent<BoxCollider2D>().enabled = true;
+                        level2.activated2 = false;
+                    }
+                    else if (!level2.enemyStop2.GetComponent<LockFrame>().EnemiesDefeated())
+                    {
+                        level2.activated3 = false;
+                    }
+                }
+                Destroy(enemy);
+            }
         }
 
 

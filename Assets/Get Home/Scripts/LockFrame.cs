@@ -14,7 +14,7 @@ public class LockFrame : MonoBehaviour
     private GameObject flag = null;
 
     public bool useTime = false;
-    private bool locked;
+    public bool locked;
     public float unlockTime;
     private float startTime;
 
@@ -29,12 +29,14 @@ public class LockFrame : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(Time.time - startTime >= unlockTime);
-        if (useTime && Time.time - startTime >= unlockTime)
+        if (useTime && Time.time - startTime >= unlockTime && locked)
         {
             Debug.Log("time");
             unlockPlayer();
+            locked = false;
+            GetComponent<BoxCollider2D>().enabled = false;
             enemiesDefeated = true;
+            goPrompt.GetComponent<GoPrompt>().Display();
             if (flag != null)
             {
                 flag.SetActive(true);
