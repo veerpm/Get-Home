@@ -731,9 +731,8 @@ GameObject:
   - component: {fileID: 330463883}
   - component: {fileID: 330463886}
   - component: {fileID: 330463871}
-  - component: {fileID: 330463874}
-  - component: {fileID: 330463875}
   - component: {fileID: 330463890}
+  - component: {fileID: 330463875}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -818,7 +817,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330463859}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: -1, z: 0}
+  m_LocalPosition: {x: -5, y: -1, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_Children:
   - {fileID: 43837257}
@@ -1211,24 +1210,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &330463874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330463859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d25ac185ce765564dbe54da5f282a49d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 1594741620}
-  triggers:
-  - xPosition: -10.56
-    function: 0
-    repeats: 0
-    text: Can't go back, need to Get Home
 --- !u!114 &330463875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1238,7 +1219,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 330463859}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fa44e9f6667195408bc739dfe74294a, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bef0766056a00540bf34b404999ba5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1594741620}
@@ -1248,46 +1229,53 @@ MonoBehaviour:
   speakerSprite: {fileID: 1689731900}
   textSpeed: 0.01
   conversations:
-  - xPosition: -6.6
-    speaker: Randy
+  - xPosition: -5
     lines:
-    - sprite: {fileID: 21300000, guid: dc925d03960522b4b8c4f46e6cd092d7, type: 3}
-      text: This place smells like oil and cigarettes.
     - sprite: {fileID: 21300000, guid: f8d616315140b674bbf4acdd33a51721, type: 3}
-      text: Smells like home
-    - sprite: {fileID: 21300000, guid: f8d616315140b674bbf4acdd33a51721, type: 3}
-      text: My apartment should be straight ahead if I go forward
-  - xPosition: 0.9
-    speaker: Randy
-    lines:
+      speaker: Randy
+      text: Landlord Simmons! What are you doing in my apartment-
+    - sprite: {fileID: 21300000, guid: d8fddfa4da4cb26419962c536f56c405, type: 3}
+      speaker: LANDLORD SIMMONS
+      text: "YOU! You\u2026 stupid, man! You haven\u2019t paid your rent in 2 MONTHS!"
     - sprite: {fileID: 21300000, guid: c14c1232a3fa0c3479808709645e4f49, type: 3}
-      text: Huh, wonder why this X is-
+      speaker: Randy
+      text: "Calm down man, I\u2019ve been meaning to-"
+    - sprite: {fileID: 21300000, guid: d8fddfa4da4cb26419962c536f56c405, type: 3}
+      speaker: LANDLORD SIMMONS
+      text: "I figured I\u2019d give you the courtesy of an in-person chit-chat.
+        I\u2019m a calm and reasonable person. So imagine my DISGUST when I enter
+        an apartment COVERED IN FILTH!"
     - sprite: {fileID: 21300000, guid: ec0edbce859cd984296c767c339452cc, type: 3}
-      text: OH MY GOD!
-  - xPosition: 22.5
-    speaker: Randy
-    lines:
+      speaker: Randy
+      text: "Oh, I, uhm\u2026 "
+    - sprite: {fileID: 21300000, guid: d8fddfa4da4cb26419962c536f56c405, type: 3}
+      speaker: LANDLORD SIMMONS
+      text: "AND WHEN I ASK\u2026 ooooooh when I ask around to see where you are,
+        I get a call from my brother telling me you\u2019re getting SHITFACED AT
+        HIS BAR! YOU IDIOT! "
+    - sprite: {fileID: 21300000, guid: f8d616315140b674bbf4acdd33a51721, type: 3}
+      speaker: RANDY
+      text: "Simone\u2019s your brother? Huh, you guys don\u2019t even look that
+        much like each other-"
+    - sprite: {fileID: 21300000, guid: d8fddfa4da4cb26419962c536f56c405, type: 3}
+      speaker: LANDLORD SIMMONS
+      text: "So I call in favours, I call the bone gang, I call the clown bikers
+        club, hell I even called the GODDAMN FOOTBALL TEAM, and somehow, you\u2026
+        you drunk stupid man, somehow you take out them all. "
     - sprite: {fileID: 21300000, guid: ec0edbce859cd984296c767c339452cc, type: 3}
-      text: OH SHI-
-    - sprite: {fileID: 21300000, guid: f8d616315140b674bbf4acdd33a51721, type: 3}
-      text: Oh, it's green and a checkmark!
-    - sprite: {fileID: 21300000, guid: f8d616315140b674bbf4acdd33a51721, type: 3}
-      text: "That must mean I\u2019m safe!"
-    - sprite: {fileID: 21300000, guid: f8d616315140b674bbf4acdd33a51721, type: 3}
-      text: "I\u2019ll just be on my..."
-    - sprite: {fileID: 21300000, guid: ec0edbce859cd984296c767c339452cc, type: 3}
-      text: FU-
-  - xPosition: 43
-    speaker: Randy
-    lines:
-    - sprite: {fileID: 21300000, guid: ec0edbce859cd984296c767c339452cc, type: 3}
-      text: "I\u2026 god I wanna leave this alley\u2026"
-  - xPosition: 58
-    speaker: Randy
-    lines:
-    - sprite: {fileID: 21300000, guid: f8d616315140b674bbf4acdd33a51721, type: 3}
-      text: "HAH! YES! RIGHT ACROSS THE STREET IS MY APARTMENT! I\u2019M FINALLY
-        HOOOOOOMMMMEEEEEEEEE!!!!!!!!!"
+      speaker: RANDY
+      text: "That was all you? Aw man, that\u2019s really mean Simmons- "
+    - sprite: {fileID: 21300000, guid: d8fddfa4da4cb26419962c536f56c405, type: 3}
+      speaker: LANDLORD SIMMONS
+      text: "ENOUGH! It\u2019s time someone taught you a lesson in responsibility. "
+    - sprite: {fileID: 21300000, guid: dc925d03960522b4b8c4f46e6cd092d7, type: 3}
+      speaker: RANDY
+      text: 'Simmons what are you- '
+    - sprite: {fileID: 21300000, guid: d8fddfa4da4cb26419962c536f56c405, type: 3}
+      speaker: 'LANDLORD SIMMONS '
+      text: 'Consider this your eviction notice. '
+  - xPosition: -6
+    lines: []
 --- !u!82 &330463876
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2909,7 +2897,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -4.3187456, y: 315.12674, z: -5.3112955, w: 50.176384}
+  m_margin: {x: 35.55095, y: 334.2814, z: 16.237642, w: 50.176384}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -10708,14 +10696,13 @@ GameObject:
   - component: {fileID: 1594741622}
   - component: {fileID: 1594741624}
   - component: {fileID: 1594741623}
-  - component: {fileID: 1594741625}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1594741621
 Transform:
   m_ObjectHideFlags: 0
@@ -10764,7 +10751,7 @@ MonoBehaviour:
   audioSource: {fileID: 1478797234}
   canvas: {fileID: 1355646764}
   levelNameObject: {fileID: 959036440}
-  levelName: 'LEVEL TWO:  The Snakepit'
+  levelName: 'LEVEL THREE: ERUPTION'
   acceleration: -10
   player: {fileID: 330463859}
 --- !u!114 &1594741624
@@ -10782,34 +10769,7 @@ MonoBehaviour:
   player: {fileID: 330463859}
   chatObject: {fileID: 5599220873381174354, guid: 0a98edb627653c947a11590f7a0286f2,
     type: 3}
-  barkGroups:
-  - enemies:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    barksFile: {fileID: 4900000, guid: 177c30184a1c5f44ba2d8cbf497ecc5a, type: 3}
-  - enemies:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    barksFile: {fileID: 4900000, guid: 6fb66320fd0cccf469d6471fd5a40aca, type: 3}
---- !u!114 &1594741625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1594741620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cb7cd56addc841be8b7b6abeb781932, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pos1: 0
-  activated1: 0
-  pos2: 0
-  bicycleEnemySpawner: {fileID: 0}
+  barkGroups: []
 --- !u!1 &1607196634
 GameObject:
   m_ObjectHideFlags: 0
@@ -11052,15 +11012,15 @@ RectTransform:
   m_GameObject: {fileID: 1689731898}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 1918703563}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -250, y: 25}
-  m_SizeDelta: {x: 500, y: -50}
+  m_AnchoredPosition: {x: -260, y: 95}
+  m_SizeDelta: {x: 480, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1689731900
 MonoBehaviour:

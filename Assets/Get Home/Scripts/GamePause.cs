@@ -157,7 +157,7 @@ public class GamePause : MonoBehaviour
         foreach (var script in playerScripts)
         {
             // dialogues still need work during pauses
-            if(script.GetType().Name == "DialogueManager")
+            if((script.GetType().Name == "DialogueManager") || (script.GetType().Name == "DialogueManagerV2"))
             {
                 continue;
             }

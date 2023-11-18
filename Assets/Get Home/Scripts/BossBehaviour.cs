@@ -71,7 +71,7 @@ public class BossBehaviour : MonoBehaviour
         if (Time.time - startTime <= 1.1f)
         {
             charging = true;
-            Debug.Log("Start Charge");
+            //Debug.Log("Start Charge");
             if (transform.position.x > pointLeft.transform.position.x && onRightSide == true)
             {
                 transform.position = Vector2.MoveTowards(this.transform.position, pointLeft.transform.position, speed * Time.deltaTime);
@@ -86,7 +86,7 @@ public class BossBehaviour : MonoBehaviour
         }
         else if(Time.time - startTime > 1.0f)
         {
-            Debug.Log("End Charge");
+            //Debug.Log("End Charge");
             charging = false;
             if (onRightSide)
             {
