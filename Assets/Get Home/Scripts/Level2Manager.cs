@@ -19,6 +19,8 @@ public class Level2Manager : MonoBehaviour
     private bool activated4 = false;
     public GameObject enemyStop3;
     public GameObject bicycleGameObject;
+    // var for (new) timer of bicycleSpawner
+    public GameObject gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +72,7 @@ public class Level2Manager : MonoBehaviour
             bicycleEnemy.GetComponent<BicycleEnemySpawner>().spawnUpperBound = 2.55f;
             bicycleEnemy.GetComponent<BicycleEnemySpawner>().toLeft = toLeft;
             bicycleEnemy.GetComponent<BicycleEnemySpawner>().speed = speed;
+            bicycleEnemy.GetComponent<BicycleEnemySpawner>().gameManager = gameManager; // for chat bubbles
             Destroy(bicycleEnemy, time);
         }
     }

@@ -46,3 +46,9 @@ MonoBehaviour:
   bicycleGameObject: {fileID: 8076393321681526350, guid: c5a96e5964d1044a0ae170e2a0b1cb7c,
     type: 3}
   spawnDelay: 5
+  spawnLowerBound: 0
+  spawnUpperBound: 0
+  toLeft: 1
+  speed: 0
+  gameManager: {fileID: 0}
+  barksFile: {fileID: 4900000, guid: 0b56962ff8466fc4492c6881216b2a47, type: 3}

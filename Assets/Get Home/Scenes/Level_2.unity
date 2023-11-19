@@ -11615,6 +11615,7 @@ MonoBehaviour:
   enemyStop3: {fileID: 1985203182}
   bicycleGameObject: {fileID: 8076393321681526350, guid: c5a96e5964d1044a0ae170e2a0b1cb7c,
     type: 3}
+  gameManager: {fileID: 1594741620}
 --- !u!1 &1602023614
 GameObject:
   m_ObjectHideFlags: 0

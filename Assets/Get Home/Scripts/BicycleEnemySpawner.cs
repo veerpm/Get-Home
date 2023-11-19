@@ -17,11 +17,17 @@ public class BicycleEnemySpawner : MonoBehaviour
     private bool spawnBubble = true;
     private float bubbleFrequency = 2.5f;
     private float bubbleDuration = 2.5f;
+    private string[] barks;
     public GameObject gameManager;
+    public TextAsset barksFile;
 
     // Start is called before the first frame update
     void Start()
     {
+        // read barks of bicycle enemies
+        barks = barksFile.ToString().Split('\n');
+        // start bubble timer
+        StartCoroutine(AnotherBubble());
     }
 
     // Update is called once per frame
@@ -61,16 +67,22 @@ public class BicycleEnemySpawner : MonoBehaviour
         // occasionally create chat bubbles
         if (spawnBubble)
         {
+            Debug.Log(Time.time);
+            Debug.Log(spawnBubble);
             spawnBubble = false;
-            gameManager.GetComponent<ChatManager>().CreateBubble(bicycleEnemy, text, bubbleDuration);
+            int randBark = Random.Range(0, barks.Length);
+            gameManager.GetComponent<ChatManager>().CreateBubble(bicycleEnemy, barks[randBark], bubbleDuration);
         }
     }
 
     // timer to check if we need another chat bubble
     IEnumerator AnotherBubble()
     {
-        spawnBubble = true;
-        yield return new WaitForSeconds(bubbleFrequency);
+        while (true)
+        {
+            spawnBubble = true;
+            yield return new WaitForSeconds(bubbleFrequency);
+        }
     }
 
 }
