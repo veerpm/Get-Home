@@ -13,6 +13,12 @@ public class BicycleEnemySpawner : MonoBehaviour
     public bool toLeft = true;
     public float speed;
 
+    // var for chat bubbles of enemies
+    private bool spawnBubble = true;
+    private float bubbleFrequency = 2.5f;
+    private float bubbleDuration = 2.5f;
+    public GameObject gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +57,20 @@ public class BicycleEnemySpawner : MonoBehaviour
         bicycleEnemy.GetComponent<BicycleEnemy>().toLeft = toLeft;
         bicycleEnemy.GetComponent<BicycleEnemy>().speed = speed;
         Destroy(bicycleEnemy, 5);
+
+        // occasionally create chat bubbles
+        if (spawnBubble)
+        {
+            spawnBubble = false;
+            gameManager.GetComponent<ChatManager>().CreateBubble(bicycleEnemy, text, bubbleDuration);
+        }
+    }
+
+    // timer to check if we need another chat bubble
+    IEnumerator AnotherBubble()
+    {
+        spawnBubble = true;
+        yield return new WaitForSeconds(bubbleFrequency);
     }
 
 }

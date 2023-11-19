@@ -75,7 +75,6 @@ public class DialogueManagerV2 : MonoBehaviour
             frameCount = Time.frameCount; // call at max. 1 per frame
 
             //sound FX
-            Debug.Log(mainText.text + " and " + lines[index].text);
             if (mainText.text == lines[index].text)
             {
                 // finished displaying. Jump to next line
@@ -154,6 +153,11 @@ public class DialogueManagerV2 : MonoBehaviour
                 StartDialogue(conversation.lines);
             }
         }
+    }
+
+    public bool DialogueOn()
+    {
+        return dialogueOn;
     }
 
 }

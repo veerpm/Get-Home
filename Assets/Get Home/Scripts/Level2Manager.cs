@@ -15,6 +15,11 @@ public class Level2Manager : MonoBehaviour
     public GameObject enemyStop1;
     public GameObject enemyStop2;
 
+    // variables for the checkmark location's enemies
+    private bool activated4 = false;
+    public GameObject enemyStop3;
+    public GameObject bicycleGameObject;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +52,12 @@ public class Level2Manager : MonoBehaviour
             SpawnBicycle(4, true, enemyStop2.GetComponent<LockFrame>().unlockTime, 5);
             activated2 = true;
         }
+        if(!activated4 && enemyStop3.GetComponent<LockFrame>().locked)
+        {
+            // spawn enemies in a row
+            StartCoroutine(CheckmarkObstacle());
+            activated4 = true;
+        }
     }
 
     void SpawnBicycle(int num, bool toLeft, float time, float speed)
@@ -60,6 +71,42 @@ public class Level2Manager : MonoBehaviour
             bicycleEnemy.GetComponent<BicycleEnemySpawner>().toLeft = toLeft;
             bicycleEnemy.GetComponent<BicycleEnemySpawner>().speed = speed;
             Destroy(bicycleEnemy, time);
+        }
+    }
+
+    IEnumerator CheckmarkObstacle()
+    {
+        // spawn 3 waves of bicycles, 5 secs between each
+        for(int i = 1; i<6; i+=2)
+        {
+            SpawnBicyclesRow(i);
+            yield return new WaitForSeconds(3f);
+        }
+    }
+
+    void SpawnBicyclesRow(int skippedSpot)
+    {
+        // spawn row of bicyclers
+        float YIncrement = (3.47f + 2.55f) / 6;
+        for (int i = 0; i < 6; i++)
+        {
+            // bicycles everywhere except at 1 y-location
+            if(i != skippedSpot)
+            {
+                // spawn 2 bicycles beside each other at each row
+                for(int j = 0; j<2; j++)
+                {
+                    float spawnYPosition = -3.47f + i * YIncrement;
+                    float spawnXPosition = Camera.main.ViewportToWorldPoint(new Vector3(1.2f, 0, 0)).x + j * 3f;
+
+                    // Instantiate
+                    Vector3 spawnPosition = new Vector3(spawnXPosition, spawnYPosition, 0);
+                    GameObject bicycleEnemy = Instantiate(bicycleGameObject, spawnPosition, Quaternion.identity);
+                    bicycleEnemy.GetComponent<BicycleEnemy>().toLeft = true;
+                    bicycleEnemy.GetComponent<BicycleEnemy>().speed = 5f;
+                    Destroy(bicycleEnemy, 5);
+                }
+            }
         }
     }
 }
