@@ -12,6 +12,8 @@ public class ChatManager : MonoBehaviour
 {
     public GameObject player;
     public GameObject chatObject;
+    public float bubbleDuration;
+    public float bubbleFrequency;
     public List<BarkGroup> barkGroups;
     //public GameObject[] enemies;
     //public TextAsset barksFile;
@@ -69,8 +71,6 @@ public class ChatManager : MonoBehaviour
 
     IEnumerator RandomEnemyChat(GameObject[] enemies, string[] barks)
     {
-        float time = 2.5f;
-
         // constantly print enemy dialogues
         while (true)
         {
@@ -80,10 +80,10 @@ public class ChatManager : MonoBehaviour
             // if enemy isn't dead, create speech bubble
             if (!randEnemy.GetComponent<EnemyHealth>().IsDead())
             {
-                CreateBubble(randEnemy, barks[randBark], time);
+                CreateBubble(randEnemy, barks[randBark], bubbleDuration);
             }
 
-            yield return new WaitForSeconds(time);
+            yield return new WaitForSeconds(bubbleFrequency);
         }
     }
 }

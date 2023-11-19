@@ -12,7 +12,7 @@ public class GamePause : MonoBehaviour
     public GameObject mainCamera;
     public GameObject pauseManager;
 
-    public Vector3 checkpoint = new Vector3(0, 0, 0);
+    public Vector3 checkpoint;
 
     private bool gamePaused = false;
     private bool dead = false;

@@ -10139,7 +10139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1030989867
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10223,6 +10223,7 @@ MonoBehaviour:
   enemies: []
   goPrompt: {fileID: 1888591357}
   useTime: 0
+  locked: 0
   unlockTime: 0
 --- !u!114 &1030989870
 MonoBehaviour:
@@ -11864,6 +11865,8 @@ MonoBehaviour:
   player: {fileID: 330463859}
   chatObject: {fileID: 5599220873381174354, guid: 0a98edb627653c947a11590f7a0286f2,
     type: 3}
+  bubbleDuration: 2.5
+  bubbleFrequency: 2.5
   barkGroups:
   - enemies:
     - {fileID: 250533898}

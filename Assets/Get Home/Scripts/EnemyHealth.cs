@@ -80,6 +80,7 @@ public class EnemyHealth : MonoBehaviour
 
     private IEnumerator Wait()
     {
+        // deactivate everything right away except visuals
         foreach (Behaviour comp in GetComponents<Behaviour>())
         {
             if (comp != GetComponent<Animator>())
@@ -89,6 +90,8 @@ public class EnemyHealth : MonoBehaviour
 
         }
         yield return new WaitForSeconds(2);
+
+        // deactivate animator & sprite after 2 secs
         GetComponent<Animator>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
         foreach (Transform child in transform)

@@ -29,6 +29,7 @@ public class LockFrame : MonoBehaviour
 
     private void Update()
     {
+        // if a time was used and is done, unlock player
         if (useTime && Time.time - startTime >= unlockTime && locked)
         {
             Debug.Log("time");
