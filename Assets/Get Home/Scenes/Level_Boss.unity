@@ -457,9 +457,19 @@ PrefabInstance:
       objectReference: {fileID: 2126619163}
     - target: {fileID: 6176494728472246734, guid: 6220bf5d145ad564b81e70ea78233860,
         type: 3}
+      propertyPath: chargingCD
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176494728472246734, guid: 6220bf5d145ad564b81e70ea78233860,
+        type: 3}
       propertyPath: pointRight
       value: 
       objectReference: {fileID: 926253473}
+    - target: {fileID: 6176494728472246734, guid: 6220bf5d145ad564b81e70ea78233860,
+        type: 3}
+      propertyPath: throwingCD
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6176494728472246734, guid: 6220bf5d145ad564b81e70ea78233860,
         type: 3}
       propertyPath: chargeDamage
@@ -9776,7 +9786,7 @@ PrefabInstance:
     - target: {fileID: 5864961191472757971, guid: cf825d93cb38844668036ef8ade3babd,
         type: 3}
       propertyPath: speed
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5864961191472757971, guid: cf825d93cb38844668036ef8ade3babd,
         type: 3}
@@ -11188,7 +11198,7 @@ PrefabInstance:
     - target: {fileID: 5864961191472757971, guid: cf825d93cb38844668036ef8ade3babd,
         type: 3}
       propertyPath: speed
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5864961191472757971, guid: cf825d93cb38844668036ef8ade3babd,
         type: 3}

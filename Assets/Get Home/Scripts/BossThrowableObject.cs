@@ -30,7 +30,7 @@ public class BossThrowableObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0, 0, 180 * Time.deltaTime);
+        transform.Rotate(0, 0, 270 * Time.deltaTime);
         catchTimer += Time.deltaTime;
 
         if (caught == false && catchTimer > timeToCatch)
