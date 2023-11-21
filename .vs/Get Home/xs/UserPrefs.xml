@@ -1,11 +1,8 @@
 ﻿<Properties GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Get Home/Scripts/SprayCanBehaviour.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Get Home/Scripts/GamePause.cs">
     <Files>
       <File FileName="Assets/Get Home/Scripts/GamePause.cs" Line="138" Column="31" />
-      <File FileName="Assets/Get Home/Scripts/SprayCanBehaviour.cs" Line="48" Column="39" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,7 +12,7 @@
               <Node name="Assets" expanded="True">
                 <Node name="Get Home" expanded="True">
                   <Node name="Scripts" expanded="True">
-                    <Node name="SprayCanBehaviour.cs" selected="True" />
+                    <Node name="GamePause.cs" selected="True" />
                   </Node>
                 </Node>
               </Node>
@@ -25,7 +22,9 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
 </Properties>
