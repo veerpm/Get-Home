@@ -12983,16 +12983,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beer (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 1249960174090062429, guid: c6107ca37d6da4f069e7c96e2fbd815d,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 1249960174090062429, guid: c6107ca37d6da4f069e7c96e2fbd815d,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.31
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6107ca37d6da4f069e7c96e2fbd815d, type: 3}
 --- !u!1 &1811015017 stripped
@@ -13470,12 +13460,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972259791}
   m_CullTransparentMesh: 0
---- !u!82 &1994368593 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 5349722484906706904, guid: 8e154d01051784ec89c265b32014e768,
-    type: 3}
-  m_PrefabInstance: {fileID: 5454054859275849434}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2010533940 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 683629375773968696, guid: 9752569396f9e482e9e16d796fbef497,
@@ -13977,11 +13961,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3403834260294646690, guid: 8e154d01051784ec89c265b32014e768,
         type: 3}
-      propertyPath: epiSound
-      value: 
-      objectReference: {fileID: 1994368593}
-    - target: {fileID: 3403834260294646690, guid: 8e154d01051784ec89c265b32014e768,
-        type: 3}
       propertyPath: epipenTimer
       value: 
       objectReference: {fileID: 458742818}
@@ -14044,11 +14023,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5454054858659481450, guid: 8e154d01051784ec89c265b32014e768,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5454054858659481461, guid: 8e154d01051784ec89c265b32014e768,
         type: 3}
