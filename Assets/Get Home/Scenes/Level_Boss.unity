@@ -1072,6 +1072,9 @@ MonoBehaviour:
     type: 3}
   spacing: 0.01
   offset: 35
+  weaponBreakSound: {fileID: 0}
+  loseDuribilitySound: {fileID: 0}
+  pickupWeaponSound: {fileID: 0}
 --- !u!114 &330463871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10554,9 +10557,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6866eb476ee266f40953a8439a059cf1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1b00d41a3b334ae47b97f1ad2a4c0915, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.322
+  m_Volume: 0.17
   m_Pitch: 1
   Loop: 1
   Mute: 0
