@@ -119,8 +119,8 @@ public class GamePause : MonoBehaviour
                     {
                         level2.activated3 = false;
                     }
+                    Destroy(enemy);
                 }
-                Destroy(enemy);
             }
         }
 

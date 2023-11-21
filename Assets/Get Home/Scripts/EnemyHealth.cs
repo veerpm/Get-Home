@@ -42,6 +42,10 @@ public class EnemyHealth : MonoBehaviour
             GameObject damageTextClone = Instantiate(damageText, transform.Find("Canvas"));
             damageTextClone.transform.GetChild(0).GetComponent<TextMesh>().text = damage.ToString();
             Destroy(damageTextClone, 1f);
+            if (gameObject.name == "Landlord")
+            {
+                damageTextClone.transform.localScale = new Vector3(damageTextClone.transform.localScale.x * 2, damageTextClone.transform.localScale.y * 2);
+            }
         }
 
         //sound FX

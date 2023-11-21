@@ -228,7 +228,7 @@ MonoBehaviour:
   lightAttackRange: 0.5
   heavyAttackRange: 0.5
   lightAttackDamage: 40
-  heavyAttackDamage: 40
+  heavyAttackDamage: 70
   lightAttackRate: 2
   heavyAttackRate: 0.66
   maxHits: 3
