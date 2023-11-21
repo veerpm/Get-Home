@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -9196,6 +9196,7 @@ MonoBehaviour:
   target: {fileID: 330463862}
   yPosition: -0.5
   freeze: 0
+  keepFreezed: 0
   shake: 0
   shakeStrength: 0.075
   shakeFrequency: 2
@@ -11561,6 +11562,7 @@ MonoBehaviour:
   mainCamera: {fileID: 982685567}
   pauseManager: {fileID: 1502240420}
   checkpoint: {x: -5.32, y: 0, z: 0}
+  bossEnemy: {fileID: 0}
 --- !u!114 &1594741623
 MonoBehaviour:
   m_ObjectHideFlags: 0
