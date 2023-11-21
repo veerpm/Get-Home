@@ -17,6 +17,7 @@ public class BossEpilogue : MonoBehaviour
         // start epilogue dialogue
         if (boss.GetComponent<EnemyHealth>().IsDead() && !dialogueStarted)
         {
+            //StartCoroutine("Wait");
             dialogueStarted = true;
             player.GetComponent<DialogueManagerV2>().StartDialogue(lines);
         }
@@ -27,5 +28,12 @@ public class BossEpilogue : MonoBehaviour
             this.GetComponent<GamePause>().pause(true);
             endingScreen.SetActive(true);
         }
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(3);
+        dialogueStarted = true;
+        player.GetComponent<DialogueManagerV2>().StartDialogue(lines);
     }
 }

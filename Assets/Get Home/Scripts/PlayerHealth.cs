@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class PlayerHealth : MonoBehaviour
     public AnimationEvents events;
     private PlayerCombatMelee combatScript;
     private bool dead = false;
+    public GameObject beer;
+    private bool spawnedBeer;
 
     //soundFX
     public AudioSource getHitSound;
@@ -31,7 +34,15 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (SceneManager.GetActiveScene().name == "Level_Boss" && currentHealth <= 50 && !spawnedBeer)
+        {
+            SpawnBeer();
+        }
 
+        if (!GameObject.FindGameObjectWithTag("Beer"))
+        {
+            spawnedBeer = false;
+        }
     }
 
     public void TakeDamage(int damage)
@@ -85,5 +96,15 @@ public class PlayerHealth : MonoBehaviour
     private void SetDeath()
     {
         gameManager.GetComponent<GamePause>().setDead();
+    }
+
+    private void SpawnBeer()
+    {
+        spawnedBeer = true;
+        float x = Random.Range(0.05f, 0.95f);
+        float y = Random.Range(0.05f, 0.5f);
+        Vector3 pos = new Vector3(x, y, 10.0f);
+        pos = Camera.main.ViewportToWorldPoint(pos);
+        Instantiate(beer, pos, Quaternion.identity);
     }
 }
