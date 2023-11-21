@@ -45,6 +45,9 @@ public class DialogueManagerV2 : MonoBehaviour
     // updating text 1 time per frame
     private int frameCount;
 
+    //SFX
+    public AudioSource clickSound;
+
 
     // Start is called before the first frame update
     void Start()
@@ -75,6 +78,8 @@ public class DialogueManagerV2 : MonoBehaviour
             frameCount = Time.frameCount; // call at max. 1 per frame
 
             //sound FX
+            clickSound.Play();
+
             if (mainText.text == lines[index].text)
             {
                 // finished displaying. Jump to next line

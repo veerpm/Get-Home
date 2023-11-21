@@ -6,6 +6,10 @@ using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
+    //SFX
+    public AudioClip clickSound;
+    public AudioSource menuSounds;
+
     public AudioSource audioSource;
 
     public GameObject pauseMenu;
@@ -67,18 +71,26 @@ public class PauseMenu : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
             {
                 MoveCursor(1);
+                menuSounds.PlayOneShot(clickSound);
+
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
             {
                 MoveCursor(-1);
+                menuSounds.PlayOneShot(clickSound);
+
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
             {
                 ActivateButton(1);
+                menuSounds.PlayOneShot(clickSound, 1);
+
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
             {
                 ActivateButton(-1);
+                menuSounds.PlayOneShot(clickSound);
+
             }
         }
     }
