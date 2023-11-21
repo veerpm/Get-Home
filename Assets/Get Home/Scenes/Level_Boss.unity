@@ -1072,6 +1072,9 @@ MonoBehaviour:
     type: 3}
   spacing: 0.01
   offset: 35
+  weaponBreakSound: {fileID: 0}
+  loseDuribilitySound: {fileID: 0}
+  pickupWeaponSound: {fileID: 0}
 --- !u!114 &330463871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1342,8 +1345,6 @@ MonoBehaviour:
     - sprite: {fileID: 21300000, guid: d8fddfa4da4cb26419962c536f56c405, type: 3}
       speaker: 'LANDLORD SIMMONS '
       text: 'Consider this your eviction notice. '
-  - xPosition: -6
-    lines: []
 --- !u!82 &330463876
 AudioSource:
   m_ObjectHideFlags: 0
