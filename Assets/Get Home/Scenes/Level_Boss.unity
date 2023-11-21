@@ -1145,7 +1145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upperBound: 1
-  lowerBound: -5
+  lowerBound: -5.68
   leftBound: -5.5
   rightBound: 11
   freeze: 0
