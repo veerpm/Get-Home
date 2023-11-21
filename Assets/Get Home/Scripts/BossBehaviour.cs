@@ -63,28 +63,30 @@ public class BossBehaviour : MonoBehaviour
         // Start charging if offcd
         if(nextChargeTime < Time.time)
         {
-            
             Charge();
         }
     
+        /*
         // Keep charging while duration is active
-        if (Time.time - startTime <= 1.1f)
+        if (Time.time - startTime <= 1.0f)
         {
             charging = true;
-            //Debug.Log("Start Charge");
+            
             if (transform.position.x > pointLeft.transform.position.x && onRightSide == true)
             {
                 transform.position = Vector2.MoveTowards(this.transform.position, pointLeft.transform.position, speed * Time.deltaTime);
+                animator.SetTrigger("LandlordCharge");
             }
             else if(transform.position.x < pointRight.transform.position.x && onRightSide == false)
             {
                 transform.position = Vector2.MoveTowards(this.transform.position, pointRight.transform.position, speed * Time.deltaTime);
+                animator.SetTrigger("LandlordCharge");
             }
 
             nextChargeTime = Time.time + chargingCD;
 
         }
-        else if(Time.time - startTime > 1.0f)
+        else if(Time.time - startTime > 0.9f)
         {
             //Debug.Log("End Charge");
             charging = false;
@@ -97,6 +99,7 @@ public class BossBehaviour : MonoBehaviour
                 onRightSide = true;
             }
         }
+        */
         
 
     }
