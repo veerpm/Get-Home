@@ -45,9 +45,11 @@ public class SprayCanBehaviour : MonoBehaviour
         area.transform.position = attackPoint.transform.position;
         if (Input.GetKey(KeyCode.E) && Time.time >= nextAttackTime)
         {
+            filter.useTriggers = true;
             Physics2D.OverlapCollider(area.GetComponent<Collider2D>(), filter, enemies);
             foreach (Collider2D enemy in enemies)
             {
+                Debug.Log(enemy.gameObject.name);
                 enemy.GetComponent<EnemyHealth>().TakeDamage(damage);
             }
             nextAttackTime = Time.time + 1f / attackRate;

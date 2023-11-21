@@ -129,6 +129,14 @@ public class GamePause : MonoBehaviour
         if(bossEnemy!= null)
         {
             bossEnemy.GetComponent<EnemyHealth>().SetFullHealth();
+
+            // removes all beers left during boss battle
+
+            GameObject[] beers = GameObject.FindGameObjectsWithTag("Beer");
+            foreach (GameObject beer in beers)
+            {
+                Destroy(beer);
+            }
         }
 
         // restart sound
