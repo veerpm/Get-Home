@@ -7,10 +7,13 @@ public class Intro : MonoBehaviour
     public GameObject player;
     public GameObject inventory;
     public GameObject healthBar;
+    //SFX
+    public AudioSource introSound;
 
     // Start is called before the first frame update
     void Start()
     {
+        introSound.Play();
         player.SetActive(false);
         inventory.SetActive(false);
         healthBar.SetActive(false);
