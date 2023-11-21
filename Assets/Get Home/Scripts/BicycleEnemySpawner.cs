@@ -24,8 +24,6 @@ public class BicycleEnemySpawner : MonoBehaviour
     */
 
     //SFX
-    public AudioClip bikeLeftSound;
-    public AudioClip bikeRightSound;
     public AudioClip bellRight;
     public AudioClip bellLeft;
     public AudioSource bikeSounds;
@@ -74,15 +72,12 @@ public class BicycleEnemySpawner : MonoBehaviour
             // Define the spawn position to the right of the screen
             spawnPosition = new Vector3(Camera.main.ViewportToWorldPoint(new Vector3(1.2f, 0, 0)).x, spawnYPosition, 0);
             //SFX
-            bikeSounds.PlayOneShot(bikeLeftSound);
         }
         else
         {
             // Define the spawn position to the left of the screen
             spawnPosition = new Vector3(Camera.main.ViewportToWorldPoint(new Vector3(-0.2f, 0, 0)).x, spawnYPosition, 0);
             //SFX
-            bikeSounds.PlayOneShot(bikeRightSound);
-
         }
 
         // Instantiate the object
