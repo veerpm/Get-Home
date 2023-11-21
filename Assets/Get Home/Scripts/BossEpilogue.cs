@@ -24,6 +24,7 @@ public class BossEpilogue : MonoBehaviour
         // show ending screen once dialogue is finished
         if (dialogueStarted && !player.GetComponent<DialogueManagerV2>().DialogueOn())
         {
+            this.GetComponent<GamePause>().pause(true);
             endingScreen.SetActive(true);
         }
     }
