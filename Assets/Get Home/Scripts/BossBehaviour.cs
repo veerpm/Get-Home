@@ -66,9 +66,9 @@ public class BossBehaviour : MonoBehaviour
             Charge();
         }
     
-        /*
+        
         // Keep charging while duration is active
-        if (Time.time - startTime <= 1.0f)
+        if (Time.time - startTime <= 1.2f)
         {
             charging = true;
             
@@ -86,7 +86,7 @@ public class BossBehaviour : MonoBehaviour
             nextChargeTime = Time.time + chargingCD;
 
         }
-        else if(Time.time - startTime > 0.9f)
+        else if(Time.time - startTime > 1.1f)
         {
             //Debug.Log("End Charge");
             charging = false;
@@ -99,28 +99,16 @@ public class BossBehaviour : MonoBehaviour
                 onRightSide = true;
             }
         }
-        */
-        
-
+       
     }
 
     void ThrowingStance()
     {
-        /*
-        if (transform.position.x >= pointHalfway.transform.position.x && transform.position != pointRight.transform.position)
-        {
-            transform.position = Vector2.MoveTowards(this.transform.position, pointRight.transform.position, speed * Time.deltaTime);
-        }
-        else if (transform.position.x < pointHalfway.transform.position.x && transform.position != pointLeft.transform.position)
-        {
-            transform.position = Vector2.MoveTowards(this.transform.position, pointLeft.transform.position, speed * Time.deltaTime);
-        }
-        */
        
         // Throwing while planted! --> Start on the right then charge to the left and start throwing from the left!
         if (nextThrowTime < Time.time && charging == false)
         {
-            animator.SetTrigger("ThrowAttack");
+            animator.SetTrigger("LandlordThrow");
             //sound FX
             throwSound.Play();
             Instantiate(throwable, throwSpotLeft.transform.position, Quaternion.identity);
