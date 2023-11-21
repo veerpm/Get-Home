@@ -17,6 +17,9 @@ public class GamePause : MonoBehaviour
     private bool gamePaused = false;
     private bool dead = false;
 
+    // boss fight
+    public GameObject bossEnemy = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -121,6 +124,12 @@ public class GamePause : MonoBehaviour
             }
         }
 
+
+        // (extra) brings back boss alive for lvl 3
+        if(bossEnemy!= null)
+        {
+            bossEnemy.GetComponent<EnemyHealth>().SetFullHealth();
+        }
 
         // restart sound
         music.Play();

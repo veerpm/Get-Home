@@ -9,6 +9,7 @@ public class CameraMovement : MonoBehaviour
     public float yPosition;
 
     public bool freeze = false;
+    public bool keepFreezed = false;
 
     public bool shake = false;
     public float shakeStrength = 0.075f;
@@ -46,7 +47,10 @@ public class CameraMovement : MonoBehaviour
 
     public void setFreeze(bool isFreezed)
     {
-        this.freeze = isFreezed;
+        if (!keepFreezed)
+        {
+            this.freeze = isFreezed;
+        }
     }
 
 }
