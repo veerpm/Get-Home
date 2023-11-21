@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6050025691549763088}
   - component: {fileID: 6050025691549763103}
   - component: {fileID: 6050025691549763091}
-  - component: {fileID: 6050025691549763094}
   - component: {fileID: 3063802158178044105}
+  - component: {fileID: 372227572553065308}
   m_Layer: 12
   m_Name: BossThrowableLeft
   m_TagString: Football
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: 5a7fbbd5e66b0f14d80ecc84088c1811, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 0.58, y: 0.76}
   m_AdaptiveModeThreshold: 0.5
@@ -110,22 +110,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.17505312, y: 0.48698467}
   m_EdgeRadius: 0
---- !u!114 &6050025691549763094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6050025691549763102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 372dd07eea101b144b694e6b44c26d77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  damage: 20
-  thrown: 0
-  caught: 0
 --- !u!50 &3063802158178044105
 Rigidbody2D:
   serializedVersion: 4
@@ -147,3 +131,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &372227572553065308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6050025691549763102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d409284c052cf6246b85039502232211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  damage: 20
+  thrown: 0
+  caught: 0
