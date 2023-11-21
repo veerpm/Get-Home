@@ -72,7 +72,7 @@ public class Level2Manager : MonoBehaviour
             bicycleEnemy.GetComponent<BicycleEnemySpawner>().spawnUpperBound = 2.55f;
             bicycleEnemy.GetComponent<BicycleEnemySpawner>().toLeft = toLeft;
             bicycleEnemy.GetComponent<BicycleEnemySpawner>().speed = speed;
-            bicycleEnemy.GetComponent<BicycleEnemySpawner>().gameManager = gameManager; // for chat bubbles
+            //bicycleEnemy.GetComponent<BicycleEnemySpawner>().gameManager = gameManager; // for chat bubbles
             Destroy(bicycleEnemy, time);
         }
     }

@@ -11517,6 +11517,7 @@ GameObject:
   - component: {fileID: 1594741624}
   - component: {fileID: 1594741623}
   - component: {fileID: 1594741625}
+  - component: {fileID: 1594741626}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -11616,6 +11617,22 @@ MonoBehaviour:
   bicycleGameObject: {fileID: 8076393321681526350, guid: c5a96e5964d1044a0ae170e2a0b1cb7c,
     type: 3}
   gameManager: {fileID: 1594741620}
+--- !u!114 &1594741626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594741620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd825368cec23fc40a5e5a2e5e7dded9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 2
+  bubbleDuration: 5
+  gameManager: {fileID: 1594741620}
+  barksFile: {fileID: 4900000, guid: 0b56962ff8466fc4492c6881216b2a47, type: 3}
 --- !u!1 &1602023614
 GameObject:
   m_ObjectHideFlags: 0
@@ -12460,7 +12477,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 350.5, y: 236.12}
+  m_AnchoredPosition: {x: 350.5, y: 236}
   m_SizeDelta: {x: -700.9999, y: -472.2499}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1960912923
