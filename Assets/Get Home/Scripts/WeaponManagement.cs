@@ -20,6 +20,11 @@ public class WeaponManagement : MonoBehaviour
     public float spacing;
     public float offset;
 
+    //SFX
+    public AudioSource weaponBreakSound;
+    public AudioSource loseDuribilitySound;
+    public AudioSource pickupWeaponSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -96,6 +101,8 @@ public class WeaponManagement : MonoBehaviour
 
     void SwapWeapon()
     {
+        //SFX
+        pickupWeaponSound.Play();
         ResetDurability();
         GameObject temp = floorWeapon;
         floorWeapon = EquippedWeapon;
@@ -139,6 +146,9 @@ public class WeaponManagement : MonoBehaviour
 
             if (EquippedWeapon.GetComponent<WeaponStats>().currentHits == 0 && EquippedWeapon != defaultWeapon)
             {
+                //SFX
+                weaponBreakSound.Play();
+
                 brokenWeapon = EquippedWeapon;
                 EquippedWeapon.GetComponent<WeaponStats>().currentHits++;
                 ResetDurability();

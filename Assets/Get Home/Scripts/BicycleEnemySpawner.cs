@@ -21,6 +21,13 @@ public class BicycleEnemySpawner : MonoBehaviour
     public GameObject gameManager;
     public TextAsset barksFile;
 
+    //SFX
+    public AudioClip bikeLeftSound;
+    public AudioClip bikeRightSound;
+    public AudioClip bellRight;
+    public AudioClip bellLeft;
+    public AudioSource bikeSounds;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +35,16 @@ public class BicycleEnemySpawner : MonoBehaviour
         barks = barksFile.ToString().Split('\n');
         // start bubble timer
         StartCoroutine(AnotherBubble());
+        //SFX
+        if (toLeft)
+        {
+            bikeSounds.PlayOneShot(bellRight);
+        }
+        else
+        {
+            bikeSounds.PlayOneShot(bellLeft);
+        }
+
     }
 
     // Update is called once per frame
@@ -47,15 +64,21 @@ public class BicycleEnemySpawner : MonoBehaviour
 
         Vector3 spawnPosition;
 
+
         if (toLeft)
         {
             // Define the spawn position to the right of the screen
             spawnPosition = new Vector3(Camera.main.ViewportToWorldPoint(new Vector3(1.2f, 0, 0)).x, spawnYPosition, 0);
+            //SFX
+            bikeSounds.PlayOneShot(bikeLeftSound);
         }
         else
         {
             // Define the spawn position to the left of the screen
             spawnPosition = new Vector3(Camera.main.ViewportToWorldPoint(new Vector3(-0.2f, 0, 0)).x, spawnYPosition, 0);
+            //SFX
+            bikeSounds.PlayOneShot(bikeRightSound);
+
         }
 
         // Instantiate the object
