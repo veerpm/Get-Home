@@ -626,7 +626,7 @@ PrefabInstance:
     - target: {fileID: 6176494728472246734, guid: 6220bf5d145ad564b81e70ea78233860,
         type: 3}
       propertyPath: chargingCD
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6176494728472246734, guid: 6220bf5d145ad564b81e70ea78233860,
         type: 3}
@@ -636,22 +636,17 @@ PrefabInstance:
     - target: {fileID: 6176494728472246734, guid: 6220bf5d145ad564b81e70ea78233860,
         type: 3}
       propertyPath: throwingCD
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6176494728472246734, guid: 6220bf5d145ad564b81e70ea78233860,
-        type: 3}
-      propertyPath: chargeDamage
-      value: 40
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6176494728472246734, guid: 6220bf5d145ad564b81e70ea78233860,
         type: 3}
       propertyPath: pointHalfway
       value: 
       objectReference: {fileID: 1192444673}
-    - target: {fileID: 8442836912928775449, guid: 6220bf5d145ad564b81e70ea78233860,
+    - target: {fileID: 6176494728472246734, guid: 6220bf5d145ad564b81e70ea78233860,
         type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
+      propertyPath: throwingRange
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8442836912928775451, guid: 6220bf5d145ad564b81e70ea78233860,
         type: 3}

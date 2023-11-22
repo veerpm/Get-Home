@@ -695,13 +695,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a69d8fd34fab8d4484cafa2ea045fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   lineofSight: 8
   throwingRange: 5
-  escapeRange: 2
+  escapeRange: 1
   throwingCD: 2
   throwable: {fileID: 6050025691549763102, guid: 89384654646fed140a0e2a6fecf3fa87,
     type: 3}
   throwSpot: {fileID: 7645658739349848002}
+  canvas: {fileID: 0}
   animator: {fileID: 7645658738577266063}
   throwSound: {fileID: 8871896665626186661}
 --- !u!82 &8871896665626186661

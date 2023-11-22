@@ -5,7 +5,7 @@ using UnityEngine;
 public class ThrowingEnemyFollowPlayer : MonoBehaviour
 {
     public Transform player;
-    private float speed = 2;
+    private float speed = 4;
     public float lineofSight = 5.0f;
     public float throwingRange;
     public float escapeRange;
@@ -74,7 +74,7 @@ public class ThrowingEnemyFollowPlayer : MonoBehaviour
         else if (distanceFromPlayer < escapeRange)
         {
             Debug.Log("THIS CODE EXISTS!" + escapeVector);
-            transform.position = Vector2.MoveTowards(this.transform.position, this.transform.position + escapeVector, (speed / 2) * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(this.transform.position, this.transform.position + escapeVector, (speed /2) * Time.deltaTime);
             animator.SetBool("Walking", true);
         }
 
