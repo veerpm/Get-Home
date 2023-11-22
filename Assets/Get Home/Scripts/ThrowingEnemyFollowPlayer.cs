@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ThrowingEnemyFollowPlayer : MonoBehaviour
 {
-    private Transform player;
+    public Transform player;
     private float speed = 2;
     public float lineofSight = 5.0f;
     public float throwingRange;
@@ -14,7 +14,7 @@ public class ThrowingEnemyFollowPlayer : MonoBehaviour
     public GameObject throwable;
     public GameObject throwSpot;
     private bool lookingRight = false;
-    private Transform canvas;
+    public Transform canvas;
     public Animator animator;
 
     private Vector3 escapeVector = new Vector3(2, 0, 0);
@@ -25,8 +25,8 @@ public class ThrowingEnemyFollowPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        canvas = transform.Find("Canvas");
+        //player = GameObject.FindGameObjectWithTag("Player").transform;
+        //canvas = transform.Find("Canvas");
     }
 
     // Update is called once per frame
@@ -51,6 +51,7 @@ public class ThrowingEnemyFollowPlayer : MonoBehaviour
         }
 
         float distanceFromPlayer = Vector2.Distance(player.position, transform.position);
+        //print(this + "distance from player is " + distanceFromPlayer);
         // Run towards 
         if (distanceFromPlayer < lineofSight && distanceFromPlayer > throwingRange)
         {
