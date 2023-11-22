@@ -640,6 +640,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6176494728472246734, guid: 6220bf5d145ad564b81e70ea78233860,
         type: 3}
+      propertyPath: chargeDamage
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176494728472246734, guid: 6220bf5d145ad564b81e70ea78233860,
+        type: 3}
       propertyPath: pointHalfway
       value: 
       objectReference: {fileID: 1192444673}
