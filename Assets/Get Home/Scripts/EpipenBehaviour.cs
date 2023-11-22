@@ -13,6 +13,7 @@ public class EpipenBehaviour : MonoBehaviour
     public Image epipenOverlay;
     public Image epipenTimer;
     public AudioSource epiSound;
+    public GameObject player;
 
     private PlayerCombatMelee combatScript;
 
@@ -23,7 +24,7 @@ public class EpipenBehaviour : MonoBehaviour
         epipenTimer.enabled = false;
         currentDuration = epipenDuration;
         epipenTimer.transform.GetChild(0).GetComponent<Image>().enabled = false;
-        combatScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombatMelee>();
+        combatScript = player.GetComponent<PlayerCombatMelee>();
     }
 
     // Update is called once per frame
