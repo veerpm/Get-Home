@@ -697,7 +697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineofSight: 8
   throwingRange: 5
-  escapeRange: 2
+  escapeRange: 1
   throwingCD: 2
   throwable: {fileID: 6050025691549763102, guid: 89384654646fed140a0e2a6fecf3fa87,
     type: 3}
