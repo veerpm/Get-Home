@@ -144,6 +144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 13
-  damage: 20
+  damage: 30
   thrown: 0
   caught: 0
