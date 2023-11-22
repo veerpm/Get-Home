@@ -14,7 +14,7 @@ public class ThrowingEnemyFollowPlayer : MonoBehaviour
     public GameObject throwable;
     public GameObject throwSpot;
     private bool lookingRight = false;
-    public Transform canvas;
+    private Transform canvas;
     public Animator animator;
 
     private Vector3 escapeVector = new Vector3(2, 0, 0);
@@ -26,7 +26,7 @@ public class ThrowingEnemyFollowPlayer : MonoBehaviour
     void Start()
     {
         //player = GameObject.FindGameObjectWithTag("Player").transform;
-        //canvas = transform.Find("Canvas");
+        canvas = transform.Find("Canvas");
     }
 
     // Update is called once per frame
