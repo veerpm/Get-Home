@@ -19,6 +19,9 @@ public class SprayCanBehaviour : MonoBehaviour
     private List<Collider2D> enemies = new List<Collider2D>();
     ContactFilter2D filter = new ContactFilter2D();
 
+    //SFX
+    public AudioSource spraySound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +48,7 @@ public class SprayCanBehaviour : MonoBehaviour
         area.transform.position = attackPoint.transform.position;
         if (Input.GetKey(KeyCode.E) && Time.time >= nextAttackTime)
         {
+            spraySound.Play(); //SFX
             filter.useTriggers = true;
             Physics2D.OverlapCollider(area.GetComponent<Collider2D>(), filter, enemies);
             foreach (Collider2D enemy in enemies)
@@ -57,6 +61,7 @@ public class SprayCanBehaviour : MonoBehaviour
         }
         else if (!Input.GetKey(KeyCode.E))
         {
+            spraySound.Stop(); //SFX
             ps.Stop();
         }
         if (Input.GetKey(KeyCode.E))
