@@ -26,7 +26,6 @@ public class BicycleEnemy : MonoBehaviour
         else
         {
             bikeSounds.PlayOneShot(bikeRightSound);
-
         }
     }
 
@@ -42,7 +41,6 @@ public class BicycleEnemy : MonoBehaviour
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
             GetComponent<SpriteRenderer>().flipX = false;
-
         }
 
         //if (transform.position.x < -15)
