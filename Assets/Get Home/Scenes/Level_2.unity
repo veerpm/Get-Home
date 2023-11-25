@@ -2743,6 +2743,7 @@ MonoBehaviour:
   attackPoint: {fileID: 1408458072}
   ps: {fileID: 692018667}
   area: {fileID: 0}
+  spraySound: {fileID: 0}
 --- !u!82 &330463891
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9225,6 +9226,7 @@ MonoBehaviour:
   followSpeed: 2
   target: {fileID: 330463862}
   yPosition: -0.5
+  xOffset: 2
   freeze: 0
   keepFreezed: 0
   shake: 0
@@ -11704,7 +11706,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 673c66b1af5935b49a09fb15c53608d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 1478797234}
   canvas: {fileID: 1355646764}
   levelNameObject: {fileID: 959036440}
   levelName: 'LEVEL TWO: The Snakepit'

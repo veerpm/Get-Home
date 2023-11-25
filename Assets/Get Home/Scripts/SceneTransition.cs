@@ -5,7 +5,6 @@ using TMPro;
 
 public class SceneTransition : MonoBehaviour
 {
-    public AudioSource audioSource;
     public GameObject canvas;
     public GameObject levelNameObject;
     public string levelName;
@@ -30,6 +29,8 @@ public class SceneTransition : MonoBehaviour
         levelNameObject.GetComponent<TextMeshProUGUI>().text = "<i>" + levelName + "</i>";
 
         StartCoroutine(levelNameAnimation());
+        // make sure volume is at right level
+        //StartCoroutine(VolumeSafeguard());
     }
 
     IEnumerator levelNameAnimation()
@@ -75,4 +76,9 @@ public class SceneTransition : MonoBehaviour
         }
     }
 
+    IEnumerator VolumeSafeguard()
+    {
+        yield return new WaitForSeconds(3);
+        ModifyGeneralVolume(PlayerPrefs.GetFloat("Volume")); 
+    }
 }

@@ -87,7 +87,7 @@ public class LockFrame : MonoBehaviour
     {
         // freeze camera
         mainCamera.GetComponent<CameraMovement>().setFreeze(true);
-        // freeze player's position to camera bounds
+        // freeze player's position to camera bounds (add width so player doesn't clip)
         float leftBound = mainCamera.GetComponent<Camera>().ViewportToWorldPoint(new Vector3(0f, 0f, 0f)).x;
         float rightBound = mainCamera.GetComponent<Camera>().ViewportToWorldPoint(new Vector3(1f, 0f, 0f)).x;
         float width = player.GetComponent<SpriteRenderer>().sprite.bounds.size.x / 2;

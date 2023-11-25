@@ -7,6 +7,7 @@ public class CameraMovement : MonoBehaviour
     public float followSpeed;
     public Transform target;
     public float yPosition;
+    public float xOffset;
 
     public bool freeze = false;
     public bool keepFreezed = false;
@@ -27,7 +28,7 @@ public class CameraMovement : MonoBehaviour
         // camera follows target (ex: player) with speed of 'followSpeed'
         if(!freeze)
         {
-            Vector3 newPos = new Vector3(target.position.x, yPosition, -10f);
+            Vector3 newPos = new Vector3(target.position.x + xOffset, yPosition, -10f);
             transform.position = Vector3.Slerp(transform.position, newPos, followSpeed * Time.deltaTime);
         }
         // implements camera shake
