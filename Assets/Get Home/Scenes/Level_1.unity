@@ -2817,6 +2817,7 @@ MonoBehaviour:
   attackPoint: {fileID: 1408458072}
   ps: {fileID: 692018667}
   area: {fileID: 0}
+  spraySound: {fileID: 0}
 --- !u!82 &330463891
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11795,7 +11796,7 @@ PrefabInstance:
     - target: {fileID: 683629375773968698, guid: 9752569396f9e482e9e16d796fbef497,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.4
+      value: 5.16
       objectReference: {fileID: 0}
     - target: {fileID: 683629375773968698, guid: 9752569396f9e482e9e16d796fbef497,
         type: 3}
