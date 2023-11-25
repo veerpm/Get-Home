@@ -9,6 +9,10 @@ public class CameraMovement : MonoBehaviour
     public float yPosition;
     public float xOffset;
 
+    // bounds
+    public float rightBound;
+    public float leftBound;
+
     public bool freeze = false;
     public bool keepFreezed = false;
 
@@ -25,10 +29,21 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // don't go over camera bounds;
+        float targetX = target.position.x;
+        if(targetX > rightBound)
+        {
+            targetX = rightBound;
+        }
+        else if(targetX < leftBound)
+        {
+            targetX = leftBound;
+        }
+
         // camera follows target (ex: player) with speed of 'followSpeed'
         if(!freeze)
         {
-            Vector3 newPos = new Vector3(target.position.x + xOffset, yPosition, -10f);
+            Vector3 newPos = new Vector3(targetX + xOffset, yPosition, -10f);
             transform.position = Vector3.Slerp(transform.position, newPos, followSpeed * Time.deltaTime);
         }
         // implements camera shake

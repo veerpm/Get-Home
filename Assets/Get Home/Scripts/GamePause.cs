@@ -16,6 +16,7 @@ public class GamePause : MonoBehaviour
 
     private bool gamePaused = false;
     private bool dead = false;
+    public bool dialogueOngoing = false;
 
     // boss fight
     public GameObject bossEnemy = null;
@@ -29,7 +30,7 @@ public class GamePause : MonoBehaviour
     void Update()
     {
         // activate pause screen
-        if (Input.GetKeyDown(KeyCode.P) && !dead)
+        if (Input.GetKeyDown(KeyCode.P) && !dead && !dialogueOngoing)
         {
             gamePaused = !gamePaused;
             pauseScreen.SetActive(gamePaused);

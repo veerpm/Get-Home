@@ -100,6 +100,7 @@ public class DialogueManager : MonoBehaviour
         this.dialogueOn = true;
         dialogueBox.SetActive(true);
         gameManager.GetComponent<GamePause>().pause(true);
+        gameManager.GetComponent<GamePause>().dialogueOngoing = true;
 
         // dialogue info
         speakerText.text = speaker;
@@ -137,6 +138,7 @@ public class DialogueManager : MonoBehaviour
             dialogueOn = false;
             dialogueBox.SetActive(false);
             gameManager.GetComponent<GamePause>().pause(false);
+            gameManager.GetComponent<GamePause>().dialogueOngoing = false;
         }
     }
 

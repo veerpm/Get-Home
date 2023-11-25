@@ -1133,6 +1133,7 @@ MonoBehaviour:
   getHitSound: {fileID: 330463885}
   dieSound: {fileID: 330463889}
   gameManager: {fileID: 1594741620}
+  gameCamera: {fileID: 982685567}
 --- !u!114 &330463869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10329,6 +10330,8 @@ MonoBehaviour:
   target: {fileID: 330463862}
   yPosition: -0.5
   xOffset: 2
+  rightBound: 38.5
+  leftBound: -20
   freeze: 0
   keepFreezed: 0
   shake: 0
@@ -12307,6 +12310,7 @@ MonoBehaviour:
   mainCamera: {fileID: 982685567}
   pauseManager: {fileID: 1950025599}
   checkpoint: {x: -5.32, y: 0, z: 0}
+  dialogueOngoing: 0
   bossEnemy: {fileID: 0}
 --- !u!114 &1594741623
 MonoBehaviour:

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -972,6 +972,7 @@ MonoBehaviour:
   getHitSound: {fileID: 330463885}
   dieSound: {fileID: 330463889}
   gameManager: {fileID: 1594741620}
+  gameCamera: {fileID: 982685567}
 --- !u!114 &330463869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8856,7 +8857,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -0.00061035156, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &949847854
@@ -9234,6 +9235,8 @@ MonoBehaviour:
   target: {fileID: 330463862}
   yPosition: -0.5
   xOffset: 2
+  rightBound: 58.3
+  leftBound: -20
   freeze: 0
   keepFreezed: 0
   shake: 0
@@ -11775,6 +11778,7 @@ MonoBehaviour:
   mainCamera: {fileID: 982685567}
   pauseManager: {fileID: 1502240420}
   checkpoint: {x: -5.32, y: 0, z: 0}
+  dialogueOngoing: 0
   bossEnemy: {fileID: 0}
 --- !u!114 &1594741623
 MonoBehaviour:
