@@ -30,7 +30,7 @@ public class Boundaries : MonoBehaviour
         // local bounds are freezed
         else
         {
-            // if local bounds are past global bounds, we refer back to world bounds
+            // if local bounds are past world bounds, we refer back to world bounds
             if(leftFreeze < leftBound)
             {
                 currentLeft = leftBound;

@@ -12,6 +12,7 @@ public class Tutorial : MonoBehaviour
     public GameObject baseballEnemy;
     public Vector3 enemyPos;
     public GameObject knife;
+    public GameObject enemyStopNuisance;
 
     private GameObject chatBubble;
 
@@ -19,6 +20,7 @@ public class Tutorial : MonoBehaviour
     private bool pickedUpTrash = false;
     private bool paused = false;
     private bool tutorialLaunched = false;
+
 
     public void Start()
     {
@@ -57,13 +59,19 @@ public class Tutorial : MonoBehaviour
         this.GetComponent<LockFrame>().setEnemiesDefeated(true);
         this.GetComponent<LockFrame>().lockPlayer();
 
+        // deactivate enemies that are too close
+        DeactivateNuisance();
+
+        // start dialogue
         float time = 0f;
         float textSize = 1f;
         Vector3 position = new Vector3(-1f, 1.4f, 0f);
         chatBubble = gameManager.GetComponent<ChatManager>().CreateBubble(this.gameObject,
-            "Hey!", time, textSize, position);
+            "And here comes another drunk!", time, textSize, position);
         GameObject enemy;
         GameObject trash;
+
+        yield return new WaitForSeconds(2f);
 
         // dialogue (E and Q)
         chatBubble.GetComponent<ChatBubble>().Setup("Hah! This schlub doesn’t know that pressing 'E' \n" +
@@ -71,7 +79,7 @@ public class Tutorial : MonoBehaviour
             "throws out a heavy attack. Idiot.");
 
        enemy = CreateEnemy();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
 
         // wait
         while (!enemy.GetComponent<EnemyHealth>().IsDead())
@@ -116,7 +124,7 @@ public class Tutorial : MonoBehaviour
         }
 
         chatBubble.GetComponent<ChatBubble>().Setup("I bet he wouldn't even be courageous enough " +
-            "\n to try it on this dude.");
+            "\n to try this knife on this dude.");
         enemy = CreateEnemy();
         yield return new WaitForSeconds(0.5f);
 
@@ -142,6 +150,9 @@ public class Tutorial : MonoBehaviour
 
         this.GetComponent<LockFrame>().unlockPlayer();
         Destroy(chatBubble,3);
+
+        // reactivate enemies that were too close
+        ReactivateNuisance();
     }
 
     // spawn baseball enemy in front of player
@@ -162,5 +173,24 @@ public class Tutorial : MonoBehaviour
     {
         GameObject trash = Instantiate(trashCan, trashPos, Quaternion.identity);
         return trash;
+    }
+
+    // 2 enemies are too close to the tutorial and need to be deactivated while it's active
+    private void DeactivateNuisance()
+    {
+        enemyStopNuisance.GetComponent<LockFrame>().setEnemiesDefeated(true);
+        foreach (GameObject enemy in enemyStopNuisance.GetComponent<LockFrame>().enemies)
+        {
+            enemy.SetActive(false);
+        }
+    }
+
+    private void ReactivateNuisance()
+    {
+        enemyStopNuisance.GetComponent<LockFrame>().setEnemiesDefeated(false);
+        foreach (GameObject enemy in enemyStopNuisance.GetComponent<LockFrame>().enemies)
+        {
+            enemy.SetActive(true);
+        }
     }
 }
