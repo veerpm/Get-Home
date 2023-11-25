@@ -66,8 +66,11 @@ public class Tutorial : MonoBehaviour
         float time = 0f;
         float textSize = 1f;
         Vector3 position = new Vector3(-1f, 1.4f, 0f);
+
         chatBubble = gameManager.GetComponent<ChatManager>().CreateBubble(this.gameObject,
-            "And here comes another drunk!", time, textSize, position);
+            "Here comes another drunk!", time, textSize, position);
+        
+        // variables for instantiating
         GameObject enemy;
         GameObject trash;
 
@@ -165,6 +168,9 @@ public class Tutorial : MonoBehaviour
         enemy.GetComponent<EnemyHealth>().maxHealth = health;
         enemy.GetComponent<EnemyHealth>().SetFullHealth();
 
+        // set sounds of enemies to player's volume
+        SetSound(enemy);
+
         return enemy;
     }
 
@@ -172,7 +178,24 @@ public class Tutorial : MonoBehaviour
     private GameObject CreateTrash()
     {
         GameObject trash = Instantiate(trashCan, trashPos, Quaternion.identity);
+
+        // set sounds of trash to player's volume
+        SetSound(trash);
+
         return trash;
+    }
+
+    private void SetSound(GameObject entity)
+    {
+        // set volume of all audio sources to player's setting
+        if (PlayerPrefs.HasKey("Volume"))
+        {
+            AudioSource[] sounds = entity.GetComponents<AudioSource>();
+            foreach (AudioSource audioSource in sounds)
+            {
+                audioSource.volume = PlayerPrefs.GetFloat("Volume");
+            }
+        }
     }
 
     // 2 enemies are too close to the tutorial and need to be deactivated while it's active
@@ -185,6 +208,7 @@ public class Tutorial : MonoBehaviour
         }
     }
 
+    // the 2 enemies too close are reactivated
     private void ReactivateNuisance()
     {
         enemyStopNuisance.GetComponent<LockFrame>().setEnemiesDefeated(false);
