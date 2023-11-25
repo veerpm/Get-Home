@@ -35,7 +35,7 @@ public class ChatBubble : MonoBehaviour
         }
 
     }
-    public void Setup(string text, float size = 1.25f)
+    public void Setup(string text, float size = 1f)
     {
 
         // Change text
@@ -45,10 +45,12 @@ public class ChatBubble : MonoBehaviour
 
         // update background for text
         Vector2 textSize = textMesh.GetRenderedValues(false);
-        Vector2 padding = new Vector2(1.05f, 1.025f);
+        // padding is in PERCENTAGE
+        // Vector2 padding = new Vector2(0.05f, 0.025f); // ancient chatBubble's offset
+        Vector2 padding = new Vector2(0.1f, 0.7f); // new chatBubbles' offset
         // actual change
-        float newScaleX = (float)(textSize.x * padding.x) / (float)bgSprite.sprite.bounds.size.x;
-        float newScaleY = (textSize.y * padding.y) / bgSprite.sprite.bounds.size.y;
+        float newScaleX = (float) (1f+padding.x)* (textSize.x) / (float)bgSprite.sprite.bounds.size.x;
+        float newScaleY = (float) (1f+padding.y)*(textSize.y) / bgSprite.sprite.bounds.size.y;
         //bgSprite.size = textSize + padding;
         bgSprite.transform.localScale = new Vector3(newScaleX, newScaleY, 1f);
         bgSprite.transform.localPosition = new Vector3(0f, 0f);
