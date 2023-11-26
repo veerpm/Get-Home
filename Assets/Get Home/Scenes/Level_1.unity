@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -620,7 +620,7 @@ PrefabInstance:
     - target: {fileID: 7645658738577266059, guid: 309790e093fa74cc3a2297a9191d49e2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 7645658738577266059, guid: 309790e093fa74cc3a2297a9191d49e2,
         type: 3}
@@ -3309,7 +3309,7 @@ PrefabInstance:
     - target: {fileID: 7645658738577266059, guid: 309790e093fa74cc3a2297a9191d49e2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 7645658738577266059, guid: 309790e093fa74cc3a2297a9191d49e2,
         type: 3}
@@ -10314,7 +10314,7 @@ Transform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &982685571
 MonoBehaviour:
@@ -10492,7 +10492,7 @@ Transform:
   m_LocalScale: {x: 0.8862818, y: 8.097845, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1014351663
 PrefabInstance:
@@ -10539,7 +10539,7 @@ PrefabInstance:
     - target: {fileID: 1172391769689524298, guid: cf361a6417f354e44b3fb8e96e76ca4f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1172391769689524298, guid: cf361a6417f354e44b3fb8e96e76ca4f,
         type: 3}
@@ -10776,7 +10776,7 @@ PrefabInstance:
     - target: {fileID: 1172391769689524298, guid: cf361a6417f354e44b3fb8e96e76ca4f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1172391769689524298, guid: cf361a6417f354e44b3fb8e96e76ca4f,
         type: 3}
@@ -10995,7 +10995,7 @@ PrefabInstance:
     - target: {fileID: 683629375773968698, guid: 9752569396f9e482e9e16d796fbef497,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 683629375773968698, guid: 9752569396f9e482e9e16d796fbef497,
         type: 3}
@@ -11357,7 +11357,7 @@ Transform:
   - {fileID: 1365200827}
   - {fileID: 595201362}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!210 &1256389833
 SortingGroup:
@@ -11746,7 +11746,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1478056743
 PrefabInstance:
@@ -11801,7 +11801,7 @@ PrefabInstance:
     - target: {fileID: 683629375773968698, guid: 9752569396f9e482e9e16d796fbef497,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 683629375773968698, guid: 9752569396f9e482e9e16d796fbef497,
         type: 3}
@@ -12200,7 +12200,7 @@ PrefabInstance:
     - target: {fileID: 1172391769689524298, guid: cf361a6417f354e44b3fb8e96e76ca4f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1172391769689524298, guid: cf361a6417f354e44b3fb8e96e76ca4f,
         type: 3}
@@ -12291,7 +12291,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1594741622
 MonoBehaviour:
@@ -18222,7 +18222,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1950025602
 AudioSource:
@@ -18575,7 +18575,7 @@ RectTransform:
   - {fileID: 1721763428}
   - {fileID: 1719819606}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
