@@ -22,6 +22,8 @@ public class PlayerHealth : MonoBehaviour
     public AudioSource dieSound;
 
     public GameObject gameManager;
+    public GameObject gameCamera;     // shake FX
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,6 +78,7 @@ public class PlayerHealth : MonoBehaviour
             //sound FX
             getHitSound.Play();
             DisplayHealth();
+            StartCoroutine(ShakeScreen());
         }
 
     }
@@ -106,5 +109,13 @@ public class PlayerHealth : MonoBehaviour
         Vector3 pos = new Vector3(x, y, 10.0f);
         pos = Camera.main.ViewportToWorldPoint(pos);
         Instantiate(beer, pos, Quaternion.identity);
+    }
+
+    // shake screen when getting hit
+    IEnumerator ShakeScreen()
+    {
+        gameCamera.GetComponent<CameraMovement>().shake = true;
+        yield return new WaitForSeconds(0.25f);
+        gameCamera.GetComponent<CameraMovement>().shake = false;
     }
 }
