@@ -5,6 +5,7 @@ using UnityEngine;
 public class BeerBehaviour : MonoBehaviour
 {
     public AudioSource drinkBeerSound;
+    public int healValue = 50;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,7 @@ public class BeerBehaviour : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             drinkBeerSound.Play();
-            collider.GetComponent<PlayerHealth>().setFullHealth();
+            collider.GetComponent<PlayerHealth>().setHealth(healValue);
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<BoxCollider2D>().enabled = false;
             Destroy(gameObject, 2);

@@ -89,11 +89,20 @@ public class PlayerHealth : MonoBehaviour
         healthDisplay.GetComponent<Text>().text = currentHealth.ToString("00");
     }
 
+    public void setHealth(int health)
+    {
+        currentHealth += health;
+        if (currentHealth >= maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        DisplayHealth();
+    }
+
     public void setFullHealth()
     {
-        currentHealth = maxHealth;
+        setHealth(maxHealth);
         dead = false;
-        DisplayHealth();
     }
 
     private void SetDeath()
