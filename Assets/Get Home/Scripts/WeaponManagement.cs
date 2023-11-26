@@ -19,6 +19,7 @@ public class WeaponManagement : MonoBehaviour
     public Image durabilityBarEmpty;
     public float spacing;
     public float offset;
+    public ParticleSystem weaponBreakParticles;
 
     //SFX
     public AudioSource weaponBreakSound;
@@ -153,6 +154,7 @@ public class WeaponManagement : MonoBehaviour
                 EquippedWeapon.GetComponent<WeaponStats>().currentHits++;
                 ResetDurability();
                 EquippedWeapon = defaultWeapon;
+                weaponBreakParticles.Play();
             }
 
             if (EquippedWeapon != defaultWeapon)
@@ -172,6 +174,7 @@ public class WeaponManagement : MonoBehaviour
                 brokenWeapon = EquippedWeapon;
                 ResetDurability();
                 EquippedWeapon = defaultWeapon;
+                weaponBreakParticles.Play();
             }
         }
 
