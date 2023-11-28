@@ -609,11 +609,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7645658738577266058, guid: 309790e093fa74cc3a2297a9191d49e2,
         type: 3}
-      propertyPath: canvas
-      value: 
-      objectReference: {fileID: 2091657019}
-    - target: {fileID: 7645658738577266058, guid: 309790e093fa74cc3a2297a9191d49e2,
-        type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 330463862}
@@ -16510,14 +16505,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1731591163, guid: 9752569396f9e482e9e16d796fbef497, type: 3}
-      propertyPath: m_Mass
-      value: 0.8354364
-      objectReference: {fileID: 0}
-    - target: {fileID: 1731591163, guid: 9752569396f9e482e9e16d796fbef497, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 683629375723622155, guid: 9752569396f9e482e9e16d796fbef497,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -16533,26 +16520,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseballEnemy
       objectReference: {fileID: 0}
-    - target: {fileID: 683629375773968697, guid: 9752569396f9e482e9e16d796fbef497,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 683629375773968697, guid: 9752569396f9e482e9e16d796fbef497,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 683629375773968697, guid: 9752569396f9e482e9e16d796fbef497,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 683629375773968697, guid: 9752569396f9e482e9e16d796fbef497,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 683629375773968698, guid: 9752569396f9e482e9e16d796fbef497,
         type: 3}
       propertyPath: m_RootOrder
@@ -16561,12 +16528,12 @@ PrefabInstance:
     - target: {fileID: 683629375773968698, guid: 9752569396f9e482e9e16d796fbef497,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.5500002
+      value: 3.91
       objectReference: {fileID: 0}
     - target: {fileID: 683629375773968698, guid: 9752569396f9e482e9e16d796fbef497,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.6
+      value: -0.47
       objectReference: {fileID: 0}
     - target: {fileID: 683629375773968698, guid: 9752569396f9e482e9e16d796fbef497,
         type: 3}
@@ -16607,11 +16574,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 683629375773968702, guid: 9752569396f9e482e9e16d796fbef497,
-        type: 3}
-      propertyPath: speed
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 683629375773968702, guid: 9752569396f9e482e9e16d796fbef497,
         type: 3}

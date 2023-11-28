@@ -12,7 +12,7 @@ public class EnemyHealth : MonoBehaviour
     public GameObject damageText;
     private Vector3 initialPosition;
     protected bool keepActive = false; // used for child classes
-    //private bool isDead = false;
+    private ParticleSystem bloodParticles;
 
     //sound FX
     public AudioSource enemyHitSound;
@@ -27,6 +27,7 @@ public class EnemyHealth : MonoBehaviour
         }
         SetFullHealth();
         initialPosition = transform.position;
+        bloodParticles = transform.Find("BloodPs").GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -55,6 +56,9 @@ public class EnemyHealth : MonoBehaviour
 
         // Play Hurt Animation
         animator.SetTrigger("Hurt");
+
+        bloodParticles.Play();
+
         // Die
         DisplayHealth();
         if (currentHealth <= 0)
