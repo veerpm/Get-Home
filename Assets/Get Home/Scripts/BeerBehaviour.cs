@@ -10,7 +10,6 @@ public class BeerBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -27,7 +26,7 @@ public class BeerBehaviour : MonoBehaviour
             collider.GetComponent<PlayerHealth>().setHealth(healValue);
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<BoxCollider2D>().enabled = false;
-            Destroy(gameObject, 2);
+            collider.transform.Find("BeerPs").GetComponent<ParticleSystem>().Play();
         }
     }
 }

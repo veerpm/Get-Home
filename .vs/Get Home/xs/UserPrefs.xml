@@ -1,10 +1,11 @@
 ﻿<Properties GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Get Home/Scripts/Tutorial.cs">
+    <Files>
+      <File FileName="Assets/Get Home/Scripts/BeerBehaviour.cs" />
+      <File FileName="Assets/Get Home/Scripts/PlayerHealth.cs" />
+      <File FileName="Assets/Get Home/Scripts/WeaponManagement.cs" />
+      <File FileName="Assets/Get Home/Scripts/Tutorial.cs" Line="1" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -13,7 +14,7 @@
               <Node name="Assets" expanded="True">
                 <Node name="Get Home" expanded="True">
                   <Node name="Scripts" expanded="True">
-                    <Node name="MeleeEnemyFollowPlayer.cs" selected="True" />
+                    <Node name="Tutorial.cs" selected="True" />
                   </Node>
                 </Node>
               </Node>
@@ -24,4 +25,9 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>
