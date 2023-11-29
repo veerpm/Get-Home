@@ -28,6 +28,7 @@ public class LockFrame : MonoBehaviour
         {
             flag = this.gameObject.transform.GetChild(0).gameObject;
         }
+        startTime = 0f; // serve as a flag later on
     }
 
     private void Update()
@@ -94,13 +95,21 @@ public class LockFrame : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && !enemiesDefeated)
         {
-            lockPlayer();
-            locked = true;
-            startTime = Time.time;
-            // survive sign for bikers
-            if(surviveSign != null)
+            // return if timer has already been started
+            if(useTime && startTime != 0f)
             {
-                surviveSign.SetActive(true);
+                return;
+            }
+            else
+            {
+                lockPlayer();
+                locked = true;
+                startTime = Time.time;
+                // survive sign for bikers
+                if (surviveSign != null)
+                {
+                    surviveSign.SetActive(true);
+                }
             }
         }
     }
