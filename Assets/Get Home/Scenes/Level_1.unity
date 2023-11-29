@@ -17030,6 +17030,7 @@ MonoBehaviour:
   music: {fileID: 1478797234}
   mainCamera: {fileID: 982685567}
   pauseManager: {fileID: 1950025599}
+  weaponHolder: {fileID: 1256389831}
   checkpoint: {x: -5.32, y: 0, z: 0}
   dialogueOngoing: 0
   bossEnemy: {fileID: 0}

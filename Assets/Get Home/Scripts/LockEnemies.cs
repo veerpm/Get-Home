@@ -15,7 +15,6 @@ public class LockEnemies : MonoBehaviour
         {
             foreach (GameObject enemy in enemies)
             {
-                Debug.Log("Called 0 ");
                 enemy.transform.position = player.GetComponent<Boundaries>().SetInBounds(enemy.transform.position);
             }
         }

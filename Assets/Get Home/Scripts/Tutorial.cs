@@ -189,7 +189,7 @@ public class Tutorial : MonoBehaviour
 
         // dialogue (T and R)
         chatBubble.GetComponent<ChatBubble>().Setup("Honestly, only a guy like this would be dull enough " +
-            "\n to use 'R' to pick up that knife.");
+            "\n to use <b>R</b> to pick up that knife.");
 
         // wait
         while (player.GetComponent<WeaponManagement>().EquippedWeapon != knife)
@@ -208,9 +208,14 @@ public class Tutorial : MonoBehaviour
             yield return null;
         }
 
+        chatBubble.GetComponent<ChatBubble>().Setup("As incompetent as he looks, \n he won't even be able to drop the knife using <b>F</b>");
+        while (!Input.GetKeyDown(KeyCode.F))
+        {
+            yield return null;
+        }
 
         // pause menu
-        chatBubble.GetComponent<ChatBubble>().Setup("I'm also sure he'll forget stuff \n and will need to press 'P' to remember.");
+        chatBubble.GetComponent<ChatBubble>().Setup("I'm also sure he'll forget stuff \n and will need to press <b>P</b> to remember.");
 
         // wait
         while (!paused)

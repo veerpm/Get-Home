@@ -34,6 +34,7 @@ public class LockFrame : MonoBehaviour
     {
         float timerValue = Time.time - startTime;
 
+        // update sign with time left
         if(surviveSign != null && timerValue < unlockTime && locked)
         {
             surviveSlider.value = 1-timerValue / unlockTime;
@@ -91,7 +92,7 @@ public class LockFrame : MonoBehaviour
     // lock player if touches object
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player" && !enemiesDefeated && !locked)
+        if (other.gameObject.tag == "Player" && !enemiesDefeated)
         {
             lockPlayer();
             locked = true;
