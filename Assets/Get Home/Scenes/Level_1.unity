@@ -15411,7 +15411,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: c60ab1f75e70e0a40b11c003daf9945c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -15455,6 +15455,8 @@ MonoBehaviour:
   gameManager: {fileID: 1594741620}
   enemies: []
   goPrompt: {fileID: 1888591357}
+  surviveSign: {fileID: 0}
+  surviveSlider: {fileID: 0}
   useTime: 0
   locked: 0
   unlockTime: 0
@@ -17028,6 +17030,7 @@ MonoBehaviour:
   music: {fileID: 1478797234}
   mainCamera: {fileID: 982685567}
   pauseManager: {fileID: 1950025599}
+  weaponHolder: {fileID: 1256389831}
   checkpoint: {x: -5.32, y: 0, z: 0}
   dialogueOngoing: 0
   bossEnemy: {fileID: 0}

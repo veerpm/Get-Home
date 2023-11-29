@@ -11,6 +11,7 @@ public class GamePause : MonoBehaviour
     public AudioSource music;
     public GameObject mainCamera;
     public GameObject pauseManager;
+    public GameObject weaponHolder;
 
     public Vector3 checkpoint;
 
@@ -137,6 +138,19 @@ public class GamePause : MonoBehaviour
             foreach (GameObject beer in beers)
             {
                 Destroy(beer);
+            }
+        }
+
+        // bring back all weapons that were destroyed
+        GameObject[] weapons = GameObject.FindGameObjectsWithTag("Weapon");
+
+        foreach (Transform child in weaponHolder.transform)
+        {
+            GameObject weapon = child.gameObject;
+            print(weapon);
+            if (player.GetComponent<WeaponManagement>().equippedWeapon != weapon)
+            {
+                weapon.SetActive(true);
             }
         }
 
