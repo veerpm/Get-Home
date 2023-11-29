@@ -49,15 +49,14 @@ public class WeaponManagement : MonoBehaviour
             GetComponent<SprayCanBehaviour>().enabled = true;
         }
 
+        if (!pickable && Input.GetKeyDown(KeyCode.R) && EquippedWeapon != defaultWeapon)
+        {
+            DropWeapon();
+        }
 
         if (pickable && Input.GetKeyDown(KeyCode.R))
         {
             SwapWeapon();
-        }
-
-        if (!pickable && Input.GetKeyDown(KeyCode.F) && EquippedWeapon != defaultWeapon)
-        {
-            DropWeapon();
         }
     }
 
