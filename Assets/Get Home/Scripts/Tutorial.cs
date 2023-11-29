@@ -24,6 +24,8 @@ public class Tutorial : MonoBehaviour
 
     public void Start()
     {
+        StartCoroutine(Setup());
+        toggleKnife(false);
     }
 
     private void Update()
@@ -53,6 +55,24 @@ public class Tutorial : MonoBehaviour
         }
     }
 
+    IEnumerator Setup()
+    {
+        // make homeless speak only when first conversation is done
+        while (!player.GetComponent<DialogueManager>().isConversationDone(0))
+        {
+            yield return null;
+        }
+
+        // start dialogue
+        float time = 0f;
+        float textSize = 1f;
+        Vector3 position = new Vector3(-1f, 1.4f, 0f);
+
+        chatBubble = gameManager.GetComponent<ChatManager>().CreateBubble(this.gameObject,
+            "This drunkard forgot he could move \n" +
+            "with the <b> arrows keys </b>!", time, textSize, position);
+    }
+
     IEnumerator tutorialLogic()
     {
         // freeze player
@@ -62,37 +82,65 @@ public class Tutorial : MonoBehaviour
         // deactivate enemies that are too close
         DeactivateNuisance();
 
-        // start dialogue
-        float time = 0f;
-        float textSize = 1f;
-        Vector3 position = new Vector3(-1f, 1.4f, 0f);
-
-        chatBubble = gameManager.GetComponent<ChatManager>().CreateBubble(this.gameObject,
-            "Here comes another drunk!", time, textSize, position);
-        
         // variables for instantiating
         GameObject enemy;
         GameObject trash;
 
-        yield return new WaitForSeconds(2f);
-
         // dialogue (E and Q)
-        chatBubble.GetComponent<ChatBubble>().Setup("Hah! This schlub doesn’t know that pressing 'E' \n" +
-            "throws out a light attack, while pressing 'Q' \n " +
-            "throws out a heavy attack. Idiot.");
+        chatBubble.GetComponent<ChatBubble>().Setup("Hah! This schlub doesn’t know that pressing <b>E</b> \n" +
+            "throws out a <b>light attack</b>.");
 
-       enemy = CreateEnemy();
+        while (!Input.GetKeyDown(KeyCode.E))
+        {
+            yield return null;
+        }
+
+        chatBubble.GetComponent<ChatBubble>().Setup("I doubt he knows he can do a <b> heavy attack </b> \n" +
+            "by pressing <b>Q</b>. Idiot.");
+
+        while (!Input.GetKeyDown(KeyCode.Q))
+        {
+            yield return null;
+        }
+
+        chatBubble.GetComponent<ChatBubble>().Setup("He even has less chance of doing a <b> combo </b> \n" +
+            "by pressing  <b> E E Q E </b> successively.");
+        bool hasPressedQ = false;
+
+        yield return null; // resets Input.GetKeyDown.Q
+
+        while (!hasPressedQ || !Input.GetKeyDown(KeyCode.E))
+        {
+            // check if player pressed Q
+            hasPressedQ = hasPressedQ || Input.GetKeyDown(KeyCode.Q);
+            yield return null;
+        }
+
+        chatBubble.GetComponent<ChatBubble>().Setup("He won't have the guts to try it on this guy.");
+
+
+        enemy = CreateEnemy(75);
         yield return new WaitForSeconds(1f);
+        bool didCombo = false;
 
         // wait
-        while (!enemy.GetComponent<EnemyHealth>().IsDead())
+        while (!didCombo && !enemy.GetComponent<EnemyHealth>().IsDead())
         {
+            // check if player just did (or already did) the combo
+            didCombo = didCombo || player.GetComponent<PlayerCombatMelee>().comboActive;
+
+            // spawn enemy if he's dead
+            if (enemy.GetComponent<EnemyHealth>().IsDead())
+            {
+                enemy = CreateEnemy(75);
+            }
+
             yield return null;
         }
 
         // dialogue (T and R)
         chatBubble.GetComponent<ChatBubble>().Setup("He probably doesn’t even know that he can " +
-            "\n pickup trash by pressing 'T'.");
+            "\n  <b> pickup trash cans </b> by pressing <b>R</b>.");
 
         trash = CreateTrash();
         // wait
@@ -101,20 +149,43 @@ public class Tutorial : MonoBehaviour
             yield return null;
         }
 
-        chatBubble.GetComponent<ChatBubble>().Setup("I bet he didn't even think he could press 'T' again " +
-            "\n while moving to throw it on enemies.");
+        chatBubble.GetComponent<ChatBubble>().Setup("I bet he's not strong enough to <b>throw it</b> by moving \n" +
+            "and pressing the button <b>R</b> again.");
+
+        while (!trash.GetComponent<ThrownObjectsHitDetect>().thrown)
+        {
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(1f);
+
+        chatBubble.GetComponent<ChatBubble>().Setup("Tss, he's not smart enough to throw trash against enemies anyway.");
+
+        trash = CreateTrash();
         enemy = CreateEnemy();
+        bool hasThrown = false;
 
         yield return new WaitForSeconds(0.5f);
         // wait
-        while (!enemy.GetComponent<EnemyHealth>().IsDead())
+        while (!enemy.GetComponent<EnemyHealth>().IsDead() && !hasThrown)
         {
+            // check if player has thrown a trash
+            hasThrown = hasThrown || trash.GetComponent<ThrownObjectsHitDetect>().thrown;
+
+            // resets trash if removed
             if (trash.GetComponent<ThrownObjectsHitDetect>().thrown)
             {
                 trash =  CreateTrash();
             }
+            // resets enemy if dead
+            if (enemy.GetComponent<EnemyHealth>().IsDead())
+            {
+                enemy = CreateEnemy();
+            }
             yield return null;
         }
+
+        toggleKnife(true);
 
         // dialogue (T and R)
         chatBubble.GetComponent<ChatBubble>().Setup("Honestly, only a guy like this would be dull enough " +
@@ -139,7 +210,7 @@ public class Tutorial : MonoBehaviour
 
 
         // pause menu
-        chatBubble.GetComponent<ChatBubble>().Setup("I'm also sure he'll forget stuff and will need to press 'P' to remember.");
+        chatBubble.GetComponent<ChatBubble>().Setup("I'm also sure he'll forget stuff \n and will need to press 'P' to remember.");
 
         // wait
         while (!paused)
@@ -148,8 +219,10 @@ public class Tutorial : MonoBehaviour
         }
 
         // last advice
+        /*
         chatBubble.GetComponent<ChatBubble>().Setup("If he's smart enough, he will use 'Q' and 'E' to do combos \n" +
             "and more damage on enemies. But clearly he's not!");
+        */
 
         this.GetComponent<LockFrame>().unlockPlayer();
         Destroy(chatBubble,3);
@@ -216,5 +289,11 @@ public class Tutorial : MonoBehaviour
         {
             enemy.SetActive(true);
         }
+    }
+
+    private void toggleKnife(bool activate)
+    {
+        knife.GetComponentInChildren<BoxCollider2D>().enabled = activate;
+        knife.GetComponent<SpriteRenderer>().enabled = activate;
     }
 }

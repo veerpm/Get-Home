@@ -155,5 +155,13 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    // check if conversation ordered at 'conversationIndex' position has already been readed and finished
+    public bool isConversationDone(int conversationIndex)
+    {
+        Conversation conv = conversations[conversationIndex];
+        bool dialoguelaunched = pastDialogues.Contains(conv.xPosition);
+        return dialoguelaunched && !gameManager.GetComponent<GamePause>().dialogueOngoing;
+    }
+
 }
 
