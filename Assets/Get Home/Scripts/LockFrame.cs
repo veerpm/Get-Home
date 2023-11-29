@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LockFrame : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class LockFrame : MonoBehaviour
     public GameObject gameManager;
     public List<GameObject> enemies;
     public GameObject goPrompt;
+    public GameObject surviveSign = null;
+    public Slider surviveSlider = null;
 
     private bool enemiesDefeated;
     private GameObject flag = null;
@@ -29,6 +32,13 @@ public class LockFrame : MonoBehaviour
 
     private void Update()
     {
+        float timerValue = Time.time - startTime;
+
+        if(surviveSign != null && timerValue < unlockTime && locked)
+        {
+            surviveSlider.value = 1-timerValue / unlockTime;
+        }
+
         // if a time was used and is done, unlock player
         if (useTime && Time.time - startTime >= unlockTime && locked)
         {
@@ -41,6 +51,12 @@ public class LockFrame : MonoBehaviour
             if (flag != null)
             {
                 flag.SetActive(true);
+            }
+
+            // survive sign for bikers
+            if (surviveSign != null)
+            {
+                surviveSign.SetActive(false);
             }
         }
 
@@ -80,6 +96,11 @@ public class LockFrame : MonoBehaviour
             lockPlayer();
             locked = true;
             startTime = Time.time;
+            // survive sign for bikers
+            if(surviveSign != null)
+            {
+                surviveSign.SetActive(true);
+            }
         }
     }
 

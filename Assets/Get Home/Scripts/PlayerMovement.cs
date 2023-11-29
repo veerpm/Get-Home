@@ -68,6 +68,12 @@ public class PlayerMovement : MonoBehaviour
 
             horizontal_movement = Input.GetAxisRaw("Horizontal") * Time.deltaTime * speed;
             vertical_movement = Input.GetAxisRaw("Vertical") * Time.deltaTime * speed;
+            // pseudo-normalization of speed
+            if(horizontal_movement != 0 && vertical_movement != 0)
+            {
+                horizontal_movement /= 2;
+                vertical_movement /= 2;
+            }
             movement = new Vector3(horizontal_movement, vertical_movement ,0.0f);
 
             //transform.position += movement;
