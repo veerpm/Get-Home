@@ -70,13 +70,14 @@ public class PickupObjects : MonoBehaviour
 
                 if (itemHolding.CompareTag("Football"))
                 {
+                    itemHolding.GetComponent<ThrowableObject>().caught = true;
                     if (GetComponent<PlayerMovement>().lookingRight == true)
                     {
-                        itemHolding.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 200);
+                        itemHolding.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 600);
                     }
                     else
                     {
-                        itemHolding.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 200);
+                        itemHolding.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 600);
                     }
                 }
 
@@ -86,7 +87,7 @@ public class PickupObjects : MonoBehaviour
 
                 itemHolding.transform.parent = null;
                 // Automatically destroy thrown object after 0.5 seconds
-                Destroy(itemHolding, 0.5f);
+                Destroy(itemHolding, 1.5f);
                 itemHolding = null;
             }
 

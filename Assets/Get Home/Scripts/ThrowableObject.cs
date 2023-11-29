@@ -23,7 +23,6 @@ public class ThrowableObject : MonoBehaviour
             Vector2 moveDirection = (target.transform.position - transform.position).normalized * speed;
             //Debug.Log(moveDirection);
             throwableRB.velocity = new Vector2(moveDirection.x, moveDirection.y);
-
         }
 
     }
@@ -32,7 +31,7 @@ public class ThrowableObject : MonoBehaviour
     void Update()
     {
         catchTimer += Time.deltaTime;
-
+  
         if (caught == false && catchTimer > timeToCatch)
         {
             Destroy(this.gameObject);
@@ -47,15 +46,15 @@ public class ThrowableObject : MonoBehaviour
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().TakeDamage(damage);
         }
         // Environmental Objects will act as a shield for the player against throwing stuffs
-        if (collider.gameObject.tag == "Trash Can")
+        else if (collider.gameObject.tag == "Trash Can")
         {
             Destroy(this.gameObject);
         }
-        if (collider.gameObject.tag == "Enemy" && caught == true)
+        else if (collider.gameObject.tag == "Enemy" && caught == true)
         {
             Debug.Log("2 Number 9's");
             Destroy(this.gameObject);
-            GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyHealth>().TakeDamage(damage * 3);
+            collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage * 2);
         }
     }
 }
