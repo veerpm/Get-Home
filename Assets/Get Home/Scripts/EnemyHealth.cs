@@ -41,6 +41,7 @@ public class EnemyHealth : MonoBehaviour
         if (damageText != null)
         {
             GameObject damageTextClone = Instantiate(damageText, transform.Find("Canvas"));
+            animator.SetTrigger("Hurt");
             damageTextClone.transform.GetChild(0).GetComponent<TextMesh>().text = damage.ToString();
             Destroy(damageTextClone, 1f);
             if (gameObject.name == "Landlord")

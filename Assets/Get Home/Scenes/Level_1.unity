@@ -918,7 +918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 330463865}
-  speed: 3
+  speed: 4
   lookingRight: 1
   walkingSound1: {fileID: 330463872}
   walkingSound2: {fileID: 330463877}
@@ -15455,6 +15455,8 @@ MonoBehaviour:
   gameManager: {fileID: 1594741620}
   enemies: []
   goPrompt: {fileID: 1888591357}
+  surviveSign: {fileID: 0}
+  surviveSlider: {fileID: 0}
   useTime: 0
   locked: 0
   unlockTime: 0
@@ -23541,7 +23543,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -250.00146, y: 25}
+  m_AnchoredPosition: {x: -250, y: 25}
   m_SizeDelta: {x: 500, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2116219565
