@@ -97,7 +97,7 @@ public class PickupObjects : MonoBehaviour
                 {
                     //sound FX
                     pickUpTrashSound.Play();
-                    gameObject.GetComponent<PlayerMovement>().speed = 1.5f;
+                    
                     itemHolding = pickUpItem.gameObject;
                     itemHolding.transform.position = holdSpot.position;
                     itemHolding.transform.parent = transform;
