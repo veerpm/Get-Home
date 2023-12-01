@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public Animator animator;
     public int maxHealth = 100;
-    public int currentHealth;
+    private int currentHealth;
     public GameObject healthBar;
     public GameObject healthDisplay;
     public AnimationEvents events;
@@ -92,10 +92,12 @@ public class PlayerHealth : MonoBehaviour
     public void setHealth(int health)
     {
         currentHealth += health;
-        if (currentHealth >= maxHealth)
+        Debug.Log(currentHealth);
+        if (currentHealth >= maxHealth || currentHealth < 0)
         {
             currentHealth = maxHealth;
         }
+        Debug.Log(currentHealth);
         DisplayHealth();
     }
 
