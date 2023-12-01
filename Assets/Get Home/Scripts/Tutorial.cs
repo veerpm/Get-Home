@@ -17,7 +17,6 @@ public class Tutorial : MonoBehaviour
     private GameObject chatBubble;
 
     //private bool moved = false;
-    private bool pickedUpTrash = false;
     private bool paused = false;
     private bool tutorialLaunched = false;
 
@@ -42,12 +41,6 @@ public class Tutorial : MonoBehaviour
             moved = true;
         }
         */
-
-
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            pickedUpTrash = true;
-        }
 
         if (Input.GetKeyDown(KeyCode.P))
         {
@@ -144,7 +137,7 @@ public class Tutorial : MonoBehaviour
 
         trash = CreateTrash();
         // wait
-        while (!pickedUpTrash || !player.GetComponent<PickupObjects>().IsHolding())
+        while (!Input.GetKeyDown(KeyCode.R) || !player.GetComponent<PickupObjects>().IsHolding())
         {
             yield return null;
         }
@@ -208,8 +201,8 @@ public class Tutorial : MonoBehaviour
             yield return null;
         }
 
-        chatBubble.GetComponent<ChatBubble>().Setup("As incompetent as he looks, \n he won't even be able to drop the knife using <b>F</b>");
-        while (!Input.GetKeyDown(KeyCode.F))
+        chatBubble.GetComponent<ChatBubble>().Setup("As incompetent as he looks, \n he won't even be able to drop the knife using <b>R</b> again.");
+        while (!Input.GetKeyDown(KeyCode.R))
         {
             yield return null;
         }
