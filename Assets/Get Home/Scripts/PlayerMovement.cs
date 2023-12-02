@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Animator animator;
-    public float speed;
+    public float defaultSpeed;
+    [HideInInspector] public float speed;
+
     private float horizontal_movement;
     private float vertical_movement;
     private Vector3 movement;
@@ -27,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        speed = defaultSpeed;
         sprite = gameObject.GetComponent<SpriteRenderer>();
         PickUpObjects = gameObject.GetComponent<PickupObjects>();
         rb = GetComponent<Rigidbody2D>();

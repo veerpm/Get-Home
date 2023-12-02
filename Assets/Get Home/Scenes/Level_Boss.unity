@@ -5799,6 +5799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 330463865}
+  defaultSpeed: 4
   speed: 4
   lookingRight: 1
   walkingSound1: {fileID: 330463872}
