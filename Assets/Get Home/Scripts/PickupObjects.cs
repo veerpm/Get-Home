@@ -29,7 +29,7 @@ public class PickupObjects : MonoBehaviour
         // need to find if in range without any input so can glow when close
         pickUpItem = Physics2D.OverlapCircle(transform.position, pickupRadius, pickUpMask);
 
-        if (pickUpItem && !pickUpItem.CompareTag("Football") && !pickUpItem.GetComponent<ThrownObjectsHitDetect>().thrown)
+        if (pickUpItem && !pickUpItem.CompareTag("Football") && !pickUpItem.CompareTag("Bottle") && !pickUpItem.GetComponent<ThrownObjectsHitDetect>().thrown)
         {
             pickUpItem.transform.Find("Light").GetComponent<Light2D>().enabled = true;
             item = pickUpItem;
@@ -80,6 +80,18 @@ public class PickupObjects : MonoBehaviour
                         itemHolding.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 600);
                     }
                 }
+                if (itemHolding.CompareTag("Bottle"))
+                {
+                    itemHolding.GetComponent<BossThrowableObject>().caught = true;
+                    if (GetComponent<PlayerMovement>().lookingRight == true)
+                    {
+                        itemHolding.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 600);
+                    }
+                    else
+                    {
+                        itemHolding.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 600);
+                    }
+                }
 
                 GetComponent<PlayerCombatMelee>().enabled = true;
                 if (itemHolding.GetComponent<Rigidbody2D>())
@@ -96,6 +108,7 @@ public class PickupObjects : MonoBehaviour
                 if (pickUpItem)
                 {
                     //sound FX
+    
                     pickUpTrashSound.Play();
                     
                     itemHolding = pickUpItem.gameObject;
@@ -107,6 +120,11 @@ public class PickupObjects : MonoBehaviour
                     if (itemHolding.CompareTag("Football"))
                     {
                         itemHolding.GetComponent<ThrowableObject>().caught = true;
+                        itemHolding.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                    }
+                    if (itemHolding.CompareTag("Bottle"))
+                    {
+                        itemHolding.GetComponent<BossThrowableObject>().caught = true;
                         itemHolding.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
                     }
                     if (itemHolding.GetComponent<Rigidbody2D>())

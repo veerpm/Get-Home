@@ -70,6 +70,7 @@ public class BossBehaviour : MonoBehaviour
         // Keep charging while duration is active
         if (Time.time - startTime <= 1.2f)
         {
+            Debug.Log("Start Charge");
             charging = true;
             
             if (transform.position.x > pointLeft.transform.position.x && onRightSide == true)
@@ -88,7 +89,7 @@ public class BossBehaviour : MonoBehaviour
         }
         else if(Time.time - startTime > 1.1f)
         {
-            //Debug.Log("End Charge");
+            Debug.Log("End Charge");
             charging = false;
             if (onRightSide)
             {

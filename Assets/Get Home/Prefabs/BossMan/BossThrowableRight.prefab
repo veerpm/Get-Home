@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7619498244196595966}
   m_Layer: 12
   m_Name: BossThrowableRight
-  m_TagString: Football
+  m_TagString: Bottle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
