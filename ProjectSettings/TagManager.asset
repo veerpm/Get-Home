@@ -17,6 +17,7 @@ TagManager:
   - DisplayText
   - Beer
   - Epipen
+  - Bottle
   layers:
   - Default
   - TransparentFX

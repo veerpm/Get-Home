@@ -55,7 +55,7 @@ public class BossThrowableObject : MonoBehaviour
         {
             Debug.Log("2 Number 9's");
             Destroy(this.gameObject);
-            GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyHealth>().TakeDamage(damage * 3);
+            collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage * 3);
         }
     }
 }
