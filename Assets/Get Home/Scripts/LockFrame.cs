@@ -76,7 +76,7 @@ public class LockFrame : MonoBehaviour
             }
 
             // if all enemies are dead, release player & deactivate
-            if (noEnemies)
+            if (noEnemies && name!= "homeless_guy")
             {
                 unlockPlayer();
                 enemiesDefeated = true;

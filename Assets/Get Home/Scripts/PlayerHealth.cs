@@ -92,12 +92,10 @@ public class PlayerHealth : MonoBehaviour
     public void setHealth(int health)
     {
         currentHealth += health;
-        Debug.Log(currentHealth);
         if (currentHealth >= maxHealth || currentHealth < 0)
         {
             currentHealth = maxHealth;
         }
-        Debug.Log(currentHealth);
         DisplayHealth();
     }
 
