@@ -219,4 +219,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drinkBeerSound: {fileID: 205178986}
-  healValue: 50
+  healValue: 100
