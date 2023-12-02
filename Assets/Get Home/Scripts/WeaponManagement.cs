@@ -49,12 +49,12 @@ public class WeaponManagement : MonoBehaviour
             GetComponent<SprayCanBehaviour>().enabled = true;
         }
 
-        if (!pickable && Input.GetKeyDown(KeyCode.R) && EquippedWeapon != defaultWeapon)
+        if (!pickable && Input.GetKeyDown(KeyCode.R))
         {
             DropWeapon();
         }
 
-        if (pickable && Input.GetKeyDown(KeyCode.R))
+        if (pickable && Input.GetKeyDown(KeyCode.R) && !GetComponent<PickupObjects>().pickUpItem && !GetComponent<PickupObjects>().itemHolding)
         {
             SwapWeapon();
         }
@@ -114,14 +114,17 @@ public class WeaponManagement : MonoBehaviour
         floorWeapon.SetActive(true);
     }
 
-    void DropWeapon()
+    public void DropWeapon()
     {
-        ResetDurability();
-        animator.SetBool(EquippedWeapon.name, false);
-        EquippedWeapon.transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, 0);
-        EquippedWeapon.SetActive(true);
-        EquippedWeapon = defaultWeapon;
-        animator.SetBool(EquippedWeapon.name, true);
+        if (EquippedWeapon != defaultWeapon)
+        {
+            ResetDurability();
+            animator.SetBool(EquippedWeapon.name, false);
+            EquippedWeapon.transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, 0);
+            EquippedWeapon.SetActive(true);
+            EquippedWeapon = defaultWeapon;
+            animator.SetBool(EquippedWeapon.name, true);
+        }
     }
 
     void DisplayWeapon()

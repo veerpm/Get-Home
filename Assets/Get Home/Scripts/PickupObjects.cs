@@ -10,8 +10,8 @@ public class PickupObjects : MonoBehaviour
     public float pickupRadius = 0.9f;
 
     public Vector3 Direction { get; set; }
-    private GameObject itemHolding;
-    private Collider2D pickUpItem;
+    public GameObject itemHolding;
+    public Collider2D pickUpItem;
     Collider2D item;
     public float placeDownOffSet = 0f;
     private Vector3 yOffset = new Vector3(0.0f, -0.3f, 0.0f);
@@ -110,10 +110,12 @@ public class PickupObjects : MonoBehaviour
                     //sound FX
     
                     pickUpTrashSound.Play();
-                    
+
                     itemHolding = pickUpItem.gameObject;
                     itemHolding.transform.position = holdSpot.position;
                     itemHolding.transform.parent = transform;
+
+                    GetComponent<WeaponManagement>().DropWeapon();
 
                     // Disable attacking when carrying object
                     GetComponent<PlayerCombatMelee>().enabled = false;
