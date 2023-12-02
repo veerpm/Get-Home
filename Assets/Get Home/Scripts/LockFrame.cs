@@ -33,6 +33,12 @@ public class LockFrame : MonoBehaviour
 
     private void Update()
     {
+        // avoid lockframe from running (and unlocking) after played died.
+        if(locked && player.GetComponent<PlayerHealth>().IsDead())
+        {
+            locked = false;
+        }
+
         float timerValue = Time.time - startTime;
 
         // update sign with time left
