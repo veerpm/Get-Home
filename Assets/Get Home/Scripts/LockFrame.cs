@@ -19,7 +19,7 @@ public class LockFrame : MonoBehaviour
     public bool useTime = false;
     public bool locked;
     public float unlockTime;
-    private float startTime;
+    public float startTime;
 
     private void Start()
     {

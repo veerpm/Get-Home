@@ -116,12 +116,14 @@ public class GamePause : MonoBehaviour
                     if (level2.enemyStop1.GetComponent<LockFrame>().locked)
                     {
                         level2.enemyStop1.GetComponent<LockFrame>().locked = false;
+                        level2.enemyStop1.GetComponent<LockFrame>().startTime = 0;
                         level2.enemyStop1.GetComponent<BoxCollider2D>().enabled = true;
                         level2.activated1 = false;
                     }
                     else if (level2.enemyStop2.GetComponent<LockFrame>().locked)
                     {
                         level2.enemyStop2.GetComponent<LockFrame>().locked = false;
+                        level2.enemyStop2.GetComponent<LockFrame>().startTime = 0;
                         level2.enemyStop2.GetComponent<BoxCollider2D>().enabled = true;
                         level2.activated2 = false;
                     }
@@ -129,6 +131,7 @@ public class GamePause : MonoBehaviour
                     {
                         level2.activated3 = false;
                     }
+                    level2.enemyStop1.GetComponent<LockFrame>().surviveSign.SetActive(false);
                     Destroy(enemy);
                 }
             }
