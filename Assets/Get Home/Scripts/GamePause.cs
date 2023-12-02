@@ -21,10 +21,18 @@ public class GamePause : MonoBehaviour
 
     // boss fight
     public GameObject bossEnemy = null;
+    private Vector2 bossPostition;
+    private Vector2 randyPosition;
 
     // Start is called before the first frame update
     void Start()
     {
+        // sets start position of boss and randy
+        if (bossEnemy != null)
+        {
+            bossPostition = bossEnemy.transform.position;
+            randyPosition = player.transform.position;
+        }
     }
 
     // Update is called once per frame
@@ -138,6 +146,21 @@ public class GamePause : MonoBehaviour
             foreach (GameObject beer in beers)
             {
                 Destroy(beer);
+            }
+
+            // resets player and boss position
+            bossEnemy.transform.position = bossPostition;
+            player.transform.position = randyPosition;
+
+            // remove bicycles on screen
+
+            GameObject[] bikeEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (GameObject bikeEnemy in bikeEnemies)
+            {
+                if (bikeEnemy.GetComponent<BicycleEnemy>() != null)
+                {
+                    Destroy(bikeEnemy);
+                }
             }
         }
 
