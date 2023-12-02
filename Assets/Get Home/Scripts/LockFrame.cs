@@ -101,8 +101,8 @@ public class LockFrame : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && !enemiesDefeated)
         {
-            // return if timer has already been started
-            if(useTime && startTime != 0f)
+            // simply exit if combat has already started
+            if(locked)
             {
                 return;
             }
