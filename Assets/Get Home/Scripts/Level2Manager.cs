@@ -16,7 +16,7 @@ public class Level2Manager : MonoBehaviour
     public GameObject enemyStop2;
 
     // variables for the checkmark location's enemies
-    private bool activated4 = false;
+    public bool activated4 = false;
     public GameObject enemyStop3;
     public GameObject bicycleGameObject;
     // var for (new) timer of bicycleSpawner
@@ -57,7 +57,7 @@ public class Level2Manager : MonoBehaviour
             SpawnBicycle(4, true, enemyStop2.GetComponent<LockFrame>().unlockTime, 5);
             activated2 = true;
         }
-        if(!activated4 && enemyStop3.GetComponent<LockFrame>().locked)
+        if (!activated4 && enemyStop3.GetComponent<LockFrame>().locked)
         {
             // spawn enemies in a row
             checkmarkCoroutine = StartCoroutine(CheckmarkObstacle());

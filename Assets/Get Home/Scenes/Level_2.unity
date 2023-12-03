@@ -6150,7 +6150,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330463859}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.34, y: -0.77, z: 0}
+  m_LocalPosition: {x: -10.02, y: -0.72, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_Children:
   - {fileID: 1153692120}
@@ -23267,6 +23267,7 @@ MonoBehaviour:
     type: 3}
   enemyStop1: {fileID: 1327446377}
   enemyStop2: {fileID: 1388302674}
+  activated4: 0
   enemyStop3: {fileID: 1985203182}
   bicycleGameObject: {fileID: 8076393321681526350, guid: c5a96e5964d1044a0ae170e2a0b1cb7c,
     type: 3}

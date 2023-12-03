@@ -113,7 +113,6 @@ public class GamePause : MonoBehaviour
                 Level2Manager level2 = GameObject.Find("GameManager").GetComponent<Level2Manager>();
                 if (level2 != null)
                 {
-                    Debug.Log(!level2.enemyStop2.GetComponent<LockFrame>().EnemiesDefeated());
                     if (!level2.enemyStop1.GetComponent<LockFrame>().EnemiesDefeated())
                     {
                         level2.enemyStop1.GetComponent<BoxCollider2D>().enabled = true;
@@ -127,7 +126,7 @@ public class GamePause : MonoBehaviour
                     }
                     else if (!level2.enemyStop3.GetComponent<LockFrame>().EnemiesDefeated())
                     {
-                        level2.activated3 = false;
+                        level2.activated4 = false;
                         level2.StopCheckCoroutine();
                     }
                     Destroy(enemy);

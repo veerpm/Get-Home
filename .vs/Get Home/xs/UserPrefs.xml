@@ -1,14 +1,11 @@
 ﻿<Properties GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Get Home/Scripts/PlayerHealth.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Get Home/Scripts/GamePause.cs">
     <Files>
       <File FileName="Assets/Get Home/Scripts/PickupObjects.cs" />
-      <File FileName="Assets/Get Home/Scripts/PlayerHealth.cs" Line="16" Column="21" />
+      <File FileName="Assets/Get Home/Scripts/PlayerHealth.cs" />
+      <File FileName="Assets/Get Home/Scripts/Level2Manager.cs" Line="59" Column="10" />
+      <File FileName="Assets/Get Home/Scripts/GamePause.cs" Line="115" Column="18" />
+      <File FileName="Assets/Get Home/Scripts/LockFrame.cs" Line="41" Column="46" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,7 +15,7 @@
               <Node name="Assets" expanded="True">
                 <Node name="Get Home" expanded="True">
                   <Node name="Scripts" expanded="True">
-                    <Node name="PlayerHealth.cs" selected="True" />
+                    <Node name="GamePause.cs" selected="True" />
                   </Node>
                 </Node>
               </Node>
@@ -28,4 +25,10 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
 </Properties>
