@@ -177,8 +177,11 @@ public class GamePause : MonoBehaviour
             {
                 player.GetComponent<WeaponManagement>().DropWeapon();
             }
-
-            weapon.GetComponent<WeaponStats>().ResetAsNew();
+            
+            if(weapon.name != "SprayCan")
+            {
+                weapon.GetComponent<WeaponStats>().ResetAsNew();
+            }
             weapon.SetActive(true);
         }
 

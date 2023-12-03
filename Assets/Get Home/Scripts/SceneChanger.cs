@@ -17,6 +17,7 @@ public class SceneChanger : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("Hit player");
+            blackScreen.gameObject.SetActive(true);
             blackScreen.enabled = true;
             StartCoroutine(FadeBlack());
         }
@@ -36,11 +37,14 @@ public class SceneChanger : MonoBehaviour
 
     public IEnumerator FadeBlack()
     {
-        Color color;
+        Color color = blackScreen.color;
         float fadeAmount;
 
+        // set back to transparent first
+        blackScreen.color = new Color(color.r, color.g, color.b, 0f);
+
         // fade to black
-        while(blackScreen.color.a < 1)
+        while (blackScreen.color.a < 1)
         {
             color = blackScreen.color;
             fadeAmount = color.a + (fadeSpeed * Time.deltaTime);
