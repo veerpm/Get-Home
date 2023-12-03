@@ -36,6 +36,8 @@ public class Level2Manager : MonoBehaviour
             SpawnBicycle(3, true, enemyStop1.GetComponent<LockFrame>().unlockTime, 5);
             activated1 = true;
         }
+
+        //Debug.Log(bicycleEnemy == null && !enemyStop2.GetComponent<LockFrame>().EnemiesDefeated() && !activated3);
         if (activated1 && bicycleEnemy == null && !enemyStop2.GetComponent<LockFrame>().EnemiesDefeated() && !activated3)
         {
             SpawnBicycle(4, false, 1000,7);

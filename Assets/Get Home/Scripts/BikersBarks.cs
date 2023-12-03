@@ -33,7 +33,6 @@ public class BikersBarks : MonoBehaviour
         {
             // get enemy
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            Debug.Log(enemies);
 
             // spawn 1 chat bubble among all enemies present in the game
             if(enemies != null && enemies.Length != 0)
