@@ -116,24 +116,20 @@ public class GamePause : MonoBehaviour
                     Debug.Log(!level2.enemyStop2.GetComponent<LockFrame>().EnemiesDefeated());
                     if (!level2.enemyStop1.GetComponent<LockFrame>().EnemiesDefeated())
                     {
-                        level2.enemyStop1.GetComponent<LockFrame>().locked = false;
-                        level2.enemyStop1.GetComponent<LockFrame>().startTime = 0;
                         level2.enemyStop1.GetComponent<BoxCollider2D>().enabled = true;
                         level2.activated1 = false;
                     }
-                    if (!level2.enemyStop2.GetComponent<LockFrame>().EnemiesDefeated())
+                    else if (!level2.enemyStop2.GetComponent<LockFrame>().EnemiesDefeated())
                     {
-                        level2.enemyStop2.GetComponent<LockFrame>().locked = false;
-                        level2.enemyStop2.GetComponent<LockFrame>().startTime = 0;
                         level2.enemyStop2.GetComponent<BoxCollider2D>().enabled = true;
                         level2.activated2 = false;
-                    }
-                    if (!level2.enemyStop2.GetComponent<LockFrame>().EnemiesDefeated())
-                    {
-                        Debug.Log("here");
                         level2.activated3 = false;
                     }
-                    level2.enemyStop1.GetComponent<LockFrame>().surviveSign.SetActive(false);
+                    else if (!level2.enemyStop3.GetComponent<LockFrame>().EnemiesDefeated())
+                    {
+                        level2.activated3 = false;
+                        level2.StopCheckCoroutine();
+                    }
                     Destroy(enemy);
                 }
             }

@@ -21,6 +21,7 @@ public class Level2Manager : MonoBehaviour
     public GameObject bicycleGameObject;
     // var for (new) timer of bicycleSpawner
     public GameObject gameManager;
+    private Coroutine checkmarkCoroutine;
 
     // Start is called before the first frame update
     void Start()
@@ -59,7 +60,7 @@ public class Level2Manager : MonoBehaviour
         if(!activated4 && enemyStop3.GetComponent<LockFrame>().locked)
         {
             // spawn enemies in a row
-            StartCoroutine(CheckmarkObstacle());
+            checkmarkCoroutine = StartCoroutine(CheckmarkObstacle());
             activated4 = true;
         }
     }
@@ -113,5 +114,10 @@ public class Level2Manager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void StopCheckCoroutine()
+    {
+        StopCoroutine(checkmarkCoroutine);
     }
 }

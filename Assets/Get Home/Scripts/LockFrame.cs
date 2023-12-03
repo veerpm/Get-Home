@@ -36,7 +36,12 @@ public class LockFrame : MonoBehaviour
         // avoid lockframe from running (and unlocking) after played died.
         if(locked && player.GetComponent<PlayerHealth>().IsDead())
         {
+            if (surviveSign != null)
+            {
+                surviveSign.SetActive(false);
+            }
             locked = false;
+            startTime = 0;
         }
 
         float timerValue = Time.time - startTime;
