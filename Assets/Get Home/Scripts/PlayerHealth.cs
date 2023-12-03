@@ -105,6 +105,11 @@ public class PlayerHealth : MonoBehaviour
         dead = false;
     }
 
+    public bool IsDead()
+    {
+        return dead;
+    }
+
     private void SetDeath()
     {
         gameManager.GetComponent<GamePause>().setDead();

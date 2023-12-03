@@ -47,7 +47,7 @@ public class PickupObjects : MonoBehaviour
             {
                 //sound FX
                 throwTrashSound.Play();
-                gameObject.GetComponent<PlayerMovement>().speed = 3;
+                gameObject.GetComponent<PlayerMovement>().speed = gameObject.GetComponent<PlayerMovement>().defaultSpeed;
                 itemHolding.transform.parent = null;
                 itemHolding.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                 itemHolding.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionX;

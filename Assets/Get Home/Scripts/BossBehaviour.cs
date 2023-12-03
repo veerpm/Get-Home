@@ -89,7 +89,7 @@ public class BossBehaviour : MonoBehaviour
         }
         else if(Time.time - startTime > 1.1f)
         {
-            Debug.Log("End Charge");
+            //Debug.Log("End Charge");
             charging = false;
             if (onRightSide)
             {

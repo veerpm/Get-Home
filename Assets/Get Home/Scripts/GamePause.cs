@@ -170,14 +170,19 @@ public class GamePause : MonoBehaviour
         // bring back all weapons that were destroyed
         GameObject[] weapons = GameObject.FindGameObjectsWithTag("Weapon");
 
-        foreach (Transform child in weaponHolder.transform)
+        foreach (Transform weaponTransform in weaponHolder.transform)
         {
-            GameObject weapon = child.gameObject;
-            print(weapon);
-            if (player.GetComponent<WeaponManagement>().equippedWeapon != weapon)
+            GameObject weapon = weaponTransform.gameObject;
+            if (player.GetComponent<WeaponManagement>().equippedWeapon == weapon)
             {
-                weapon.SetActive(true);
+                player.GetComponent<WeaponManagement>().DropWeapon();
             }
+            
+            if(weapon.name != "SprayCan")
+            {
+                weapon.GetComponent<WeaponStats>().ResetAsNew();
+            }
+            weapon.SetActive(true);
         }
 
         // restart sound

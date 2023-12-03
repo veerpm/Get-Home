@@ -79,7 +79,7 @@ public class Level2Manager : MonoBehaviour
 
     IEnumerator CheckmarkObstacle()
     {
-        // spawn 3 waves of bicycles, 5 secs between each
+        // spawn 3 waves of bicycles, 3 secs between each
         for(int i = 1; i<6; i+=2)
         {
             SpawnBicyclesRow(i);

@@ -19,4 +19,10 @@ public class WeaponStats : MonoBehaviour
         currentHits = maxHits;
         initialPostion = transform.position;
     }
+
+    public void ResetAsNew()
+    {
+        currentHits = maxHits;
+        transform.position = initialPostion;
+    }
 }

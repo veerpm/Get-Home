@@ -42,7 +42,12 @@ public class SceneTransition : MonoBehaviour
             float xPos = levelNameObject.transform.position.x;
             float newXPos = xPos - Mathf.Pow(acceleration * Time.deltaTime,2);
             levelNameObject.transform.position = new Vector3(newXPos, levelNameObject.transform.position.y, 0f);
-            acceleration += 3;
+            
+            if(Time.timeScale != 0)
+            {
+                acceleration += 3;
+            }
+
             yield return null;
         }
         levelNameObject.SetActive(false);

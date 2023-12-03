@@ -918,6 +918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 330463865}
+  defaultSpeed: 4
   speed: 4
   lookingRight: 1
   walkingSound1: {fileID: 330463872}
@@ -15373,7 +15374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1030989867
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15479,7 +15480,7 @@ MonoBehaviour:
   triggerPosX: -6.5
   trashCan: {fileID: 7610311267251977994, guid: 8fe746b7827ecdc4485f3ea1720b9c11,
     type: 3}
-  trashPos: {x: -6.5, y: -1, z: 0}
+  trashPos: {x: -9.08, y: -1.45, z: 0}
   baseballEnemy: {fileID: 683629375773968696, guid: 9752569396f9e482e9e16d796fbef497,
     type: 3}
   enemyPos: {x: -2, y: -1, z: 0}
@@ -16048,7 +16049,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.6}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -23907,12 +23908,12 @@ PrefabInstance:
     - target: {fileID: 8168594218203311355, guid: d2b76872b3a384e5e882f5343fb1aed1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.99
+      value: -3.41
       objectReference: {fileID: 0}
     - target: {fileID: 8168594218203311355, guid: d2b76872b3a384e5e882f5343fb1aed1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.27
+      value: -0.56
       objectReference: {fileID: 0}
     - target: {fileID: 8168594218203311355, guid: d2b76872b3a384e5e882f5343fb1aed1,
         type: 3}

@@ -19,6 +19,12 @@ public class BicycleEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // modify volume to user's
+        if (PlayerPrefs.HasKey("Volume"))
+        {
+            transform.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("Volume");
+        }
+
         if (toLeft)
         {
             bikeSounds.PlayOneShot(bikeLeftSound);
