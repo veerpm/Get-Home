@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 public class BossEpilogue : MonoBehaviour
 {
     public GameObject boss;
+    public GameObject bossClone;
     public GameObject player;
     public GameObject gameMusic;
     public DialogueManagerV2.Line[] lines;
@@ -24,25 +25,18 @@ public class BossEpilogue : MonoBehaviour
     public GameObject mainCanvas;
     public float fadeSpeed;
     public float raiseSpeed;
-
-
-    private bool dialogueStarted = false;
+   
+    public bool creditsLaunched = false;
+    private bool endingDialogueStarted = false;
 
     private void Awake()
     {
-        //PauseMode(true);
-        //boss.GetComponent<Animator>().SetTrigger("LandlordEntry");
-        //player.GetComponent<DialogueManagerV2>().enabled = false;
-    }
-
-    private void Start()
-    {
+        BeginningCinematic();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //print(this.GetComponent<GamePause>().dialogueOngoing);
         // wait that intro dialogue finishes to activate back everything
         if (player.GetComponent<DialogueManagerV2>().DialogueOn() && !introStarted)
         {
@@ -51,29 +45,57 @@ public class BossEpilogue : MonoBehaviour
         }
 
         // show ending screen once dialogue is finished
-        if (dialogueStarted && !player.GetComponent<DialogueManagerV2>().DialogueOn())
+        if (endingDialogueStarted && !player.GetComponent<DialogueManagerV2>().DialogueOn() && !creditsLaunched)
         {
             PauseMode(true);
             endingScreen.SetActive(true);
             StartCoroutine(Credits());
-            dialogueStarted = true;
+            creditsLaunched = true;
         }
+    }
+
+    // immediately called at beginning of level (for boss' entry)
+    public void BeginningCinematic()
+    {
+        PauseMode(true);
+        CutAllSounds(true);
+        boss.GetComponent<Animator>().SetTrigger("LandlordEntry");
+        player.GetComponent<DialogueManagerV2>().enabled = false;
+
+        // start animation
+        //boss.GetComponent<SpriteRenderer>().enabled = false;
+        boss.SetActive(false);
+        bossClone.SetActive(true);
     }
 
     // dialogue when boss enters
     public void StartIntroDialogue()
     {
-        PauseMode(false);
+        // switch to real boss
+        //boss.GetComponent<SpriteRenderer>().enabled = true;
+        boss.SetActive(true);
+        bossClone.SetActive(false);
+
+        CutAllSounds(false);
         player.GetComponent<DialogueManagerV2>().enabled = true;
+    }
+
+    // when boss dies
+    public void BossDieCinematic()
+    {
+        CutAllSounds(true);
+        PauseMode(true);
     }
 
     // final dialogue starts when boss dies
     public void StartEndingDialogue()
     {
+        print("started ending");
         player.GetComponent<DialogueManagerV2>().StartDialogue(lines);
-        dialogueStarted = true;
+        endingDialogueStarted = true;
     }
 
+    // deactivate moving elements of game
     public void PauseMode(bool pauseActivated)
     {
         //pause everything
@@ -87,19 +109,26 @@ public class BossEpilogue : MonoBehaviour
             }
         }
 
-        // disable chat boxes, music and player's controls & sounds
+        // disable chat boxes, music and player's controls
         this.GetComponent<ChatManager>().enabled = !pauseActivated;
         player.GetComponent<PlayerMovement>().enabled = !pauseActivated;
-        gameMusic.SetActive(!pauseActivated);
-        AudioSource[] sounds = player.GetComponents<AudioSource>();
-        foreach(AudioSource sound in sounds)
-        {
-            sound.enabled = !pauseActivated;
-        }
+
         // stop boss from doing anything funky
         boss.GetComponent<BossBehaviour>().started = !pauseActivated;
     }
 
+    // deactivate audio sources of game
+    private void CutAllSounds(bool activated)
+    {
+        gameMusic.SetActive(!activated);
+        AudioSource[] sounds = player.GetComponents<AudioSource>();
+        foreach (AudioSource sound in sounds)
+        {
+            sound.enabled = !activated;
+        }
+    }
+
+    // ending
     IEnumerator Credits()
     {
         Color screenColor = endingScreen.GetComponent<Image>().color;

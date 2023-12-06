@@ -34,7 +34,7 @@ public class BossBehaviour : MonoBehaviour
     private bool onRightSide = true;
 
     // Scene controls
-    public bool started;
+    [HideInInspector] public bool started;
     public GameObject gameManager;
     
     // Start is called before the first frame update
@@ -191,19 +191,13 @@ public class BossBehaviour : MonoBehaviour
         }
     }
 
-    // called at the end of the boss' entry animation
-    public void DialogueStart()
-    {
-        player.GetComponent<DialogueManagerV2>().enabled = true;
-    }
-
-    // called when boss has been beaten
+    // called when boss has been beaten: stop everything from moving
     public void BossDied()
     {
-        gameManager.GetComponent<BossEpilogue>().PauseMode(true);
+        gameManager.GetComponent<BossEpilogue>().BossDieCinematic();
     }
 
-    // called at the end of the boss' death animation
+    // called at the end of the boss' death animation (activates dialogue)
     public void EndingStart()
     {
         gameManager.GetComponent<BossEpilogue>().StartEndingDialogue();
