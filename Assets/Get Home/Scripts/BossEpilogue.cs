@@ -28,9 +28,14 @@ public class BossEpilogue : MonoBehaviour
    
     public bool creditsLaunched = false;
     private bool endingDialogueStarted = false;
+    private GameObject[] enemies;
 
     private void Awake()
     {
+        // get all enemies in scene
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        // intro
         BeginningCinematic();
     }
 
@@ -40,6 +45,7 @@ public class BossEpilogue : MonoBehaviour
         // wait that intro dialogue finishes to activate back everything
         if (player.GetComponent<DialogueManagerV2>().DialogueOn() && !introStarted)
         {
+            print("activated!");
             PauseMode(false);
             introStarted = true;
         }
@@ -99,9 +105,10 @@ public class BossEpilogue : MonoBehaviour
     public void PauseMode(bool pauseActivated)
     {
         //pause everything
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        print("enemies!");
         foreach(GameObject enemy in enemies)
         {
+            print(enemy);
             // deactivate all enemies
             if(enemy.name != "Landlord")
             {
