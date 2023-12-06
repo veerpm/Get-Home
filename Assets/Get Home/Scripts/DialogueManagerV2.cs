@@ -101,6 +101,7 @@ public class DialogueManagerV2 : MonoBehaviour
         this.dialogueOn = true;
         dialogueBox.SetActive(true);
         gameManager.GetComponent<GamePause>().pause(true);
+        gameManager.GetComponent<GamePause>().dialogueOngoing = true;
 
         // dialogue info
         this.lines = lines;
@@ -144,6 +145,8 @@ public class DialogueManagerV2 : MonoBehaviour
             dialogueOn = false;
             dialogueBox.SetActive(false);
             gameManager.GetComponent<GamePause>().pause(false);
+            gameManager.GetComponent<GamePause>().dialogueOngoing = false;
+
         }
     }
 
@@ -163,6 +166,14 @@ public class DialogueManagerV2 : MonoBehaviour
     public bool DialogueOn()
     {
         return dialogueOn;
+    }
+
+    // check if conversation ordered at 'conversationIndex' position has already been readed and finished
+    public bool isConversationDone(int conversationIndex)
+    {
+        Conversation conv = conversations[conversationIndex];
+        bool dialoguelaunched = pastDialogues.Contains(conv.xPosition);
+        return dialoguelaunched && !gameManager.GetComponent<GamePause>().dialogueOngoing;
     }
 
 }
