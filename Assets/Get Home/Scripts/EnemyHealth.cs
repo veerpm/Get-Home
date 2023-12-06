@@ -112,7 +112,17 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-        animator.SetBool("IsDead", true);
+
+        // start death animation (either for minion or boss)
+        if(gameObject.name != "Landlord")
+        {
+            animator.SetBool("IsDead", true);
+
+        }
+        else
+        {
+            animator.SetTrigger("LandlordDeath");
+        }
 
         StartCoroutine(BlinkRed());
 

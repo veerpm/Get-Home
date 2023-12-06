@@ -635,6 +635,11 @@ PrefabInstance:
       objectReference: {fileID: 926253473}
     - target: {fileID: 6176494728472246734, guid: 6220bf5d145ad564b81e70ea78233860,
         type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1594741620}
+    - target: {fileID: 6176494728472246734, guid: 6220bf5d145ad564b81e70ea78233860,
+        type: 3}
       propertyPath: pointHalfway
       value: 
       objectReference: {fileID: 1192444673}
@@ -706,7 +711,7 @@ PrefabInstance:
     - target: {fileID: 8442836912928775454, guid: 6220bf5d145ad564b81e70ea78233860,
         type: 3}
       propertyPath: maxHealth
-      value: 600
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6220bf5d145ad564b81e70ea78233860, type: 3}
@@ -1567,7 +1572,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330463859}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7bef0766056a00540bf34b404999ba5e, type: 3}
   m_Name: 

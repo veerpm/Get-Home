@@ -32,8 +32,9 @@ public class BossEpilogue : MonoBehaviour
     {
         //PauseMode(true);
         //boss.GetComponent<Animator>().SetTrigger("LandlordEntry");
+        //player.GetComponent<DialogueManagerV2>().enabled = false;
     }
-    
+
     private void Start()
     {
     }
@@ -59,13 +60,21 @@ public class BossEpilogue : MonoBehaviour
         }
     }
 
+    // dialogue when boss enters
+    public void StartIntroDialogue()
+    {
+        PauseMode(false);
+        player.GetComponent<DialogueManagerV2>().enabled = true;
+    }
+
+    // final dialogue starts when boss dies
     public void StartEndingDialogue()
     {
         player.GetComponent<DialogueManagerV2>().StartDialogue(lines);
         dialogueStarted = true;
     }
 
-    private void PauseMode(bool pauseActivated)
+    public void PauseMode(bool pauseActivated)
     {
         //pause everything
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -81,7 +90,6 @@ public class BossEpilogue : MonoBehaviour
         // disable chat boxes, music and player's controls & sounds
         this.GetComponent<ChatManager>().enabled = !pauseActivated;
         player.GetComponent<PlayerMovement>().enabled = !pauseActivated;
-        player.GetComponent<DialogueManagerV2>().enabled = !pauseActivated;
         gameMusic.SetActive(!pauseActivated);
         AudioSource[] sounds = player.GetComponents<AudioSource>();
         foreach(AudioSource sound in sounds)

@@ -159,6 +159,12 @@ public class BossBehaviour : MonoBehaviour
         player.GetComponent<DialogueManagerV2>().enabled = true;
     }
 
+    // called when boss has been beaten
+    public void BossDied()
+    {
+        gameManager.GetComponent<BossEpilogue>().PauseMode(true);
+    }
+
     // called at the end of the boss' death animation
     public void EndingStart()
     {
