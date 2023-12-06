@@ -32,6 +32,10 @@ public class BossBehaviour : MonoBehaviour
     public GameObject pointHalfway;
     public GameObject pointRight;
     private bool onRightSide = true;
+
+    // Scene controls
+    public bool started;
+    public GameObject gameManager;
     
     // Start is called before the first frame update
     void Start()
@@ -39,12 +43,19 @@ public class BossBehaviour : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         canvas = transform.Find("Canvas");
         charging = false;
+        started = false;
        
     }
 
     // Update is called once per frame
     void Update()
     {
+        // don't do anything if haven't started yet
+        if (!started)
+        {
+            return;
+        }
+
         if (player.transform.position.x > transform.position.x && !lookingRight)
         {
             transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
@@ -70,7 +81,7 @@ public class BossBehaviour : MonoBehaviour
         // Keep charging while duration is active
         if (Time.time - startTime <= 1.2f)
         {
-            Debug.Log("Start Charge");
+            //Debug.Log("Start Charge");
             charging = true;
             
             if (transform.position.x > pointLeft.transform.position.x && onRightSide == true)
@@ -89,8 +100,6 @@ public class BossBehaviour : MonoBehaviour
         }
         else if(Time.time - startTime > 1.1f)
         {
-            //Debug.Log("End Charge");
-            charging = false;
             if (onRightSide)
             {
                 onRightSide = false;
@@ -99,8 +108,9 @@ public class BossBehaviour : MonoBehaviour
             {
                 onRightSide = true;
             }
+            charging = false;
         }
-       
+
     }
 
     void ThrowingStance()
@@ -125,7 +135,7 @@ public class BossBehaviour : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("CHARGING:"+ charging);
+        //Debug.Log("CHARGING:"+ charging);
         if (collider.gameObject.CompareTag("Player") && charging == true)
         {
             Debug.Log("This occured");
@@ -133,13 +143,25 @@ public class BossBehaviour : MonoBehaviour
         }
     }
 
-   /* IEnumerator Charging(Vector3 PLastKnownPos) {
+    /* IEnumerator Charging(Vector3 PLastKnownPos) {
 
-        yield return new WaitForSeconds(5);
-        transform.position = Vector2.MoveTowards(this.transform.position, PLastKnownPos, speed * Time.deltaTime);
-        yield return new WaitForSeconds(5);
-       
-        
+         yield return new WaitForSeconds(5);
+         transform.position = Vector2.MoveTowards(this.transform.position, PLastKnownPos, speed * Time.deltaTime);
+         yield return new WaitForSeconds(5);
+
+
+     }
+    */
+
+    // called at the end of the boss' entry animation
+    public void DialogueStart()
+    {
+        player.GetComponent<DialogueManagerV2>().enabled = true;
     }
-   */
+
+    // called at the end of the boss' death animation
+    public void EndingStart()
+    {
+        gameManager.GetComponent<BossEpilogue>().StartEndingDialogue();
+    }
 }
