@@ -240,6 +240,9 @@ public class PlayerCombatMelee : MonoBehaviour
                 {
                     //sound FX
                     comboSound.Play();
+                    // visual FX
+                    StartCoroutine(comboVisualFX());
+                    
 
                     lightAttackDamage = c.Value;
                     heavyAttackDamage = c.Value;
@@ -269,6 +272,8 @@ public class PlayerCombatMelee : MonoBehaviour
     {
         comboActive = false;
         SetWeaponStats(weaponManagement.EquippedWeapon);
+        // remove visual FX
+        GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     public void DisplayText(string s)
@@ -276,6 +281,14 @@ public class PlayerCombatMelee : MonoBehaviour
         GameObject displayClone = Instantiate(display, transform);
         displayClone.transform.GetChild(0).GetComponent<TextMesh>().text = s;
         Destroy(displayClone, 2f);
+    }
+
+    // change color of player during combo
+    IEnumerator comboVisualFX()
+    {
+        GetComponent<SpriteRenderer>().color = new Color(1, 0.92f, 0.016f, 1);
+        yield return new WaitForSeconds(0.5f);
+        GetComponent<SpriteRenderer>().color = Color.white;
     }
 
 }
