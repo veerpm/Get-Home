@@ -40,6 +40,9 @@ AnimationClip:
     - time: 0.25
       value: {fileID: 7882692838592714301, guid: 843820707e1d54e7dbd99b64fc0b553e,
         type: 3}
+    - time: 0.29166666
+      value: {fileID: 7882692838592714301, guid: 843820707e1d54e7dbd99b64fc0b553e,
+        type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -66,12 +69,13 @@ AnimationClip:
     - {fileID: -7447182530772897210, guid: 843820707e1d54e7dbd99b64fc0b553e, type: 3}
     - {fileID: -5554519202017554067, guid: 843820707e1d54e7dbd99b64fc0b553e, type: 3}
     - {fileID: 7882692838592714301, guid: 843820707e1d54e7dbd99b64fc0b553e, type: 3}
+    - {fileID: 7882692838592714301, guid: 843820707e1d54e7dbd99b64fc0b553e, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.29166666
+    m_StopTime: 0.3333333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -92,14 +96,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: IsAttacking
+    functionName: UnSetCanMove
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0
-    functionName: UnSetCanMove
+  - time: 0.25
+    functionName: HeavyAttack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

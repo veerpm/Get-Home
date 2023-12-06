@@ -225,8 +225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f117b49824a4adda6dbed2b6134623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightAttackRange: 0.5
-  heavyAttackRange: 0.5
+  lightAttackRange: 0.7
+  heavyAttackRange: 0.8
   lightAttackDamage: 40
   heavyAttackDamage: 70
   lightAttackRate: 2

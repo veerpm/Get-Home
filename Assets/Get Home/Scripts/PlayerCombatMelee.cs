@@ -59,22 +59,21 @@ public class PlayerCombatMelee : MonoBehaviour
             DisableCombo();
         }
 
-        if (Time.time >= nextLightAttackTime)
+        if (Time.time >= nextLightAttackTime && Input.GetKeyDown(KeyCode.E) && !GetComponent<PickupObjects>().IsHolding())
         {
-            if (Input.GetKeyDown(KeyCode.E) && !events.isAttacking && !GetComponent<PickupObjects>().IsHolding())
-            {
-                LightAttack();
-                nextLightAttackTime = Time.time + 1f / lightAttackRate;
-            }
+            animator.SetTrigger("LightAttack");
+            nextLightAttackTime = Time.time + 1f / lightAttackRate;
+            //if (!events.isAttacking)
+            //{
+            //    LightAttack();
+            //    nextLightAttackTime = Time.time + 1f / lightAttackRate;
+            //}
         }
 
-        if (Time.time >= nextHeavyAttackTime)
+        if (Time.time >= nextHeavyAttackTime && Input.GetKeyDown(KeyCode.Q) && !GetComponent<PickupObjects>().IsHolding())
         {
-            if (Input.GetKeyDown(KeyCode.Q) && !events.isAttacking && !GetComponent<PickupObjects>().IsHolding())
-            {
-                HeavyAttack();
-                nextHeavyAttackTime = Time.time + 1f / heavyAttackRate;
-            }
+            animator.SetTrigger("HeavyAttack");
+            nextHeavyAttackTime = Time.time + 1f / heavyAttackRate;
         }
     }
 
@@ -82,7 +81,6 @@ public class PlayerCombatMelee : MonoBehaviour
     void LightAttack()
     {
         //camAnim.SetTrigger("shake");
-        animator.SetTrigger("LightAttack");
 
         //sound FX
         int randomSound = Random.Range(0, 2);
@@ -122,7 +120,6 @@ public class PlayerCombatMelee : MonoBehaviour
 
     void HeavyAttack()
     {
-        animator.SetTrigger("HeavyAttack");
 
         //sound FX
         int randomSound = Random.Range(0, 2);
