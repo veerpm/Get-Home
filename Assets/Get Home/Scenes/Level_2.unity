@@ -3178,10 +3178,7 @@ MonoBehaviour:
     m_Bits: 256
   dist: 3
   height: 2
-  damage: 5
-  attackRate: 1
-  maxDurability: 10
-  currentDurability: 0
+  spray: {fileID: 0}
   attackPoint: {fileID: 1408458072}
   ps: {fileID: 692018667}
   area: {fileID: 0}

@@ -49,8 +49,11 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-
+        if (!dead)
+        {
+            currentHealth -= damage;
+        }
+    
         if (currentHealth <= 0 && !dead)
         {
             //sound FX

@@ -41,8 +41,8 @@ public class Level2Manager : MonoBehaviour
         //Debug.Log(bicycleEnemy == null && !enemyStop2.GetComponent<LockFrame>().EnemiesDefeated() && !activated3);
         if (activated1 && bicycleEnemy == null && !enemyStop2.GetComponent<LockFrame>().EnemiesDefeated() && !activated3)
         {
-            SpawnBicycle(4, false, 1000,7);
             activated3 = true;
+            StartCoroutine(Delay());
         }
         if (enemyStop2.GetComponent<LockFrame>().locked && !activated2 && enemyStop1.GetComponent<LockFrame>().EnemiesDefeated())
         {
@@ -78,6 +78,12 @@ public class Level2Manager : MonoBehaviour
             //bicycleEnemy.GetComponent<BicycleEnemySpawner>().gameManager = gameManager; // for chat bubbles
             Destroy(bicycleEnemy, time);
         }
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(1);
+        SpawnBicycle(4, false, 1000, 8);
     }
 
     IEnumerator CheckmarkObstacle()
