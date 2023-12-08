@@ -5555,6 +5555,8 @@ MonoBehaviour:
   pointLeft: {fileID: 0}
   pointHalfway: {fileID: 0}
   pointRight: {fileID: 0}
+  started: 1
+  gameManager: {fileID: 0}
 --- !u!1 &8442836913601169399
 GameObject:
   m_ObjectHideFlags: 0
