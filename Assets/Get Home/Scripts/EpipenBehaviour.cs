@@ -56,8 +56,8 @@ public class EpipenBehaviour : MonoBehaviour
             combatScript.heavyAttackDamage = combatScript.heavyAttackDamage * epipenDamageBoost;
             startTimer = Time.time;
             epipenActive = true;
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
             StartCoroutine("EpipenOverlay");
         }
     }
@@ -84,6 +84,11 @@ public class EpipenBehaviour : MonoBehaviour
         combatScript.lightAttackDamage = combatScript.lightAttackDamage / epipenDamageBoost;
         combatScript.heavyAttackDamage = combatScript.heavyAttackDamage / epipenDamageBoost;
         combatScript.epiScript = null;
+    }
+
+    public void ResetAsNew()
+    {
+        currentDuration = epipenDuration;
     }
 
 }

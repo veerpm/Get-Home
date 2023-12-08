@@ -134,18 +134,33 @@ public class GamePause : MonoBehaviour
             }
         }
 
+        // respawn all items that were used
+
+        GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
+
+        foreach (GameObject item in items)
+        {
+            if (item.transform.position.x >= checkpoint.x)
+            {
+                item.GetComponent<SpriteRenderer>().enabled = true;
+                item.GetComponent<BoxCollider2D>().enabled = true;
+            }
+            if (item.GetComponent<EpipenBehaviour>())
+            {
+                item.GetComponent<EpipenBehaviour>().ResetAsNew();
+            }
+        }
 
         // (extra) brings back boss alive for lvl 3
-        if(bossEnemy!= null)
+        if (bossEnemy!= null)
         {
             bossEnemy.GetComponent<EnemyHealth>().SetFullHealth();
 
-            // removes all beers left during boss battle
+            // removes all items left during boss battle
 
-            GameObject[] beers = GameObject.FindGameObjectsWithTag("Beer");
-            foreach (GameObject beer in beers)
+            foreach (GameObject item in items)
             {
-                Destroy(beer);
+                Destroy(item);
             }
 
             // resets player and boss position
@@ -165,7 +180,6 @@ public class GamePause : MonoBehaviour
         }
 
         // bring back all weapons that were destroyed
-        GameObject[] weapons = GameObject.FindGameObjectsWithTag("Weapon");
 
         foreach (Transform weaponTransform in weaponHolder.transform)
         {

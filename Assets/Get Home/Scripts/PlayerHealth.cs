@@ -41,7 +41,7 @@ public class PlayerHealth : MonoBehaviour
             SpawnBeer();
         }
 
-        if (!GameObject.FindGameObjectWithTag("Beer"))
+        if (!GameObject.Find("Beer(Clone)"))
         {
             spawnedBeer = false;
         }

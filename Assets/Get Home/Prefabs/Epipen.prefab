@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5349722484906706904}
   m_Layer: 0
   m_Name: Epipen
-  m_TagString: Epipen
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,6 +128,7 @@ MonoBehaviour:
   epipenOverlay: {fileID: 0}
   epipenTimer: {fileID: 0}
   epiSound: {fileID: 5349722484906706904}
+  player: {fileID: 0}
 --- !u!82 &5349722484906706904
 AudioSource:
   m_ObjectHideFlags: 0

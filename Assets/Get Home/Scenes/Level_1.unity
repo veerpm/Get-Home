@@ -760,12 +760,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 765762169}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &322676175 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 5349722484906706904, guid: 8e154d01051784ec89c265b32014e768,
-    type: 3}
-  m_PrefabInstance: {fileID: 694454422}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &324130802
 GameObject:
   m_ObjectHideFlags: 0
@@ -2811,10 +2805,7 @@ MonoBehaviour:
     m_Bits: 256
   dist: 3
   height: 2
-  damage: 5
-  attackRate: 1
-  maxDurability: 10
-  currentDurability: 0
+  spray: {fileID: 0}
   attackPoint: {fileID: 1408458072}
   ps: {fileID: 692018667}
   area: {fileID: 0}
@@ -9226,11 +9217,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 330463859}
-    - target: {fileID: 3403834260294646690, guid: 8e154d01051784ec89c265b32014e768,
-        type: 3}
-      propertyPath: epiSound
-      value: 
-      objectReference: {fileID: 322676175}
     - target: {fileID: 3403834260294646690, guid: 8e154d01051784ec89c265b32014e768,
         type: 3}
       propertyPath: epipenTimer

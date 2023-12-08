@@ -27,6 +27,11 @@ public class BeerBehaviour : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<BoxCollider2D>().enabled = false;
             collider.transform.Find("BeerPs").GetComponent<ParticleSystem>().Play();
+            // delete if used in boss level
+            if (GameObject.Find("Landlord"))
+            {
+                Destroy(gameObject, 1f);
+            }
         }
     }
 }
