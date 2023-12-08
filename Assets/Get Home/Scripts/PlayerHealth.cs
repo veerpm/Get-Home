@@ -67,6 +67,10 @@ public class PlayerHealth : MonoBehaviour
             {
                 combatScript.epiScript.DisableEpipen();
             }
+
+            // disable spray particle
+            GetComponent<SprayCanBehaviour>().ps.Stop();
+
             // Disable movement
             combatScript.enabled = false;
             GetComponent<PlayerMovement>().enabled = false;

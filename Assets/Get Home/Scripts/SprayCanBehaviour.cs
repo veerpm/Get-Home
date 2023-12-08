@@ -8,11 +8,8 @@ public class SprayCanBehaviour : MonoBehaviour
     public LayerMask enemyLayers;
     public float dist = 3f;
     public float height = 2f;
-    public int damage = 5;
-    public int attackRate = 2;
-    public float maxDurability = 10f;
-    public float currentDurability;
     private float nextAttackTime = 0f;
+    public GameObject spray;
     public GameObject attackPoint;
     public ParticleSystem ps;
     public GameObject area;
@@ -26,7 +23,6 @@ public class SprayCanBehaviour : MonoBehaviour
     void Start()
     {
         filter.SetLayerMask(enemyLayers);
-        currentDurability = maxDurability;
     }
 
     // Update is called once per frame
@@ -54,9 +50,9 @@ public class SprayCanBehaviour : MonoBehaviour
             foreach (Collider2D enemy in enemies)
             {
                 Debug.Log(enemy.gameObject.name);
-                enemy.GetComponent<EnemyHealth>().TakeDamage(damage);
+                enemy.GetComponent<EnemyHealth>().TakeDamage(spray.GetComponent<WeaponStats>().lightAttackDamage);
             }
-            nextAttackTime = Time.time + 1f / attackRate;
+            nextAttackTime = Time.time + 1f / spray.GetComponent<WeaponStats>().lightAttackRate;
             ps.Play();
         }
         else if (!Input.GetKey(KeyCode.E))

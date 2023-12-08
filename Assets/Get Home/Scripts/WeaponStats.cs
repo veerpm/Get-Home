@@ -10,8 +10,8 @@ public class WeaponStats : MonoBehaviour
     public int heavyAttackDamage;
     public float lightAttackRate;
     public float heavyAttackRate;
-    public int maxHits;
-    public int currentHits;
+    public float maxHits;
+    public float currentHits;
     public Vector3 initialPostion;
 
     private void Start()

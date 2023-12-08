@@ -2996,10 +2996,7 @@ MonoBehaviour:
     m_Bits: 8192
   dist: 3
   height: 2
-  damage: 10
-  attackRate: 1
-  maxDurability: 10
-  currentDurability: 0
+  spray: {fileID: 7723742503286560764, guid: 1074d9edb5e2f459bbe3affa3fa4d55f, type: 3}
   attackPoint: {fileID: 1018622478}
   ps: {fileID: 680326540}
   area: {fileID: 1718176921}
@@ -9458,7 +9455,7 @@ Animator:
   m_GameObject: {fileID: 923874897}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0a4cb1b524e0d1d47851c32fc53dc447, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1537cdafcd8b447c9abb837360e007fb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -9541,7 +9538,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 923874897}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e254fa2299c11574ab767f69ea0fae5d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bbee83eff74841b5aef1fcdf60c0c84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1594741620}

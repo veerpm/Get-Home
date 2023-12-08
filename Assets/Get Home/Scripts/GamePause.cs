@@ -175,11 +175,12 @@ public class GamePause : MonoBehaviour
                 player.GetComponent<WeaponManagement>().DropWeapon();
             }
             
-            if(weapon.name != "SprayCan")
+            weapon.GetComponent<WeaponStats>().ResetAsNew();
+
+            if (weapon.transform.position.x >= checkpoint.x)
             {
-                weapon.GetComponent<WeaponStats>().ResetAsNew();
+                weapon.SetActive(true);
             }
-            weapon.SetActive(true);
         }
 
         // restart sound

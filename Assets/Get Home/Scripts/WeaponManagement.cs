@@ -40,11 +40,13 @@ public class WeaponManagement : MonoBehaviour
     {
         if (equippedWeapon != sprayCan)
         {
+            // use sprayCan script
             GetComponent<PlayerCombatMelee>().enabled = true;
             GetComponent<SprayCanBehaviour>().enabled = false;
         }
         else
         {
+            // use melee script
             GetComponent<PlayerCombatMelee>().enabled = false;
             GetComponent<SprayCanBehaviour>().enabled = true;
         }
@@ -54,6 +56,7 @@ public class WeaponManagement : MonoBehaviour
             DropWeapon();
         }
 
+        // can only swap if not in range of or holding throwable item
         if (pickable && Input.GetKeyDown(KeyCode.R) && !GetComponent<PickupObjects>().pickUpItem && !GetComponent<PickupObjects>().itemHolding)
         {
             SwapWeapon();
@@ -138,6 +141,7 @@ public class WeaponManagement : MonoBehaviour
         else if (EquippedWeapon == sprayCan)
         {
             durability.transform.GetChild(0).gameObject.SetActive(true);
+            durability.transform.GetChild(0).GetComponent<Slider>().value = EquippedWeapon.GetComponent<WeaponStats>().currentHits / EquippedWeapon.GetComponent<WeaponStats>().maxHits;
         }
     }
 
@@ -167,10 +171,10 @@ public class WeaponManagement : MonoBehaviour
 
         else
         {
-            GetComponent<SprayCanBehaviour>().currentDurability -= Time.deltaTime;
-            durability.transform.GetChild(0).GetComponent<Slider>().value = GetComponent<SprayCanBehaviour>().currentDurability / GetComponent<SprayCanBehaviour>().maxDurability;
+            EquippedWeapon.GetComponent<WeaponStats>().currentHits -= Time.deltaTime;
+            durability.transform.GetChild(0).GetComponent<Slider>().value = EquippedWeapon.GetComponent<WeaponStats>().currentHits / EquippedWeapon.GetComponent<WeaponStats>().maxHits;
 
-            if (GetComponent<SprayCanBehaviour>().currentDurability <= 0)
+            if (EquippedWeapon.GetComponent<WeaponStats>().currentHits <= 0)
             {
                 GetComponent<SprayCanBehaviour>().ps.Stop();
                 brokenWeapon = EquippedWeapon;
@@ -183,7 +187,7 @@ public class WeaponManagement : MonoBehaviour
     }
 
     // displays the number of the bars specified
-    void DisplayWeaponDurability(int num, Image bar)
+    void DisplayWeaponDurability(float num, Image bar)
     {
         for (int i = 0; i < num; i++)
         {
@@ -199,7 +203,7 @@ public class WeaponManagement : MonoBehaviour
 
 
     // removes the number of the bars specified
-    void RemoveWeaponDurability(int num,Image bar)
+    void RemoveWeaponDurability(float num,Image bar)
     {
         GameObject[] durbarsObj  = GameObject.FindGameObjectsWithTag(bar.tag);
 
