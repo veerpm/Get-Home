@@ -70,67 +70,45 @@ public class BossBehaviour : MonoBehaviour
             lookingRight = false;
         }
         
-        //ThrowingStance();
+        ThrowingStance();
+
         if (nextChargeTime < Time.time)
         {
-            charging = true;
-            startTime = Time.time;
-            Debug.Log("Start Charge");
-            animator.SetTrigger("Landlord Charge");
-            transform.position = Vector2.MoveTowards(this.transform.position, player.position, speed * Time.deltaTime);
-        }
-    
-        if (charging && Time.time > startTime + 1.0f)
-        {
-            charging = false;
+            Debug.Log("Start Coroutine");
+            StartCoroutine(ChargeAttack());
+            Debug.Log("End Coroutine");
             nextChargeTime = Time.time + chargingCD;
-            Debug.Log("End Charge");
-            // Do the next thing
         }
 
+        // Keep charging while duration is active
+        if (startTime + Time.deltaTime <= 1.2f)
+        {
+            //Debug.Log("Start Charge");
+            charging = true;
 
-        // Start charging if offcd
-        /*
-     if(nextChargeTime < Time.time)
-     {
-         Debug.Log("Start Coroutine");
-         StartCoroutine(ChargeAttack());
-         Debug.Log("End Coroutine");
-         nextChargeTime = Time.time + chargingCD;
-
-
-         // Keep charging while duration is active
-         if (startTime + Time.deltaTime <= 1.2f)
-         {
-             //Debug.Log("Start Charge");
-             charging = true;
-
-             if (transform.position.x > pointLeft.transform.position.x && onRightSide == true)
-             {
-                 transform.position = Vector2.MoveTowards(this.transform.position, pointLeft.transform.position, speed * Time.deltaTime);
-                 animator.SetTrigger("LandlordCharge");
-             }
-             else if (transform.position.x < pointRight.transform.position.x && onRightSide == false)
-             {
-                 transform.position = Vector2.MoveTowards(this.transform.position, pointRight.transform.position, speed * Time.deltaTime);
-                 animator.SetTrigger("LandlordCharge");
-             }
-         }
-         else if (startTime + Time.deltaTime > 1.1f)
-         {
-             if (onRightSide)
-             {
-                 onRightSide = false;
-             }
-             else
-             {
-                 onRightSide = true;
-             }
-             charging = false;
-         }
-         */
-        // }
-
+            if (transform.position.x > pointLeft.transform.position.x && onRightSide == true)
+            {
+                transform.position = Vector2.MoveTowards(this.transform.position, pointLeft.transform.position, speed * Time.deltaTime);
+                animator.SetTrigger("LandlordCharge");
+            }
+            else if (transform.position.x < pointRight.transform.position.x && onRightSide == false)
+            {
+                transform.position = Vector2.MoveTowards(this.transform.position, pointRight.transform.position, speed * Time.deltaTime);
+                animator.SetTrigger("LandlordCharge");
+            }
+        }
+        else if (startTime + Time.deltaTime > 1.1f)
+        {
+            if (onRightSide)
+            {
+                onRightSide = false;
+            }
+            else
+            {
+                onRightSide = true;
+            }
+            charging = false;
+        }
     }
 
     void ThrowingStance()

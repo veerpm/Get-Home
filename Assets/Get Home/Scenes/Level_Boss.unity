@@ -620,19 +620,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6176494728472246734, guid: 6220bf5d145ad564b81e70ea78233860,
         type: 3}
-      propertyPath: started
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6176494728472246734, guid: 6220bf5d145ad564b81e70ea78233860,
-        type: 3}
       propertyPath: pointLeft
       value: 
       objectReference: {fileID: 2126619163}
-    - target: {fileID: 6176494728472246734, guid: 6220bf5d145ad564b81e70ea78233860,
-        type: 3}
-      propertyPath: chargingCD
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 6176494728472246734, guid: 6220bf5d145ad564b81e70ea78233860,
         type: 3}
       propertyPath: pointRight
@@ -707,16 +697,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Landlord
-      objectReference: {fileID: 0}
-    - target: {fileID: 8442836912928775452, guid: 6220bf5d145ad564b81e70ea78233860,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8442836912928775454, guid: 6220bf5d145ad564b81e70ea78233860,
-        type: 3}
-      propertyPath: maxHealth
-      value: 600
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6220bf5d145ad564b81e70ea78233860, type: 3}
@@ -9541,7 +9521,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bbee83eff74841b5aef1fcdf60c0c84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1594741620}
 --- !u!1 &926253473
 GameObject:
   m_ObjectHideFlags: 0
