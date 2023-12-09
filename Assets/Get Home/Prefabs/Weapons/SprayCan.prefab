@@ -227,7 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightAttackRange: 0
   heavyAttackRange: 0
-  lightAttackDamage: 15
+  lightAttackDamage: 20
   heavyAttackDamage: 0
   lightAttackRate: 1
   heavyAttackRate: 0
