@@ -40,10 +40,10 @@ public class BikersBarks : MonoBehaviour
                 GameObject enemy = enemies[Random.Range(0, enemies.Length)];
                 int randBark = Random.Range(0, barks.Length);
 
-                // ignore enemy spawner & restart loop
-                if(enemy.name == "BicycleEnemySpawner(Clone)")
+                // ignore enemy spawner & regular enemies, then restart loop
+                if(enemy.GetComponent<BicycleEnemy>() == null)
                 {
-                    yield return new WaitForSeconds(1f);
+                    yield return null;
                     continue;
                 }
 
