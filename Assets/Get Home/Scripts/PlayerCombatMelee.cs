@@ -42,6 +42,9 @@ public class PlayerCombatMelee : MonoBehaviour
     public bool comboActive;
     private float waitTime;
 
+    // critical particles
+    public ParticleSystem criticalHitParticles;
+
     void Start()
     {
         events = gameObject.GetComponent<AnimationEvents>();
@@ -241,7 +244,8 @@ public class PlayerCombatMelee : MonoBehaviour
                     //sound FX
                     comboSound.Play();
                     // visual FX
-                    StartCoroutine(comboVisualFX());
+                    criticalHitParticles.Play();
+                    //StartCoroutine(comboVisualFX());
                     
 
                     lightAttackDamage = c.Value;
@@ -273,7 +277,7 @@ public class PlayerCombatMelee : MonoBehaviour
         comboActive = false;
         SetWeaponStats(weaponManagement.EquippedWeapon);
         // remove visual FX
-        GetComponent<SpriteRenderer>().color = Color.white;
+        //GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     public void DisplayText(string s)
@@ -283,7 +287,7 @@ public class PlayerCombatMelee : MonoBehaviour
         Destroy(displayClone, 2f);
     }
 
-    // change color of player during combo
+    // change color of player during combo (unused)
     IEnumerator comboVisualFX()
     {
         GetComponent<SpriteRenderer>().color = new Color(1, 0.92f, 0.016f, 1);
