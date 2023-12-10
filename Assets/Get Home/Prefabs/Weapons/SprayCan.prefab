@@ -231,6 +231,6 @@ MonoBehaviour:
   heavyAttackDamage: 0
   lightAttackRate: 1
   heavyAttackRate: 0
-  maxHits: 10
+  maxHits: 20
   currentHits: 0
   initialPostion: {x: 0, y: 0, z: 0}

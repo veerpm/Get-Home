@@ -129,6 +129,10 @@ public class GamePause : MonoBehaviour
                         level2.activated4 = false;
                         level2.StopCheckCoroutine();
                     }
+                    if (!level2.enemyStop5.GetComponent<LockFrame>().EnemiesDefeated())
+                    {
+                        level2.activated5 = false;
+                    }
                     Destroy(enemy);
                 }
             }

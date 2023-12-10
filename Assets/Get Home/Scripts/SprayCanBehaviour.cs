@@ -9,6 +9,8 @@ public class SprayCanBehaviour : MonoBehaviour
     public float dist = 3f;
     public float height = 2f;
     private float nextAttackTime = 0f;
+    private float holdTime;
+    private bool held;
     public GameObject spray;
     public GameObject attackPoint;
     public ParticleSystem ps;
@@ -42,27 +44,34 @@ public class SprayCanBehaviour : MonoBehaviour
         }
 
         area.transform.position = attackPoint.transform.position;
-        if (Input.GetKey(KeyCode.E) && Time.time >= nextAttackTime)
+
+        if (Input.GetKey(KeyCode.E))
         {
-            spraySound.Play(); //SFX
-            filter.useTriggers = true;
-            Physics2D.OverlapCollider(area.GetComponent<Collider2D>(), filter, enemies);
-            foreach (Collider2D enemy in enemies)
+            if (!held)
             {
-                Debug.Log(enemy.gameObject.name);
-                enemy.GetComponent<EnemyHealth>().TakeDamage(spray.GetComponent<WeaponStats>().lightAttackDamage);
+                held = true;
+                holdTime = Time.time;
             }
-            nextAttackTime = Time.time + 1f / spray.GetComponent<WeaponStats>().lightAttackRate;
+            else if (Time.time - holdTime >= 1f / spray.GetComponent<WeaponStats>().lightAttackRate && Time.time >= nextAttackTime)
+            {
+                filter.useTriggers = true;
+                Physics2D.OverlapCollider(area.GetComponent<Collider2D>(), filter, enemies);
+                foreach (Collider2D enemy in enemies)
+                {
+                    Debug.Log(enemy.gameObject.name);
+                    enemy.GetComponent<EnemyHealth>().TakeDamage(spray.GetComponent<WeaponStats>().lightAttackDamage);
+                }
+                nextAttackTime = Time.time + 1f / spray.GetComponent<WeaponStats>().lightAttackRate;
+            }
+            spraySound.Play(); //SFX
             ps.Play();
+            GetComponent<WeaponManagement>().AdjustDurability();
         }
-        else if (!Input.GetKey(KeyCode.E))
+        else
         {
             spraySound.Stop(); //SFX
             ps.Stop();
-        }
-        if (Input.GetKey(KeyCode.E))
-        {
-            GetComponent<WeaponManagement>().AdjustDurability();
+            held = false;
         }
     }
 }
