@@ -23540,7 +23540,15 @@ MonoBehaviour:
     type: 3}
   bubbleDuration: 2.5
   bubbleFrequency: 2.5
-  barkGroups: []
+  barkGroups:
+  - enemies:
+    - {fileID: 723098597}
+    - {fileID: 961243792}
+    - {fileID: 1964481779}
+    - {fileID: 956615041}
+    - {fileID: 2084121939}
+    - {fileID: 1552776365}
+    barksFile: {fileID: 4900000, guid: 6fb66320fd0cccf469d6471fd5a40aca, type: 3}
 --- !u!114 &1594741625
 MonoBehaviour:
   m_ObjectHideFlags: 0
