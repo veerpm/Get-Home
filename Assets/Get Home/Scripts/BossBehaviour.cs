@@ -23,8 +23,6 @@ public class BossBehaviour : MonoBehaviour
     private bool charging = false;
     private float nextChargeTime = 0;
     public float chargingCD;
-    private float chargeDuration = 2.0f;
-    private float chargingTime;
     private float startTime;
 
     // Patrol/Charge
@@ -44,7 +42,6 @@ public class BossBehaviour : MonoBehaviour
         canvas = transform.Find("Canvas");
         charging = false;
         started = false;
-       
     }
 
     // Update is called once per frame
@@ -55,7 +52,6 @@ public class BossBehaviour : MonoBehaviour
         {
             return;
         }
-
         if (player.transform.position.x > transform.position.x && !lookingRight)
         {
             transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
@@ -69,21 +65,18 @@ public class BossBehaviour : MonoBehaviour
             canvas.localScale = new Vector2(-canvas.localScale.x, canvas.localScale.y);
             lookingRight = false;
         }
-        
         ThrowingStance();
 
+        // Start charging if offcd
         if (nextChargeTime < Time.time)
         {
-            Debug.Log("Start Coroutine");
-            StartCoroutine(ChargeAttack());
-            Debug.Log("End Coroutine");
-            nextChargeTime = Time.time + chargingCD;
+            Charge();
         }
 
         // Keep charging while duration is active
-        if (startTime + Time.deltaTime <= 1.2f)
+        if (Time.time - startTime <= 1.2f)
         {
-            //Debug.Log("Start Charge");
+            Debug.Log("Start Charge");
             charging = true;
 
             if (transform.position.x > pointLeft.transform.position.x && onRightSide == true)
@@ -96,9 +89,14 @@ public class BossBehaviour : MonoBehaviour
                 transform.position = Vector2.MoveTowards(this.transform.position, pointRight.transform.position, speed * Time.deltaTime);
                 animator.SetTrigger("LandlordCharge");
             }
+
+            nextChargeTime = Time.time + chargingCD;
+
         }
-        else if (startTime + Time.deltaTime > 1.1f)
+        else if (Time.time - startTime > 1.1f)
         {
+            //Debug.Log("End Charge");
+            charging = false;
             if (onRightSide)
             {
                 onRightSide = false;
@@ -107,13 +105,13 @@ public class BossBehaviour : MonoBehaviour
             {
                 onRightSide = true;
             }
-            charging = false;
         }
+
     }
 
     void ThrowingStance()
     {
-       
+
         // Throwing while planted! --> Start on the right then charge to the left and start throwing from the left!
         if (nextThrowTime < Time.time && charging == false)
         {
@@ -124,40 +122,12 @@ public class BossBehaviour : MonoBehaviour
             throwSound.Play();
             Instantiate(throwableRight, throwSpotRight.transform.position, Quaternion.identity);
             nextThrowTime = Time.time + throwingCD;
-           
         }
-        
+
     }
-    IEnumerator ChargeAttack()
-    {
-        // This will wait 1 second like Invoke could do, remove this if you don't need it
-        yield return new WaitForSeconds(1);
-        Debug.Log("Huffing and Puffing");
-
-        float timePassed = 0;
-        while (timePassed < 3)
-        {
-            if (transform.position.x > pointLeft.transform.position.x && onRightSide == true)
-            {
-                transform.position = Vector2.MoveTowards(this.transform.position, pointLeft.transform.position, speed * Time.deltaTime);
-                animator.SetTrigger("LandlordCharge");
-            }
-            else if (transform.position.x < pointRight.transform.position.x && onRightSide == false)
-            {
-                transform.position = Vector2.MoveTowards(this.transform.position, pointRight.transform.position, speed * Time.deltaTime);
-                animator.SetTrigger("LandlordCharge");
-            }
-
-            timePassed += Time.deltaTime;
-            yield return null;
-        }
-        nextChargeTime = Time.time + chargingCD;
-        Debug.Log("5socks" + nextChargeTime);
-    }
-
     void Charge()
     {
-        startTime = Time.time;   
+        startTime = Time.time;
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
