@@ -177,6 +177,7 @@ public class WeaponManagement : MonoBehaviour
             if (EquippedWeapon.GetComponent<WeaponStats>().currentHits <= 0)
             {
                 GetComponent<SprayCanBehaviour>().ps.Stop();
+                GetComponent<SprayCanBehaviour>().spraySound.Stop();
                 brokenWeapon = EquippedWeapon;
                 ResetDurability();
                 EquippedWeapon = defaultWeapon;
