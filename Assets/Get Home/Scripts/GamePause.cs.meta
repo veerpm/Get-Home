@@ -3,7 +3,16 @@ guid: d4a754e689576c0448c6b3b6f85c8b43
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - player: {instanceID: 0}
+  - pauseScreen: {instanceID: 0}
+  - deathScreen: {instanceID: 0}
+  - music: {instanceID: 0}
+  - mainCamera: {instanceID: 0}
+  - pauseManager: {instanceID: 0}
+  - weaponHolder: {instanceID: 0}
+  - bossEnemy: {instanceID: 0}
+  - trashCanObject: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

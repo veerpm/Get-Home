@@ -24,6 +24,10 @@ public class GamePause : MonoBehaviour
     private Vector2 bossPostition;
     private Vector2 randyPosition;
 
+    // stores all trash can positions at start
+    private List<Vector3> trashCansPos;
+    public GameObject trashCanObject;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +37,19 @@ public class GamePause : MonoBehaviour
             bossPostition = bossEnemy.transform.position;
             randyPosition = player.transform.position;
         }
+
+
+        // get all initial trashcan positions
+        GameObject[] trashCans = GameObject.FindGameObjectsWithTag("Trash Can");
+
+        trashCansPos = new List<Vector3>();
+
+        foreach (GameObject trashCan in trashCans)
+        {
+            Debug.Log(trashCan);
+            trashCansPos.Add(trashCan.transform.position);
+        }
+
     }
 
     // Update is called once per frame
@@ -198,6 +215,31 @@ public class GamePause : MonoBehaviour
             if (weapon.transform.position.x >= checkpoint.x)
             {
                 weapon.SetActive(true);
+            }
+        }
+
+        // bring back all destroyed trashcans
+
+        GameObject[] trashCans = GameObject.FindGameObjectsWithTag("Trash Can");
+
+       // List<Vector3> trashCansRespawned = new List<Vector3>();
+
+        foreach (Vector3 trashCanPos in trashCansPos)
+        {
+            bool found = false;
+
+            foreach (GameObject trashCan in trashCans)
+            {
+                if (trashCan.transform.position == trashCanPos)
+                {
+                    found = true;
+                }
+            }
+
+            if (!found && trashCanPos.x >= checkpoint.x)
+            {
+                Instantiate(trashCanObject, trashCanPos, Quaternion.identity);
+                //trashCansRespawned.Add(trashCanPos);
             }
         }
 

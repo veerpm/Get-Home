@@ -23506,6 +23506,8 @@ MonoBehaviour:
   checkpoint: {x: -5.32, y: 0, z: 0}
   dialogueOngoing: 0
   bossEnemy: {fileID: 0}
+  trashCanObject: {fileID: 7610311267251977994, guid: 8fe746b7827ecdc4485f3ea1720b9c11,
+    type: 3}
 --- !u!114 &1594741623
 MonoBehaviour:
   m_ObjectHideFlags: 0

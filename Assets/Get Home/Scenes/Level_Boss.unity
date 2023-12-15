@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -12046,6 +12046,8 @@ MonoBehaviour:
   checkpoint: {x: -6, y: 0, z: 0}
   dialogueOngoing: 0
   bossEnemy: {fileID: 140460207}
+  trashCanObject: {fileID: 7610311267251977994, guid: 8fe746b7827ecdc4485f3ea1720b9c11,
+    type: 3}
 --- !u!114 &1594741623
 MonoBehaviour:
   m_ObjectHideFlags: 0
