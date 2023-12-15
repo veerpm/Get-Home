@@ -45,6 +45,11 @@ public class SprayCanBehaviour : MonoBehaviour
 
         area.transform.position = attackPoint.transform.position;
 
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            spraySound.Play(); //SFX
+        }
+
         if (Input.GetKey(KeyCode.E))
         {
             if (!held)
@@ -63,7 +68,6 @@ public class SprayCanBehaviour : MonoBehaviour
                 }
                 nextAttackTime = Time.time + 1f / spray.GetComponent<WeaponStats>().lightAttackRate;
             }
-            spraySound.Play(); //SFX
             ps.Play();
             GetComponent<WeaponManagement>().AdjustDurability();
         }

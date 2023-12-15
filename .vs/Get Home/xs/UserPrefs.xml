@@ -5,14 +5,9 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Get Home/Scripts/GamePause.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Get Home/Scripts/BossBehaviour.cs">
     <Files>
-      <File FileName="Assets/Get Home/Scripts/Level2Manager.cs" Line="76" Column="82" />
-      <File FileName="Assets/Get Home/Scripts/GamePause.cs" Line="225" Column="10" />
-      <File FileName="Assets/Get Home/Scripts/BicycleEnemy.cs" />
-      <File FileName="Assets/Get Home/Scripts/BicycleEnemySpawner.cs" />
-      <File FileName="Assets/Get Home/Scripts/SprayCanBehaviour.cs" />
-      <File FileName="Assets/Get Home/Scripts/WeaponManagement.cs" />
+      <File FileName="Assets/Get Home/Scripts/BossBehaviour.cs" Line="71" Column="22" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -22,7 +17,7 @@
               <Node name="Assets" expanded="True">
                 <Node name="Get Home" expanded="True">
                   <Node name="Scripts" expanded="True">
-                    <Node name="GamePause.cs" selected="True" />
+                    <Node name="BossBehaviour.cs" selected="True" />
                   </Node>
                 </Node>
               </Node>
