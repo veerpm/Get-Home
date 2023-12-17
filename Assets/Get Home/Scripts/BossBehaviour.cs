@@ -34,6 +34,10 @@ public class BossBehaviour : MonoBehaviour
     // Scene controls
     [HideInInspector] public bool started;
     public GameObject gameManager;
+
+    //SFX
+    public AudioSource bossRushSound;
+    private bool playedSound;
     
     // Start is called before the first frame update
     void Start()
@@ -76,16 +80,27 @@ public class BossBehaviour : MonoBehaviour
         // Keep charging while duration is active
         if (Time.time - startTime <= 1.2f)
         {
+
             Debug.Log("Start Charge");
             charging = true;
 
             if (transform.position.x > pointLeft.transform.position.x && onRightSide == true)
             {
+                if (!playedSound)
+                {
+                    bossRushSound.Play();
+                    playedSound = true;
+                }
                 transform.position = Vector2.MoveTowards(this.transform.position, pointLeft.transform.position, speed * Time.deltaTime);
                 animator.SetTrigger("LandlordCharge");
             }
             else if (transform.position.x < pointRight.transform.position.x && onRightSide == false)
             {
+                if (!playedSound)
+                {
+                    bossRushSound.Play();
+                    playedSound = true;
+                }
                 transform.position = Vector2.MoveTowards(this.transform.position, pointRight.transform.position, speed * Time.deltaTime);
                 animator.SetTrigger("LandlordCharge");
             }
@@ -96,6 +111,7 @@ public class BossBehaviour : MonoBehaviour
         else if (Time.time - startTime > 1.1f)
         {
             //Debug.Log("End Charge");
+            playedSound = false;
             charging = false;
             if (onRightSide)
             {
