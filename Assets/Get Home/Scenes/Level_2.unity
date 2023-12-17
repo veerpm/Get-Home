@@ -22981,7 +22981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598abe0c942e5d1479f4d31223e0960f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickSound: {fileID: 8300000, guid: 3c7732a7ea7eb21478552148b0d6f4d1, type: 3}
+  clickSound: {fileID: 8300000, guid: 2993f4ec7b6ef064ab241d711eb03b0a, type: 3}
   menuSounds: {fileID: 1502240423}
   audioSource: {fileID: 0}
   pauseMenu: {fileID: 738936743}
