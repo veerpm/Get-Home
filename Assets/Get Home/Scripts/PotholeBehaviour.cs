@@ -11,6 +11,11 @@ public class PotholeBehaviour : MonoBehaviour
     private GameObject player;
     public Sprite open;
     public Sprite closed;
+    bool played = false;
+
+
+    //SFX
+    public AudioSource beartrapSound;
 
     // Start is called before the first frame update
     void Start()
@@ -33,12 +38,17 @@ public class PotholeBehaviour : MonoBehaviour
         ply = player.transform.position.y - 0.8f; // 0.8f to get position of foot
         if (Mathf.Pow((plx - centre.x), 2) / Mathf.Pow(rx, 2) + Mathf.Pow((ply - centre.y), 2) / Mathf.Pow(ry, 2) <= 1)
         {
+            if (!played) {
+                beartrapSound.Play();
+                played = true;
+            }
             player.GetComponent<PlayerHealth>().TakeDamage(player.GetComponent<PlayerHealth>().maxHealth);
             GetComponent<SpriteRenderer>().sprite = closed;
         }
         else
         {
             GetComponent<SpriteRenderer>().sprite = open;
+            played = false;
         }
     }
 
