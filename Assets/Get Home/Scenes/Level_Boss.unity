@@ -2994,7 +2994,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a5d0c21d2a0d226408712b2e1fda6c21, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3090,7 +3090,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 27ae42063a9010342bfd95f16bd8e023, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3186,7 +3186,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a7b58f06dec46c74ea5e1a207cd70993, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -11866,7 +11866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598abe0c942e5d1479f4d31223e0960f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickSound: {fileID: 8300000, guid: 3c7732a7ea7eb21478552148b0d6f4d1, type: 3}
+  clickSound: {fileID: 8300000, guid: 2993f4ec7b6ef064ab241d711eb03b0a, type: 3}
   menuSounds: {fileID: 1502240423}
   audioSource: {fileID: 0}
   pauseMenu: {fileID: 738936743}
@@ -11905,7 +11905,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
