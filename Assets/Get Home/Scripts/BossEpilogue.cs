@@ -27,6 +27,7 @@ public class BossEpilogue : MonoBehaviour
     public float raiseSpeed;
    
     public bool creditsLaunched = false;
+    public AudioSource winningSound;
     private bool endingDialogueStarted = false;
     private GameObject[] enemies;
 
@@ -138,6 +139,13 @@ public class BossEpilogue : MonoBehaviour
     // ending
     IEnumerator Credits()
     {
+        // (optional) play winning sound
+        if (winningSound != null)
+        {
+            winningSound.Play();
+        }
+
+        // credits settings
         Color screenColor = endingScreen.GetComponent<Image>().color;
         Color textColor = endingTitle.color;
         float fadeAmount;
